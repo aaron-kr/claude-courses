@@ -5,16 +5,48 @@
 <title>Aaron Snowberger — Courses</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#090910;--surface:#12121e;--border:#22223a;--muted:#55557a;--text:#eeeeff;--sub:#b8b8d8;--accent:#9b65ff;--accent2:#7eb8f7;--accent3:#6dccdd;--warn:#fbbf24;--error:#fb6f84;--tag-bg:#181828;--radius:6px;--nav-bg:rgba(9,9,16,.9)}
-[data-theme=light]{--bg:#f2f2f8;--surface:#fff;--border:#e0e0f0;--muted:#8888b0;--text:#111128;--sub:#3a3a62;--accent:#7c3aff;--accent2:#2563eb;--accent3:#0badbc;--warn:#d97706;--error:#e5294a;--tag-bg:#ebebf8;--nav-bg:rgba(242,242,248,.94)}
+:root{--bg:#090910;--surface:#12121e;--border:#22223a;--muted:#55557a;--text:#eeeeff;--sub:#b8b8d8;--accent:#9b65ff;--accent2:#7eb8f7;--accent3:#6dccdd;--warn:#fbbf24;--error:#fb6f84;--tag-bg:#181828;--radius:6px;--nav-bg:rgba(9,9,16,.92)}
+[data-theme=light]{--bg:#f2f2f8;--surface:#fff;--border:#e0e0f0;--muted:#8888b0;--text:#111128;--sub:#3a3a62;--accent:#7c3aff;--accent2:#2563eb;--accent3:#0badbc;--warn:#d97706;--error:#e5294a;--tag-bg:#ebebf8;--nav-bg:rgba(242,242,248,.95)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background-color:var(--bg);background-image:radial-gradient(ellipse 80% 60% at 8% 40%,rgba(155,101,255,.09) 0%,transparent 70%),radial-gradient(ellipse 65% 70% at 92% 8%,rgba(126,184,247,.07) 0%,transparent 70%),radial-gradient(ellipse 55% 45% at 55% 92%,rgba(155,101,255,.06) 0%,transparent 70%);background-attachment:fixed;color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;min-height:100vh;overflow-x:hidden;transition:background-color .25s,color .25s}
-[data-theme=light] body{background-image:radial-gradient(ellipse 80% 60% at 8% 40%,rgba(124,58,255,.05) 0%,transparent 70%),radial-gradient(ellipse 65% 70% at 92% 8%,rgba(37,99,235,.04) 0%,transparent 70%),radial-gradient(ellipse 55% 45% at 55% 92%,rgba(124,58,255,.03) 0%,transparent 70%)}
-body::before{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(-52deg,transparent,transparent 30px,rgba(255,255,255,.011) 30px,rgba(255,255,255,.011) 31px);pointer-events:none;z-index:0}
-[data-theme=light] body::before{background-image:repeating-linear-gradient(-52deg,transparent,transparent 30px,rgba(0,0,0,.012) 30px,rgba(0,0,0,.012) 31px)}
 
-nav{position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border);background:var(--nav-bg);backdrop-filter:blur(16px)}
+body{
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 8% 40%,rgba(155,101,255,.10) 0%,transparent 68%),
+    radial-gradient(ellipse 65% 70% at 92% 8%,rgba(126,184,247,.08) 0%,transparent 68%),
+    radial-gradient(ellipse 50% 45% at 55% 90%,rgba(109,204,221,.07) 0%,transparent 65%);
+  background-attachment:fixed;
+  color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;min-height:100vh;overflow-x:hidden;transition:background-color .25s,color .25s;
+}
+[data-theme=light] body{
+  background-image:
+    radial-gradient(ellipse 80% 60% at 8% 40%,rgba(124,58,255,.05) 0%,transparent 68%),
+    radial-gradient(ellipse 65% 70% at 92% 8%,rgba(37,99,235,.04) 0%,transparent 68%),
+    radial-gradient(ellipse 50% 45% at 55% 90%,rgba(11,173,188,.04) 0%,transparent 65%);
+}
+/* Animated mesh grid */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(155,101,255,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(109,204,221,.042) 1px,transparent 1px);
+  background-size:40px 40px;
+  animation:meshWave 22s ease-in-out infinite;
+}
+[data-theme=light] body::before{
+  background-image:
+    linear-gradient(rgba(124,58,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(11,173,188,.032) 1px,transparent 1px);
+}
+@keyframes meshWave{
+  0%,100%{transform:translateY(0) skewY(0deg) skewX(0deg)}
+  25%{transform:translateY(-14px) skewY(.18deg) skewX(.06deg)}
+  50%{transform:translateY(-6px) skewY(-.12deg) skewX(-.04deg)}
+  75%{transform:translateY(-20px) skewY(.08deg) skewX(.08deg)}
+}
+
+nav{position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border);background:var(--nav-bg);backdrop-filter:blur(18px)}
 .nav-inner{max-width:960px;margin:0 auto;padding:0 28px;height:52px;display:flex;align-items:center}
 .nav-brand{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--accent);letter-spacing:.04em;text-decoration:none;flex-shrink:0}
 .nav-links{display:flex;gap:0;list-style:none;margin-left:auto}
@@ -53,6 +85,15 @@ nav{position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border);back
 .mobile-controls{display:flex;gap:8px;padding:10px 24px 0}
 
 .wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 28px}
+/* Today pill - replaces white strip */
+.today-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(109,204,221,.08);border:1px solid rgba(109,204,221,.22);border-radius:999px;padding:5px 14px;font-family:'IBM Plex Mono',monospace;font-size:.67rem;color:var(--accent3);letter-spacing:.04em;margin-bottom:18px;position:relative;z-index:1}
+.today-pill.noclass{background:rgba(85,85,122,.08);border-color:rgba(85,85,122,.22);color:var(--muted)}
+.today-dot{width:6px;height:6px;border-radius:50%;background:var(--accent3);flex-shrink:0;animation:todayPulse 2.4s ease infinite}
+.today-pill.noclass .today-dot{background:var(--muted);animation:none}
+@keyframes todayPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
+[data-theme=light] .today-pill{background:rgba(11,173,188,.06);border-color:rgba(11,173,188,.2);color:var(--accent3)}
+/* Hero */
+header{padding:80px 0 52px;border-bottom:1px solid var(--border)}
 .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px}
 h1{font-family:'Playfair Display','DM Serif Display',serif;font-size:clamp(2.6rem,6vw,4rem);font-weight:700;line-height:1.08;letter-spacing:-.02em;color:var(--text)}
 h1 em{font-style:italic;color:var(--accent)}
@@ -60,52 +101,36 @@ h1 em{font-style:italic;color:var(--accent)}
 .hero-meta-item{display:flex;flex-direction:column;gap:2px}
 .hero-meta-label{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
 .hero-meta-value{font-size:.88rem;color:var(--sub)}
-.hero-desc{margin-top:28px;max-width:560px;font-size:.95rem;color:var(--sub);line-height:1.8;border-left:2px solid var(--border);padding-left:18px}
+.hero-desc{margin-top:28px;max-width:560px;font-size:.95rem;color:var(--sub);line-height:1.8;border-left:2px solid var(--accent3);padding-left:18px}
 .stats-bar{display:flex;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:28px;background:var(--surface)}
 .stat{flex:1;padding:14px 20px;border-right:1px solid var(--border);text-align:center}
 .stat:last-child{border-right:none}
 .stat-num{font-family:'Playfair Display','DM Serif Display',serif;font-size:1.6rem;color:var(--accent);line-height:1}
 .stat-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
 
-/* ── Sliding fill buttons ── */
-.pill,.filter-toggle-btn,.back-btn{
-  position:relative;overflow:hidden;
-  background:linear-gradient(to right,var(--accent) 50%,var(--tag-bg) 50%);
-  background-size:205% 100%;background-position:100%;
-  border:1px solid var(--border);color:var(--sub);
-  border-radius:999px;
-  font-family:'IBM Plex Mono',monospace;font-size:.7rem;
-  padding:5px 14px;cursor:pointer;letter-spacing:.04em;line-height:1.5;
-  transition:background-position .32s ease,color .2s,border-color .2s;
-}
-.pill:hover,.filter-toggle-btn:hover,.back-btn:hover{background-position:0;color:#fff;border-color:var(--accent)}
-.pill.active{background-position:0;color:#fff;border-color:var(--accent)}
-.filter-toggle-btn{border-radius:var(--radius);padding:5px 13px}
-.filter-toggle-btn.open{background-position:0;color:#fff;border-color:var(--accent)}
-/* Thumb toggle uses accent2 (blue) */
-.thumb-toggle{
-  position:relative;overflow:hidden;
-  background:linear-gradient(to right,var(--accent2) 50%,var(--tag-bg) 50%);
-  background-size:205% 100%;background-position:100%;
-  border:1px solid var(--border);color:var(--sub);
-  border-radius:var(--radius);font-family:'IBM Plex Mono',monospace;
-  font-size:.68rem;padding:5px 13px;cursor:pointer;letter-spacing:.04em;
-  transition:background-position .32s ease,color .2s;
-  display:flex;align-items:center;gap:6px;
-}
-.thumb-toggle:hover{background-position:0;color:var(--bg);border-color:var(--accent2)}
-.thumb-toggle.active{background-position:0;color:var(--bg);border-color:var(--accent2)}
+/* Sliding fill pill (purple default) */
+.pill{position:relative;overflow:hidden;background:linear-gradient(to right,var(--accent) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%;border:1px solid var(--border);color:var(--sub);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:.7rem;padding:5px 14px;cursor:pointer;letter-spacing:.04em;line-height:1.5;transition:background-position .32s ease,color .2s,border-color .2s}
+.pill:hover,.pill.active{background-position:0;color:#fff;border-color:var(--accent)}
+/* pill-blue variant */
+.pill-blue{background:linear-gradient(to right,var(--accent2) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%}
+.pill-blue:hover,.pill-blue.active{background-position:0;color:#fff;border-color:var(--accent2)}
+/* pill-teal variant */
+.pill-teal{background:linear-gradient(to right,var(--accent3) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%}
+.pill-teal:hover,.pill-teal.active{background-position:0;color:var(--bg);border-color:var(--accent3)}
+/* Filter toggle (teal) */
+.filter-toggle-btn{position:relative;overflow:hidden;background:linear-gradient(to right,var(--accent3) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%;border:1px solid var(--border);color:var(--sub);border-radius:var(--radius);font-family:'IBM Plex Mono',monospace;font-size:.7rem;padding:5px 13px;cursor:pointer;letter-spacing:.04em;line-height:1.5;display:flex;align-items:center;gap:6px;transition:background-position .32s ease,color .2s,border-color .2s}
+.filter-toggle-btn:hover,.filter-toggle-btn.open{background-position:0;color:var(--bg);border-color:var(--accent3)}
+/* Thumb toggle (blue) */
+.thumb-toggle{position:relative;overflow:hidden;background:linear-gradient(to right,var(--accent2) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%;border:1px solid var(--border);color:var(--sub);border-radius:var(--radius);font-family:'IBM Plex Mono',monospace;font-size:.68rem;padding:5px 13px;cursor:pointer;letter-spacing:.04em;display:flex;align-items:center;gap:6px;transition:background-position .32s ease,color .2s}
+.thumb-toggle:hover,.thumb-toggle.active{background-position:0;color:var(--bg);border-color:var(--accent2)}
+/* Back button (purple) */
+.back-btn{display:inline-flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.04em;padding:7px 16px;border-radius:var(--radius);text-decoration:none;position:relative;overflow:hidden;background:linear-gradient(to right,var(--accent) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%;border:1px solid var(--border);color:var(--sub);transition:background-position .32s ease,color .2s,border-color .2s}
+.back-btn:hover{background-position:0;color:#fff;border-color:var(--accent)}
 /* CTA button */
-.cta-btn{
-  display:inline-flex;align-items:center;gap:8px;
-  background:linear-gradient(to right,rgba(255,255,255,.18) 50%,var(--accent) 50%);
-  background-size:205% 100%;background-position:100%;
-  color:#fff;border:none;border-radius:var(--radius);
-  padding:11px 24px;font-size:.85rem;font-family:'IBM Plex Mono',monospace;
-  letter-spacing:.04em;text-decoration:none;cursor:pointer;
-  transition:background-position .32s ease,transform .15s;
-}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;background:linear-gradient(to right,rgba(255,255,255,.2) 50%,var(--accent) 50%);background-size:205% 100%;background-position:100%;color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:var(--radius);padding:11px 24px;font-size:.85rem;font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;text-decoration:none;transition:background-position .32s ease,transform .15s}
 .cta-btn:hover{background-position:0;transform:translateX(2px)}
+[data-theme=light] .cta-btn{background:linear-gradient(to right,rgba(255,255,255,.3) 50%,var(--accent) 50%);background-size:205% 100%;background-position:100%;border-color:rgba(255,255,255,.4)}
+[data-theme=light] .cta-btn:hover{background-position:0;color:#fff}
 
 .section-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px}
 .section-heading-row{display:flex;align-items:center;gap:14px;flex:1;min-width:0}
@@ -120,32 +145,30 @@ h1 em{font-style:italic;color:var(--accent)}
 .course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
 .thumbs-active .course-grid{grid-template-columns:repeat(2,1fr)}
 a.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:border-color .2s,transform .18s,box-shadow .2s}
-a.card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .2s}
+/* Always-on top border gradient - teal+purple */
+a.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent3),var(--accent),var(--accent2));opacity:.55;transition:opacity .2s}
+a.card:hover::before{opacity:1}
 a.card:hover{border-color:#3a3a5a;transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.4)}
 [data-theme=light] a.card:hover{border-color:#c0c0e0;box-shadow:0 8px 24px rgba(0,0,0,.1)}
-a.card:hover::after{opacity:1}
 .card-inner{display:flex;flex:1}
 .card-thumb{display:none;width:82px;min-height:112px;flex-shrink:0;background-size:cover;background-position:center top}
 .thumbs-active .card-thumb{display:block}
 .card-body{display:flex;flex-direction:column;gap:8px;padding:18px;flex:1;min-width:0}
-.card-code{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.08em;padding-right:58px}
+.card-code{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent3);letter-spacing:.08em;padding-right:58px}
 .card-title{font-size:.9rem;font-weight:500;color:var(--text);line-height:1.35}
 .card-desc{font-size:.8rem;color:var(--sub);line-height:1.55;flex:1}
 .card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
 .tag{font-family:'IBM Plex Mono',monospace;font-size:.62rem;padding:2px 8px;border-radius:3px;background:var(--tag-bg);border:1px solid var(--border);color:var(--muted);letter-spacing:.04em}
-.tag.grad{color:#c084fc;border-color:#3a2a5a}
-.tag.ugrad{color:var(--accent2);border-color:#1a3048}
-.tag.seminar{color:var(--warn);border-color:#3a2e0a}
-.tag.ml{color:var(--accent);border-color:#2d1a5a}
-.tag.theory{color:var(--accent2);border-color:#1a2e4a}
-.tag.systems{color:var(--accent3);border-color:#1a3038}
-.tag.ai-tag{color:#fb6f84;border-color:#3a1a28}
-[data-theme=light] .tag.grad{color:#7c3aed;border-color:#ddd0f8}
-[data-theme=light] .tag.ugrad{color:#2563eb;border-color:#bfdbfe}
-[data-theme=light] .tag.seminar{color:var(--warn);border-color:#fde68a}
-[data-theme=light] .tag.ml{color:var(--accent);border-color:#ddd0f8}
-[data-theme=light] .tag.theory{color:var(--accent2);border-color:#bfdbfe}
-[data-theme=light] .tag.systems{color:var(--accent3);border-color:#a5f3fc}
+.tag.ml{color:var(--accent);border-color:rgba(155,101,255,.3)}
+.tag.theory{color:var(--accent2);border-color:rgba(126,184,247,.28)}
+.tag.systems{color:var(--accent3);border-color:rgba(109,204,221,.28)}
+.tag.ai-tag{color:#fb6f84;border-color:rgba(251,111,132,.3)}
+.tag.seminar{color:var(--warn);border-color:rgba(251,191,36,.28)}
+.tag.credits{color:var(--muted);border-color:var(--border)}
+[data-theme=light] .tag.ml{color:var(--accent);border-color:rgba(124,58,255,.25)}
+[data-theme=light] .tag.theory{color:#2563eb;border-color:#bfdbfe}
+[data-theme=light] .tag.systems{color:var(--accent3);border-color:rgba(11,173,188,.25)}
+[data-theme=light] .tag.ai-tag{color:#e5294a;border-color:rgba(229,41,74,.25)}
 .card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:4px;padding-top:8px;border-top:1px solid var(--border)}
 .card-meta{font-family:'IBM Plex Mono',monospace;font-size:.63rem;color:var(--muted);display:flex;flex-direction:column;gap:2px}
 .card-arrow{font-size:.75rem;color:var(--muted);opacity:0;transition:opacity .18s,transform .18s}
@@ -155,10 +178,10 @@ a.card:hover .card-arrow{opacity:1;transform:translateX(3px)}
 
 footer{border-top:1px solid var(--border);padding:48px 0 28px;position:relative;z-index:1}
 .footer-grid{max-width:960px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;gap:24px;margin-bottom:28px}
-.f-brand{font-family:'IBM Plex Mono',monospace;font-size:.88rem;color:var(--accent);letter-spacing:.04em;display:block;margin-bottom:10px}
+.f-brand{font-family:'IBM Plex Mono',monospace;font-size:.88rem;color:var(--accent3);letter-spacing:.04em;display:block;margin-bottom:10px}
 .f-col p,.f-col a,.f-col span{display:block;font-size:.8rem;color:var(--muted);margin-bottom:5px;text-decoration:none;transition:color .2s;line-height:1.5}
 .f-col a:hover{color:var(--sub)}
-.f-heading{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;display:block}
+.f-heading{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;display:block}
 .footer-bottom{max-width:960px;margin:0 auto;padding:16px 28px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .footer-copy,.footer-updated{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--muted)}
 
@@ -179,47 +202,46 @@ footer{border-top:1px solid var(--border);padding:48px 0 28px;position:relative;
   .ctrl-row-label{display:none}
 }
 
-/* Today bar */
-.today-strip{background:var(--surface);border-bottom:1px solid var(--border);padding:6px 28px;display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);position:relative;z-index:1}
-.today-dot{width:7px;height:7px;border-radius:50%;background:var(--accent3);flex-shrink:0;box-shadow:0 0 8px var(--accent3)}
-.today-school{color:var(--sub)}
-.today-strip.noclass .today-dot{background:var(--muted);box-shadow:none}
-/* Hero */
 .course-section-wrap{padding:40px 0 0}
-header{padding:80px 0 52px;border-bottom:1px solid var(--border)}
-/* profile links right-of-desc */
-.hero-bottom{display:flex;gap:28px;align-items:flex-start;margin-top:28px;flex-wrap:wrap}
-.hero-desc{max-width:480px;font-size:.95rem;color:var(--sub);line-height:1.8;border-left:2px solid var(--border);padding-left:18px;flex:1}
-.profile-links{display:flex;flex-direction:column;gap:6px;min-width:140px;flex-shrink:0}
-.plink{display:flex;align-items:center;gap:7px;background:linear-gradient(to right,var(--accent2) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%;border:1px solid var(--border);color:var(--sub);border-radius:var(--radius);padding:5px 12px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;text-decoration:none;letter-spacing:.02em;transition:background-position .32s ease,color .2s}
-.plink:hover{background-position:0;color:var(--bg);border-color:var(--accent2)}
+/* Profile link row under description */
+.profile-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+/* Per-link slide colors */
+.plink{display:inline-flex;align-items:center;gap:7px;position:relative;overflow:hidden;border:1px solid var(--border);color:var(--sub);border-radius:var(--radius);padding:6px 13px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;text-decoration:none;letter-spacing:.03em;background-size:205% 100%;background-position:100%;transition:background-position .32s ease,color .2s,border-color .2s}
+.plink.purple{background-image:linear-gradient(to right,var(--accent) 50%,var(--tag-bg) 50%)}
+.plink.purple:hover{background-position:0;color:#fff;border-color:var(--accent)}
+.plink.blue{background-image:linear-gradient(to right,var(--accent2) 50%,var(--tag-bg) 50%)}
+.plink.blue:hover{background-position:0;color:var(--bg);border-color:var(--accent2)}
+.plink.teal{background-image:linear-gradient(to right,var(--accent3) 50%,var(--tag-bg) 50%)}
+.plink.teal:hover{background-position:0;color:var(--bg);border-color:var(--accent3)}
 /* Uni groups */
 .uni-group{margin-bottom:44px}.uni-group:last-child{margin-bottom:0}.uni-group.hidden{display:none}
 .uni-heading{display:flex;align-items:center;gap:14px;margin-bottom:18px}
 .uni-label{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
 .uni-line{flex:1;height:1px;background:var(--border)}
 /* CTA + Notes */
-.bottom-section{padding:52px 0 64px;display:grid;grid-template-columns:1.2fr 1fr;gap:16px;align-items:start}
+.bottom-section{padding:52px 0 64px;display:grid;grid-template-columns:1.15fr 1fr;gap:16px;align-items:start}
 .cta-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;overflow:hidden;position:relative}
-.cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3))}
 .cta-content{flex:1;padding:28px}
-.cta-image{width:160px;flex-shrink:0;background:linear-gradient(160deg,#3d28a0,#9b65ff);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:rgba(255,255,255,.3);text-align:center;padding:12px}
+.cta-image{width:148px;flex-shrink:0;background:linear-gradient(170deg,#1e0a3c,#3d28a0 50%,#0c6478);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:rgba(255,255,255,.25);text-align:center;padding:14px;gap:8px;position:relative;overflow:hidden}
+.cta-image::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(109,204,221,.06) 8px,rgba(109,204,221,.06) 9px)}
+.cta-image .ci-icon{font-size:2rem;opacity:.4}
 .notes-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;position:relative;overflow:hidden}
-.notes-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent2),var(--accent3))}
+.notes-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent3),var(--accent2))}
 .cta-tag,.notes-tag{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:10px}
-.cta-tag{color:var(--accent)}.notes-tag{color:var(--accent2)}
+.cta-tag{color:var(--accent)}.notes-tag{color:var(--accent3)}
 .cta-title,.notes-title{font-family:'Playfair Display','DM Serif Display',serif;font-size:1.2rem;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:10px}
 .cta-desc{font-size:.85rem;color:var(--sub);line-height:1.75;margin-bottom:18px}
 .notes-list{list-style:none}
 .note-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--sub);font-size:.82rem;transition:color .15s}
 .note-item:last-child{border-bottom:none}.note-item:hover{color:var(--text)}
-.note-icon{font-size:.8rem;color:var(--accent2);flex-shrink:0}.note-name{flex:1}
+.note-icon{font-size:.75rem;color:var(--accent3);flex-shrink:0}.note-name{flex:1}
 .note-arrow{opacity:0;transition:opacity .15s;font-size:.7rem}.note-item:hover .note-arrow{opacity:1}
 .loading-text{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--muted);padding:8px 0;display:block}
 .notes-footer{margin-top:10px}
-.notes-all-link{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent2);text-decoration:none}
+.notes-all-link{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent3);text-decoration:none}
 .notes-all-link:hover{text-decoration:underline}
-@media(max-width:700px){.hero-bottom{flex-direction:column}.profile-links{flex-direction:row;flex-wrap:wrap}.bottom-section{grid-template-columns:1fr}.section-actions{width:100%;justify-content:flex-start}}
+@media(max-width:700px){.bottom-section{grid-template-columns:1fr}.cta-image{display:none}.section-actions{width:100%}}
 </style>
 </head>
 <body>
@@ -282,13 +304,13 @@ header{padding:80px 0 52px;border-bottom:1px solid var(--border)}
     </div>
   </div>
 </nav>
-<div class="today-strip" id="today-strip">
-  <span class="today-dot"></span>
-  <span id="today-text">Loading schedule&hellip;</span>
-</div>
 <div class="wrap">
 <header>
-  <p class="eyebrow animate d1">Associate Professor &middot; Dept. of Computer Science</p>
+  <div class="today-pill animate d1" id="today-pill">
+    <span class="today-dot"></span>
+    <span id="today-text">Loading&hellip;</span>
+  </div>
+  <p class="eyebrow">Associate Professor &middot; Dept. of Computer Science</p>
   <h1 class="animate d2">Teaching &amp;<br><em>Courses</em></h1>
   <div class="hero-meta animate d3">
     <div class="hero-meta-item"><span class="hero-meta-label">Primary Campus</span><span class="hero-meta-value">Yonsei University</span></div>
@@ -296,18 +318,15 @@ header{padding:80px 0 52px;border-bottom:1px solid var(--border)}
     <div class="hero-meta-item"><span class="hero-meta-label">Office</span><span class="hero-meta-value">Engineering Hall 412</span></div>
     <div class="hero-meta-item"><span class="hero-meta-label">Email</span><span class="hero-meta-value">snowberger@yonsei.ac.kr</span></div>
   </div>
-
-  <div class="hero-bottom animate d4">
-    <p class="hero-desc">I teach at five Korean universities, one per day of the week. My courses span ML, AI, algorithms, and systems &mdash; from first-year foundations to graduate seminars at the edge of current research.</p>
-    <div class="profile-links">
-      <a href="#" class="plink">&#x2699; GitHub</a>
-      <a href="#" class="plink">&#x1F4D6; Google Scholar</a>
-      <a href="#" class="plink">&#x1F52C; PAI Lab &#x2192;</a>
-      <a href="#" class="plink">&#x1F4C4; CV / Resume</a>
-      <a href="office-hours.html" class="plink">&#x1F4C5; Office Hours</a>
-    </div>
+  <p class="hero-desc animate d4">I teach at five Korean universities, one per day of the week. My courses span ML, AI, algorithms, and systems &mdash; from first-year foundations to graduate seminars at the edge of current research.</p>
+  <div class="profile-links animate d4">
+    <a href="#" class="plink purple">&#x2699; GitHub</a>
+    <a href="#" class="plink blue">&#x1F4D6; Google Scholar</a>
+    <a href="#" class="plink teal">&#x1F52C; PAI Lab &#x2192;</a>
+    <a href="#" class="plink purple">&#x1F4C4; CV</a>
+    <a href="office-hours.html" class="plink teal">&#x1F4C5; Office Hours</a>
+    <a href="#" class="plink blue">&#x1F3DB; ORCID</a>
   </div>
-
   <div class="stats-bar animate d4">
     <div class="stat"><div class="stat-num">18</div><div class="stat-label">Courses taught</div></div>
     <div class="stat"><div class="stat-num">5</div><div class="stat-label">Universities</div></div>
@@ -327,25 +346,24 @@ header{padding:80px 0 52px;border-bottom:1px solid var(--border)}
       <button class="thumb-toggle" id="thumb-toggle"><span class="t-icon">&#x229E;</span> Thumbnails</button>
     </div>
   </div>
-
   <div class="filter-panel" id="filter-panel">
     <div class="ctrl-row">
       <span class="ctrl-row-label">School</span>
       <button class="pill active" data-school="all">All</button>
-      <button class="pill" data-school="yonsei">&#xC5F0;&#xC138;</button>
-      <button class="pill" data-school="kaist">KAIST</button>
-      <button class="pill" data-school="skku">&#xC131;&#xADE0;&#xAD00;</button>
-      <button class="pill" data-school="hanyang">&#xD55C;&#xC591;</button>
-      <button class="pill" data-school="korea">&#xACE0;&#xB824;</button>
+      <button class="pill pill-teal" data-school="yonsei">&#xC5F0;&#xC138;</button>
+      <button class="pill pill-teal" data-school="kaist">KAIST</button>
+      <button class="pill pill-teal" data-school="skku">&#xC131;&#xADE0;&#xAD00;</button>
+      <button class="pill pill-teal" data-school="hanyang">&#xD55C;&#xC591;</button>
+      <button class="pill pill-teal" data-school="korea">&#xACE0;&#xB824;</button>
     </div>
     <div class="ctrl-row">
       <span class="ctrl-row-label">Topic</span>
       <button class="pill active" data-tag="all">All</button>
-      <button class="pill" data-tag="ml">ML</button>
-      <button class="pill" data-tag="theory">Theory</button>
-      <button class="pill" data-tag="systems">Systems</button>
-      <button class="pill" data-tag="ai">AI / Intro</button>
-      <button class="pill" data-tag="seminar">Seminar</button>
+      <button class="pill pill-blue" data-tag="ml">ML</button>
+      <button class="pill pill-blue" data-tag="theory">Theory</button>
+      <button class="pill pill-blue" data-tag="systems">Systems</button>
+      <button class="pill pill-blue" data-tag="ai">AI</button>
+      <button class="pill pill-blue" data-tag="seminar">Seminar</button>
     </div>
     <div class="ctrl-row">
       <span class="ctrl-row-label">Sort</span>
@@ -354,112 +372,133 @@ header{padding:80px 0 52px;border-bottom:1px solid var(--border)}
     </div>
   </div>
 
-  <!-- Yonsei -->
   <div class="uni-group" data-school="yonsei" data-order="1">
     <div class="uni-heading"><span class="uni-label">&#xC5F0;&#xC138;&#xB300;&#xD559;&#xAD50; &mdash; Yonsei University</span><span class="uni-line"></span></div>
-    <div class="course-grid">
-      <a class="card" href="course.html" data-title="Advanced Machine Learning" data-tag="ml">
-        <div class="card-inner"><div class="card-thumb" style="background:linear-gradient(170deg,#3d28a0,#9b65ff)"></div>
-        <div class="card-body"><span class="card-code">CS 4820</span><div class="card-title">Advanced Machine Learning</div>
-        <div class="card-desc">Probabilistic graphical models, variational inference, deep generative models, and scalable approximate inference.</div>
-        <div class="card-tags"><span class="tag ml">ML</span><span class="tag">3 cr</span></div>
-        <div class="card-footer"><div class="card-meta"><span>Tue/Thu 2:00&ndash;3:30</span><span>Engineering 302</span></div><span class="card-arrow">&#x2192;</span></div>
-        </div></div><div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
-      </a>
-      <a class="card" href="#" data-title="Algorithms &amp; Complexity" data-tag="theory">
-        <div class="card-inner"><div class="card-thumb" style="background:linear-gradient(170deg,#0c4a78,#7eb8f7)"></div>
-        <div class="card-body"><span class="card-code">CS 3310</span><div class="card-title">Algorithms &amp; Complexity</div>
-        <div class="card-desc">Divide-and-conquer, dynamic programming, network flow, NP-completeness, and approximation algorithms.</div>
-        <div class="card-tags"><span class="tag theory">Theory</span><span class="tag">3 cr</span></div>
-        <div class="card-footer"><div class="card-meta"><span>Mon/Wed 10:30&ndash;12:00</span><span>Science Hall B-12</span></div><span class="card-arrow">&#x2192;</span></div>
-        </div></div><div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
-      </a>
-      <a class="card" href="#" data-title="Seminar: Foundation Models" data-tag="seminar">
-        <div class="card-inner"><div class="card-thumb" style="background:linear-gradient(170deg,#1e3a8a,#4338ca)"></div>
-        <div class="card-body"><span class="card-code">CS 6001</span><div class="card-title">Seminar: Foundation Models</div>
-        <div class="card-desc">Weekly reading group on pretraining, RLHF, in-context learning, and emerging capabilities in large language models.</div>
-        <div class="card-tags"><span class="tag seminar">Seminar</span></div>
-        <div class="card-footer"><div class="card-meta"><span>Fri 2:00&ndash;4:00</span><span>Grad Seminar Rm 8</span></div><span class="card-arrow">&#x2192;</span></div>
-        </div></div><div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
-      </a>
+    <div class="course-grid"><a class="card" href="course.html" data-title="Advanced Machine Learning" data-tag="ml">
+  <div class="card-inner">
+    <div class="card-thumb" style="background:linear-gradient(170deg,#3d28a0,#9b65ff)"></div>
+    <div class="card-body">
+      <span class="card-code">CS 4820</span>
+      <div class="card-title">Advanced Machine Learning</div>
+      <div class="card-desc">Probabilistic graphical models, variational inference, deep generative models, and scalable approximate inference.</div>
+      <div class="card-tags"><span class="tag ml">ML</span><span class="tag credits">3 cr</span></div>
+      <div class="card-footer"><div class="card-meta"><span>Tue/Thu 2:00&ndash;3:30</span><span>Engineering 302</span></div><span class="card-arrow">&#x2192;</span></div>
     </div>
   </div>
-
-  <!-- KAIST -->
+  <div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
+</a><a class="card" href="#" data-title="Algorithms &amp; Complexity" data-tag="theory">
+  <div class="card-inner">
+    <div class="card-thumb" style="background:linear-gradient(170deg,#0c4a78,#7eb8f7)"></div>
+    <div class="card-body">
+      <span class="card-code">CS 3310</span>
+      <div class="card-title">Algorithms &amp; Complexity</div>
+      <div class="card-desc">Divide-and-conquer, dynamic programming, network flow, NP-completeness, and approximation algorithms.</div>
+      <div class="card-tags"><span class="tag theory">Theory</span><span class="tag credits">3 cr</span></div>
+      <div class="card-footer"><div class="card-meta"><span>Mon/Wed 10:30&ndash;12:00</span><span>Science Hall B-12</span></div><span class="card-arrow">&#x2192;</span></div>
+    </div>
+  </div>
+  <div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
+</a><a class="card" href="#" data-title="Seminar: Foundation Models" data-tag="seminar">
+  <div class="card-inner">
+    <div class="card-thumb" style="background:linear-gradient(170deg,#1e3a8a,#4338ca)"></div>
+    <div class="card-body">
+      <span class="card-code">CS 6001</span>
+      <div class="card-title">Seminar: Foundation Models</div>
+      <div class="card-desc">Weekly reading group on pretraining, RLHF, in-context learning, and emerging capabilities in large language models.</div>
+      <div class="card-tags"><span class="tag seminar">Seminar</span></div>
+      <div class="card-footer"><div class="card-meta"><span>Fri 2:00&ndash;4:00</span><span>Grad Seminar Rm 8</span></div><span class="card-arrow">&#x2192;</span></div>
+    </div>
+  </div>
+  <div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
+</a></div>
+  </div>
   <div class="uni-group" data-school="kaist" data-order="2">
     <div class="uni-heading"><span class="uni-label">KAIST &mdash; Korea Advanced Institute of Science &amp; Technology</span><span class="uni-line"></span></div>
-    <div class="course-grid">
-      <a class="card" href="#" data-title="Distributed Systems" data-tag="systems">
-        <div class="card-inner"><div class="card-thumb" style="background:linear-gradient(170deg,#5b21b6,#c026d3)"></div>
-        <div class="card-body"><span class="card-code">CS 5510</span><div class="card-title">Distributed Systems</div>
-        <div class="card-desc">Consensus protocols, fault tolerance, CAP theorem, and hands-on distributed key-value store projects.</div>
-        <div class="card-tags"><span class="tag systems">Systems</span><span class="tag">3 cr</span></div>
-        <div class="card-footer"><div class="card-meta"><span>Tue/Thu 9:00&ndash;10:30</span><span>N1 Bldg 201</span></div><span class="card-arrow">&#x2192;</span></div>
-        </div></div><div class="uni-badge"><span class="ub-abbr">KA</span><span>&#xCE74;&#xC774;&#xC2A4;&#xD2B8;</span></div>
-      </a>
-      <a class="card" href="#" data-title="ML for Systems" data-tag="ml">
-        <div class="card-inner"><div class="card-thumb" style="background:linear-gradient(170deg,#0e6490,#1d4ed8)"></div>
-        <div class="card-body"><span class="card-code">CS 4910</span><div class="card-title">ML for Systems</div>
-        <div class="card-desc">Applying ML to compiler optimization, query planning, network routing, and OS scheduling.</div>
-        <div class="card-tags"><span class="tag ml">ML</span><span class="tag systems">Systems</span><span class="tag">3 cr</span></div>
-        <div class="card-footer"><div class="card-meta"><span>Mon/Wed 1:00&ndash;2:30</span><span>N1 Bldg 115</span></div><span class="card-arrow">&#x2192;</span></div>
-        </div></div><div class="uni-badge"><span class="ub-abbr">KA</span><span>&#xCE74;&#xC774;&#xC2A4;&#xD2B8;</span></div>
-      </a>
+    <div class="course-grid"><a class="card" href="#" data-title="Distributed Systems" data-tag="systems">
+  <div class="card-inner">
+    <div class="card-thumb" style="background:linear-gradient(170deg,#5b21b6,#c026d3)"></div>
+    <div class="card-body">
+      <span class="card-code">CS 5510</span>
+      <div class="card-title">Distributed Systems</div>
+      <div class="card-desc">Consensus protocols, fault tolerance, CAP theorem, and hands-on distributed key-value store projects.</div>
+      <div class="card-tags"><span class="tag systems">Systems</span><span class="tag credits">3 cr</span></div>
+      <div class="card-footer"><div class="card-meta"><span>Tue/Thu 9:00&ndash;10:30</span><span>N1 Bldg 201</span></div><span class="card-arrow">&#x2192;</span></div>
     </div>
   </div>
-
-  <!-- Sungkyunkwan -->
+  <div class="uni-badge"><span class="ub-abbr">KA</span><span>&#xCE74;&#xC774;&#xC2A4;&#xD2B8;</span></div>
+</a><a class="card" href="#" data-title="ML for Systems" data-tag="ml">
+  <div class="card-inner">
+    <div class="card-thumb" style="background:linear-gradient(170deg,#0e6490,#1d4ed8)"></div>
+    <div class="card-body">
+      <span class="card-code">CS 4910</span>
+      <div class="card-title">ML for Systems</div>
+      <div class="card-desc">Applying ML to compiler optimization, query planning, network routing, and OS scheduling.</div>
+      <div class="card-tags"><span class="tag ml">ML</span><span class="tag systems">Systems</span><span class="tag credits">3 cr</span></div>
+      <div class="card-footer"><div class="card-meta"><span>Mon/Wed 1:00&ndash;2:30</span><span>N1 Bldg 115</span></div><span class="card-arrow">&#x2192;</span></div>
+    </div>
+  </div>
+  <div class="uni-badge"><span class="ub-abbr">KA</span><span>&#xCE74;&#xC774;&#xC2A4;&#xD2B8;</span></div>
+</a></div>
+  </div>
   <div class="uni-group" data-school="skku" data-order="3">
     <div class="uni-heading"><span class="uni-label">&#xC131;&#xADE0;&#xAD00;&#xB300;&#xD559;&#xAD50; &mdash; Sungkyunkwan University</span><span class="uni-line"></span></div>
-    <div class="course-grid">
-      <a class="card" href="#" data-title="Intro to AI" data-tag="ai">
-        <div class="card-inner"><div class="card-thumb" style="background:linear-gradient(170deg,#b45309,#16a34a)"></div>
-        <div class="card-body"><span class="card-code">CS 3110</span><div class="card-title">Intro to AI</div>
-        <div class="card-desc">Search algorithms, constraint satisfaction, Bayesian reasoning, reinforcement learning, and neural networks from scratch.</div>
-        <div class="card-tags"><span class="tag ai-tag">AI</span><span class="tag">3 cr</span></div>
-        <div class="card-footer"><div class="card-meta"><span>Mon/Thu 3:00&ndash;4:30</span><span>Eng Hall 201</span></div><span class="card-arrow">&#x2192;</span></div>
-        </div></div><div class="uni-badge"><span class="ub-abbr">SK</span><span>&#xC131;&#xADE0;&#xAD00;</span></div>
-      </a>
-      <a class="card" href="#" data-title="Data Structures" data-tag="theory">
-        <div class="card-inner"><div class="card-thumb" style="background:linear-gradient(170deg,#b91c1c,#ea580c)"></div>
-        <div class="card-body"><span class="card-code">CS 2210</span><div class="card-title">Data Structures</div>
-        <div class="card-desc">Arrays, linked lists, trees, heaps, hash tables, and graph algorithms with emphasis on correctness proofs.</div>
-        <div class="card-tags"><span class="tag theory">Theory</span><span class="tag">3 cr</span></div>
-        <div class="card-footer"><div class="card-meta"><span>Tue/Fri 10:00&ndash;11:30</span><span>IT Bldg 305</span></div><span class="card-arrow">&#x2192;</span></div>
-        </div></div><div class="uni-badge"><span class="ub-abbr">SK</span><span>&#xC131;&#xADE0;&#xAD00;</span></div>
-      </a>
+    <div class="course-grid"><a class="card" href="#" data-title="Intro to AI" data-tag="ai">
+  <div class="card-inner">
+    <div class="card-thumb" style="background:linear-gradient(170deg,#b45309,#16a34a)"></div>
+    <div class="card-body">
+      <span class="card-code">CS 3110</span>
+      <div class="card-title">Intro to AI</div>
+      <div class="card-desc">Search algorithms, constraint satisfaction, Bayesian reasoning, reinforcement learning, and neural networks from scratch.</div>
+      <div class="card-tags"><span class="tag ai-tag">AI</span><span class="tag credits">3 cr</span></div>
+      <div class="card-footer"><div class="card-meta"><span>Mon/Thu 3:00&ndash;4:30</span><span>Eng Hall 201</span></div><span class="card-arrow">&#x2192;</span></div>
     </div>
   </div>
-
-  <!-- Hanyang (1 course) -->
+  <div class="uni-badge"><span class="ub-abbr">SK</span><span>&#xC131;&#xADE0;&#xAD00;</span></div>
+</a><a class="card" href="#" data-title="Data Structures" data-tag="theory">
+  <div class="card-inner">
+    <div class="card-thumb" style="background:linear-gradient(170deg,#b91c1c,#ea580c)"></div>
+    <div class="card-body">
+      <span class="card-code">CS 2210</span>
+      <div class="card-title">Data Structures</div>
+      <div class="card-desc">Arrays, linked lists, trees, heaps, hash tables, and graph algorithms with emphasis on correctness proofs.</div>
+      <div class="card-tags"><span class="tag theory">Theory</span><span class="tag credits">3 cr</span></div>
+      <div class="card-footer"><div class="card-meta"><span>Tue/Fri 10:00&ndash;11:30</span><span>IT Bldg 305</span></div><span class="card-arrow">&#x2192;</span></div>
+    </div>
+  </div>
+  <div class="uni-badge"><span class="ub-abbr">SK</span><span>&#xC131;&#xADE0;&#xAD00;</span></div>
+</a></div>
+  </div>
   <div class="uni-group" data-school="hanyang" data-order="4">
     <div class="uni-heading"><span class="uni-label">&#xD55C;&#xC591;&#xB300;&#xD559;&#xAD50; &mdash; Hanyang University</span><span class="uni-line"></span></div>
-    <div class="course-grid">
-      <a class="card" href="#" data-title="Advanced Machine Learning" data-tag="ml">
-        <div class="card-inner"><div class="card-thumb" style="background:linear-gradient(170deg,#3d28a0,#9b65ff)"></div>
-        <div class="card-body"><span class="card-code">CS 4820</span>
-        <div class="card-title">Advanced Machine Learning <span style="font-weight:300;font-size:.75rem;color:var(--muted)">(Visiting)</span></div>
-        <div class="card-desc">Visiting lecture series on probabilistic ML and deep generative models, alternating weeks.</div>
-        <div class="card-tags"><span class="tag ml">ML</span><span class="tag">2 cr</span></div>
-        <div class="card-footer"><div class="card-meta"><span>Wed 4:00&ndash;6:00 (alt. weeks)</span><span>HIT Bldg 112</span></div><span class="card-arrow">&#x2192;</span></div>
-        </div></div><div class="uni-badge"><span class="ub-abbr">HY</span><span>&#xD55C;&#xC591;</span></div>
-      </a>
+    <div class="course-grid"><a class="card" href="#" data-title="Advanced Machine Learning (Visiting)" data-tag="ml">
+  <div class="card-inner">
+    <div class="card-thumb" style="background:linear-gradient(170deg,#3d28a0,#9b65ff)"></div>
+    <div class="card-body">
+      <span class="card-code">CS 4820</span>
+      <div class="card-title">Advanced Machine Learning (Visiting)</div>
+      <div class="card-desc">Visiting lecture series on probabilistic ML and deep generative models, alternating weeks.</div>
+      <div class="card-tags"><span class="tag ml">ML</span><span class="tag credits">2 cr</span></div>
+      <div class="card-footer"><div class="card-meta"><span>Wed 4:00&ndash;6:00 (alt. weeks)</span><span>HIT Bldg 112</span></div><span class="card-arrow">&#x2192;</span></div>
     </div>
   </div>
-
-  <!-- Korea University (1 course) -->
+  <div class="uni-badge"><span class="ub-abbr">HY</span><span>&#xD55C;&#xC591;</span></div>
+</a></div>
+  </div>
   <div class="uni-group" data-school="korea" data-order="5">
     <div class="uni-heading"><span class="uni-label">&#xACE0;&#xB824;&#xB300;&#xD559;&#xAD50; &mdash; Korea University</span><span class="uni-line"></span></div>
-    <div class="course-grid">
-      <a class="card" href="#" data-title="Seminar: Alignment &amp; Safety" data-tag="seminar">
-        <div class="card-inner"><div class="card-thumb" style="background:linear-gradient(170deg,#7c2d12,#831843)"></div>
-        <div class="card-body"><span class="card-code">CS 6002</span><div class="card-title">Seminar: Alignment &amp; Safety</div>
-        <div class="card-desc">AI alignment: reward modeling, interpretability, scalable oversight, constitutional AI, and red-teaming methods.</div>
-        <div class="card-tags"><span class="tag seminar">Seminar</span></div>
-        <div class="card-footer"><div class="card-meta"><span>Thu 5:00&ndash;7:00</span><span>Anam Campus, Hwajung 401</span></div><span class="card-arrow">&#x2192;</span></div>
-        </div></div><div class="uni-badge"><span class="ub-abbr">KU</span><span>&#xACE0;&#xB824;</span></div>
-      </a>
+    <div class="course-grid"><a class="card" href="#" data-title="Seminar: Alignment &amp; Safety" data-tag="seminar">
+  <div class="card-inner">
+    <div class="card-thumb" style="background:linear-gradient(170deg,#7c2d12,#831843)"></div>
+    <div class="card-body">
+      <span class="card-code">CS 6002</span>
+      <div class="card-title">Seminar: Alignment &amp; Safety</div>
+      <div class="card-desc">AI alignment: reward modeling, interpretability, scalable oversight, constitutional AI, and red-teaming.</div>
+      <div class="card-tags"><span class="tag seminar">Seminar</span></div>
+      <div class="card-footer"><div class="card-meta"><span>Thu 5:00&ndash;7:00</span><span>Anam, Hwajung Hall 401</span></div><span class="card-arrow">&#x2192;</span></div>
     </div>
+  </div>
+  <div class="uni-badge"><span class="ub-abbr">KU</span><span>&#xACE0;&#xB824;</span></div>
+</a></div>
   </div>
 </section>
 
@@ -467,11 +506,11 @@ header{padding:80px 0 52px;border-bottom:1px solid var(--border)}
   <div class="cta-card">
     <div class="cta-content">
       <span class="cta-tag">PAI Lab &middot; Physical AI Lab</span>
-      <div class="cta-title">Looking for research opportunities?</div>
-      <p class="cta-desc">The Physical AI Lab has openings for motivated graduate and undergraduate researchers. We work at the intersection of embodied AI, robotics, and learning systems.</p>
+      <div class="cta-title">Looking for research?</div>
+      <p class="cta-desc">The Physical AI Lab has openings for motivated graduate and undergraduate researchers working at the intersection of embodied AI, robotics, and learning systems.</p>
       <a href="#" class="cta-btn">Visit PAI Lab &#x2192;</a>
     </div>
-    <div class="cta-image">Lab Photo<br>(add image)</div>
+    <div class="cta-image"><span class="ci-icon">&#x1F52C;</span><span>PAI Lab<br>Photo</span></div>
   </div>
   <div class="notes-card">
     <span class="notes-tag">GitHub &middot; PAI Lab Notes</span>
@@ -530,41 +569,27 @@ if(_tt){
   });
 }
 
-// Today at school
-const sched={1:'Yonsei University',2:'KAIST',3:'Sungkyunkwan University',4:'Hanyang University',5:'Korea University'};
+const _sched={1:'Yonsei University',2:'KAIST',3:'Sungkyunkwan University',4:'Hanyang University',5:'Korea University'};
 (()=>{
-  const strip=document.getElementById('today-strip');
-  const txt=document.getElementById('today-text');
+  const pill=document.getElementById('today-pill'),txt=document.getElementById('today-text');
   const d=new Date().getDay();
-  if(sched[d]){txt.innerHTML='Today at: <span class="today-school">'+sched[d]+'</span>';}
-  else{txt.innerHTML='No classes today &mdash; weekend';if(strip)strip.classList.add('noclass');}
+  if(_sched[d]){txt.innerHTML='Today at: <strong style="color:var(--text)">'+_sched[d]+'</strong>';}
+  else{txt.innerHTML='No classes today &mdash; enjoy the weekend';if(pill)pill.classList.add('noclass');}
 })();
-// Filters
 let aS='all',aT='all',aSort='school';
-function run(){
-  document.querySelectorAll('.uni-group').forEach(g=>{
-    const ok=aS==='all'||g.dataset.school===aS;
-    g.classList.toggle('hidden',!ok);
-  });
+function runIdx(){
+  document.querySelectorAll('.uni-group').forEach(g=>{g.classList.toggle('hidden',aS!=='all'&&g.dataset.school!==aS)});
   document.querySelectorAll('.uni-group:not(.hidden)').forEach(g=>{
     const cards=[...g.querySelectorAll('a.card')];
     let any=false;
-    cards.forEach(c=>{
-      const vis=aT==='all'||c.dataset.tag===aT;
-      c.style.display=vis?'':'none';if(vis)any=true;
-    });
+    cards.forEach(c=>{const vis=aT==='all'||c.dataset.tag===aT;c.style.display=vis?'':'none';if(vis)any=true});
     if(!any&&aT!=='all')g.classList.add('hidden');
   });
-  if(aSort==='az'){
-    document.querySelectorAll('.course-grid').forEach(grid=>{
-      [...grid.querySelectorAll('a.card')].sort((a,b)=>(a.dataset.title||'').localeCompare(b.dataset.title||'')).forEach(c=>grid.appendChild(c));
-    });
-  }
+  if(aSort==='az')document.querySelectorAll('.course-grid').forEach(grid=>{[...grid.querySelectorAll('a.card')].sort((a,b)=>(a.dataset.title||'').localeCompare(b.dataset.title||'')).forEach(c=>grid.appendChild(c))});
 }
-document.querySelectorAll('[data-school]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-school]').forEach(x=>x.classList.remove('active'));b.classList.add('active');aS=b.dataset.school;document.querySelectorAll('.uni-group').forEach(g=>g.classList.remove('hidden'));run()}));
-document.querySelectorAll('[data-tag]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tag]').forEach(x=>x.classList.remove('active'));b.classList.add('active');aT=b.dataset.tag;document.querySelectorAll('a.card').forEach(c=>c.style.display='');run()}));
-document.querySelectorAll('[data-sort]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-sort]').forEach(x=>x.classList.remove('active'));b.classList.add('active');aSort=b.dataset.sort;run()}));
-// GitHub notes
+document.querySelectorAll('[data-school]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-school]').forEach(x=>x.classList.remove('active'));b.classList.add('active');aS=b.dataset.school;document.querySelectorAll('.uni-group').forEach(g=>g.classList.remove('hidden'));runIdx()}));
+document.querySelectorAll('[data-tag]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tag]').forEach(x=>x.classList.remove('active'));b.classList.add('active');aT=b.dataset.tag;document.querySelectorAll('a.card').forEach(c=>c.style.display='');runIdx()}));
+document.querySelectorAll('[data-sort]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-sort]').forEach(x=>x.classList.remove('active'));b.classList.add('active');aSort=b.dataset.sort;runIdx()}));
 async function fetchNotes(){
   const c=document.getElementById('lab-notes');
   try{
@@ -575,7 +600,7 @@ async function fetchNotes(){
     if(!md.length)throw 0;
     c.innerHTML=md.map(f=>`<li><a href="${f.html_url}" target="_blank" class="note-item"><span class="note-icon">&#x25C8;</span><span class="note-name">${f.name.replace('.md','').replace(/-/g,' ')}</span><span class="note-arrow">&rarr;</span></a></li>`).join('');
   }catch{
-    c.innerHTML='<li><a href="#" class="note-item"><span class="note-icon">&#x25C8;</span><span class="note-name">Robot Navigation with LLMs</span><span class="note-arrow">&rarr;</span></a></li><li><a href="#" class="note-item"><span class="note-icon">&#x25C8;</span><span class="note-name">Embodied RLHF &mdash; Draft</span><span class="note-arrow">&rarr;</span></a></li><li><a href="#" class="note-item"><span class="note-icon">&#x25C8;</span><span class="note-name">PAI Lab Reading List 2025</span><span class="note-arrow">&rarr;</span></a></li><li><a href="#" class="note-item"><span class="note-icon">&#x25C8;</span><span class="note-name">Course Resource Index</span><span class="note-arrow">&rarr;</span></a></li>';
+    c.innerHTML=['Robot Navigation with LLMs','Embodied RLHF &mdash; Draft','PAI Lab Reading List 2025','Course Resource Index','Foundation Models Survey'].map(n=>`<li><a href="#" class="note-item"><span class="note-icon">&#x25C8;</span><span class="note-name">${n}</span><span class="note-arrow">&rarr;</span></a></li>`).join('');
   }
 }
 fetchNotes();

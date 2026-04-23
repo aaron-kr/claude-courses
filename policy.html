@@ -5,16 +5,48 @@
 <title>AI & ChatGPT Use Policy — Aaron Snowberger</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#090910;--surface:#12121e;--border:#22223a;--muted:#55557a;--text:#eeeeff;--sub:#b8b8d8;--accent:#9b65ff;--accent2:#7eb8f7;--accent3:#6dccdd;--warn:#fbbf24;--error:#fb6f84;--tag-bg:#181828;--radius:6px;--nav-bg:rgba(9,9,16,.9)}
-[data-theme=light]{--bg:#f2f2f8;--surface:#fff;--border:#e0e0f0;--muted:#8888b0;--text:#111128;--sub:#3a3a62;--accent:#7c3aff;--accent2:#2563eb;--accent3:#0badbc;--warn:#d97706;--error:#e5294a;--tag-bg:#ebebf8;--nav-bg:rgba(242,242,248,.94)}
+:root{--bg:#090910;--surface:#12121e;--border:#22223a;--muted:#55557a;--text:#eeeeff;--sub:#b8b8d8;--accent:#9b65ff;--accent2:#7eb8f7;--accent3:#6dccdd;--warn:#fbbf24;--error:#fb6f84;--tag-bg:#181828;--radius:6px;--nav-bg:rgba(9,9,16,.92)}
+[data-theme=light]{--bg:#f2f2f8;--surface:#fff;--border:#e0e0f0;--muted:#8888b0;--text:#111128;--sub:#3a3a62;--accent:#7c3aff;--accent2:#2563eb;--accent3:#0badbc;--warn:#d97706;--error:#e5294a;--tag-bg:#ebebf8;--nav-bg:rgba(242,242,248,.95)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background-color:var(--bg);background-image:radial-gradient(ellipse 80% 60% at 8% 40%,rgba(155,101,255,.09) 0%,transparent 70%),radial-gradient(ellipse 65% 70% at 92% 8%,rgba(126,184,247,.07) 0%,transparent 70%),radial-gradient(ellipse 55% 45% at 55% 92%,rgba(155,101,255,.06) 0%,transparent 70%);background-attachment:fixed;color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;min-height:100vh;overflow-x:hidden;transition:background-color .25s,color .25s}
-[data-theme=light] body{background-image:radial-gradient(ellipse 80% 60% at 8% 40%,rgba(124,58,255,.05) 0%,transparent 70%),radial-gradient(ellipse 65% 70% at 92% 8%,rgba(37,99,235,.04) 0%,transparent 70%),radial-gradient(ellipse 55% 45% at 55% 92%,rgba(124,58,255,.03) 0%,transparent 70%)}
-body::before{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(-52deg,transparent,transparent 30px,rgba(255,255,255,.011) 30px,rgba(255,255,255,.011) 31px);pointer-events:none;z-index:0}
-[data-theme=light] body::before{background-image:repeating-linear-gradient(-52deg,transparent,transparent 30px,rgba(0,0,0,.012) 30px,rgba(0,0,0,.012) 31px)}
 
-nav{position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border);background:var(--nav-bg);backdrop-filter:blur(16px)}
+body{
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 8% 40%,rgba(155,101,255,.10) 0%,transparent 68%),
+    radial-gradient(ellipse 65% 70% at 92% 8%,rgba(126,184,247,.08) 0%,transparent 68%),
+    radial-gradient(ellipse 50% 45% at 55% 90%,rgba(109,204,221,.07) 0%,transparent 65%);
+  background-attachment:fixed;
+  color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;min-height:100vh;overflow-x:hidden;transition:background-color .25s,color .25s;
+}
+[data-theme=light] body{
+  background-image:
+    radial-gradient(ellipse 80% 60% at 8% 40%,rgba(124,58,255,.05) 0%,transparent 68%),
+    radial-gradient(ellipse 65% 70% at 92% 8%,rgba(37,99,235,.04) 0%,transparent 68%),
+    radial-gradient(ellipse 50% 45% at 55% 90%,rgba(11,173,188,.04) 0%,transparent 65%);
+}
+/* Animated mesh grid */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(155,101,255,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(109,204,221,.042) 1px,transparent 1px);
+  background-size:40px 40px;
+  animation:meshWave 22s ease-in-out infinite;
+}
+[data-theme=light] body::before{
+  background-image:
+    linear-gradient(rgba(124,58,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(11,173,188,.032) 1px,transparent 1px);
+}
+@keyframes meshWave{
+  0%,100%{transform:translateY(0) skewY(0deg) skewX(0deg)}
+  25%{transform:translateY(-14px) skewY(.18deg) skewX(.06deg)}
+  50%{transform:translateY(-6px) skewY(-.12deg) skewX(-.04deg)}
+  75%{transform:translateY(-20px) skewY(.08deg) skewX(.08deg)}
+}
+
+nav{position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border);background:var(--nav-bg);backdrop-filter:blur(18px)}
 .nav-inner{max-width:960px;margin:0 auto;padding:0 28px;height:52px;display:flex;align-items:center}
 .nav-brand{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--accent);letter-spacing:.04em;text-decoration:none;flex-shrink:0}
 .nav-links{display:flex;gap:0;list-style:none;margin-left:auto}
@@ -53,6 +85,15 @@ nav{position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border);back
 .mobile-controls{display:flex;gap:8px;padding:10px 24px 0}
 
 .wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 28px}
+/* Today pill - replaces white strip */
+.today-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(109,204,221,.08);border:1px solid rgba(109,204,221,.22);border-radius:999px;padding:5px 14px;font-family:'IBM Plex Mono',monospace;font-size:.67rem;color:var(--accent3);letter-spacing:.04em;margin-bottom:18px;position:relative;z-index:1}
+.today-pill.noclass{background:rgba(85,85,122,.08);border-color:rgba(85,85,122,.22);color:var(--muted)}
+.today-dot{width:6px;height:6px;border-radius:50%;background:var(--accent3);flex-shrink:0;animation:todayPulse 2.4s ease infinite}
+.today-pill.noclass .today-dot{background:var(--muted);animation:none}
+@keyframes todayPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
+[data-theme=light] .today-pill{background:rgba(11,173,188,.06);border-color:rgba(11,173,188,.2);color:var(--accent3)}
+/* Hero */
+header{padding:80px 0 52px;border-bottom:1px solid var(--border)}
 .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px}
 h1{font-family:'Playfair Display','DM Serif Display',serif;font-size:clamp(2.6rem,6vw,4rem);font-weight:700;line-height:1.08;letter-spacing:-.02em;color:var(--text)}
 h1 em{font-style:italic;color:var(--accent)}
@@ -60,52 +101,36 @@ h1 em{font-style:italic;color:var(--accent)}
 .hero-meta-item{display:flex;flex-direction:column;gap:2px}
 .hero-meta-label{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
 .hero-meta-value{font-size:.88rem;color:var(--sub)}
-.hero-desc{margin-top:28px;max-width:560px;font-size:.95rem;color:var(--sub);line-height:1.8;border-left:2px solid var(--border);padding-left:18px}
+.hero-desc{margin-top:28px;max-width:560px;font-size:.95rem;color:var(--sub);line-height:1.8;border-left:2px solid var(--accent3);padding-left:18px}
 .stats-bar{display:flex;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:28px;background:var(--surface)}
 .stat{flex:1;padding:14px 20px;border-right:1px solid var(--border);text-align:center}
 .stat:last-child{border-right:none}
 .stat-num{font-family:'Playfair Display','DM Serif Display',serif;font-size:1.6rem;color:var(--accent);line-height:1}
 .stat-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
 
-/* ── Sliding fill buttons ── */
-.pill,.filter-toggle-btn,.back-btn{
-  position:relative;overflow:hidden;
-  background:linear-gradient(to right,var(--accent) 50%,var(--tag-bg) 50%);
-  background-size:205% 100%;background-position:100%;
-  border:1px solid var(--border);color:var(--sub);
-  border-radius:999px;
-  font-family:'IBM Plex Mono',monospace;font-size:.7rem;
-  padding:5px 14px;cursor:pointer;letter-spacing:.04em;line-height:1.5;
-  transition:background-position .32s ease,color .2s,border-color .2s;
-}
-.pill:hover,.filter-toggle-btn:hover,.back-btn:hover{background-position:0;color:#fff;border-color:var(--accent)}
-.pill.active{background-position:0;color:#fff;border-color:var(--accent)}
-.filter-toggle-btn{border-radius:var(--radius);padding:5px 13px}
-.filter-toggle-btn.open{background-position:0;color:#fff;border-color:var(--accent)}
-/* Thumb toggle uses accent2 (blue) */
-.thumb-toggle{
-  position:relative;overflow:hidden;
-  background:linear-gradient(to right,var(--accent2) 50%,var(--tag-bg) 50%);
-  background-size:205% 100%;background-position:100%;
-  border:1px solid var(--border);color:var(--sub);
-  border-radius:var(--radius);font-family:'IBM Plex Mono',monospace;
-  font-size:.68rem;padding:5px 13px;cursor:pointer;letter-spacing:.04em;
-  transition:background-position .32s ease,color .2s;
-  display:flex;align-items:center;gap:6px;
-}
-.thumb-toggle:hover{background-position:0;color:var(--bg);border-color:var(--accent2)}
-.thumb-toggle.active{background-position:0;color:var(--bg);border-color:var(--accent2)}
+/* Sliding fill pill (purple default) */
+.pill{position:relative;overflow:hidden;background:linear-gradient(to right,var(--accent) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%;border:1px solid var(--border);color:var(--sub);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:.7rem;padding:5px 14px;cursor:pointer;letter-spacing:.04em;line-height:1.5;transition:background-position .32s ease,color .2s,border-color .2s}
+.pill:hover,.pill.active{background-position:0;color:#fff;border-color:var(--accent)}
+/* pill-blue variant */
+.pill-blue{background:linear-gradient(to right,var(--accent2) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%}
+.pill-blue:hover,.pill-blue.active{background-position:0;color:#fff;border-color:var(--accent2)}
+/* pill-teal variant */
+.pill-teal{background:linear-gradient(to right,var(--accent3) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%}
+.pill-teal:hover,.pill-teal.active{background-position:0;color:var(--bg);border-color:var(--accent3)}
+/* Filter toggle (teal) */
+.filter-toggle-btn{position:relative;overflow:hidden;background:linear-gradient(to right,var(--accent3) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%;border:1px solid var(--border);color:var(--sub);border-radius:var(--radius);font-family:'IBM Plex Mono',monospace;font-size:.7rem;padding:5px 13px;cursor:pointer;letter-spacing:.04em;line-height:1.5;display:flex;align-items:center;gap:6px;transition:background-position .32s ease,color .2s,border-color .2s}
+.filter-toggle-btn:hover,.filter-toggle-btn.open{background-position:0;color:var(--bg);border-color:var(--accent3)}
+/* Thumb toggle (blue) */
+.thumb-toggle{position:relative;overflow:hidden;background:linear-gradient(to right,var(--accent2) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%;border:1px solid var(--border);color:var(--sub);border-radius:var(--radius);font-family:'IBM Plex Mono',monospace;font-size:.68rem;padding:5px 13px;cursor:pointer;letter-spacing:.04em;display:flex;align-items:center;gap:6px;transition:background-position .32s ease,color .2s}
+.thumb-toggle:hover,.thumb-toggle.active{background-position:0;color:var(--bg);border-color:var(--accent2)}
+/* Back button (purple) */
+.back-btn{display:inline-flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.04em;padding:7px 16px;border-radius:var(--radius);text-decoration:none;position:relative;overflow:hidden;background:linear-gradient(to right,var(--accent) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%;border:1px solid var(--border);color:var(--sub);transition:background-position .32s ease,color .2s,border-color .2s}
+.back-btn:hover{background-position:0;color:#fff;border-color:var(--accent)}
 /* CTA button */
-.cta-btn{
-  display:inline-flex;align-items:center;gap:8px;
-  background:linear-gradient(to right,rgba(255,255,255,.18) 50%,var(--accent) 50%);
-  background-size:205% 100%;background-position:100%;
-  color:#fff;border:none;border-radius:var(--radius);
-  padding:11px 24px;font-size:.85rem;font-family:'IBM Plex Mono',monospace;
-  letter-spacing:.04em;text-decoration:none;cursor:pointer;
-  transition:background-position .32s ease,transform .15s;
-}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;background:linear-gradient(to right,rgba(255,255,255,.2) 50%,var(--accent) 50%);background-size:205% 100%;background-position:100%;color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:var(--radius);padding:11px 24px;font-size:.85rem;font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;text-decoration:none;transition:background-position .32s ease,transform .15s}
 .cta-btn:hover{background-position:0;transform:translateX(2px)}
+[data-theme=light] .cta-btn{background:linear-gradient(to right,rgba(255,255,255,.3) 50%,var(--accent) 50%);background-size:205% 100%;background-position:100%;border-color:rgba(255,255,255,.4)}
+[data-theme=light] .cta-btn:hover{background-position:0;color:#fff}
 
 .section-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px}
 .section-heading-row{display:flex;align-items:center;gap:14px;flex:1;min-width:0}
@@ -120,32 +145,30 @@ h1 em{font-style:italic;color:var(--accent)}
 .course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
 .thumbs-active .course-grid{grid-template-columns:repeat(2,1fr)}
 a.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:border-color .2s,transform .18s,box-shadow .2s}
-a.card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .2s}
+/* Always-on top border gradient - teal+purple */
+a.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent3),var(--accent),var(--accent2));opacity:.55;transition:opacity .2s}
+a.card:hover::before{opacity:1}
 a.card:hover{border-color:#3a3a5a;transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.4)}
 [data-theme=light] a.card:hover{border-color:#c0c0e0;box-shadow:0 8px 24px rgba(0,0,0,.1)}
-a.card:hover::after{opacity:1}
 .card-inner{display:flex;flex:1}
 .card-thumb{display:none;width:82px;min-height:112px;flex-shrink:0;background-size:cover;background-position:center top}
 .thumbs-active .card-thumb{display:block}
 .card-body{display:flex;flex-direction:column;gap:8px;padding:18px;flex:1;min-width:0}
-.card-code{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.08em;padding-right:58px}
+.card-code{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent3);letter-spacing:.08em;padding-right:58px}
 .card-title{font-size:.9rem;font-weight:500;color:var(--text);line-height:1.35}
 .card-desc{font-size:.8rem;color:var(--sub);line-height:1.55;flex:1}
 .card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
 .tag{font-family:'IBM Plex Mono',monospace;font-size:.62rem;padding:2px 8px;border-radius:3px;background:var(--tag-bg);border:1px solid var(--border);color:var(--muted);letter-spacing:.04em}
-.tag.grad{color:#c084fc;border-color:#3a2a5a}
-.tag.ugrad{color:var(--accent2);border-color:#1a3048}
-.tag.seminar{color:var(--warn);border-color:#3a2e0a}
-.tag.ml{color:var(--accent);border-color:#2d1a5a}
-.tag.theory{color:var(--accent2);border-color:#1a2e4a}
-.tag.systems{color:var(--accent3);border-color:#1a3038}
-.tag.ai-tag{color:#fb6f84;border-color:#3a1a28}
-[data-theme=light] .tag.grad{color:#7c3aed;border-color:#ddd0f8}
-[data-theme=light] .tag.ugrad{color:#2563eb;border-color:#bfdbfe}
-[data-theme=light] .tag.seminar{color:var(--warn);border-color:#fde68a}
-[data-theme=light] .tag.ml{color:var(--accent);border-color:#ddd0f8}
-[data-theme=light] .tag.theory{color:var(--accent2);border-color:#bfdbfe}
-[data-theme=light] .tag.systems{color:var(--accent3);border-color:#a5f3fc}
+.tag.ml{color:var(--accent);border-color:rgba(155,101,255,.3)}
+.tag.theory{color:var(--accent2);border-color:rgba(126,184,247,.28)}
+.tag.systems{color:var(--accent3);border-color:rgba(109,204,221,.28)}
+.tag.ai-tag{color:#fb6f84;border-color:rgba(251,111,132,.3)}
+.tag.seminar{color:var(--warn);border-color:rgba(251,191,36,.28)}
+.tag.credits{color:var(--muted);border-color:var(--border)}
+[data-theme=light] .tag.ml{color:var(--accent);border-color:rgba(124,58,255,.25)}
+[data-theme=light] .tag.theory{color:#2563eb;border-color:#bfdbfe}
+[data-theme=light] .tag.systems{color:var(--accent3);border-color:rgba(11,173,188,.25)}
+[data-theme=light] .tag.ai-tag{color:#e5294a;border-color:rgba(229,41,74,.25)}
 .card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:4px;padding-top:8px;border-top:1px solid var(--border)}
 .card-meta{font-family:'IBM Plex Mono',monospace;font-size:.63rem;color:var(--muted);display:flex;flex-direction:column;gap:2px}
 .card-arrow{font-size:.75rem;color:var(--muted);opacity:0;transition:opacity .18s,transform .18s}
@@ -155,10 +178,10 @@ a.card:hover .card-arrow{opacity:1;transform:translateX(3px)}
 
 footer{border-top:1px solid var(--border);padding:48px 0 28px;position:relative;z-index:1}
 .footer-grid{max-width:960px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;gap:24px;margin-bottom:28px}
-.f-brand{font-family:'IBM Plex Mono',monospace;font-size:.88rem;color:var(--accent);letter-spacing:.04em;display:block;margin-bottom:10px}
+.f-brand{font-family:'IBM Plex Mono',monospace;font-size:.88rem;color:var(--accent3);letter-spacing:.04em;display:block;margin-bottom:10px}
 .f-col p,.f-col a,.f-col span{display:block;font-size:.8rem;color:var(--muted);margin-bottom:5px;text-decoration:none;transition:color .2s;line-height:1.5}
 .f-col a:hover{color:var(--sub)}
-.f-heading{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;display:block}
+.f-heading{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;display:block}
 .footer-bottom{max-width:960px;margin:0 auto;padding:16px 28px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .footer-copy,.footer-updated{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--muted)}
 
@@ -179,38 +202,91 @@ footer{border-top:1px solid var(--border);padding:48px 0 28px;position:relative;
   .ctrl-row-label{display:none}
 }
 
-.pol-page{padding:44px 0 72px}
-.pol-page-layout{display:grid;grid-template-columns:180px 1fr;gap:48px;align-items:start;padding-top:32px}
+.section-heading{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.section-label-sm{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
+.section-line-sm{flex:1;height:1px;background:var(--border)}
+/* Policy cards */
+.pol-section{padding:44px 0 0}
+.policy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(262px,1fr));gap:14px;margin-bottom:52px}
+a.pol-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:border-color .2s,transform .18s,box-shadow .2s}
+a.pol-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent3));opacity:.55;transition:opacity .2s}
+a.pol-card:hover::before{opacity:1}
+a.pol-card:hover{border-color:#3a3a5a;transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.pol-card-body{display:flex;flex-direction:column;gap:8px;padding:18px;flex:1;min-width:0}
+.pol-code{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent3);letter-spacing:.08em;padding-right:56px}
+.pol-card-title{font-size:.9rem;font-weight:500;color:var(--text);line-height:1.35}
+.pol-excerpt{position:relative;max-height:82px;overflow:hidden;font-size:.78rem;color:var(--sub);line-height:1.6;flex:1}
+.pol-excerpt::after{content:'';position:absolute;bottom:0;left:0;right:0;height:36px;background:linear-gradient(transparent,var(--surface));pointer-events:none}
+[data-theme=light] .pol-excerpt::after{background:linear-gradient(transparent,#fff)}
+.read-more{display:inline-block;margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:.67rem;color:var(--accent3);letter-spacing:.04em;pointer-events:none;transition:letter-spacing .2s}
+a.pol-card:hover .read-more{letter-spacing:.08em}
+.pol-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.pol-tag{font-family:'IBM Plex Mono',monospace;font-size:.62rem;padding:2px 8px;border-radius:3px;background:var(--tag-bg);border:1px solid var(--border);color:var(--muted)}
+.pol-tag.core{color:var(--accent3);border-color:rgba(109,204,221,.25)}
+.pol-tag.ai-p{color:var(--accent);border-color:rgba(155,101,255,.28)}
+.pol-tag.assess{color:var(--accent2);border-color:rgba(126,184,247,.25)}
+.pol-tag.conduct{color:var(--warn);border-color:rgba(251,191,36,.22)}
+.pol-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:4px}
+.pol-updated{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted)}
+.pol-arrow{font-size:.75rem;color:var(--muted);opacity:0;transition:opacity .18s,transform .18s}
+a.pol-card:hover .pol-arrow{opacity:1;transform:translateX(3px)}
+.uni-badge{position:absolute;top:14px;right:14px;width:50px;height:50px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.56rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text);border:1.5px solid var(--text);opacity:.12;pointer-events:none;user-select:none;line-height:1.3;text-align:center}
+.uni-badge .ub-abbr{font-size:.72rem}
+/* List */
+.list-section{padding:0 0 52px}
+.pol-list{list-style:none}
+a.pol-list-item{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:background .15s;margin:0 -28px;padding-left:28px;padding-right:28px}
+a.pol-list-item:first-child{border-top:1px solid var(--border)}
+a.pol-list-item:hover{background:var(--surface)}
+.pl-num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);width:28px;flex-shrink:0}
+.pl-content{flex:1;min-width:0}
+.pl-title{font-size:.92rem;font-weight:500;color:var(--text);line-height:1.35}
+.pl-desc{font-size:.78rem;color:var(--muted);margin-top:3px;line-height:1.5}
+.pl-meta{display:flex;gap:10px;flex-shrink:0;align-items:center}
+.pl-date{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted);white-space:nowrap}
+.pl-arrow{font-size:.75rem;color:var(--muted);opacity:0;transition:opacity .15s,transform .15s}
+a.pol-list-item:hover .pl-arrow{opacity:1;transform:translateX(3px)}
+/* FAQ */
+.faq-section{padding:0 0 64px}
+.faq-list{list-style:none}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 0;cursor:pointer;background:none;border:none;width:100%;text-align:left;font-family:'Playfair Display','DM Serif Display',serif;font-size:1.05rem;font-weight:700;color:var(--text);transition:color .2s;gap:16px;line-height:1.3}
+.faq-q:hover,.faq-item.open .faq-q{color:var(--accent3)}
+.faq-chevron{font-size:.65rem;color:var(--muted);transition:transform .25s;flex-shrink:0;font-family:'IBM Plex Mono',monospace}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+.faq-a{display:none;padding:0 0 18px;font-size:.88rem;color:var(--sub);line-height:1.8;max-width:640px}
+.faq-a p+p{margin-top:10px}
+.faq-item.open .faq-a{display:block}
+@media(max-width:700px){.policy-grid{grid-template-columns:1fr}.pl-desc{display:none}}
+
+.pol-page{padding:40px 0 72px}
+.pol-page-layout{display:grid;grid-template-columns:170px 1fr;gap:44px;align-items:start;padding-top:32px}
 .pol-sidebar{position:sticky;top:72px}
 .pol-sidebar-nav{list-style:none;border-left:2px solid var(--border);padding-left:16px}
 .pol-sidebar-nav li{margin-bottom:2px}
-.pol-sidebar-nav a{font-size:.78rem;color:var(--muted);text-decoration:none;display:block;padding:4px 0;transition:color .2s}
-.pol-sidebar-nav a:hover,.pol-sidebar-nav a.active{color:var(--accent)}
-.pol-sidebar-nav a.active{border-left:2px solid var(--accent);margin-left:-18px;padding-left:16px}
-/* Policy meta bar */
-.pol-meta-bar{display:flex;gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:20px;background:var(--surface)}
-.pol-meta-item{flex:1;padding:10px 16px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:2px}
+.pol-sidebar-nav a{font-size:.76rem;color:var(--muted);text-decoration:none;display:block;padding:4px 0;transition:color .2s}
+.pol-sidebar-nav a:hover,.pol-sidebar-nav a.active{color:var(--accent3)}
+.pol-sidebar-nav a.active{border-left:2px solid var(--accent3);margin-left:-18px;padding-left:16px}
+.pol-meta-bar{display:flex;gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--surface);margin-bottom:32px}
+.pol-meta-item{flex:1;padding:9px 14px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:2px}
 .pol-meta-item:last-child{border-right:none}
-.pol-meta-label{font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
-.pol-meta-value{font-size:.82rem;color:var(--sub)}
-/* Policy content */
-.pol-content-section{margin-bottom:44px}
-.pol-content-section h2{font-family:'Playfair Display','DM Serif Display',serif;font-size:1.35rem;font-weight:700;color:var(--text);margin-bottom:14px}
-.pol-content-section p{font-size:.9rem;color:var(--sub);line-height:1.85;margin-bottom:12px}
-.pol-content-section p:last-child{margin-bottom:0}
-.pol-rule-list{list-style:none;margin:12px 0}
+.pol-meta-label{font-family:'IBM Plex Mono',monospace;font-size:.56rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.pol-meta-value{font-size:.8rem;color:var(--sub)}
+.pol-content-section{margin-bottom:42px}
+.pol-content-section h2{font-family:'Playfair Display','DM Serif Display',serif;font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:12px}
+.pol-content-section p{font-size:.9rem;color:var(--sub);line-height:1.85;margin-bottom:10px}
+.pol-rule-list{list-style:none;margin:10px 0}
 .pol-rule-list li{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.88rem;color:var(--sub);line-height:1.7}
 .pol-rule-list li:first-child{border-top:1px solid var(--border)}
-.pol-rule-num{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--accent);flex-shrink:0;width:24px;padding-top:3px}
-.pol-highlight{background:rgba(155,101,255,.08);border:1px solid rgba(155,101,255,.2);border-radius:var(--radius);padding:14px 18px;margin:16px 0;font-size:.88rem;color:var(--sub);line-height:1.7}
+.pol-rule-num{font-family:'IBM Plex Mono',monospace;font-size:.63rem;color:var(--accent3);flex-shrink:0;width:22px;padding-top:3px}
+.pol-highlight{background:rgba(109,204,221,.06);border:1px solid rgba(109,204,221,.2);border-radius:var(--radius);padding:13px 16px;margin:14px 0;font-size:.88rem;color:var(--sub);line-height:1.75}
 .pol-highlight strong{color:var(--text)}
-/* Related policies */
-.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
-a.related-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;color:inherit;transition:border-color .2s,transform .15s;display:flex;flex-direction:column;gap:4px}
-a.related-card:hover{border-color:#3a3a5a;transform:translateY(-1px)}
-.related-code{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--accent);letter-spacing:.06em}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+a.related-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:13px;text-decoration:none;color:inherit;transition:border-color .2s,transform .15s;display:flex;flex-direction:column;gap:4px}
+a.related-card:hover{border-color:rgba(109,204,221,.3);transform:translateY(-1px)}
+.related-code{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--accent3)}
 .related-title{font-size:.8rem;font-weight:500;color:var(--text);line-height:1.3}
-.back-all{display:inline-flex;align-items:center;gap:7px;margin-bottom:28px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.04em;padding:7px 16px;border-radius:var(--radius);text-decoration:none}
 @media(max-width:900px){.pol-page-layout{grid-template-columns:1fr}.pol-sidebar{display:none}.related-grid{grid-template-columns:1fr 1fr}.pol-meta-bar{flex-wrap:wrap}}
 </style>
 </head>
@@ -278,89 +354,69 @@ a.related-card:hover{border-color:#3a3a5a;transform:translateY(-1px)}
 <header>
   <p class="eyebrow animate d1">Academic Policy &mdash; POL 01</p>
   <h1 class="animate d2">AI &amp; ChatGPT<br><em>Use Policy</em></h1>
-  <div class="pol-meta-bar animate d3">
+</header>
+<div class="pol-page">
+  <a href="policies.html" class="back-btn animate d1" style="margin-bottom:18px;display:inline-flex">&#x2190; All Policies</a>
+  <div class="pol-meta-bar animate d2">
     <div class="pol-meta-item"><span class="pol-meta-label">Policy Code</span><span class="pol-meta-value">POL &mdash; 01</span></div>
     <div class="pol-meta-item"><span class="pol-meta-label">Effective</span><span class="pol-meta-value">September 2023</span></div>
     <div class="pol-meta-item"><span class="pol-meta-label">Last Updated</span><span class="pol-meta-value">January 2025</span></div>
     <div class="pol-meta-item"><span class="pol-meta-label">Applies To</span><span class="pol-meta-value">All courses</span></div>
   </div>
-</header>
-
-<div class="pol-page">
-  <a href="policies.html" class="back-all pill animate d3" style="border-radius:var(--radius);font-size:.72rem">&#x2190; All Policies</a>
-
   <div class="pol-page-layout">
-    <aside class="pol-sidebar">
-      <ul class="pol-sidebar-nav">
-        <li><a href="#overview" class="active">Overview</a></li>
-        <li><a href="#permitted">What's Permitted</a></li>
-        <li><a href="#prohibited">What's Prohibited</a></li>
-        <li><a href="#disclosure">Disclosure Rules</a></li>
-        <li><a href="#consequences">Consequences</a></li>
-        <li><a href="#rationale">Rationale</a></li>
-      </ul>
-    </aside>
-
+    <aside class="pol-sidebar"><ul class="pol-sidebar-nav">
+      <li><a href="#overview" class="active">Overview</a></li>
+      <li><a href="#permitted">Permitted</a></li>
+      <li><a href="#prohibited">Prohibited</a></li>
+      <li><a href="#disclosure">Disclosure</a></li>
+      <li><a href="#consequences">Consequences</a></li>
+      <li><a href="#rationale">Rationale</a></li>
+    </ul></aside>
     <main>
       <div class="pol-content-section" id="overview">
         <h2>Overview</h2>
-        <p>Generative AI tools &mdash; including ChatGPT, Claude, Gemini, Copilot, and similar systems &mdash; are powerful aids for learning and productivity. This policy establishes clear boundaries for their use in my courses, balancing pedagogical value with academic integrity.</p>
-        <p>This policy reflects the evolving nature of AI in academia. It will be reviewed and updated each semester. Students are expected to be aware of the current version at the start of each course.</p>
-        <div class="pol-highlight"><strong>Bottom line:</strong> You may use AI as a thinking partner and learning aid. You may not use it to generate the substance of work you submit as your own. Disclosure is mandatory whenever AI was involved.</div>
+        <p>Generative AI tools &mdash; including ChatGPT, Claude, Gemini, and Copilot &mdash; are powerful aids for learning. This policy establishes clear boundaries, balancing pedagogical value with academic integrity.</p>
+        <div class="pol-highlight"><strong>Bottom line:</strong> Use AI as a thinking partner and learning aid. Do not use it to generate the substance of work you submit as your own. Disclosure is always mandatory.</div>
       </div>
-
       <div class="pol-content-section" id="permitted">
         <h2>What is Permitted</h2>
-        <p>The following uses of AI are acceptable in this course:</p>
         <ul class="pol-rule-list">
-          <li><span class="pol-rule-num">01</span><span>Using AI to <strong>brainstorm ideas</strong>, explore approaches, or break down a problem &mdash; as long as the final work reflects your own thinking and analysis.</span></li>
-          <li><span class="pol-rule-num">02</span><span>Using AI to <strong>understand concepts or definitions</strong> you encounter in the course material, as a supplement to textbooks and lectures.</span></li>
-          <li><span class="pol-rule-num">03</span><span>Using AI to <strong>debug code</strong> you wrote, or to explain error messages. The solution logic must remain yours.</span></li>
-          <li><span class="pol-rule-num">04</span><span>Using AI to <strong>improve grammar or clarity</strong> of writing you have already drafted, without changing the substance or argument.</span></li>
-          <li><span class="pol-rule-num">05</span><span>Using AI to <strong>generate example code</strong> that you then study, modify, and understand &mdash; with disclosure &mdash; for homework problems that explicitly permit this.</span></li>
+          <li><span class="pol-rule-num">01</span><span>Using AI to <strong>brainstorm ideas</strong> or break down a problem &mdash; as long as the final work reflects your own analysis.</span></li>
+          <li><span class="pol-rule-num">02</span><span>Using AI to <strong>understand concepts</strong> from course material, as a supplement to textbooks.</span></li>
+          <li><span class="pol-rule-num">03</span><span>Using AI to <strong>debug code</strong> you wrote, or to explain error messages. The solution logic must be yours.</span></li>
+          <li><span class="pol-rule-num">04</span><span>Using AI to <strong>improve grammar or clarity</strong> of writing you have already drafted.</span></li>
         </ul>
       </div>
-
       <div class="pol-content-section" id="prohibited">
         <h2>What is Prohibited</h2>
         <ul class="pol-rule-list">
-          <li><span class="pol-rule-num">01</span><span>Submitting AI-generated text as your own written analysis, reasoning, or argumentation &mdash; even with minor edits.</span></li>
-          <li><span class="pol-rule-num">02</span><span>Using AI to generate complete or near-complete solutions to homework problems or programming assignments.</span></li>
-          <li><span class="pol-rule-num">03</span><span>Using any AI tool during in-class exams, quizzes, or assessments unless explicitly permitted for that specific assessment.</span></li>
-          <li><span class="pol-rule-num">04</span><span>Using AI to translate between Korean and English when the assignment requires demonstrating proficiency in either language.</span></li>
-          <li><span class="pol-rule-num">05</span><span>Failing to disclose AI use when it occurred. Undisclosed AI use is treated as academic dishonesty regardless of the extent of involvement.</span></li>
+          <li><span class="pol-rule-num">01</span><span>Submitting AI-generated text as your own analysis, reasoning, or argumentation.</span></li>
+          <li><span class="pol-rule-num">02</span><span>Using AI to generate complete or near-complete solutions to homework or programming assignments.</span></li>
+          <li><span class="pol-rule-num">03</span><span>Using any AI tool during exams, quizzes, or in-class assessments unless explicitly permitted.</span></li>
+          <li><span class="pol-rule-num">04</span><span>Failing to disclose AI use. Undisclosed use is academic dishonesty regardless of extent.</span></li>
         </ul>
       </div>
-
       <div class="pol-content-section" id="disclosure">
         <h2>Disclosure Requirements</h2>
-        <p>When you use AI in any permitted way on a submission, include a disclosure statement at the end. Example:</p>
-        <div class="pol-highlight" style="font-family:'IBM Plex Mono',monospace;font-size:.8rem;line-height:1.7">
-          <strong>AI Disclosure:</strong> I used ChatGPT (GPT-4) to brainstorm the structure of my answer in Problem 3. I then wrote the full response myself based on course materials. I also used Claude to check for grammatical errors in my final writeup.
-        </div>
-        <p>Be specific: name the tool, describe how you used it, and explain what the final output reflects in your own work. Vague disclosures (&ldquo;I used AI&rdquo;) are not sufficient.</p>
+        <p>Add a disclosure statement at the end of any submission where AI was involved. Example:</p>
+        <div class="pol-highlight" style="font-family:'IBM Plex Mono',monospace;font-size:.78rem;line-height:1.75"><strong>AI Disclosure:</strong> I used ChatGPT to brainstorm the structure of my answer in Problem 3. The full response was written by me based on course materials. I used Claude to check grammar in the final writeup.</div>
+        <p>Be specific: name the tool, describe how you used it, and clarify what the final output reflects of your own work.</p>
       </div>
-
       <div class="pol-content-section" id="consequences">
-        <h2>Consequences of Violation</h2>
-        <p>Violations of this policy are treated as academic dishonesty. Consequences depend on severity:</p>
+        <h2>Consequences</h2>
         <ul class="pol-rule-list">
-          <li><span class="pol-rule-num">&#x26A0;</span><span><strong>Minor violation</strong> (e.g., using AI beyond permitted scope but disclosing): Zero on the assignment, verbal warning.</span></li>
-          <li><span class="pol-rule-num">&#x26A0;</span><span><strong>Major violation</strong> (e.g., AI-generated submission without disclosure): Failing grade for the course and report to the university honor committee.</span></li>
+          <li><span class="pol-rule-num">&#x26A0;</span><span><strong>Minor:</strong> Used AI beyond permitted scope but disclosed &rarr; Zero on the assignment, verbal warning.</span></li>
+          <li><span class="pol-rule-num">&#x26A0;</span><span><strong>Major:</strong> AI-generated submission without disclosure &rarr; Failing grade and university honor committee report.</span></li>
         </ul>
       </div>
-
       <div class="pol-content-section" id="rationale">
         <h2>Rationale</h2>
-        <p>I permit AI use because I believe the ability to work effectively with AI tools is a genuine skill you will need in your career. Pretending these tools don't exist would be a disservice to your education.</p>
-        <p>I prohibit substituting AI for your own thinking because the goal of your education is to develop <em>your</em> ability to reason, analyze, and create. If AI does that work for you, you don't develop. The assessment is not the point &mdash; the learning is.</p>
-        <p>I require disclosure because honesty is foundational to academic trust, and because understanding how you used AI helps me improve assignments over time.</p>
+        <p>I permit AI use because working effectively with these tools is a genuine skill you will need in your career. The goal of your education is to develop <em>your</em> ability to reason and create. If AI does that work for you, you don't develop. The assessment is not the point &mdash; the learning is.</p>
       </div>
-
       <div class="pol-content-section">
         <h2>Related Policies</h2>
         <div class="related-grid">
-          <a class="related-card" href="policies.html"><span class="related-code">POL &mdash; 03</span><span class="related-title">Assignment &amp; Collaboration Policy</span></a>
+          <a class="related-card" href="policies.html"><span class="related-code">POL &mdash; 03</span><span class="related-title">Assignment &amp; Collaboration</span></a>
           <a class="related-card" href="policies.html"><span class="related-code">POL &mdash; 04</span><span class="related-title">Exam &amp; Assessment Policy</span></a>
           <a class="related-card" href="policies.html"><span class="related-code">POL &mdash; 02</span><span class="related-title">Grading Policy</span></a>
         </div>
@@ -419,15 +475,7 @@ if(_tt){
 }
 
 const sIds=['overview','permitted','prohibited','disclosure','consequences','rationale'];
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      document.querySelectorAll('.pol-sidebar-nav a').forEach(a=>a.classList.remove('active'));
-      const a=document.querySelector(`.pol-sidebar-nav a[href="#${e.target.id}"]`);
-      if(a)a.classList.add('active');
-    }
-  });
-},{rootMargin:'-25% 0px -65% 0px'});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){document.querySelectorAll('.pol-sidebar-nav a').forEach(a=>a.classList.remove('active'));const a=document.querySelector(`.pol-sidebar-nav a[href="#${x.target.id}"]`);if(a)a.classList.add('active')}})},{rootMargin:'-25% 0px -65% 0px'});
 sIds.forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el)});
 </script>
 </body>
