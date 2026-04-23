@@ -1,300 +1,208 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prof. J. Kim — Policies</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-  <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Prof. J. Kim — Academic Policies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#090910;--surface:#12121e;--border:#22223a;--muted:#55557a;--text:#eeeeff;--sub:#b0b0d0;--accent:#9b65ff;--accent2:#6dccdd;--accent3:#4ade80;--warn:#fbbf24;--tag-bg:#181828;--radius:6px;--nav-bg:rgba(9,9,16,.88)}
+[data-theme=light]{--bg:#f2f2f8;--surface:#fff;--border:#e0e0f0;--muted:#8888b0;--text:#111128;--sub:#40406a;--accent:#7c3aff;--accent2:#0badbc;--accent3:#16a34a;--warn:#d97706;--tag-bg:#ebebf8;--nav-bg:rgba(242,242,248,.92)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background-color:var(--bg);background-image:radial-gradient(ellipse 80% 60% at 8% 40%,rgba(155,101,255,.09) 0%,transparent 70%),radial-gradient(ellipse 65% 70% at 92% 8%,rgba(109,204,221,.08) 0%,transparent 70%),radial-gradient(ellipse 55% 45% at 55% 92%,rgba(155,101,255,.06) 0%,transparent 70%);background-attachment:fixed;color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;min-height:100vh;overflow-x:hidden;transition:background-color .25s,color .25s}
+[data-theme=light] body{background-image:radial-gradient(ellipse 80% 60% at 8% 40%,rgba(124,58,255,.05) 0%,transparent 70%),radial-gradient(ellipse 65% 70% at 92% 8%,rgba(11,173,188,.04) 0%,transparent 70%),radial-gradient(ellipse 55% 45% at 55% 92%,rgba(124,58,255,.03) 0%,transparent 70%)}
+body::before{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(-52deg,transparent,transparent 30px,rgba(255,255,255,.011) 30px,rgba(255,255,255,.011) 31px);pointer-events:none;z-index:0}
+[data-theme=light] body::before{background-image:repeating-linear-gradient(-52deg,transparent,transparent 30px,rgba(0,0,0,.012) 30px,rgba(0,0,0,.012) 31px)}
 
-  :root {
-    --bg:#0c0c0e; --surface:#141418; --border:#2a2a32; --muted:#4a4a5a;
-    --text:#e8e8f0; --sub:#9898b0; --accent:#7eb8f7; --accent2:#b9fbc0;
-    --tag-bg:#1c1c26; --radius:6px; --nav-bg:rgba(12,12,14,0.88); --dot-color:#2a2a3a;
-  }
-  [data-theme="light"] {
-    --bg:#f5f5f8; --surface:#ffffff; --border:#dcdce8; --muted:#9898b2;
-    --text:#18182c; --sub:#52527a; --accent:#2563eb; --accent2:#16a34a;
-    --tag-bg:#eeeef8; --nav-bg:rgba(245,245,248,0.9); --dot-color:#c8c8d8;
-  }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg); color: var(--text);
-    font-family: 'DM Sans', sans-serif; font-weight: 300;
-    line-height: 1.6; min-height: 100vh; overflow-x: hidden;
-    transition: background 0.25s, color 0.25s;
-  }
-  body::before {
-    content:''; position:fixed; inset:0;
-    background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
-    background-size: 28px 28px; opacity: 0.35;
-    pointer-events: none; z-index: 0;
-  }
+nav{position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border);background:var(--nav-bg);backdrop-filter:blur(16px)}
+.nav-inner{max-width:920px;margin:0 auto;padding:0 24px;height:52px;display:flex;align-items:center}
+.nav-brand{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--accent);letter-spacing:.04em;text-decoration:none;flex-shrink:0}
+.nav-links{display:flex;gap:0;list-style:none;margin-left:auto}
+.nav-links>li>a,.nav-links>li>button{font-size:.8rem;color:var(--sub);text-decoration:none;letter-spacing:.02em;transition:color .2s;padding:0 13px;height:52px;display:flex;align-items:center;background:none;border:none;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;font-weight:300}
+.nav-links>li>a:hover,.nav-links>li>button:hover{color:var(--text)}
+.nav-links>li>a.active-page{color:var(--accent)}
+.has-dropdown{position:relative}
+.nav-dropdown{position:absolute;top:calc(100% + 1px);right:0;min-width:220px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:6px 0;display:none;z-index:300;box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.has-dropdown.open .nav-dropdown{display:block}
+.nav-dropdown li{list-style:none}
+.nav-dropdown li a{display:block;padding:9px 18px;font-size:.8rem;color:var(--sub);text-decoration:none;transition:background .15s,color .15s}
+.nav-dropdown li a:hover{background:var(--tag-bg);color:var(--text)}
+.nav-dropdown .dd-divider{height:1px;background:var(--border);margin:5px 0}
+.nav-dropdown .dd-all a{color:var(--accent)}
+.nav-dropdown .dd-code{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);margin-right:6px}
+.nav-controls{display:flex;align-items:center;gap:7px;margin-left:14px;flex-shrink:0}
+.ctrl-btn{background:var(--tag-bg);border:1px solid var(--border);color:var(--sub);border-radius:var(--radius);padding:4px 10px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;cursor:pointer;letter-spacing:.04em;transition:color .2s,border-color .2s;line-height:1.4}
+.ctrl-btn:hover{color:var(--accent);border-color:var(--accent)}
+.theme-btn{font-size:.88rem;padding:4px 8px}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:6px;color:var(--sub);flex-direction:column;gap:5px;flex-shrink:0}
+.hamburger span{display:block;width:21px;height:1.5px;background:currentColor;transition:transform .25s,opacity .25s}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-nav{display:none;flex-direction:column;background:var(--surface);border-bottom:1px solid var(--border);padding:8px 0 16px;position:relative;z-index:199}
+.mobile-nav.open{display:flex}
+.mobile-nav a,.mobile-nav .m-toggle{display:flex;align-items:center;justify-content:space-between;padding:11px 24px;font-size:.88rem;color:var(--sub);text-decoration:none;background:none;border:none;width:100%;text-align:left;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:300;transition:color .15s}
+.mobile-nav a:hover,.mobile-nav .m-toggle:hover{color:var(--text)}
+.m-toggle .m-chevron{transition:transform .2s}
+.m-toggle.open .m-chevron{transform:rotate(180deg)}
+.mobile-sub{display:none;flex-direction:column;background:var(--tag-bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:2px 0}
+.mobile-sub.open{display:flex}
+.mobile-sub a{padding:9px 24px 9px 36px;font-size:.82rem}
+.mobile-sub .dd-divider{height:1px;background:var(--border);margin:3px 0}
+.mobile-controls{display:flex;gap:8px;padding:10px 24px 0}
 
-  /* ── NAV (shared) ── */
-  nav {
-    position: sticky; top: 0; z-index: 200;
-    border-bottom: 1px solid var(--border);
-    background: var(--nav-bg); backdrop-filter: blur(14px);
-  }
-  .nav-inner {
-    max-width: 900px; margin: 0 auto; padding: 0 24px;
-    height: 52px; display: flex; align-items: center; gap: 0;
-  }
-  .nav-brand {
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem;
-    color: var(--accent); letter-spacing: 0.04em; text-decoration: none; flex-shrink: 0;
-  }
-  .nav-links {
-    display: flex; gap: 0; list-style: none; margin-left: 28px; flex: 1;
-  }
-  .nav-links > li > a, .nav-links > li > button {
-    font-size: 0.8rem; color: var(--sub); text-decoration: none;
-    letter-spacing: 0.02em; transition: color 0.2s; padding: 0 14px;
-    height: 52px; display: flex; align-items: center;
-    background: none; border: none; cursor: pointer; white-space: nowrap;
-    font-family: 'DM Sans', sans-serif; font-weight: 300;
-  }
-  .nav-links > li > a:hover, .nav-links > li > button:hover { color: var(--text); }
-  .nav-links > li > a.active-page { color: var(--accent); }
-  .has-dropdown { position: relative; }
-  .nav-dropdown {
-    position: absolute; top: calc(100% + 1px); left: 0; min-width: 220px;
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 6px 0; display: none;
-    z-index: 300; box-shadow: 0 12px 32px rgba(0,0,0,0.35);
-  }
-  .has-dropdown.open .nav-dropdown { display: block; }
-  .nav-dropdown li { list-style: none; }
-  .nav-dropdown li a {
-    display: block; padding: 9px 18px; font-size: 0.8rem;
-    color: var(--sub); text-decoration: none; transition: background 0.15s, color 0.15s;
-  }
-  .nav-dropdown li a:hover { background: var(--tag-bg); color: var(--text); }
-  .nav-dropdown .dd-divider { height: 1px; background: var(--border); margin: 5px 0; }
-  .nav-dropdown .dd-all a { color: var(--accent); }
-  .nav-dropdown .dd-code { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:var(--muted); margin-right:6px; }
-  .nav-controls { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-shrink: 0; }
-  .ctrl-btn {
-    background: var(--tag-bg); border: 1px solid var(--border); color: var(--sub);
-    border-radius: var(--radius); padding: 4px 10px;
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
-    cursor: pointer; letter-spacing: 0.04em; transition: color 0.2s, border-color 0.2s; line-height: 1.4;
-  }
-  .ctrl-btn:hover { color: var(--accent); border-color: var(--accent); }
-  .theme-btn { font-size: 0.9rem; padding: 4px 8px; }
-  .hamburger {
-    display: none; background: none; border: none; cursor: pointer;
-    padding: 8px; margin-left: 8px; color: var(--sub);
-    flex-direction: column; gap: 5px; flex-shrink: 0;
-  }
-  .hamburger span { display:block; width:22px; height:1.5px; background:currentColor; transition:transform 0.25s,opacity 0.25s; }
-  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-  .mobile-nav {
-    display: none; flex-direction: column; background: var(--surface);
-    border-bottom: 1px solid var(--border); padding: 8px 0 16px; position: relative; z-index: 199;
-  }
-  .mobile-nav.open { display: flex; }
-  .mobile-nav a, .mobile-nav .m-toggle {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 11px 24px; font-size: 0.88rem; color: var(--sub); text-decoration: none;
-    background: none; border: none; width: 100%; text-align: left; cursor: pointer;
-    font-family: 'DM Sans', sans-serif; font-weight: 300; transition: color 0.15s;
-  }
-  .mobile-nav a:hover, .mobile-nav .m-toggle:hover { color: var(--text); }
-  .m-toggle .m-chevron { transition: transform 0.2s; }
-  .m-toggle.open .m-chevron { transform: rotate(180deg); }
-  .mobile-sub { display: none; flex-direction: column; background: var(--tag-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 2px 0; }
-  .mobile-sub.open { display: flex; }
-  .mobile-sub a { padding: 9px 24px 9px 36px; font-size: 0.82rem; }
-  .mobile-sub .dd-divider { height: 1px; background: var(--border); margin: 3px 0; }
-  .mobile-controls { display: flex; gap: 8px; padding: 10px 24px 0; }
+.wrap{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px}
+h1{font-family:'Playfair Display','DM Serif Display',serif;font-size:clamp(2.6rem,6vw,4rem);font-weight:700;line-height:1.08;letter-spacing:-.02em;color:var(--text)}
+h1 em{font-style:italic;color:var(--accent)}
+.hero-meta{display:flex;gap:32px;margin-top:28px;flex-wrap:wrap}
+.hero-meta-item{display:flex;flex-direction:column;gap:2px}
+.hero-meta-label{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.hero-meta-value{font-size:.88rem;color:var(--sub)}
+.hero-desc{margin-top:32px;max-width:560px;font-size:.95rem;color:var(--sub);line-height:1.8;border-left:2px solid var(--border);padding-left:18px}
+.stats-bar{display:flex;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:36px}
+.stat{flex:1;padding:14px 20px;border-right:1px solid var(--border);text-align:center}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Playfair Display','DM Serif Display',serif;font-size:1.6rem;color:var(--accent);line-height:1}
+.stat-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
 
-  /* ── LAYOUT ── */
-  .wrap { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 0 24px; }
+.section-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.section-heading-row{display:flex;align-items:center;gap:14px;flex:1;min-width:0}
+.section-label{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
+.section-line{flex:1;height:1px;background:var(--border)}
+.section-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.filter-toggle-btn,.thumb-toggle{display:flex;align-items:center;gap:6px;background:var(--tag-bg);border:1px solid var(--border);color:var(--sub);padding:5px 13px;border-radius:var(--radius);font-family:'IBM Plex Mono',monospace;font-size:.68rem;cursor:pointer;letter-spacing:.04em;transition:all .2s}
+.filter-toggle-btn:hover{border-color:var(--accent);color:var(--accent)}
+.filter-toggle-btn.open{border-color:var(--accent);color:var(--accent);background:rgba(155,101,255,.08)}
+.thumb-toggle:hover{border-color:var(--accent2);color:var(--accent2)}
+.thumb-toggle.active{border-color:var(--accent2);color:var(--accent2);background:rgba(109,204,221,.08)}
+.filter-panel{display:none;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin-bottom:24px}
+.filter-panel.open{display:flex}
+.ctrl-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ctrl-row-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;width:46px;flex-shrink:0}
+.pill{background:var(--tag-bg);border:1px solid var(--border);color:var(--sub);padding:4px 13px;border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:.7rem;cursor:pointer;transition:all .18s;letter-spacing:.04em;line-height:1.5}
+.pill:hover{border-color:var(--accent);color:var(--accent)}
+.pill.active{background:var(--accent);border-color:var(--accent);color:#fff}
 
-  /* ── PAGE HEADER ── */
-  header { padding: 80px 0 60px; border-bottom: 1px solid var(--border); }
-  .eyebrow {
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
-    color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px;
-  }
-  h1 {
-    font-family: 'Playfair Display','DM Serif Display',serif; font-size: clamp(2.6rem,6vw,4rem);
-    font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; color: var(--text);
-  }
-  h1 em { font-style: italic; color: var(--accent); }
-  .hero-desc {
-    margin-top: 28px; max-width: 560px; font-size: 0.95rem;
-    color: var(--sub); line-height: 1.75;
-    border-left: 2px solid var(--border); padding-left: 18px;
-  }
+.course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:14px}
+.thumbs-active .course-grid{grid-template-columns:repeat(2,1fr)}
+a.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:border-color .2s,transform .18s,box-shadow .2s}
+a.card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .2s}
+a.card:hover{border-color:#3a3a5a;transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.4)}
+[data-theme=light] a.card:hover{border-color:#c0c0e0;box-shadow:0 8px 24px rgba(0,0,0,.1)}
+a.card:hover::after{opacity:1}
+.card-inner{display:flex;flex:1}
+.card-thumb{display:none;width:82px;min-height:112px;flex-shrink:0;background-size:cover;background-position:center top}
+.thumbs-active .card-thumb{display:block}
+.card-body{display:flex;flex-direction:column;gap:8px;padding:18px;flex:1;min-width:0}
+.card-code{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.08em;padding-right:58px}
+.card-title{font-size:.9rem;font-weight:500;color:var(--text);line-height:1.35}
+.card-desc{font-size:.78rem;color:var(--muted);line-height:1.55;flex:1}
+.card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.tag{font-family:'IBM Plex Mono',monospace;font-size:.62rem;padding:2px 8px;border-radius:3px;background:var(--tag-bg);border:1px solid var(--border);color:var(--muted);letter-spacing:.04em}
+.tag.grad{color:#c084fc;border-color:#3a2a5a}
+.tag.ugrad{color:var(--accent2);border-color:#1a3038}
+.tag.seminar{color:var(--warn);border-color:#3a2e0a}
+[data-theme=light] .tag.grad{color:#7c3aed;border-color:#ddd0f8}
+[data-theme=light] .tag.ugrad{color:var(--accent2);border-color:#b2eef4}
+[data-theme=light] .tag.seminar{color:var(--warn);border-color:#fde68a}
+.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:4px;padding-top:8px;border-top:1px solid var(--border)}
+.card-meta{font-family:'IBM Plex Mono',monospace;font-size:.63rem;color:var(--muted);display:flex;flex-direction:column;gap:2px}
+.card-arrow{font-size:.75rem;color:var(--muted);opacity:0;transition:opacity .18s,transform .18s}
+a.card:hover .card-arrow{opacity:1;transform:translateX(3px)}
+.uni-badge{position:absolute;top:14px;right:14px;width:50px;height:50px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.56rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text);border:1.5px solid var(--text);opacity:.12;pointer-events:none;user-select:none;line-height:1.3;text-align:center}
+.uni-badge .ub-abbr{font-size:.72rem;font-weight:500}
 
-  /* ══════════════════════════════════════════
-     FEATURED POLICY LIST  (like archive style)
-  ══════════════════════════════════════════ */
-  .featured-section { padding: 48px 0 0; }
-  .section-heading {
-    display: flex; align-items: center; gap: 14px; margin-bottom: 24px;
-  }
-  .section-label {
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem;
-    color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; white-space: nowrap;
-  }
-  .section-line { flex: 1; height: 1px; background: var(--border); }
+footer{border-top:1px solid var(--border);padding:48px 0 28px;position:relative;z-index:1}
+.footer-grid{max-width:920px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;margin-bottom:28px}
+.f-brand{font-family:'IBM Plex Mono',monospace;font-size:.88rem;color:var(--accent);letter-spacing:.04em;display:block;margin-bottom:10px}
+.f-col p,.f-col a,.f-col span{display:block;font-size:.8rem;color:var(--muted);margin-bottom:5px;text-decoration:none;transition:color .2s;line-height:1.5}
+.f-col a:hover{color:var(--sub)}
+.f-heading{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;display:block}
+.footer-bottom{max-width:920px;margin:0 auto;padding:16px 24px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-copy,.footer-updated{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--muted)}
 
-  .policy-list { list-style: none; }
-  .policy-list-item {
-    display: block; text-decoration: none; color: inherit;
-    border-bottom: 1px solid var(--border);
-    transition: background 0.15s;
-  }
-  .policy-list-item:first-child { border-top: 1px solid var(--border); }
-  .policy-list-item:hover { background: var(--tag-bg); }
-  .policy-list-inner {
-    display: flex; align-items: baseline; gap: 16px;
-    padding: 14px 0;
-  }
-  .pl-num {
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
-    color: var(--muted); width: 28px; flex-shrink: 0; letter-spacing: 0.06em;
-  }
-  .pl-content { flex: 1; min-width: 0; }
-  .pl-title {
-    font-size: 0.92rem; font-weight: 500; color: var(--text); line-height: 1.35;
-  }
-  .pl-desc {
-    font-size: 0.78rem; color: var(--muted); margin-top: 3px; line-height: 1.5;
-  }
-  .pl-meta {
-    display: flex; gap: 10px; flex-shrink: 0; align-items: center;
-  }
-  .pl-tag {
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
-    padding: 2px 8px; border-radius: 3px;
-    background: var(--tag-bg); border: 1px solid var(--border); color: var(--muted);
-  }
-  .pl-arrow {
-    font-size: 0.78rem; color: var(--muted); opacity: 0; transition: opacity 0.15s, transform 0.15s;
-  }
-  .policy-list-item:hover .pl-arrow { opacity: 1; transform: translateX(3px); }
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.animate{animation:fadeUp .55s ease both}
+.d1{animation-delay:.05s}.d2{animation-delay:.12s}.d3{animation-delay:.2s}.d4{animation-delay:.28s}
 
-  /* ══════════════════════════════════════════
-     POLICY CARDS GRID
-  ══════════════════════════════════════════ */
-  .policies-section { padding: 48px 0 60px; }
-  .policy-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
-    gap: 14px;
-  }
-
-  a.card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); display: flex; flex-direction: column;
-    text-decoration: none; color: inherit; position: relative; overflow: hidden;
-    transition: border-color 0.2s, transform 0.18s, box-shadow 0.2s;
-  }
-  a.card::after {
-    content:''; position: absolute; top:0; left:0; right:0; height:2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    opacity: 0; transition: opacity 0.2s;
-  }
-  a.card:hover { border-color: #3a3a50; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.35); }
-  [data-theme="light"] a.card:hover { border-color: #b0b0d0; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
-  a.card:hover::after { opacity: 1; }
-
-  .card-body { display: flex; flex-direction: column; gap: 8px; padding: 18px; flex: 1; min-width: 0; }
-  .card-code {
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
-    color: var(--accent); letter-spacing: 0.08em; padding-right: 58px;
-  }
-  .card-title { font-size: 0.9rem; font-weight: 500; color: var(--text); line-height: 1.35; }
-
-  /* Fixed-height excerpt with fade-out */
-  .card-excerpt {
-    position: relative; max-height: 80px; overflow: hidden;
-    font-size: 0.78rem; color: var(--muted); line-height: 1.6; flex: 1;
-  }
-  .card-excerpt::after {
-    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 36px;
-    background: linear-gradient(transparent, var(--surface));
-    pointer-events: none;
-  }
-  [data-theme="light"] .card-excerpt::after { background: linear-gradient(transparent, #ffffff); }
-
-  .read-more {
-    display: inline-block; margin-top: 8px;
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
-    color: var(--accent); letter-spacing: 0.04em;
-    transition: letter-spacing 0.2s;
-    pointer-events: none; /* whole card is the link */
-  }
-  a.card:hover .read-more { letter-spacing: 0.08em; }
-
-  .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
-  .tag {
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
-    padding: 2px 8px; border-radius: 3px;
-    background: var(--tag-bg); border: 1px solid var(--border); color: var(--muted); letter-spacing: 0.04em;
-  }
-  .tag.core    { color: var(--accent);  border-color: #1e3a5a; }
-  .tag.ai      { color: #d4a0ff; border-color: #3a2a50; }
-  .tag.conduct { color: #ffcf7e; border-color: #3a2e0a; }
-  .tag.assess  { color: var(--accent2); border-color: #1a3026; }
-  [data-theme="light"] .tag.core    { color: #2563eb; border-color: #bfdbfe; }
-  [data-theme="light"] .tag.ai      { color: #7c3aed; border-color: #ddd0f8; }
-  [data-theme="light"] .tag.conduct { color: #d97706; border-color: #fde68a; }
-  [data-theme="light"] .tag.assess  { color: #16a34a; border-color: #bbf7d0; }
-
-  .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; }
-  .card-updated { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; color: var(--muted); }
-  .card-arrow { font-size: 0.75rem; color: var(--muted); opacity: 0; transition: opacity 0.18s, transform 0.18s; }
-  a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
-
-  /* Uni badge */
-  .uni-badge {
-    position: absolute; top: 14px; right: 14px; width: 52px; height: 52px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; font-weight: 500;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    color: var(--text); border: 1.5px solid var(--text); opacity: 0.14;
-    pointer-events: none; user-select: none; line-height: 1.3; text-align: center;
-  }
-  .uni-badge .ub-abbr { font-size: 0.75rem; font-weight: 500; }
-
-  /* ── FOOTER ── */
-  footer { border-top: 1px solid var(--border); padding: 36px 0; position: relative; z-index: 1; }
-  .footer-inner {
-    max-width: 900px; margin: 0 auto; padding: 0 24px;
-    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-  }
-  .footer-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; color: var(--muted); }
-  .footer-links { display: flex; gap: 20px; }
-  .footer-links a { font-size: 0.78rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--accent); }
-
-  @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
-  .animate { animation: fadeUp 0.55s ease both; }
-  .d1{animation-delay:.05s} .d2{animation-delay:.12s} .d3{animation-delay:.2s}
-
-  @media (max-width: 700px) {
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    h1 { font-size: 2.2rem; }
-    .policy-grid { grid-template-columns: 1fr; }
-    .pl-desc { display: none; }
-  }
-  </style>
+@media(max-width:700px){
+  .nav-links{display:none}.hamburger{display:flex}
+  h1{font-size:2.2rem}
+  .hero-meta{gap:18px}
+  .stats-bar{flex-wrap:wrap}
+  .stat{flex:0 0 50%;border-bottom:1px solid var(--border)}
+  .stat:nth-child(2n){border-right:none}
+  .stat:nth-last-child(-n+2){border-bottom:none}
+  .thumbs-active .course-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .ctrl-row-label{display:none}
+}
+.dd-semester{display:block;padding:6px 18px 3px;font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.pol-section{padding:40px 0 0}
+/* ── Policy Cards ── */
+.policy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:14px;margin-bottom:52px}
+a.pol-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:border-color .2s,transform .18s,box-shadow .2s}
+a.pol-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .2s}
+a.pol-card:hover{border-color:#3a3a5a;transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.4)}
+[data-theme=light] a.pol-card:hover{border-color:#c0c0e0;box-shadow:0 8px 24px rgba(0,0,0,.1)}
+a.pol-card:hover::after{opacity:1}
+.pol-card-body{display:flex;flex-direction:column;gap:8px;padding:18px;flex:1;min-width:0}
+.pol-code{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.08em;padding-right:58px}
+.pol-card-title{font-size:.9rem;font-weight:500;color:var(--text);line-height:1.35}
+.pol-excerpt{position:relative;max-height:82px;overflow:hidden;font-size:.78rem;color:var(--muted);line-height:1.6;flex:1}
+.pol-excerpt::after{content:'';position:absolute;bottom:0;left:0;right:0;height:36px;background:linear-gradient(transparent,var(--surface));pointer-events:none}
+[data-theme=light] .pol-excerpt::after{background:linear-gradient(transparent,#fff)}
+.read-more{display:inline-block;margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.04em;pointer-events:none;transition:letter-spacing .2s}
+a.pol-card:hover .read-more{letter-spacing:.08em}
+.pol-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.pol-tag{font-family:'IBM Plex Mono',monospace;font-size:.62rem;padding:2px 8px;border-radius:3px;background:var(--tag-bg);border:1px solid var(--border);color:var(--muted);letter-spacing:.04em}
+.pol-tag.core{color:var(--accent);border-color:#3a2a5a}
+.pol-tag.ai{color:#c084fc;border-color:#3a2a5a}
+.pol-tag.assess{color:var(--accent2);border-color:#1a3038}
+.pol-tag.conduct{color:var(--warn);border-color:#3a2e0a}
+[data-theme=light] .pol-tag.core{color:var(--accent);border-color:#ddd0f8}
+[data-theme=light] .pol-tag.ai{color:#7c3aed;border-color:#ddd0f8}
+.pol-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:4px}
+.pol-updated{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted)}
+.pol-arrow{font-size:.75rem;color:var(--muted);opacity:0;transition:opacity .18s,transform .18s}
+a.pol-card:hover .pol-arrow{opacity:1;transform:translateX(3px)}
+.uni-badge{position:absolute;top:14px;right:14px;width:50px;height:50px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.56rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text);border:1.5px solid var(--text);opacity:.12;pointer-events:none;user-select:none;line-height:1.3;text-align:center}
+.uni-badge .ub-abbr{font-size:.72rem;font-weight:500}
+/* ── Policy List ── */
+.list-section{padding:0 0 52px}
+.section-heading{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.section-label{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
+.section-line{flex:1;height:1px;background:var(--border)}
+.pol-list{list-style:none}
+a.pol-list-item{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:background .15s;margin:0 -24px;padding-left:24px;padding-right:24px}
+a.pol-list-item:first-child{border-top:1px solid var(--border)}
+a.pol-list-item:hover{background:var(--surface)}
+.pl-num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);width:28px;flex-shrink:0;letter-spacing:.06em}
+.pl-content{flex:1;min-width:0}
+.pl-title{font-size:.92rem;font-weight:500;color:var(--text);line-height:1.35}
+.pl-desc{font-size:.78rem;color:var(--muted);margin-top:3px;line-height:1.5}
+.pl-meta{display:flex;gap:10px;flex-shrink:0;align-items:center}
+.pl-date{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted);white-space:nowrap}
+.pl-arrow{font-size:.75rem;color:var(--muted);opacity:0;transition:opacity .15s,transform .15s}
+a.pol-list-item:hover .pl-arrow{opacity:1;transform:translateX(3px)}
+/* ── FAQ Accordion ── */
+.faq-section{padding:0 0 64px}
+.faq-list{list-style:none}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:16px 0;cursor:pointer;background:none;border:none;width:100%;text-align:left;font-size:.9rem;font-weight:500;color:var(--text);font-family:'DM Sans',sans-serif;transition:color .2s;gap:16px}
+.faq-q:hover{color:var(--accent)}
+.faq-chevron{font-size:.7rem;color:var(--muted);transition:transform .25s;flex-shrink:0}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+.faq-item.open .faq-q{color:var(--accent)}
+.faq-a{display:none;padding:0 0 16px;font-size:.88rem;color:var(--sub);line-height:1.75;max-width:640px}
+.faq-a p+p{margin-top:10px}
+.faq-item.open .faq-a{display:block}
+@media(max-width:700px){.policy-grid{grid-template-columns:1fr}.pl-desc{display:none}}
+</style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a class="nav-brand" href="index.html">jkim.edu</a>
@@ -302,330 +210,233 @@
       <li><a href="index.html">About</a></li>
       <li><a href="#">Research</a></li>
       <li class="has-dropdown" id="dd-courses">
-        <button>Courses ▾</button>
+        <button>Courses &#x25BE;</button>
         <ul class="nav-dropdown">
-          <li><span style="display:block;padding:6px 18px 2px;font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;">Spring 2025</span></li>
-          <li><a href="#"><span class="dd-code">4820</span>Advanced Machine Learning</a></li>
+          <li><span class="dd-semester">Spring 2025</span></li>
+          <li><a href="course.html"><span class="dd-code">4820</span>Advanced Machine Learning</a></li>
           <li><a href="#"><span class="dd-code">3310</span>Algorithms &amp; Complexity</a></li>
           <li><a href="#"><span class="dd-code">6001</span>Foundation Models Seminar</a></li>
           <li class="dd-divider"></li>
-          <li class="dd-all"><a href="archive.html">All Courses →</a></li>
+          <li class="dd-all"><a href="archive.html">All Courses &#x2192;</a></li>
         </ul>
       </li>
       <li class="has-dropdown" id="dd-policies">
-        <button>Policies ▾</button>
+        <button>Policies &#x25BE;</button>
         <ul class="nav-dropdown">
-          <li><a href="policy-ai.html">AI &amp; ChatGPT Use</a></li>
-          <li><a href="policy-exams.html">Exam Policy</a></li>
-          <li><a href="policy-assignments.html">Assignment Policy</a></li>
-          <li><a href="policy-attendance.html">Attendance Policy</a></li>
-          <li><a href="policy-grading.html">Grading Policy</a></li>
+          <li><a href="policies.html">AI &amp; ChatGPT Use</a></li>
+          <li><a href="policies.html">Exam Policy</a></li>
+          <li><a href="policies.html">Assignment Policy</a></li>
+          <li><a href="policies.html">Attendance Policy</a></li>
           <li class="dd-divider"></li>
-          <li class="dd-all"><a href="policies.html">All Policies →</a></li>
+          <li class="dd-all"><a href="policies.html">All Policies &#x2192;</a></li>
         </ul>
       </li>
-      <li><a href="#">Publications</a></li>
-      <li><a href="policies.html" class="active-page">Policies</a></li>
+      <li><a href="archive.html">Archive</a></li>
     </ul>
     <div class="nav-controls">
-      <button class="ctrl-btn theme-btn" id="theme-btn">🌙</button>
-      <button class="ctrl-btn" id="lang-btn">한국어</button>
-      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="ctrl-btn theme-btn-all" style="font-size:.88rem;padding:4px 8px">&#x1F319;</button>
+      <button class="ctrl-btn lang-btn-all">&#xD55C;&#xAD6D;&#xC5B4;</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
   <div class="mobile-nav" id="mobile-nav">
     <a href="index.html">About</a>
     <a href="#">Research</a>
-    <button class="m-toggle" id="m-courses"><span>Courses</span><span class="m-chevron">▾</span></button>
+    <button class="m-toggle" id="m-courses"><span>Courses</span><span class="m-chevron">&#x25BE;</span></button>
     <div class="mobile-sub" id="m-courses-sub">
-      <a href="#">CS 4820 — Advanced Machine Learning</a>
-      <a href="#">CS 3310 — Algorithms &amp; Complexity</a>
+      <a href="course.html">CS 4820 &mdash; Advanced ML</a>
+      <a href="#">CS 3310 &mdash; Algorithms</a>
       <div class="dd-divider"></div>
-      <a href="archive.html">All Courses →</a>
+      <a href="archive.html">All Courses &#x2192;</a>
     </div>
-    <button class="m-toggle" id="m-policies"><span>Policies</span><span class="m-chevron">▾</span></button>
+    <button class="m-toggle" id="m-policies"><span>Policies</span><span class="m-chevron">&#x25BE;</span></button>
     <div class="mobile-sub" id="m-policies-sub">
-      <a href="policy-ai.html">AI &amp; ChatGPT Use</a>
-      <a href="policy-exams.html">Exam Policy</a>
-      <a href="policy-assignments.html">Assignment Policy</a>
+      <a href="policies.html">AI &amp; ChatGPT Use</a>
       <div class="dd-divider"></div>
-      <a href="policies.html">All Policies →</a>
+      <a href="policies.html">All Policies &#x2192;</a>
     </div>
-    <a href="#">Publications</a>
-    <a href="#">Contact</a>
+    <a href="archive.html">Archive</a>
     <div class="mobile-controls">
-      <button class="ctrl-btn theme-btn" id="theme-btn-m">🌙</button>
-      <button class="ctrl-btn" id="lang-btn-m">한국어</button>
+      <button class="ctrl-btn theme-btn-all" style="font-size:.88rem;padding:4px 8px">&#x1F319;</button>
+      <button class="ctrl-btn lang-btn-all">&#xD55C;&#xAD6D;&#xC5B4;</button>
     </div>
   </div>
 </nav>
-
 <div class="wrap">
-  <!-- HEADER -->
-  <header>
-    <p class="eyebrow animate d1">Course Policies &amp; Expectations</p>
-    <h1 class="animate d2">Academic<br><em>Policies</em></h1>
-    <p class="hero-desc animate d3">
-      These policies apply to all courses I teach unless a specific course syllabus states otherwise. Please read each policy carefully before the semester begins. Updates are noted by date.
-    </p>
-  </header>
+<header>
+  <p class="eyebrow animate d1">Course Policies &amp; Expectations</p>
+  <h1 class="animate d2">Academic<br><em>Policies</em></h1>
+  <p class="hero-desc animate d3">These policies apply to all courses I teach unless a specific syllabus states otherwise. Please read carefully before the semester begins.</p>
+</header>
 
-  <!-- FEATURED LIST SECTION -->
-  <section class="featured-section">
-    <div class="section-heading">
-      <span class="section-label">Core Policies</span>
-      <span class="section-line"></span>
-    </div>
+<section class="pol-section">
 
-    <ul class="policy-list">
-      <li>
-        <a class="policy-list-item" href="policy-ai.html">
-          <div class="policy-list-inner">
-            <span class="pl-num">01</span>
-            <div class="pl-content">
-              <div class="pl-title">AI &amp; ChatGPT Use Policy</div>
-              <div class="pl-desc">Guidelines for responsible use of generative AI tools in coursework, assignments, and exams.</div>
-            </div>
-            <div class="pl-meta">
-              <span class="pl-tag">Updated Jan 2025</span>
-              <span class="pl-arrow">→</span>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="policy-list-item" href="policy-grading.html">
-          <div class="policy-list-inner">
-            <span class="pl-num">02</span>
-            <div class="pl-content">
-              <div class="pl-title">Grading Policy</div>
-              <div class="pl-desc">Grade breakdown, late submission penalties, and grade appeal procedures.</div>
-            </div>
-            <div class="pl-meta">
-              <span class="pl-tag">Updated Aug 2024</span>
-              <span class="pl-arrow">→</span>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="policy-list-item" href="policy-assignments.html">
-          <div class="policy-list-inner">
-            <span class="pl-num">03</span>
-            <div class="pl-content">
-              <div class="pl-title">Assignment &amp; Collaboration Policy</div>
-              <div class="pl-desc">Rules on individual vs. group work, plagiarism, and citation requirements.</div>
-            </div>
-            <div class="pl-meta">
-              <span class="pl-tag">Updated Aug 2024</span>
-              <span class="pl-arrow">→</span>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="policy-list-item" href="policy-exams.html">
-          <div class="policy-list-inner">
-            <span class="pl-num">04</span>
-            <div class="pl-content">
-              <div class="pl-title">Exam &amp; Assessment Policy</div>
-              <div class="pl-desc">Rules for midterms, finals, makeup exams, and accommodation requests.</div>
-            </div>
-            <div class="pl-meta">
-              <span class="pl-tag">Updated Aug 2024</span>
-              <span class="pl-arrow">→</span>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="policy-list-item" href="policy-attendance.html">
-          <div class="policy-list-inner">
-            <span class="pl-num">05</span>
-            <div class="pl-content">
-              <div class="pl-title">Attendance &amp; Participation Policy</div>
-              <div class="pl-desc">Attendance expectations, excused absences, and how participation is evaluated.</div>
-            </div>
-            <div class="pl-meta">
-              <span class="pl-tag">Updated Mar 2025</span>
-              <span class="pl-arrow">→</span>
-            </div>
-          </div>
-        </a>
-      </li>
-    </ul>
-  </section>
+  <!-- Featured Policy Cards (prominent) -->
+  <div class="section-heading animate d3">
+    <span class="section-label">Featured Policies</span>
+    <span class="section-line"></span>
+  </div>
+  <div class="policy-grid animate d4">
+<a class="pol-card" href="#ai">
+  <div class="pol-card-body">
+    <span class="pol-code">POL &mdash; 01</span>
+    <div class="pol-card-title">AI &amp; ChatGPT Use Policy</div>
+    <div class="pol-excerpt">Generative AI tools such as ChatGPT, Claude, and Copilot are permitted under specific conditions. Students may use AI for brainstorming and debugging, but all submitted work must reflect the student's own understanding. AI-generated content must be disclosed. Submitting AI work without disclosure is academic dishonesty. In exams, AI is strictly prohibited.</div>
+    <span class="read-more">Read full policy &#x2192;</span>
+    <div class="pol-tags"><span class="pol-tag ai">AI Tools</span><span class="pol-tag core">Core</span></div>
+    <div class="pol-card-footer"><span class="pol-updated">Updated Jan 2025</span><span class="pol-arrow">&#x2192;</span></div>
+  </div>
+  <div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
+</a>
+<a class="pol-card" href="#grade">
+  <div class="pol-card-body">
+    <span class="pol-code">POL &mdash; 02</span>
+    <div class="pol-card-title">Grading Policy</div>
+    <div class="pol-excerpt">Final grades: assignments 40%, midterm 25%, final 30%, participation 5%. Standard scale (A: 90&ndash;100, B: 80&ndash;89&hellip;). Late submissions penalized 10% per day without an approved extension. Grade appeals must be submitted in writing within two weeks.</div>
+    <span class="read-more">Read full policy &#x2192;</span>
+    <div class="pol-tags"><span class="pol-tag assess">Grading</span><span class="pol-tag core">Core</span></div>
+    <div class="pol-card-footer"><span class="pol-updated">Updated Aug 2024</span><span class="pol-arrow">&#x2192;</span></div>
+  </div>
+  <div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
+</a>
+<a class="pol-card" href="#assign">
+  <div class="pol-card-body">
+    <span class="pol-code">POL &mdash; 03</span>
+    <div class="pol-card-title">Assignment &amp; Collaboration Policy</div>
+    <div class="pol-excerpt">Unless labeled as a group project, all assignments must be completed individually. Discussing ideas at a high level is acceptable, but code and writing must be your own. Do not share solutions. Plagiarism detection tools are used. Violations result in a failing grade and academic discipline.</div>
+    <span class="read-more">Read full policy &#x2192;</span>
+    <div class="pol-tags"><span class="pol-tag conduct">Integrity</span><span class="pol-tag core">Core</span></div>
+    <div class="pol-card-footer"><span class="pol-updated">Updated Aug 2024</span><span class="pol-arrow">&#x2192;</span></div>
+  </div>
+  <div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
+</a>
+  </div>
 
-  <!-- ALL POLICIES — CARD GRID -->
-  <section class="policies-section">
+  <!-- Full Policy List -->
+  <div class="list-section">
     <div class="section-heading">
       <span class="section-label">All Policies</span>
       <span class="section-line"></span>
     </div>
-
-    <div class="policy-grid">
-
-      <!-- AI Policy -->
-      <a class="card" href="policy-ai.html">
-        <div class="card-body">
-          <span class="card-code">POL — 01</span>
-          <div class="card-title">AI &amp; ChatGPT Use Policy</div>
-          <div class="card-excerpt">
-            The use of generative AI tools such as ChatGPT, Claude, Gemini, and Copilot is permitted in this course under specific conditions. Students may use AI for brainstorming, understanding concepts, and debugging code, but all submitted work must reflect the student's own understanding and analysis. Any AI-generated content must be clearly disclosed in a statement at the end of the submission, identifying which tool was used and how. Submitting AI-generated work without disclosure constitutes academic dishonesty and will be treated as plagiarism. In exams and in-class assessments, the use of AI tools is strictly prohibited unless explicitly stated otherwise by the instructor. These policies reflect the evolving landscape of AI in academia and will be updated each semester.
-          </div>
-          <span class="read-more">Read full policy →</span>
-          <div class="card-tags"><span class="tag ai">AI Tools</span><span class="tag core">Core</span></div>
-          <div class="card-footer"><span class="card-updated">Updated Jan 2025</span><span class="card-arrow">→</span></div>
-        </div>
-        <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
-      </a>
-
-      <!-- Grading Policy -->
-      <a class="card" href="policy-grading.html">
-        <div class="card-body">
-          <span class="card-code">POL — 02</span>
-          <div class="card-title">Grading Policy</div>
-          <div class="card-excerpt">
-            Final grades are computed as follows: assignments (40%), midterm exam (25%), final exam (30%), and participation (5%). Letter grades follow the standard university scale (A: 90–100, B: 80–89, C: 70–79, D: 60–69, F: below 60). Late submissions will be penalized at 10% per day unless a written extension is approved before the deadline. Students may appeal a grade within two weeks of receiving it by submitting a written regrade request. Grade inflation is not practiced; the distribution reflects actual performance relative to course objectives.
-          </div>
-          <span class="read-more">Read full policy →</span>
-          <div class="card-tags"><span class="tag assess">Grading</span><span class="tag core">Core</span></div>
-          <div class="card-footer"><span class="card-updated">Updated Aug 2024</span><span class="card-arrow">→</span></div>
-        </div>
-        <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
-      </a>
-
-      <!-- Assignment Policy -->
-      <a class="card" href="policy-assignments.html">
-        <div class="card-body">
-          <span class="card-code">POL — 03</span>
-          <div class="card-title">Assignment &amp; Collaboration Policy</div>
-          <div class="card-excerpt">
-            Unless explicitly labeled as a group project, all assignments must be completed individually. You may discuss ideas and approaches with classmates at a high level, but the code, writing, and analysis you submit must be entirely your own. Do not share your solutions or code with other students. Plagiarism detection tools are used to compare all submissions. Copying from the internet, previous semesters' solutions, or other students is strictly prohibited and will result in a failing grade for the assignment and possible academic discipline.
-          </div>
-          <span class="read-more">Read full policy →</span>
-          <div class="card-tags"><span class="tag conduct">Integrity</span><span class="tag core">Core</span></div>
-          <div class="card-footer"><span class="card-updated">Updated Aug 2024</span><span class="card-arrow">→</span></div>
-        </div>
-        <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
-      </a>
-
-      <!-- Exam Policy -->
-      <a class="card" href="policy-exams.html">
-        <div class="card-body">
-          <span class="card-code">POL — 04</span>
-          <div class="card-title">Exam &amp; Assessment Policy</div>
-          <div class="card-excerpt">
-            All exams are closed-book unless stated otherwise. Students must arrive on time; no additional time is given to students who arrive late. Makeup exams are only permitted in cases of documented medical emergency or official university conflict notified at least 48 hours in advance. Accommodations for students with disabilities must be arranged through the university's disability office and submitted at least one week before the exam. Calculators, notes, and electronic devices are prohibited unless explicitly permitted.
-          </div>
-          <span class="read-more">Read full policy →</span>
-          <div class="card-tags"><span class="tag assess">Exams</span></div>
-          <div class="card-footer"><span class="card-updated">Updated Aug 2024</span><span class="card-arrow">→</span></div>
-        </div>
-        <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
-      </a>
-
-      <!-- Attendance Policy -->
-      <a class="card" href="policy-attendance.html">
-        <div class="card-body">
-          <span class="card-code">POL — 05</span>
-          <div class="card-title">Attendance &amp; Participation Policy</div>
-          <div class="card-excerpt">
-            Regular attendance is expected. Students may miss up to three lectures without penalty. Additional absences will result in a reduction of the participation grade (1% per absence beyond the first three). Absences due to illness, family emergency, or official university activities are excused if documented and submitted within one week. Participation includes in-class discussion, questions, and engagement with lecture material. Passive attendance does not constitute participation.
-          </div>
-          <span class="read-more">Read full policy →</span>
-          <div class="card-tags"><span class="tag conduct">Attendance</span></div>
-          <div class="card-footer"><span class="card-updated">Updated Mar 2025</span><span class="card-arrow">→</span></div>
-        </div>
-        <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
-      </a>
-
-      <!-- Office Hours -->
-      <a class="card" href="policy-officehours.html">
-        <div class="card-body">
-          <span class="card-code">POL — 06</span>
-          <div class="card-title">Office Hours &amp; Communication Policy</div>
-          <div class="card-excerpt">
-            Office hours are held Tuesdays and Thursdays, 3:00–4:30 PM in Engineering Hall 412. Email responses are provided within 48 hours on weekdays. Questions about assignments or course content should first be posted to the course discussion board so other students may benefit. Personal matters should be communicated via email with your student ID number in the subject line. I do not negotiate grades via email; if you wish to discuss grading, please attend office hours.
-          </div>
-          <span class="read-more">Read full policy →</span>
-          <div class="card-tags"><span class="tag">Communication</span></div>
-          <div class="card-footer"><span class="card-updated">Updated Jan 2025</span><span class="card-arrow">→</span></div>
-        </div>
-        <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
-      </a>
-
-    </div>
-  </section>
-</div>
-
-<footer>
-  <div class="footer-inner">
-    <span class="footer-note">© 2025 J. Kim · Last updated April 2025</span>
-    <div class="footer-links">
-      <a href="#">Google Scholar</a>
-      <a href="#">GitHub</a>
-      <a href="#">CV</a>
-      <a href="#">Lab</a>
-    </div>
+    <ul class="pol-list">
+<li><a class="pol-list-item" href="#ai">
+  <span class="pl-num">01</span>
+  <div class="pl-content"><div class="pl-title">AI &amp; ChatGPT Use Policy</div><div class="pl-desc">Rules on generative AI, ChatGPT, and disclosure requirements.</div></div>
+  <div class="pl-meta"><span class="pl-date">Jan 2025</span><span class="pl-arrow">&#x2192;</span></div>
+</a></li><li><a class="pol-list-item" href="#grade">
+  <span class="pl-num">02</span>
+  <div class="pl-content"><div class="pl-title">Grading Policy</div><div class="pl-desc">Grade breakdown, late penalties, and appeal procedures.</div></div>
+  <div class="pl-meta"><span class="pl-date">Aug 2024</span><span class="pl-arrow">&#x2192;</span></div>
+</a></li><li><a class="pol-list-item" href="#assign">
+  <span class="pl-num">03</span>
+  <div class="pl-content"><div class="pl-title">Assignment &amp; Collaboration</div><div class="pl-desc">Individual vs. group work, plagiarism, and citations.</div></div>
+  <div class="pl-meta"><span class="pl-date">Aug 2024</span><span class="pl-arrow">&#x2192;</span></div>
+</a></li><li><a class="pol-list-item" href="#exams">
+  <span class="pl-num">04</span>
+  <div class="pl-content"><div class="pl-title">Exam &amp; Assessment Policy</div><div class="pl-desc">Closed-book rules, makeups, disability accommodations.</div></div>
+  <div class="pl-meta"><span class="pl-date">Aug 2024</span><span class="pl-arrow">&#x2192;</span></div>
+</a></li><li><a class="pol-list-item" href="#attend">
+  <span class="pl-num">05</span>
+  <div class="pl-content"><div class="pl-title">Attendance &amp; Participation</div><div class="pl-desc">Excused absences, participation grading, attendance limits.</div></div>
+  <div class="pl-meta"><span class="pl-date">Mar 2025</span><span class="pl-arrow">&#x2192;</span></div>
+</a></li><li><a class="pol-list-item" href="#office">
+  <span class="pl-num">06</span>
+  <div class="pl-content"><div class="pl-title">Office Hours &amp; Communication</div><div class="pl-desc">Office hours schedule, email response policy, grade discussion rules.</div></div>
+  <div class="pl-meta"><span class="pl-date">Jan 2025</span><span class="pl-arrow">&#x2192;</span></div>
+</a></li><li><a class="pol-list-item" href="#record">
+  <span class="pl-num">07</span>
+  <div class="pl-content"><div class="pl-title">Recording &amp; Sharing Policy</div><div class="pl-desc">Rules on recording lectures and sharing course materials.</div></div>
+  <div class="pl-meta"><span class="pl-date">Jan 2025</span><span class="pl-arrow">&#x2192;</span></div>
+</a></li>
+    </ul>
   </div>
+
+  <!-- FAQ Accordion -->
+  <div class="faq-section">
+    <div class="section-heading">
+      <span class="section-label">Frequently Asked Questions</span>
+      <span class="section-line"></span>
+    </div>
+    <ul class="faq-list">
+<li class="faq-item">
+  <button class="faq-q"><span>Can I use ChatGPT to help write my assignments?</span><span class="faq-chevron">&#x25BE;</span></button>
+  <div class="faq-a"><p>Yes, with proper disclosure. You may use AI tools for brainstorming, understanding concepts, and debugging code. However, all submitted writing and analysis must be your own. Add a disclosure statement at the end of any submission where AI was used, specifying which tool and how it was used.</p></div>
+</li><li class="faq-item">
+  <button class="faq-q"><span>What happens if I miss an exam?</span><span class="faq-chevron">&#x25BE;</span></button>
+  <div class="faq-a"><p>Makeup exams are only permitted in cases of documented medical emergency or official university conflict. You must notify me at least 48 hours in advance (when possible). Simply forgetting or misreading the schedule does not qualify. Contact me as early as possible with documentation.</p></div>
+</li><li class="faq-item">
+  <button class="faq-q"><span>How do I appeal a grade?</span><span class="faq-chevron">&#x25BE;</span></button>
+  <div class="faq-a"><p>Submit a written regrade request within two weeks of receiving the grade. Email a clear, specific explanation of which problem you believe was graded incorrectly and why. I do not negotiate grades verbally &mdash; all appeals must be in writing. Note that regrading may result in a higher or lower score.</p></div>
+</li><li class="faq-item">
+  <button class="faq-q"><span>How many absences are allowed before my grade is affected?</span><span class="faq-chevron">&#x25BE;</span></button>
+  <div class="faq-a"><p>Up to three unexcused absences are permitted without penalty. Each additional absence reduces your participation grade by 1%. Absences due to illness, family emergency, or official university activities are excused if documented and submitted within one week.</p></div>
+</li><li class="faq-item">
+  <button class="faq-q"><span>Are lecture slides posted before or after class?</span><span class="faq-chevron">&#x25BE;</span></button>
+  <div class="faq-a"><p>Slides are generally posted on Google Classroom the morning of class. Recording policies vary &mdash; please check the individual course syllabus. Reference materials and readings are posted at least one week in advance.</p></div>
+</li><li class="faq-item">
+  <button class="faq-q"><span>Can I submit assignments late?</span><span class="faq-chevron">&#x25BE;</span></button>
+  <div class="faq-a"><p>Late submissions are penalized 10% per calendar day unless a written extension has been approved before the deadline. Extensions are granted for genuine emergencies with documentation. Please ask before the deadline, not after.</p></div>
+</li>
+    </ul>
+  </div>
+
+</section>
+</div><footer>
+  <div class="footer-grid">
+    <div class="f-col"><span class="f-brand">Prof. J. Kim</span><span>Associate Professor &middot; CS</span><span>PAI Lab (Physical AI)</span><a href="mailto:jkim@yonsei.ac.kr">jkim@yonsei.ac.kr</a></div>
+    <div class="f-col"><span class="f-heading">Teaching</span><a href="index.html">Current Courses</a><a href="archive.html">Course Archive</a><a href="policies.html">Academic Policies</a></div>
+    <div class="f-col"><span class="f-heading">Connect</span><a href="#">Google Scholar</a><a href="#">GitHub</a><a href="#">PAI Lab &#x2192;</a><a href="#">CV / Resume</a></div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copy">&copy; 2025 J. Kim</span><span class="footer-updated">Last updated April 2025</span></div>
 </footer>
-
 <script>
-/* Theme */
-function applyTheme(t) {
-  document.documentElement.setAttribute('data-theme', t);
-  const icon = t === 'dark' ? '🌙' : '☀️';
-  document.getElementById('theme-btn').textContent = icon;
-  document.getElementById('theme-btn-m').textContent = icon;
-  localStorage.setItem('theme', t);
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  document.querySelectorAll('.theme-btn-all').forEach(b=>b.textContent=t==='dark'?'\uD83C\uDF19':'\u2600\uFE0F');
+  localStorage.setItem('theme',t);
 }
-(function(){ applyTheme(localStorage.getItem('theme') || 'dark'); })();
-document.getElementById('theme-btn').addEventListener('click', () => {
-  applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-});
-document.getElementById('theme-btn-m').addEventListener('click', () => {
-  applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-});
-
-/* Lang (simple toggle — localise as needed) */
-let lang = 'en';
-function toggleLang() {
-  lang = lang === 'en' ? 'ko' : 'en';
-  document.getElementById('lang-btn').textContent   = lang === 'en' ? '한국어' : 'English';
-  document.getElementById('lang-btn-m').textContent = lang === 'en' ? '한국어' : 'English';
-}
-document.getElementById('lang-btn').addEventListener('click', toggleLang);
-document.getElementById('lang-btn-m').addEventListener('click', toggleLang);
-
-/* Dropdowns */
-document.querySelectorAll('.has-dropdown').forEach(item => {
-  item.querySelector('button').addEventListener('click', e => {
+(()=>applyTheme(localStorage.getItem('theme')||'dark'))();
+document.querySelectorAll('.theme-btn-all').forEach(b=>b.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')));
+let _lang='en';
+document.querySelectorAll('.lang-btn-all').forEach(b=>b.addEventListener('click',()=>{
+  _lang=_lang==='en'?'ko':'en';
+  document.querySelectorAll('.lang-btn-all').forEach(x=>x.textContent=_lang==='en'?'\uD55C\uAD6D\uC5B4':'English');
+}));
+document.querySelectorAll('.has-dropdown').forEach(item=>{
+  item.querySelector('button').addEventListener('click',e=>{
     e.stopPropagation();
-    const was = item.classList.contains('open');
-    document.querySelectorAll('.has-dropdown.open').forEach(d => d.classList.remove('open'));
-    if (!was) item.classList.add('open');
+    const was=item.classList.contains('open');
+    document.querySelectorAll('.has-dropdown.open').forEach(d=>d.classList.remove('open'));
+    if(!was)item.classList.add('open');
   });
 });
-document.addEventListener('click', () => {
-  document.querySelectorAll('.has-dropdown.open').forEach(d => d.classList.remove('open'));
+document.addEventListener('click',()=>document.querySelectorAll('.has-dropdown.open').forEach(d=>d.classList.remove('open')));
+const _hb=document.getElementById('hamburger'),_mn=document.getElementById('mobile-nav');
+if(_hb&&_mn){_hb.addEventListener('click',()=>{const o=_mn.classList.toggle('open');_hb.classList.toggle('open',o);_hb.setAttribute('aria-expanded',o)})}
+['courses','policies'].forEach(id=>{
+  const b=document.getElementById('m-'+id),s=document.getElementById('m-'+id+'-sub');
+  if(b&&s)b.addEventListener('click',()=>{const o=s.classList.toggle('open');b.classList.toggle('open',o)});
 });
+const _ft=document.getElementById('filter-toggle-btn'),_fp=document.getElementById('filter-panel');
+if(_ft&&_fp)_ft.addEventListener('click',()=>{const o=_fp.classList.toggle('open');_ft.classList.toggle('open',o)});
+const _tt=document.getElementById('thumb-toggle');
+if(_tt){
+  const _sec=document.getElementById('thumb-section');
+  _tt.addEventListener('click',()=>{
+    if(!_sec)return;
+    const a=_sec.classList.toggle('thumbs-active');
+    _tt.classList.toggle('active',a);
+    const ic=_tt.querySelector('.t-icon');
+    if(ic)ic.textContent=a?'\u229F':'\u229E';
+  });
+}
 
-/* Hamburger */
-const hb = document.getElementById('hamburger');
-const mn = document.getElementById('mobile-nav');
-hb.addEventListener('click', () => {
-  const o = mn.classList.toggle('open');
-  hb.classList.toggle('open', o);
-  hb.setAttribute('aria-expanded', o);
-});
-['courses','policies'].forEach(id => {
-  document.getElementById('m-'+id).addEventListener('click', () => {
-    const sub = document.getElementById('m-'+id+'-sub');
-    const o = sub.classList.toggle('open');
-    document.getElementById('m-'+id).classList.toggle('open', o);
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.faq-item');
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen)item.classList.add('open');
   });
 });
 </script>
