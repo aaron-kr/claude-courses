@@ -242,6 +242,29 @@ footer{border-top:1px solid var(--border);padding:48px 0 28px;position:relative;
 .notes-all-link{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent3);text-decoration:none}
 .notes-all-link:hover{text-decoration:underline}
 @media(max-width:700px){.bottom-section{grid-template-columns:1fr}.cta-image{display:none}.section-actions{width:100%}}
+
+/* ── Announcements ── */
+.announce-section{padding:0 0 0}
+.announce-list{list-style:none}
+a.announce-item{display:flex;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:background .15s;margin:0 -28px;padding-left:28px;padding-right:28px}
+a.announce-item:first-child{border-top:1px solid var(--border)}
+a.announce-item:hover{background:var(--surface)}
+.ann-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.ann-dot.new{background:var(--accent);box-shadow:0 0 6px var(--accent)}
+.ann-dot.info{background:var(--accent2)}
+.ann-dot.warn{background:var(--warn)}
+.ann-dot.teal{background:var(--accent3)}
+.ann-body{flex:1;min-width:0}
+.ann-title{font-size:.88rem;font-weight:500;color:var(--text);line-height:1.35}
+.ann-desc{font-size:.77rem;color:var(--muted);margin-top:2px;line-height:1.5}
+.ann-meta{display:flex;gap:8px;align-items:center;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+.ann-date{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--muted);white-space:nowrap}
+.ann-badge{font-family:'IBM Plex Mono',monospace;font-size:.58rem;padding:1px 7px;border-radius:3px;border:1px solid var(--border);background:var(--tag-bg);color:var(--muted);white-space:nowrap}
+.ann-badge.course{color:var(--accent);border-color:rgba(155,101,255,.28)}
+.ann-badge.lab{color:var(--accent3);border-color:rgba(109,204,221,.25)}
+.ann-badge.admin{color:var(--accent2);border-color:rgba(126,184,247,.22)}
+.ann-arrow{font-size:.7rem;color:var(--muted);opacity:0;transition:opacity .15s}
+a.announce-item:hover .ann-arrow{opacity:1}
 </style>
 </head>
 <body>
@@ -304,6 +327,7 @@ footer{border-top:1px solid var(--border);padding:48px 0 28px;position:relative;
     </div>
   </div>
 </nav>
+<div class="mobile-nav-backdrop" id="mobile-backdrop"></div>
 <div class="wrap">
 <header>
   <div class="today-pill animate d1" id="today-pill">
@@ -501,6 +525,58 @@ footer{border-top:1px solid var(--border);padding:48px 0 28px;position:relative;
 </a></div>
   </div>
 </section>
+
+
+<div class="announce-section" style="padding:52px 0 0">
+  <div class="section-top">
+    <div class="section-heading-row">
+      <span class="section-label">Announcements</span>
+      <span class="section-line"></span>
+    </div>
+  </div>
+  <ul class="announce-list">
+    <a class="announce-item" href="#">
+      <span class="ann-dot new"></span>
+      <div class="ann-body">
+        <div class="ann-title">CS 4820 Syllabus Updated &mdash; Midterm date moved</div>
+        <div class="ann-desc">The midterm exam has been rescheduled to April 10 (Thursday). Please check Google Classroom for the updated syllabus PDF.</div>
+      </div>
+      <div class="ann-meta"><span class="ann-date">Apr 21</span><span class="ann-badge course">CS 4820</span><span class="ann-arrow">&#x2192;</span></div>
+    </a>
+    <a class="announce-item" href="#">
+      <span class="ann-dot teal"></span>
+      <div class="ann-body">
+        <div class="ann-title">PAI Lab &mdash; Spring 2025 researcher applications open</div>
+        <div class="ann-desc">We have 2 graduate and 1 undergraduate research positions available. Apply via the PAI Lab site by May 1.</div>
+      </div>
+      <div class="ann-meta"><span class="ann-date">Apr 18</span><span class="ann-badge lab">PAI Lab</span><span class="ann-arrow">&#x2192;</span></div>
+    </a>
+    <a class="announce-item" href="office-hours.html">
+      <span class="ann-dot info"></span>
+      <div class="ann-body">
+        <div class="ann-title">Office hours &mdash; no OH at Hanyang this week (Apr 24)</div>
+        <div class="ann-desc">I will be at a conference Thursday. KakaoTalk and email remain open.</div>
+      </div>
+      <div class="ann-meta"><span class="ann-date">Apr 17</span><span class="ann-badge admin">Schedule</span><span class="ann-arrow">&#x2192;</span></div>
+    </a>
+    <a class="announce-item" href="#">
+      <span class="ann-dot warn"></span>
+      <div class="ann-body">
+        <div class="ann-title">CS 3310 HW 3 deadline extended to Friday</div>
+        <div class="ann-desc">Due to the holiday, the deadline for Problem Set 3 has been extended to Friday, April 25 at 11:59 PM.</div>
+      </div>
+      <div class="ann-meta"><span class="ann-date">Apr 15</span><span class="ann-badge course">CS 3310</span><span class="ann-arrow">&#x2192;</span></div>
+    </a>
+    <a class="announce-item" href="#">
+      <span class="ann-dot teal"></span>
+      <div class="ann-body">
+        <div class="ann-title">New lab notes posted: &ldquo;Embodied RLHF &mdash; Spring 2025 update&rdquo;</div>
+        <div class="ann-desc">Updated reading list and preliminary experiment results now on GitHub.</div>
+      </div>
+      <div class="ann-meta"><span class="ann-date">Apr 12</span><span class="ann-badge lab">PAI Lab</span><span class="ann-arrow">&#x2192;</span></div>
+    </a>
+  </ul>
+</div>
 
 <div class="bottom-section">
   <div class="cta-card">
