@@ -1,0 +1,192 @@
+- date: 9/3
+  week: 1
+  title: >
+    <strong>01 데이터베이스 개념</strong>
+  supp:
+  readings: p. 16-38
+  hw:
+  slides: "https://docs.google.com/presentation/d/1prBoWRRRmnbfa_OXl83ZlZCoQZQZl1zeHYH8I2A9PxM/edit?usp=sharing"
+  img: 2024/dju-db/1-db-intro.jpg
+  logistics:
+
+- date: 9/10
+  week: 2
+  title: >
+    <strong>02 데이터베이스 시스템</strong>
+  supp:
+  readings: p. 40-64
+  hw: "https://classroom.github.com/a/8jsTnPWD"
+  slides: "https://docs.google.com/presentation/d/18qZensM7SVbwj1G6zeinNalz0yoyO9RfCXVot1D_M5s/edit?usp=sharing"
+  slides2: "https://docs.google.com/presentation/d/18Y-0nSrlGzUN3x7CETKwkAf-5t-1rFYCcAUEhueknRA/edit?usp=sharing"
+  img: 2024/dju-db/2-db-system.jpg
+  logistics: >
+    <strong>GitHub 저장소</strong>
+
+- date: 9/17
+  week: 3
+  title: >
+    <span style="color: red"><strong>No Class</strong> Chuseok</span>
+
+- date: >
+    <span style="color: red">9/21 보강</span>
+  week: 3
+  title: >
+    <strong>03 관계형 데이터 모델</strong>
+  supp:
+  readings: p. 66-96
+  hw: "https://drive.google.com/file/d/1Hg4Y0yU174eAjQ2wmT-hJmmiWJ6n4d7s/view?usp=sharing"
+  slides: "https://docs.google.com/presentation/d/1qwmWpPHghHnQpajJL9DmZOm51IzTSkGHNU1oL_JrmVA/edit?usp=sharing"
+  slides2: "https://docs.google.com/presentation/d/1EmHhUwbOk6vQ8i0Y5wVLSyt2TT6siIRFdFehboi7LEM/edit?usp=sharing"
+  img: 2024/dju-db/3-relational-data-model.jpg
+  logistics: >
+    3장 연습 문제
+
+- date: 9/24
+  week: 4
+  title: >
+    <strong>04 관계 대수</strong>
+  supp:
+  readings: p. 98-130
+  hw: "https://drive.google.com/file/d/1DIAXXa6SF785RKxtxCZTlWXHdKdCRS06/view?usp=sharing"
+  slides: "https://docs.google.com/presentation/d/1CHemYt6g2OWAw30wVPsl4HZaK2F6zhMbjJt1t2kzDvY/edit?usp=sharing"
+  img: 2024/dju-db/4-relational-algebra.jpg
+  logistics: >
+    4장 연습 문제
+
+- date: 10/1
+  week: 5
+  title: >
+    <span style="color: red"><strong>No Class</strong> 국군의 날</span>
+
+- date: 10/8
+  week: 6
+  title: >
+    <strong>05 SQL 기초</strong>
+  supp:
+  readings: p. 132-186
+  hw: "https://drive.google.com/file/d/1aqzmFKgIJD-wdPlycL_ZoYZ0eGLoroYp/view?usp=sharing"
+  slides: "https://docs.google.com/presentation/d/1Yr94Q-BhWnzQYb7VOizdvpOiMj1RVMyFnFjqaI3bQkw/edit?usp=sharing"
+  img: 2024/dju-db/6-sql-basics.jpg
+  logistics: >
+    5장 연습 문제
+
+- date: 10/15
+  week: 7
+  title: >
+    <strong>06 SQL 활용</strong>
+  supp:
+  readings: p. 188-226
+  hw: "https://drive.google.com/file/d/1__LVNf5gPwPL-tcUqItGOzB8-CXBGqhA/view?usp=sharing"
+  slides: "https://docs.google.com/presentation/d/177vgQvQGSxfwptzZO4K5VmNa_RgofkulVSQRWyDHoPc/edit?usp=sharing"
+  slides2: "https://docs.google.com/presentation/d/1ItZuJgwlhK-3HCqVuVEa_my9uMHpYN_RCIPDFkY70bw/edit?usp=sharing"
+  img: 2024/dju-db/7-sql-use.jpg
+  logistics: >
+    6장 연습 문제<br>
+    <span style="color: purple;">인덱스 예시 (보충 PPT #32)</span>
+
+- date: 10/22
+  week: 8
+  title: >
+    <strong>Midterm Test</strong><br>
+    <div style="display: none;"><br>
+      [<a href="https://forms.gle/6q77bNa7j8nYu4hb7">퀴즈</a>] 
+      [<a href="https://docs.google.com/presentation/d/1dPZeRL_wIPsUHi6oG-rz4fFA0H52JBuelDGD_jAF8i8/edit?usp=sharing">실기</a>]
+    </div>
+
+- date: 10/29
+  week: 9
+  title: >
+    <strong>07 SQL 응용</strong>
+  supp:
+  readings: p. 227-282
+  hw: "https://drive.google.com/file/d/18G2cVuA_r8ikCRpAEjC0TBDUoDjfFUp0/view?usp=sharing"
+  slides: "https://docs.google.com/presentation/d/1jLl9lepQWUbvdLYNPr6cLL7jWbQhFq_IV5dUAcVxiFA/edit?usp=sharing"
+  slides2: "https://docs.google.com/presentation/d/1ItZuJgwlhK-3HCqVuVEa_my9uMHpYN_RCIPDFkY70bw/edit?usp=sharing"
+  img: 2024/dju-db/9-sql-app.jpg
+  logistics: >
+    7장 연습 문제
+
+- date: 11/5
+  week: 10
+  title: >
+    <strong>08 정규화<br>
+    09 E-R 모델</strong>
+  supp:
+  readings: p. 316-340
+  hw:
+  slides: "https://docs.google.com/presentation/d/1LVqTBe_gFx5-8p0G1H2cBX5iK6YZi7CwTuRlRThrz-Q/edit?usp=sharing"
+  img: 2024/dju-db/10-reg-er.jpg
+  logistics:
+    <a href="https://drive.google.com/file/d/1gIY4Zv2Reb1JmOPCyNvbllZm0UEfHVQ2/view?usp=sharing">8장 연습 문제</a><br>
+    <a href="https://drive.google.com/file/d/1kBFLeTiLQI6nFxoFANmeTR5yp4WSy7Tv/view?usp=sharing">9장 연습 문제</a>
+
+- date: 11/12
+  week: 11
+  title: >
+    <strong>10 데이터베이스 설계</strong>
+  supp:
+  readings: p. 342-378
+  hw: "https://drive.google.com/file/d/1oLRxH49dNMTGL8c_L7KA50n2fYf9ZI5l/view?usp=sharing"
+  slides: "https://docs.google.com/presentation/d/1qS6A3C-t6Zdr9f7vBkkzAOD5uTmGNR903Xpm-TsZ83Y/edit?usp=sharing"
+  img: 2024/dju-db/11-db-arch.jpg
+  logistics: >
+    10장 연습 문제
+
+- date: 11/19
+  week: 12
+  title: >
+    <strong>11 데이터웨어하우스와 데이터베이스 응용</strong>
+  supp:
+  readings: p. 380-420
+  hw: "https://drive.google.com/file/d/12QgjN0c0LV8W0UM7XrX74aNKkn8qV8ho/view?usp=sharing"
+  slides: "https://docs.google.com/presentation/d/15wXgQwlUYmLnPlSkYZ-J4KHrc0Jm8FdHd-J6xlS46_s/edit?usp=sharing"
+  img: 2024/dju-db/12-data-warehouse.jpg
+  logistics: >
+    11장 연습 문제
+
+- date: 11/26
+  week: 13
+  title: >
+    <strong>12 빅데이터와 NoSQL</strong>
+  supp:
+  readings: p. 422-456
+  hw: "https://drive.google.com/file/d/1nqckkikdZhItsZm6R9zHd8T7xJIfIDdo/view?usp=sharing"
+  slides: "https://docs.google.com/presentation/d/1RoPW2FoNcLz3cOEw_a6toiVUtOqJgwtKn8g1aX1_yKk/edit?usp=sharing"
+  img: 2024/dju-db/13-big-data.jpg
+  logistics: >
+    12장 연습 문제
+
+- date: 12/3
+  week: 14
+  title: >
+    <strong>13 NoSQL과 몽고DB</strong>
+  supp:
+  readings: p 458-490
+  hw: "https://drive.google.com/file/d/1F4n3wKVU99UZJgOO6GCjJy_PR4T9mD-K/view?usp=sharing"
+  slides: "https://docs.google.com/presentation/d/1q9u0-vbXhD6iG3gyYx_e4cuBTrN0zU3vwys7kLXB19M/edit?usp=sharing"
+  slides2: "https://docs.google.com/presentation/d/1nQ9S0eJkDxUubjYuhfDyA1j6DHjCgPsr8s00Q-Q3E14/edit?usp=sharing"
+  img: 2024/dju-db/14-mongodb.jpg
+  logistics: >
+    13장 연습 문제<br>
+    <a href="https://naver.me/xTTjuAZ7">박사 연구 설문조사</a>
+
+- date: 12/10
+  week: 15
+  title: >
+    <strong>14 데이터베이스 모바일 웹 프로그래밍</strong>
+  supp:
+  readings: p. 492-532
+  hw: "https://classroom.github.com/a/3Kw0h1Fe"
+  slides: "https://docs.google.com/presentation/d/1jVm51DY7akksIe9c_0ahWJ5LylCBcHE1QVK566pF2k4/edit?usp=sharing"
+  img: 2024/dju-db/15-mobile-web.jpg
+  logistics: >
+    PHP MovieDB 프로젝트
+
+- date: 12/17
+  week: 16
+  title: >
+    <strong>Final Test</strong><br>
+    <a href="https://forms.gle/WaopJj7zAaJkGkuk7">퀴즈</a> | <a href="https://docs.google.com/presentation/d/18LwCl5QtKTZrCdSJkdvMiaUA6YzHnTLWSeYFczocU5k/edit?usp=sharing">실기</a>
+    <div style="display: none;"><br>
+      스터디 가이드: <a href="https://docs.google.com/presentation/d/1mi-xIh6TFM5FV0VdpQGNNjwc8UhXMSEF-s2dwNoRUE8/edit?usp=sharing">전체</a> | <a href="https://docs.google.com/presentation/d/1Rb_FwCsoVmkUB1f5gsqivGegHLctvUXjVvthYaMDt8o/edit?usp=sharing">짧게</a>
+    </div>

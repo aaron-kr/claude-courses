@@ -1,0 +1,86 @@
+// ── Schedule list ────────────────────────────────────────────────────────────
+.sched-list { list-style: none; }
+
+a.sched-row {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid var(--border);
+  transition: background .15s;
+  padding: 10px 0;
+  gap: 12px;
+  &:first-child { border-top: 1px solid var(--border); }
+  &:hover { background: var(--surface); }
+  &.no-class .sched-info { text-align: center; }
+  &.past   { opacity: .65; }
+  &.current { border-left: 2px solid var(--accent3); padding-left: 10px; }
+}
+
+.sched-date {
+  width: 60px;
+  flex-shrink: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .66rem;
+  color: var(--muted);
+  line-height: 1.45;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-self: center;
+  &.holiday .date-day { color: var(--error); font-weight: 500; }
+}
+.holiday-note { font-size: .54rem; color: var(--error); letter-spacing: .06em; text-transform: uppercase; }
+
+.sched-thumb {
+  width: 115px;
+  height: 65px;
+  flex-shrink: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-self: center;
+  img { width: 100%; height: 100%; object-fit: cover; }
+}
+.sched-extra { font-family: 'IBM Plex Mono', monospace; font-size: .5rem; color: rgba(255,255,255,.45); background: rgba(0,0,0,.45); padding: 2px 5px; letter-spacing: .04em; line-height: 1.4; }
+.sched-placeholder { width: 115px; height: 65px; background: linear-gradient(135deg, rgba(155,101,255,.15), rgba(109,204,221,.1)); border-radius: 3px; flex-shrink: 0; }
+
+.sched-info { flex: 1; min-width: 0; align-self: center; }
+.sched-week { font-family: 'IBM Plex Mono', monospace; font-size: .6rem; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; display: block; }
+.sched-title { font-size: .88rem; font-weight: 500; color: var(--text); line-height: 1.35; margin-top: 2px; }
+.sched-subtitle { font-size: .73rem; color: var(--muted); margin-top: 2px; }
+.sched-readings { font-size: .78rem; color: var(--sub); margin-top: 4px; line-height: 1.5; }
+
+.sched-hw {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-end;
+  align-self: center;
+  flex-shrink: 0;
+  width: 80px;
+  min-height: 1px;
+}
+.hw-link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .6rem;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: .03em;
+  border: 1px solid rgba(155,101,255,.28);
+  border-radius: 3px;
+  padding: 3px 7px;
+  white-space: nowrap;
+  transition: background .15s;
+  &:hover { background: rgba(155,101,255,.1); }
+  &.due { color: var(--warn); border-color: rgba(251,191,36,.28); &:hover { background: rgba(251,191,36,.08); } }
+}
+
+@media (max-width: 560px) {
+  .sched-thumb, .sched-placeholder { width: 72px; height: 40.5px; }
+  .sched-hw { display: none; }
+}

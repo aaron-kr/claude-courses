@@ -1,0 +1,178 @@
+- date: 9/2
+  week: 1
+  title: >
+    <strong>Introduction</strong>
+  supp:
+  readings: p. 1-4
+  hw:
+  slides: "https://docs.google.com/presentation/d/1SmeEJWY3NdqlyKMqZn7lupCqrNS4BNfSe-8IyQs2IGk/edit?usp=sharing"
+  img: 2024/jbnu-chips/1-intro-to-semiconductors.jpg
+  logistics:
+
+- date: 9/9
+  week: 2
+  title: >
+    <strong>Chp 2. Introduction to Theories<br>
+    Chp 3. Early Radio Communication</strong>
+  supp:
+  readings: p. 1-23
+  hw:
+  slides: "https://docs.google.com/presentation/d/19-GQrJwpG-PAjXf-KYTWdvmQFS319IUbNVRc2a7TLOg/edit?usp=sharing"
+  img: 2024/jbnu-chips/2-theories-comm.jpg
+  logistics:
+
+- date: 9/16
+  week: 3
+  title: >
+    <span style="color: red"><strong>No Class</strong> Chuseok</span>
+
+- date: 9/23
+  week: 4
+  title: >
+    <strong>4 - Electric Circuits<br>
+    5 - Energy Bands &amp; Diodes</strong>
+  supp:
+  readings: p. 25-39
+  hw:
+  slides: "https://docs.google.com/presentation/d/1OdO4PDBY2Tyl9NyK_CT43qTAjC44rIS3vMUpdHEFWyM/edit?usp=sharing"
+  img: 2024/jbnu-chips/4-circs-diodes.jpg
+  logistics:
+
+- date: 9/30
+  week: 5
+  title: >
+    <strong>5 - Diodes<br>
+    6 - Transistors &amp; Integrated Circuits</strong>
+  supp:
+  readings: p. 41-56
+  hw:
+  slides: "https://docs.google.com/presentation/d/1ekYij693KrkzrDD1lfkZtj9f2o510YzMcKW6zDNZymo/edit?usp=sharing"
+  img: 2024/jbnu-chips/5-diodes-transistors.jpg
+  logistics:
+
+- date: 10/7
+  week: 6
+  title: >
+    <strong>7 - Semiconductor Industry<br>
+    8 - Photonic Devices</strong><br>
+    <span style="color: red"><strong>No Class</strong> Hangul Day</span>
+  supp:
+  readings: p. 57-80
+  hw:
+  slides: "https://docs.google.com/presentation/d/1jG4qe6rV0uGAXefv-4hG5PaAqFSe_umE0Lieze4i7_g/edit?usp=sharing"
+  img: 2024/jbnu-chips/6-photonics.jpg
+  logistics:
+
+- date: 10/14
+  week: 7
+  title: >
+    <strong>8 - Photonic Devices<br>
+    9 - Light Detection &amp; Photocell</strong>
+  supp:
+  readings: p. 81-95
+  hw:
+  slides: "https://docs.google.com/presentation/d/1M-o18WYudXq34bW3e7seOSmon2NqtXbaAmHqTQw0Oi4/edit?usp=sharing"
+  img: 2024/jbnu-chips/7-photonics-ii.jpg
+  logistics:
+
+- date: 10/21
+  week: 8
+  title: >
+    <strong>Midterm Test</strong><br>
+    [<a href="https://docs.google.com/presentation/d/1btjGW1-mEq_dbMeCx9cRGUMQurIcgWvfkdwrDk2c1J4/edit?usp=sharing">Study Guide</a>]<br>
+    <div style="display: none;"><br>
+      <a href="https://forms.gle/aRcWx4izEwZBMyo86">Test</a>
+    </div>
+
+- date: 10/28
+  week: 9
+  title: >
+    <strong>10 - Manufacture of Silicon Wafer<br>
+    11 - Basic Knowledge of Process</strong>
+  supp:
+  readings: p.
+  hw:
+  slides: "https://docs.google.com/presentation/d/1kQEoleMj2JLvlobxNGErYBbJoPSpmD1VZ_qyN17Jk34/edit?usp=sharing"
+  img: 2024/jbnu-chips/9-silicon-manufacturing.jpg
+  logistics:
+
+- date: 11/4
+  week: 10
+  title: >
+    <strong>12 - Photolithography<br>
+    13 - Dielectric Films Growth</strong>
+  supp:
+  readings: p.
+  hw:
+  slides: "https://docs.google.com/presentation/d/19GhyAnXH3CQSfQke0x21GSepxG-ljroZFwm7B3uFx0Q/edit?usp=sharing"
+  img: 2024/jbnu-chips/10-lithography.jpg
+  logistics:
+
+- date: 11/11
+  week: 11
+  title: >
+    <strong>14 - Etching and RIE System<br>
+    15 - Dry Etching</strong>
+  supp:
+  readings: p.
+  hw:
+  slides: "https://docs.google.com/presentation/d/1KHouR2nuQ3sHkGmg9NNMOeSQ12D2AqFGh64B340LtUY/edit?usp=sharing"
+  img: 2024/jbnu-chips/11-etching.jpg
+  logistics:
+
+- date: 11/18
+  week: 12
+  title: >
+    <strong>16 - Metal Processes<br>
+    17 - Doping Processes</strong>
+  supp:
+  readings: p.
+  hw:
+  slides: "https://docs.google.com/presentation/d/1pPYcBlJ-9m2EQiHNoVOItrCyP9flQOnaK0jDhIPkKNc/edit?usp=sharing"
+  img: 2024/jbnu-chips/12-metal-doping.jpg
+  logistics:
+
+- date: 11/25
+  week: 13
+  title: >
+    <strong>17 - Doping Processes, II<br>
+    18 - Process Control Monitor, Packaging, etc.</strong>
+  supp:
+  readings: p.
+  hw:
+  slides: "https://docs.google.com/presentation/d/1nq-eTJoPV_d02XDmGyt13PskM-6YKtTl5QtwCJOP4yc/edit?usp=sharing"
+  img: 2024/jbnu-chips/13-processing.jpg
+  logistics:
+
+- date: 12/2
+  week: 14
+  title: >
+    <strong>PCB Design</strong>
+  supp:
+  readings: p.
+  hw:
+  slides: "https://docs.google.com/presentation/d/18sd_FQl2smrKVKV1qMFbTxCSTVmJvIniYDg02RfJDDI/edit?usp=sharing"
+  img: 2024/jbnu-chips/14-pcbs.jpg
+  logistics: >
+    <a href="https://drive.google.com/drive/folders/17K2DkjLj7Ov2NEJIcBc3ijYTenBxGRmM?usp=sharing">Eagle "First"</a>
+
+- date: 12/9
+  week: 15
+  title: >
+    <strong>PCB Design II</strong>
+  supp:
+  readings: p.
+  hw: "https://forms.gle/hy8cHY4xX6bTTdnu9"
+  slides: "https://docs.google.com/presentation/d/1MsuNPcsGox8ptPcGSVhey0r8-lS961cdm-Vj4pvUAr0/edit?usp=sharing"
+  img: 2024/jbnu-chips/15-pcbs-ii.jpg
+  logistics: >
+    EAGLE Files Shared Folder Link
+
+- date: 12/16
+  week: 16
+  title: >
+    <strong>Final Test</strong><br>
+    <a href="https://docs.google.com/presentation/d/1twgmX0jKHLoGmoOXyjVzOHkJRyj55WFZmbZI5-TOUmc/edit?usp=sharing">Study Guide</a>
+    <div style="display: none;"><br>
+      <a href="">퀴즈</a> | <a href="">실기</a>
+    </div>

@@ -1,0 +1,98 @@
+# ─────────────────────────────────────────
+# Site Settings
+# ─────────────────────────────────────────
+title: Aaron Snowberger — Courses
+first_name: Aaron
+last_name: Snowberger
+email: aaronkr.trainer@gmail.com
+description: >
+  Courses taught by Prof. Aaron Snowberger at five Korean universities.
+lang: en
+
+url: https://aaronkr-courses.github.io
+baseurl: ""
+
+icon: /assets/img/aaron.jpg
+
+# ─────────────────────────────────────────
+# Social
+# ─────────────────────────────────────────
+github_username: aaronkr-courses
+linkedin_username: aaronsnowberger
+scholar_userid: JCbnnvUAAAAJ
+orcid_id: 0000-0001-8652-0936
+kaggle_id: aaronsnowberger
+research_gate_profile: Aaron-Snowberger
+
+# ─────────────────────────────────────────
+# Layout
+# ─────────────────────────────────────────
+navbar_fixed: true
+
+# ─────────────────────────────────────────
+# Collections
+# ─────────────────────────────────────────
+collections:
+  courses:
+    output: true
+    permalink: /courses/:path/
+
+# Course category display order (newest first)
+course_categories:
+  - label: "Spring 2026 / 2026년 1학기"
+    key: "2026-1"
+  - label: "Fall 2025 / 2025년 2학기"
+    key: "2025-2"
+  - label: "Spring 2025 / 2025년 1학기"
+    key: "2025-1"
+  - label: "Fall 2024 / 2024년 2학기"
+    key: "2024-2"
+  - label: "Spring 2024 / 2024년 1학기"
+    key: "2024-1"
+  - label: "2023"
+    key: "2023"
+  - label: "Special / High School"
+    key: "Special"
+  - label: "Online Courses"
+    key: "Online"
+
+# ─────────────────────────────────────────
+# Jekyll Settings
+# ─────────────────────────────────────────
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    css_class: "highlight"
+
+include: ["_pages"]
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - "*.old.html"
+  - node_modules/
+  - bin/
+
+# ─────────────────────────────────────────
+# Plugins (GitHub Pages compatible)
+# ─────────────────────────────────────────
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# ─────────────────────────────────────────
+# Defaults
+# ─────────────────────────────────────────
+defaults:
+  - scope:
+      path: ""
+      type: "courses"
+    values:
+      layout: course
+  - scope:
+      path: "_pages"
+    values:
+      layout: page

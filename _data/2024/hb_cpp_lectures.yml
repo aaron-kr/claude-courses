@@ -1,0 +1,169 @@
+- date: 3/8
+  week: 1
+  title: >
+    <strong>수업 소개</strong>
+  supp:
+  readings: Accelerated C++, <strong>0장 pp. 26-34</strong>
+  hw: "https://classroom.github.com/a/doR4LooN"
+  slides: "https://docs.google.com/presentation/d/1-dFpKK26GtJ1xWLj3wk2aT_HWaB7KO_pOoSQ9eWs6F0/edit?usp=sharing"
+  img: 2024/hb-cpp/1-cpp-intro.jpg
+  logistics:
+
+- date: 3/15
+  week: 2
+  title: >
+    <strong>CHAPTER 0 C++ 시작하기</strong><br>
+    <strong>CHAPTER 1 문자열 사용</strong>
+  supp:
+  readings: Accelerated C++, <strong>1-2장 pp. 26-48</strong>
+  hw: "https://classroom.github.com/a/sFzeLKdz"
+  slides: "https://docs.google.com/presentation/d/1mMCkyL3UcTNDD_LbYCR0dlzKYnq5glPU6Em87d_JE1Y/edit?usp=sharing"
+  img: 2024/hb-cpp/2-cpp-strings.jpg
+  logistics:
+
+- date: 3/22
+  week: 3
+  title: >
+    <strong>CHAPTER 2 반복문과 카운팅</strong>
+  supp:
+  readings: Accelerated C++, <strong>3-4장 pp. 48-128</strong>
+  hw: "https://classroom.github.com/a/JPx7KmYV"
+  slides: "https://docs.google.com/presentation/d/1tkv6Ec9DOHbpjfWRVhqOcpx9iVxhBi2LIkCF90ZAQQk/edit?usp=sharing"
+  img: 2024/hb-cpp/3-cpp-loops-data.jpg
+  logistics:
+
+- date: 3/29
+  week: 4
+  title: >
+    <strong>CHAPTER 3 데이터 일괄 처리</strong>
+  supp:
+  readings: Accelerated C++, <strong>3-4장 pp. 48-128</strong>
+  hw: "https://classroom.github.com/a/4w-4CRIa"
+  slides: "https://docs.google.com/presentation/d/1ZdPVBYd_7f6GLMqNXs7lcpYZaJTHruhKlngh2peSB6g/edit?usp=sharing"
+  img: 2024/hb-cpp/4-cpp-data.jpg
+  logistics:
+
+- date: 4/5
+  week: 5
+  title: >
+    <strong>CHAPTER 4 프로그램 및 데이터 구조화</strong>
+  supp:
+  readings: Accelerated C++, <strong>3-4장 pp. 48-128</strong>
+  hw: "https://classroom.github.com/a/YwvD1VbQ"
+  slides: "https://docs.google.com/presentation/d/1UJYA38aefQcnxaLWDpmD1_cPz7jAuxfYvry9C68ltiw/edit?usp=sharing"
+  img: 2024/hb-cpp/5-cpp-data-containers.jpg
+  logistics: >
+    <a href="https://github.com/aaronkr-classroom/5-data-containers">Clone repo</a>
+
+- date: 4/12
+  week: 6
+  title: >
+    <strong>CHAPTER 5 순차 컨테이너와 문자열 분석</strong>
+  supp:
+  readings: Accelerated C++, <strong>5장 pp. 131-164</strong>
+  hw: "https://classroom.github.com/a/cdNpX9If"
+  slides: "https://docs.google.com/presentation/d/19f4MHgcsp2uRgHdYbXefMSpu6PQfYWmqJTbx94yJxZc/edit?usp=sharing"
+  img: 2024/hb-cpp/6-cpp-containers-strings.jpg
+  logistics:
+
+- date: 4/19
+  week: 7
+  title: >
+    <strong>CHAPTER 6 라이브러리 알고리즘</strong>
+  supp:
+  readings: >
+    Accelerated C++, <strong>6장 pp. 170-198</strong><br>
+    <a href="https://docs.google.com/presentation/d/14KfuQIVphy5IKBkBGRGVLdhlRcsioiirtJGO-a48N9A/edit?usp=sharing">중간고사 가이드</a>
+  hw: "https://classroom.github.com/a/vYlyECqb"
+  slides: "https://docs.google.com/presentation/d/1lkRBP9kVjCJf-AbDgAY-D8PCB6SnGlaW4TO9hWEbsx4/edit?usp=sharing"
+  img: 2024/hb-cpp/7-cpp-lib-algorithms.jpg
+  logistics:
+
+- date: 4/26
+  week: 8
+  title: >
+    <strong>Midterm Test</strong>
+    <div style="display: none">
+      <br>
+      [<a href="https://forms.gle/UtjJP1fyjf4471DP8">퀴즈 링크</a>] [<a href="https://classroom.github.com/a/c1JDVzy_">실기 시험</a>]
+    </div>
+
+- date: 5/3
+  week: 9
+  title: >
+    <strong>CHAPTER 7 연관 컨테이너</strong>
+  supp:
+  readings: >
+    Accelerated C++, <strong>7장 pp. 202-222</strong>
+  hw: "https://classroom.github.com/a/m6zmgryi"
+  slides: "https://docs.google.com/presentation/d/14nJYzlsUWj-USRDSbSXlShhtWvC9GVX-UNhY-2Sqo2s/edit?usp=sharing"
+  img: 2024/hb-cpp/9-cpp-a-containers.jpg
+  logistics: 
+
+- date: 5/10
+  week: 10
+  title: >
+    <strong>CHAPTER 8 제네릭 함수</strong><br>
+    <strong>CHAPTER 9 새로운 타입 정의</strong>
+  supp:
+  readings: >
+    Accelerated C++, <strong>8장 pp. 225-248</strong>
+    Accelerated C++, <strong>9장 pp. 251-271</strong><br>
+  hw: "https://classroom.github.com/a/wtUxbBnv"
+  slides: "https://docs.google.com/presentation/d/1egDE93iN5rWULPahVj_FBvEzsTaGglhQ6qZ-dD0MWug/edit?usp=sharing"
+  img: 2024/hb-cpp/10-cpp-generic-types.jpg
+  logistics: 
+
+- date: 5/17
+  week: 11
+  title: >
+    <strong>CHAPTER 10 메모리 관리 및 저수준 데이터 구조</strong>
+  supp:
+  readings: > 
+    Accelerated C++, <strong>10장 pp. 274-299</strong>
+  hw: "https://classroom.github.com/a/0XS4MUHN"
+  slides: "https://docs.google.com/presentation/d/1gw7GLdRzWjxpK_UlVEQn8E9xNd0IReHrxw6vPIwA1qA/edit?usp=sharing"
+  img: 2024/hb-cpp/11-cpp-memory.jpg
+  logistics: 
+
+- date: 5/24
+  week: 12
+  title: >
+    <strong>CHAPTER 11 추상 데이터 타입</strong>
+  supp:
+  readings: Accelerated C++, <strong>11장 pp. 302-335</strong>
+  hw: "https://classroom.github.com/a/793ZRDPm"
+  slides: "https://docs.google.com/presentation/d/1tAkFzr3ejmv6ERe6E6Ng2RB-kVtayFkTpWDlNKuCJP0/edit?usp=sharing"
+  img: 2024/hb-cpp/12-abstract-data-types.jpg
+  logistics:
+
+- date: 5/31
+  week: 13
+  title: >
+    <strong>CHAPTER 12 값처럼 동작하는 클래스 객체</strong>
+  supp:
+  readings: Accelerated C++, <strong>12장 pp. 338-359</strong>
+  hw: "https://classroom.github.com/a/KdNhX6QH"
+  slides: "https://docs.google.com/presentation/d/1agx1Hkdt1ecjLmknyvLBxCXkNdd4JSudyRn8ZwJiaZ0/edit?usp=sharing"
+  img: 2024/hb-cpp/13-cpp-str-class.jpg
+  logistics:
+
+- date: 6/7
+  week: 14
+  title: >
+    <strong>CHAPTER 13 상속과 동적 바인딩</strong>
+  supp:
+  readings: Accelerated C++, <strong>13장 pp. 362-398</strong>
+  hw: "https://classroom.github.com/a/qOTUdkdE"
+  slides: "https://docs.google.com/presentation/d/1XCW6qO1fw3NzdvseNX52TJkVauafmsmcYTeNdoIl_WI/edit?usp=sharing"
+  img: 2024/hb-cpp/14-inheritance.jpg
+  logistics:
+
+- date: 6/14
+  week: 15
+  title: >
+    <strong>
+      <a href="https://forms.gle/AC1dcBkiLJgJ51Y37">Final Test</a> | 
+      <a href="https://classroom.github.com/a/toF34IJw">실기</a>
+    </strong><br>
+    [<a href="https://docs.google.com/presentation/d/1cEgIlQsl61Sxtt3SwvVC6EYX7KRns_MFPk83HbcGiQs/edit?usp=sharing">스터디 가이드</a>]

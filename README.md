@@ -1,168 +1,120 @@
 # Aaron Snowberger — Courses Site
 
-A multi-page static HTML/CSS/JS website for Prof. Aaron Snowberger's teaching portfolio across five Korean universities.
+A **Jekyll site** for Prof. Aaron Snowberger's teaching portfolio across five Korean universities. Hosted on GitHub Pages at [aaronkr-courses.github.io](https://aaronkr-courses.github.io).
+
+## Quick Start
+
+```bash
+bundle install
+bundle exec jekyll serve --livereload
+# → http://localhost:4000
+```
+
+**First run:** Copy images from the existing Jekyll site:
+```bash
+cp -r ../aaronkr-courses.github.io/assets/img/ ./assets/img/
+```
 
 ## Site Map
 
-| File | URL | Description |
+| URL | File | Description |
 |---|---|---|
-| `index.html` | `/` | Homepage — current semester courses grouped by university |
-| `archive.html` | `/archive` | Complete course history (2023–present) |
-| `policies.html` | `/policies` | All academic policies with FAQ accordion |
-| `policy-ai.html` | `/policy-ai` | Full AI & ChatGPT use policy (individual policy template) |
-| `course.html` | `/course` | Individual course page template (CS 4820 sample) |
-| `office-hours.html` | `/office-hours` | Weekly campus schedule + Cal.com booking widget |
+| `/` | `index.md` | Homepage — today pill, current courses |
+| `/courses/2026/ut-iot/` | `_courses/2026/ut-iot.md` | IoT course (UT) |
+| `/courses/2026/ut-db/` | `_courses/2026/ut-db.md` | Database Design (UT) |
+| `/courses/2026/wku-php/` | `_courses/2026/wku-php.md` | PHP (WKU) |
+| `/courses/2026/hb-cpp/` | `_courses/2026/hb-cpp.md` | C++ (HB) |
+| `/courses/2026/jbnu-pe/` | `_courses/2026/jbnu-pe.md` | Power Electronics (JBNU) |
+| `/courses/2026/jbnu-dc/` | `_courses/2026/jbnu-dc.md` | Circuit Theory DC (JBNU) |
+| `/courses/2026/jbnu-devs/` | `_courses/2026/jbnu-devs.md` | Device Analysis (JBNU) |
+| `/courses/2026/jnue-iss/` | `_courses/2026/jnue-iss.md` | Info Society & Software (JNUE) |
+| `/archive/` | `_pages/archive.md` | All courses by semester |
+| `/policies/` | `_pages/policies.md` | Shared academic policies |
+| `/office-hours/` | `_pages/office-hours.md` | Campus schedule + contact |
 
 ## Design System
 
 ### Colors
 ```css
-/* Dark mode */
---accent:  #9b65ff   /* Purple — primary CTAs, headings, main accent */
---accent2: #7eb8f7   /* Blue   — secondary buttons, metadata */
---accent3: #6dccdd   /* Teal   — tert. accents, card borders, status */
---warn:    #fbbf24   /* Amber  — warnings, HW due dates */
---error:   #fb6f84   /* Pink   — holidays, errors */
-
-/* Light mode swaps */
---accent:  #7c3aff
---accent2: #2563eb
---accent3: #0badbc
+--accent:  #9b65ff   /* Purple — primary CTAs, headings */
+--accent2: #7eb8f7   /* Blue   — secondary buttons */
+--accent3: #6dccdd   /* Teal   — card borders, status */
+--warn:    #fbbf24   /* Amber  — HW, warnings */
+--error:   #fb6f84   /* Pink   — holidays */
 ```
 
-**Color mix target:** ~50% purple, ~35% blue, ~15% teal across the site.
+### Fonts
+- `IBM Plex Mono` — nav brand, code labels, badges
+- `Playfair Display` — headings, stat numbers
+- `DM Sans` — body text (weight 300)
 
-### Typography
-```
-Headings:    Playfair Display (700, italic) / DM Serif Display (fallback)
-Body:        DM Sans (300, 400, 500)
-Monospace:   IBM Plex Mono (400, 500) — labels, code, badges
-```
+## Key Files
 
-### Background
-- Radial gradient orbs (fixed) — purple top-left, blue top-right, teal bottom
-- Animated CSS mesh grid via `body::before` — `@keyframes meshWave` 22s loop
-- No background images needed
+| File | Purpose |
+|---|---|
+| `_includes/policies.md` | **Single source of truth** for all shared academic policies |
+| `_includes/schedule.html` | Renders schedule from `_data/YYYY_*_lectures.yml` |
+| `_includes/course_card.html` | Card component used on home/archive pages |
+| `_sass/_variables.scss` | All color & layout variables |
+| `_config.yml` | Site settings + course category display order |
 
-### Component Patterns
+## Adding a New Course
 
-**Sliding fill buttons** (all interactive elements):
-```css
-background: linear-gradient(to right, VAR_COLOR 50%, var(--tag-bg) 50%);
-background-size: 205% 100%;
-background-position: 100%;
-transition: background-position .32s ease;
-/* on hover: background-position: 0 */
-```
-Variants: `.pill` (purple), `.pill-blue`, `.pill-teal`, `.back-btn`, `.ql-btn`
+1. Create `_courses/YYYY/school-subject.md` with proper front matter
+2. Create `_data/YYYY_school_subject_lectures.yml` with week-by-week schedule
+3. Done — the nav, homepage, and archive will automatically include it
 
-**Today pill** (index + office-hours):
-```html
-<div class="today-pill" id="today-pill">
-  <span class="today-dot"></span>
-  <span id="today-text"></span>
-</div>
-```
-JS populates based on `new Date().getDay()` → school schedule map.
+### Minimal course front matter:
+```yaml
+---
+layout: course
+title: Course Title
+subtitle: 한국어 부제목
+description: SECTION_CODE • YYYY년 N학기 • 대학교이름
+logo: school-logo.png
+importance: 1
+category: 2026-1
+now: Yes
+data_file: 2026_ut_example_lectures
 
-**Uni badge** (cards + archive rows):
-```html
-<div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
-```
-Absolutely positioned top-right, 12% opacity, pointer-events:none.
+grading:
+  attendance: 10
+  midterm: 25
+  final: 25
+  homework: 25
+  project: 15
 
-**Card top border:**
-```css
-a.card::before { height: 2px; background: linear-gradient(90deg, accent3, accent, accent2); opacity: .55; }
-a.card:hover::before { opacity: 1; }
-```
+information:
+  - section: 123456
+    time: Mon 9am-12pm
+    location: Building 101
+    kakaotalk: https://open.kakao.com/...
 
-## File Structure
-```
-/
-├── index.html           — Homepage
-├── archive.html         — Course archive
-├── policies.html        — Policies hub
-├── policy-ai.html       — Individual policy (template)
-├── course.html          — Individual course (template)
-├── office-hours.html    — OH + booking
-└── README.md
-```
-
-## JavaScript Patterns
-
-**Shared JS** (inlined in every page, from `parts/js.txt`):
-- Theme toggle (`applyTheme`) — persists to `localStorage`
-- Language toggle — currently triggers class `.lang-btn-all` swap only; full i18n on index.html only
-- Dropdown menus — click-based, close-on-outside-click
-- Hamburger overlay — fixed position, backdrop div (`#mobile-backdrop`), `body.overflow:hidden`
-- Filter panel toggle (`#filter-toggle-btn` / `#filter-panel`)
-- Thumbnail toggle (`#thumb-toggle` / `#thumb-section.thumbs-active`)
-
-**Page-specific JS:**
-- `index.html`: Today-at pill, school/topic/sort filters, GitHub notes fetch
-- `archive.html`: Year/topic/sort/university filters + "By University" view
-- `course.html`: IntersectionObserver sidebar active link tracking
-- `policy-ai.html`: Same IntersectionObserver pattern
-- `office-hours.html`: Today card highlight
-
-## Updating Content
-
-### Add a new course to index.html
-1. Find the correct `<div class="uni-group" data-school="...">` section
-2. Copy an existing `<a class="card">` block
-3. Update: `href`, `data-title`, `data-tag`, `card-code`, `card-title`, `card-desc`, `card-tags`, time, room, `card-thumb` gradient, `uni-badge`
-
-### Add a new announcement
-```html
-<a class="announce-item" href="LINK">
-  <span class="ann-dot new|info|warn|teal"></span>
-  <div class="ann-body">
-    <div class="ann-title">Title</div>
-    <div class="ann-desc">Description</div>
-  </div>
-  <div class="ann-meta">
-    <span class="ann-date">Apr 21</span>
-    <span class="ann-badge course|lab|admin">Label</span>
-    <span class="ann-arrow">→</span>
-  </div>
-</a>
+Main-Text:
+  - text: "주교재"
+    author: "Author"
+    title: <strong>Book Title</strong>
+    publisher: "Publisher | Year"
+    link: "https://..."
+    image: books/book.jpg
+---
+[Overview markdown here]
 ```
 
-### Add a new policy page
-1. Copy `policy-ai.html`
-2. Update: title, code (POL-02 etc.), section IDs + sidebar links
-3. Replace section content
-4. Update related cards at bottom
+## Adding a New Semester
 
-### GitHub Notes (index.html)
-Change the repo path in the `fetchNotes()` function:
-```js
-const r = await fetch('https://api.github.com/repos/AaronSnowberger/pai-lab/contents/notes');
-```
-Notes directory should contain `.md` files. Graceful fallback to hardcoded sample notes on failure.
+1. Add to `course_categories` in `_config.yml`
+2. Create `_courses/YYYY/` directory
+3. Add course files (see above)
+4. Add data files to `_data/`
 
-### Profile image (Cloudinary)
-```html
-<!-- Use this URL pattern everywhere (all sites): -->
-<img src="https://res.cloudinary.com/YOUR_CLOUD/image/upload/v1/profile/snowberger.jpg" />
-```
-Update once in Cloudinary → all sites update automatically.
+## Multi-Site Architecture
 
-## Deployment
+| Site | Stack | URL |
+|---|---|---|
+| **Courses** (this site) | Jekyll on GitHub Pages | [aaronkr-courses.github.io](https://aaronkr-courses.github.io) |
+| **Research / Lab** | Astro on Vercel | [pailab.io](https://pailab.io) |
+| **Contact / CV** | Jekyll on GitHub Pages | [aaronsnowberger.com](https://aaronsnowberger.com) |
+| **Personal blog** | Next.js + WordPress | [aaron.kr](https://aaron.kr) |
 
-Pure static HTML — drop files in any static host:
-- **GitHub Pages**: push to `gh-pages` branch or `docs/` folder
-- **Netlify / Vercel**: drag-and-drop folder or connect repo
-- **Cloudflare Pages**: connect repo, no build command needed
-
-No build step, no dependencies, no package.json required.
-
-## Future Migration Path
-
-When the site grows, consider migrating to:
-1. **Hugo + Academic/PaperMod theme** — add YAML frontmatter to each course, templates auto-render
-2. **Quarto** — great if you want to publish Jupyter notebooks alongside course pages
-3. **Astro** — component islands, good for the PAI Lab site
-
-The PAI Lab site should be a **separate Astro project** linked from this site.
+**Profile image:** Host at Cloudinary. Same URL across all sites.

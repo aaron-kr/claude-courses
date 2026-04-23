@@ -1,0 +1,179 @@
+- date: 3/4
+  week: 1
+  title: >
+    <strong>01장: 웹 응용 프로그램 취약점이란?</strong>
+  supp:
+  readings: p. 1-9
+  hw:
+  slides: "https://docs.google.com/presentation/d/1mOV0q0X5x2Cmvyy3fQR9UtghTzruzuBicgS6kqZRdrA/edit?usp=sharing"
+  slides2: "https://docs.google.com/presentation/d/1EurJuMaQVRj8MvTei6whxYdhG4-jgUzBNALNItr1dh0/edit?usp=sharing"
+  img: 2025/dju-sec/1-intro.jpg
+  logistics:
+
+- date: 3/11
+  week: 2
+  title: >
+    <strong>02장: 실습 환경 설정</strong>
+  supp:
+  readings:
+    - p. 9-36
+    - <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox 설치</a>
+    - <a href="http://wikibook.co.kr/wasbook/">Wasbook 내용 다운로드</a> (아이디와 비번은 책 <strong>vi</strong>쪽에 있다)
+    - <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox 설치</a> + <a href="https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/">FoxyProxy 확장 프로그램 설치</a>
+    - <a href="https://www.zaproxy.org/download/">OWASP ZAP 설치</a>
+    - <a href="https://code.visualstudio.com/download">Visual Studio Code</a>가 없으면 설치 + Korean Language Pack 확장 프로그램 설치
+    - <a href="https://www.java.com/en/download/manual.jsp">JRE 설치</a>
+  hw:
+  slides: "https://docs.google.com/presentation/d/1je49VO_Jj7dL5WGKgXQXRRIu2wPYrrBdvSTeXTBlEtY/edit?usp=sharing"
+  slides2:
+  img: 2025/dju-sec/2-env.jpg
+  logistics:
+
+- date: 3/18
+  week: 3
+  title: >
+    <strong>03장: 웹 보안 기초 - HTTP, 세션 관리, 동일 출처 정책, CORS</strong>
+  supp:
+  readings: p. 37-88
+  hw:
+  slides: "https://docs.google.com/presentation/d/1Cs5nJ9TFsQS5bdp6355--oKH4YKPviEQfifmTDDgVt4/edit?usp=sharing"
+  slides2:
+  img: 2025/dju-sec/3-basics.jpg
+  logistics:
+
+- date: 3/25
+  week: 4
+  title: >
+    <strong>04장: 웹 응용 프로그램 기능별 보안 버그, #1-2</strong>
+  supp:
+  readings: p. 89-108
+  hw:
+  slides: "https://docs.google.com/presentation/d/1gINC0LZXOILnPIOd43yiDxUwnBnMMT1yeqmyu8h-1dU/edit?usp=sharing"
+  img: 2025/dju-sec/4-bugs-i.jpg
+  logistics:
+
+- date: 4/1
+  week: 5
+  title: >
+    <strong>04장: 웹 응용 프로그램 기능별 보안 버그, #3</strong>
+  supp:
+  readings: p. 109-141
+  hw:
+  slides: "https://docs.google.com/presentation/d/1sDPMWuWHH4aeYITm9hxzFwgopaLDW5PaI5fQnT7xRc0/edit?usp=sharing"
+  img: 2025/dju-sec/5-bugs-ii.jpg
+  logistics:
+
+- date: 4/8
+  week: 6
+  title: >
+    <strong>04장: 웹 응용 프로그램 기능별 보안 버그, #4-5</strong>
+  supp:
+  readings: p. 141-193
+  hw:
+  slides: "https://docs.google.com/presentation/d/1Wewiy1iTqrCICxQhCmc-XmasMB-bigz62Q7ZV1wr6-w/edit?usp=sharing"
+  slides2:
+  img: 2025/dju-sec/6-bugs-iii.jpg
+  logistics:
+
+- date: 4/15
+  week: 7
+  title: >
+    <strong>04장: 웹 응용 프로그램 기능별 보안 버그, #6-7</strong>
+  supp:
+  readings: p. 194-242
+  hw:
+  slides: "https://docs.google.com/presentation/d/1Gz7PrKB-5smd7YI_awcEEPbSiXrek4tppAKC7tR_rfo/edit?usp=sharing"
+  slides2:
+  img: 2025/dju-sec/7-bugs-iv.jpg
+  logistics:
+
+- date: 4/22
+  week: 8
+  title: >
+    <strong>04장: 웹 응용 프로그램 기능별 보안 버그, #8-10</strong>
+  supp:
+  readings: p. 243-279
+  hw:
+  slides: "https://docs.google.com/presentation/d/10d6RSFDdE1BKjxIo_LvLW1f3QebDgeptmMxjhnac9aQ/edit?usp=sharing"
+  img: 2025/dju-sec/8-bugs-v.jpg
+  logistics:
+
+- date: 4/29
+  week: 9
+  title: >
+    <strong>Midterm Test</strong><br>
+    <a href="https://forms.gle/QWGDHMKFuXHYUkWM9">퀴즈</a>
+
+- date: 5/6
+  week: 10
+  title: >
+    <span style="color: red"><strong>No Class</strong> 어린이 날 (대체)</span>
+
+- date: 5/13
+  week: 11
+  title: >
+    <strong>04장: 웹 응용 프로그램 기능별 보안 버그, #11-13</strong><br>
+  supp:
+  readings: p. 280-329
+  hw:
+  slides: "https://docs.google.com/presentation/d/1IVKBZcDsni9N55pQKX6J-bveIXHo23cvcAp9L3SKhsE/edit?usp=sharing"
+  img: 2025/dju-sec/11-bugs-vi.jpg
+  logistics:
+
+- date: 5/20
+  week: 12
+  title: >
+    <strong>04장: 웹 응용 프로그램 기능별 보안 버그, #14-17</strong><br>
+  supp:
+  readings: p. 330-441, 442-508
+  hw:
+  slides: "https://docs.google.com/presentation/d/1SE3sI5spipHjMnznwxD3vkq8Kxl61DZsGqBzHPtxx8k/edit?usp=sharing"
+  img: 2025/dju-sec/12-bugs-vii.jpg
+  logistics:
+
+- date: 5/27
+  week: 13
+  title: >
+    <strong>05장: 대표적인 보안 기능<br>
+    06장: 문자 코드와 보안</strong>
+  supp:
+  readings: p. 509-528
+  hw:
+  slides: "https://docs.google.com/presentation/d/1KeZTOg4JjU6NU9WChRYwrHOno9OJ21UuNdQlcZAkphU/edit?usp=sharing"
+  img: 2025/dju-sec/13-sec-feats.jpg
+  logistics:
+
+- date: 6/3
+  week: 14
+  title: >
+    <span style="color: red"><strong>No Class</strong> 선거</span>
+
+- date: >
+    <span style="color: red">6/3 보강</span>
+  week: 14
+  title: >
+    <strong>취약한 웹 앱 수정</strong>
+  supp:
+  readings: p. 529-587
+  hw: "https://classroom.github.com/a/CXISVZjE"
+  slides: "https://docs.google.com/presentation/d/14MajnW7lzwtMmv-H1g8QqQV-Qa1x3Nvbk7DUVwTyzSU/edit?usp=sharing"
+  slides2:
+  img: 2025/dju-sec/14-web-app.jpg
+  logistics:
+
+- date: 6/10
+  week: 15
+  title: >
+    <strong>기말고사 리뷰</strong>
+  supp:
+  readings: p. 588-618, 619-630
+  hw:
+  slides: "https://docs.google.com/presentation/d/1GkD8pyPxcVOEx0OMyU7o5704tiMqanE2IZTiHw62ZbY/edit?usp=sharing"
+  img: 2025/dju-sec/15-final.jpg
+  logistics:
+
+- date: 6/17
+  week: 16
+  title: >
+    <strong>Final Test</strong><br>
+    <a href="https://forms.gle/1NkdEhFjLvKXmrdj7">퀴즈</a>

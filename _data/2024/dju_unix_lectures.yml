@@ -1,0 +1,193 @@
+- date: 3/5
+  week: 1
+  title: >
+    <strong>수업 소개, 강사 소개<br>
+    Chapter 01 유닉스 개요 및 기본 사용법<br>
+    들어가며, 유직스와 니룩스 비교</strong>
+  supp:
+  readings: p. 19-40
+  hw: "https://forms.gle/ircGch4BVoSsejS17"
+  slides: "https://docs.google.com/presentation/d/1QIx7IVEp-MsYgoavL2RdrnaZRBYCvSqpQDHX17I6QEw/edit?usp=sharing"
+  img: 2024/dju-unix/1-unix-introduction.jpg
+  logistics:
+
+- date: 3/12
+  week: 2
+  title: >
+    <strong>
+    Chapter 02 디렉토리 다루기<br>
+    Chapter 03 파일 다루기
+    </strong><br>
+    1장. 조감도
+  supp:
+  readings:
+  hw: 
+  slides: "https://docs.google.com/presentation/d/1ZBI312ur-YflxxKTEZzfCBuzKJygAiCX5yXR9ayU0pg/edit?usp=sharing"
+  img: 2024/dju-unix/2-unix-directories-files.jpg
+  logistics: >
+    <a href="https://forms.gle/AE4HnvXfXKur7TGb6">2장 연습문제</a><br>
+    <a href="https://forms.gle/SxpXivgE1X85wmEw8">3장 연습문제</a>
+
+- date: 3/19
+  week: 3
+  title: >
+    <strong>Chapter 04 vim 사용법 익히기</strong><br>
+    2장. 기본 명령어와 디렉터리 계층 구조
+  supp:
+  readings:
+  hw: "https://forms.gle/2Cz7QBzgPEXg2o3P7"
+  slides: "https://docs.google.com/presentation/d/1mt6uPk9Uc-CeTfRqFdtQ4bpMswc-Kn5fixmSrPpWb4Y/edit?usp=sharing"
+  img: 2024/dju-unix/3-unix-vim.jpg
+  logistics:
+
+- date: 3/26
+  week: 4
+  title: >
+    <strong>Chapter 05 배시 셸 활용하기</strong><br>
+    3장. 디바이스<br>
+    4장. 디스크와 파일 시스템
+  supp:
+  readings:
+  hw: "https://forms.gle/E4hFPsHEZiHkZqa6A"
+  slides: "https://docs.google.com/presentation/d/1ydFVTyZ0mpBgYvL04XFJBr41R6KEbL3clYeCMu7UAgk/edit?usp=sharing"
+  img: 2024/dju-unix/4-bash-shell.jpg
+  logistics:
+
+- date: 4/2
+  week: 5
+  title: >
+    <strong>Chapter 06 파일 접근 권한 관리하기</strong><br>
+    5장. 리눅스 커널 부팅 방법<br>
+    6장. 사용자 공간 시동 방법
+  supp:
+  readings:
+  hw: "https://forms.gle/DUSPeWepC7LhZ5cL9"
+  slides: "https://docs.google.com/presentation/d/1ZNwYlmLHbdW147cV8UkKZMQXBtLfGexQrvbmXPbUYp0/edit?usp=sharing"
+  img: 2024/dju-unix/5-unix-file-access.jpg
+  logistics:
+
+- date: 4/9
+  week: 6
+  title: >
+    <strong>Chapter 07 파일과 디렉토리 검색하기</strong><br>
+    7장. 시스템 설정: 로깅, 시스템 시간, 일괄 작업과 사용자
+  supp:
+  readings:
+  hw: "https://forms.gle/MdA2xSH1ZPK1Wwiy6"
+  slides: "https://docs.google.com/presentation/d/1j0QzgC8ZkoWH-kdjxRiA2uk9Jt-9-1T2rzLTaY3rbw8/edit?usp=sharing"
+  img: 2024/dju-unix/6-unix-searches.jpg
+  logistics:
+
+- date: 4/16
+  week: 7
+  title: >
+    <strong>Chapter 08 사용자와 프로세스 명령 익히기</strong><br>
+    8장. 프로세스와 리소스 활용
+  supp:
+  readings:
+  hw: "https://forms.gle/ZMryBdrhdUoWPnvT7"
+  slides: "https://docs.google.com/presentation/d/1OCsPw5CpIvrMgbb9OqcALxNZ5658Q8tWcPbG-6Gj1a0/edit?usp=sharing"
+  img: 2024/dju-unix/7-unix-processes.jpg
+  logistics:
+
+- date: 4/23
+  week: 8
+  title: >
+    <strong>Midterm Test</strong><br>
+    스터디 가이드: 
+    [<a href="https://docs.google.com/presentation/d/13xwhTc6_5c27bniqMHf27CK43XSWAoiXDt47ZYDv2m0/edit?usp=sharing">PPT</a>]
+    [<a href="https://docs.google.com/document/d/197ic2184PjPeputn4WInEVR16midaAU7s_H3ZxdB2c0/edit?usp=sharing">DOC</a>]
+    <div style="display: none;">
+      <br>
+      [<a href="https://forms.gle/LnaESBg83hVtajqy7">퀴즈</a>]
+      [<a href="https://forms.gle/2TR3VQQJDosFgPTS6">실기</a>]
+    </div>
+  
+- date: 4/30
+  week: 9
+  title: >
+    <strong>Chapter 09 파일 아카이브와 압축 명령 익히기</strong><br>
+    9장. 네트워크와 그 설정에 대한 이해
+  supp:
+  readings:
+  hw: "https://forms.gle/5wdBqUVG5bGZSXGw5"
+  slides: "https://docs.google.com/presentation/d/19a-1Pvn4Ly2NOEiQaK9WhXCCXCEX4hsZ0GHZF-bX5Ck/edit?usp=sharing"
+  img: 2024/dju-unix/9-unix-archives.jpg
+  logistics:
+
+- date: 5/7
+  week: 10
+  title: >
+    <strong>Chapter 10 인터넷과 통신 명령 익히기</strong><br>
+    10장. 네트워크 응용프로그램과 서비스
+  supp:
+  readings:
+  hw: "https://forms.gle/keHuAVLf4dKwcGsS6"
+  slides: "https://docs.google.com/presentation/d/11wGPi8gV4S9hb8EF9BBbvX25RHDohUp0QPyvst85JVA/edit?usp=sharing"
+  img: 2024/dju-unix/10-unix-internet.jpg
+  logistics:
+
+- date: 5/14
+  week: 11
+  title: >
+    <strong>Chapter 11 유닉스 유틸리티 이용하기</strong><br>
+    11장. 셸 스크립트 소개
+  supp:
+  readings:
+  hw: "https://forms.gle/f3eFAzjWWFSA1hXh9"
+  slides: "https://docs.google.com/presentation/d/1Gf48NOYRIlq4ksOR5qwd1-Yg0PkSBPzIuOAAjsPWt68/edit?usp=sharing"
+  img: 2024/dju-unix/11-unix-utilities.jpg
+  logistics:
+
+- date: 5/21
+  week: 12
+  title: >
+    <strong>Chapter 12 유닉스 셸의 이해</strong><br>
+    12장. 네트워크를 거쳐 파일 옮기기<br>
+    13장. 사용자 환경
+  supp:
+  readings:
+  hw: "https://forms.gle/nfuqfVEDUvswUKbHA"
+  slides: "https://docs.google.com/presentation/d/1BUXGDmlz_wkTiPdSqfpXRAWl1kD7foKSeMxhZwArz14/edit?usp=sharing"
+  img: 2024/dju-unix/12-unix-shell.jpg
+  logistics:
+
+- date: 5/28
+  week: 13
+  title: >
+    <strong>Chapter 13 배시 셸 프로그래밍</strong><br>
+    14장. 리눅스 데스크톱에 대한 조망<br>
+    15장. 개발 툴
+  supp:
+  readings:
+  hw: "https://forms.gle/UYZkvD7ueHN7pXkW8"
+  slides: "https://docs.google.com/presentation/d/1-8R9cXp7mV_bv8jj2rZgKJ2Wy85DE1w-Drb5AjIYgUg/edit?usp=sharing"
+  img: 2024/dju-unix/13-unix-shell-scripting.jpg
+  logistics:
+
+- date: 6/4
+  week: 14
+  title: >
+    <strong>Chapter 14 시스템 관리 기초</strong><br>
+    16장. C 소스 코드로 소프트웨어 컴파일하는 기본적인 방법<br>
+    17장. 기초를 바탕으로 길제 구축하기
+  supp:
+  readings:
+  hw: "https://forms.gle/HumEBtmAD8QRjTBC6"
+  slides: "https://docs.google.com/presentation/d/1LubS2_fnbkPVTuZuH6rhkQrfQeFbbb4A4yr3xsVyMxg/edit?usp=sharing"
+  img: 2024/dju-unix/14-unix-sys-management.jpg
+  logistics:
+
+- date: 6/18
+  week: 16
+  title: >
+    <strong>Final Test</strong><br>
+    <div style="display:none;">
+      스터디 가이드: 
+      [
+        <a href="https://docs.google.com/presentation/d/17Hl2Buum7woglPRPuAliXZf9Oi1V8iqKSNSvTXwFuj0/edit?usp=sharing">PPT</a> | 
+        <a href="https://docs.google.com/document/d/1zJ2hoKXo74NULrKA0BHvVZ8ssWZb7wKBLSPDANi-mCw/edit?usp=sharing">DOC</a>
+      ]
+    </div>
+    <a href="https://forms.gle/otCwUvvZEY2RQgA37">퀴즈</a> | <a href="https://forms.gle/P2kq7wVBGRKxU76h7">실기</a>
+    

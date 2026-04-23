@@ -1,0 +1,185 @@
+- date: 3/3
+  week: 1
+  title: >
+    <strong>교과목소개 및 오리엔테이션 (개발 환경 설정 소개, 과제물 제출 방법)</strong>
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1B7cmjn-pfXBYGng6jBhbhV0iHuQ7_e6j3nWHueHqwWk/edit?usp=sharing"
+  slides2:
+  img: 2026/wku-php/1-intro.jpg
+  logistics:
+
+- date: 3/10
+  week: 2
+  title: >
+    1장 변수, 표현식 그리고 연산자
+  supp:
+  readings:
+  hw: "https://classroom.github.com/a/V42HuTPF"
+  slides: "https://docs.google.com/presentation/d/1OP2tDbPWT6lnk9ZXuMaGwqyU3ZuDcp--l3UDqHauoxk/edit?usp=sharing"
+  slides2:
+  img: 2026/wku-php/2-basics.jpg
+  logistics:
+
+- date: 3/17
+  week: 3
+  title: >
+    2장 제어 구조
+  supp:
+  readings:
+  hw: "https://classroom.github.com/a/Uy5l1zEq"
+  slides: "https://docs.google.com/presentation/d/1vlpI7c7-_xNzRJiyG6n4Pf55Q1PjFiwF_fU88-Vtqj0/edit?usp=sharing"
+  slides2:
+  img: 2026/wku-php/3-func.jpg
+  logistics:
+
+- date: 3/24
+  week: 4
+  title: >
+    3장 함수
+  supp:
+  readings:
+  hw: "https://classroom.github.com/a/9hllwzL9"
+  slides: "https://docs.google.com/presentation/d/1TL6Zg7eIyXu3az1A848Ppc6B8vZheQyurnLAntxNDes/edit?usp=sharing"
+  slides2:
+  img: 2026/wku-php/4-func-again.jpg
+  logistics:
+
+- date: 3/31
+  week: 5
+  title: >
+    4장 객체 & 클래스
+  supp:
+  readings:
+  hw: "https://classroom.github.com/a/O4n-TSny"
+  slides: "https://docs.google.com/presentation/d/1mQ0N19UAlRR_285AP3ZQFhUO6yuV3GaD5S5EgbtRwWY/edit?usp=sharing"
+  slides2:
+  img: 2026/wku-php/5-classes.jpg
+  logistics:
+
+- date: 4/7
+  week: 6
+  title: >
+    5장 내장 함수
+  supp:
+  readings:
+  hw: "https://classroom.github.com/a/f8vuaYzT"
+  slides: "https://docs.google.com/presentation/d/1PPnBE3Zv8u4Qyj21IdE9CSHdrhwxP_sKiNtFwio3Bi4/edit?usp=sharing"
+  slides2:
+  img: 2026/wku-php/6-built-in.jpg
+  logistics: 
+
+- date: 4/14
+  week: 7
+  title: >
+    6장 브라우저로부터 데이터 가져오기
+  supp:
+  readings:
+  hw: "https://classroom.github.com/a/PXi4ede6"
+  slides: "https://docs.google.com/presentation/d/1ucVdnOQnqBPjx_VvA-a6Sy5LuhkOu-xR4_qNMRKr6SI/edit?usp=sharing"
+  slides2:
+  img: 2026/wku-php/7-browser-data.jpg
+  logistics:
+
+- date: 4/21
+  week: 8
+  title: >
+    <strong>Midterm Test</strong>
+    <div>
+      <br><a style="display: none;" href="https://docs.google.com/presentation/d/1ch5ZmIYK8h9Yai-z3ejA06Ft4u7jW_KQBJssnUUz1SE/edit?usp=sharing">스터디 가이드</a>
+      <br><a style="display: none;" href="https://forms.gle/6jidnVeKBi5KfVZh9">중간고사 퀴즈</a>
+      <br><a href="https://classroom.github.com/a/X3bwpQOU">중간고사 실기</a>
+    </div>
+
+- date: 4/28
+  week: 9
+  title: >
+    7장 이미지 & 파일
+  supp:
+  readings:
+  hw:
+  slides:
+  slides2:
+  img:
+  logistics:
+
+- date: 5/5
+  week: 10
+  title: >
+    <span style="color: red"><strong>No Class</strong> Kid's Day!~~</span>
+
+- date: 5/12
+  week: 11
+  title: >
+    8장 날짜 & 시간
+  supp:
+  readings:
+  hw:
+  slides:
+  slides2:
+  img:
+  logistics:
+
+- date: 5/19
+  week: 12
+  title: >
+    9장 쿠키 & 세션
+  supp:
+  readings:
+  hw:
+  slides:
+  slides2:
+  img:
+  logistics:
+
+- date: 5/26
+  week: 13
+  title: >
+    10장 오류 처리
+  supp:
+  readings:
+  hw:
+  slides:
+  slides2:
+  img:
+  logistics:
+
+- date: 6/2
+  week: 14
+  title: >
+    11장 구조화된 쿼리 언어
+  supp:
+  readings:
+  hw:
+  slides:
+  slides2:
+  img:
+  logistics:
+
+- date: 6/9
+  week: 15
+  title: >
+    12장 데이터베이스에서 데이터 가져오기 & 표시하기
+  supp:
+  readings:
+  hw:
+  slides:
+  slides2:
+  img:
+  logistics:
+
+- date: 6/16
+  week: 16
+  title: >
+    <strong>Final Test</strong>
+    <div style="display: none;">
+      <br><a href="#">스터디 가이드</a>
+      <br><a href="#">기말퀴즈</a>
+    </div>
+  logistics: >
+    13장 데이터베이스의 데이터 업데이트하기<br>
+    14장 리팩터링 & 종속성 주입<br>
+    15장 네임스페이스 & 라이브러리<br>
+    16장 멤버십<br>
+    17장 기능 추가하기

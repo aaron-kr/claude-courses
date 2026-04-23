@@ -1,0 +1,74 @@
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="{{ '/' | relative_url }}">snowberger.edu</a>
+    <ul class="nav-links">
+      <li><a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active-page"{% endif %}>Courses</a></li>
+      <li class="has-dropdown" id="dd-courses">
+        <button>2026 &#x25BE;</button>
+        <ul class="nav-dropdown">
+          <li><span class="dd-semester">Spring 2026 / 2026년 1학기</span></li>
+          {%- assign courses_2026 = site.courses | where: "category", "2026-1" | sort: "importance" -%}
+          {%- for course in courses_2026 -%}
+          <li>
+            <a href="{{ course.url | relative_url }}">
+              <span class="dd-code">{{ course.description | split: ' • ' | first }}</span>
+              {{ course.title }}
+            </a>
+          </li>
+          {%- endfor -%}
+          <li class="dd-divider"></li>
+          <li class="dd-all"><a href="{{ '/archive' | relative_url }}">All Courses &#x2192;</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown" id="dd-policies">
+        <button>Policies &#x25BE;</button>
+        <ul class="nav-dropdown">
+          <li><a href="{{ '/policies' | relative_url }}#attendance">Attendance 출석</a></li>
+          <li><a href="{{ '/policies' | relative_url }}#assignments">Assignments 과제</a></li>
+          <li><a href="{{ '/policies' | relative_url }}#tests">Tests 시험</a></li>
+          <li><a href="{{ '/policies' | relative_url }}#collaboration">Collaboration 협력</a></li>
+          <li><a href="{{ '/policies' | relative_url }}#late">Late Policy 지각</a></li>
+          <li class="dd-divider"></li>
+          <li><a href="{{ '/policies/ai' | relative_url }}">AI Tools Policy</a></li>
+          <li class="dd-divider"></li>
+          <li class="dd-all"><a href="{{ '/policies' | relative_url }}">All Policies &#x2192;</a></li>
+        </ul>
+      </li>
+      <li><a href="{{ '/archive' | relative_url }}"{% if page.url contains '/archive' %} class="active-page"{% endif %}>Archive</a></li>
+      <li><a href="{{ '/office-hours' | relative_url }}"{% if page.url contains '/office-hours' %} class="active-page"{% endif %}>Office Hours</a></li>
+    </ul>
+    <div class="nav-controls">
+      <button class="ctrl-btn theme-btn" aria-label="Toggle theme">🌙</button>
+      <button class="ctrl-btn lang-btn">한국어</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="{{ '/' | relative_url }}">Courses</a>
+    <button class="m-toggle" id="m-courses"><span>2026 Courses</span><span class="m-chevron">&#x25BE;</span></button>
+    <div class="mobile-sub" id="m-courses-sub">
+      {%- assign courses_2026 = site.courses | where: "category", "2026-1" | sort: "importance" -%}
+      {%- for course in courses_2026 -%}
+      <a href="{{ course.url | relative_url }}">{{ course.title }}</a>
+      {%- endfor -%}
+      <div class="dd-divider"></div>
+      <a href="{{ '/archive' | relative_url }}">All Courses &#x2192;</a>
+    </div>
+    <button class="m-toggle" id="m-policies"><span>Policies</span><span class="m-chevron">&#x25BE;</span></button>
+    <div class="mobile-sub" id="m-policies-sub">
+      <a href="{{ '/policies/ai' | relative_url }}">AI Tools Policy</a>
+      <div class="dd-divider"></div>
+      <a href="{{ '/policies' | relative_url }}">All Policies &#x2192;</a>
+    </div>
+    <a href="{{ '/archive' | relative_url }}">Archive</a>
+    <a href="{{ '/office-hours' | relative_url }}">Office Hours</a>
+    <div class="mobile-controls">
+      <button class="ctrl-btn theme-btn" aria-label="Toggle theme">🌙</button>
+      <button class="ctrl-btn lang-btn">한국어</button>
+    </div>
+  </div>
+</nav>

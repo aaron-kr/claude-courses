@@ -1,0 +1,11 @@
+# Announcements shown on the homepage.
+# Remove or comment out entries when no longer relevant.
+# date format: YYYY-MM-DD
+# type: info | warn | error  (maps to CSS color variables)
+
+# - date: 2026-04-23
+#   type: warn
+#   title: Midterm Week
+#   title_ko: 중간고사 기간
+#   body: All midterm exams are scheduled the week of April 28–May 2. Check your course page for details.
+#   body_ko: 4월 28일~5월 2일 중간고사가 예정되어 있습니다. 세부 사항은 강의 페이지를 확인하세요.

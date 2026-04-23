@@ -1,0 +1,28 @@
+<footer>
+  <div class="footer-grid">
+    <div class="f-col">
+      <span class="f-brand">Aaron Snowberger</span>
+      <span>Ph.D. — Hanbat National University</span>
+      <span>CS &amp; Engineering Lecturer</span>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+    </div>
+    <div class="f-col">
+      <span class="f-heading">Teaching</span>
+      <a href="{{ '/' | relative_url }}">Current Courses</a>
+      <a href="{{ '/archive' | relative_url }}">Course Archive</a>
+      <a href="{{ '/policies' | relative_url }}">Academic Policies</a>
+      <a href="{{ '/office-hours' | relative_url }}">Office Hours</a>
+    </div>
+    <div class="f-col">
+      <span class="f-heading">Connect</span>
+      {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}" target="_blank">GitHub</a>{% endif %}
+      {% if site.linkedin_username %}<a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank">LinkedIn</a>{% endif %}
+      {% if site.scholar_userid %}<a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" target="_blank">Google Scholar</a>{% endif %}
+      <a href="https://pailab.io" target="_blank">PAI Lab →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; {{ 'now' | date: '%Y' }} Aaron Snowberger</span>
+    <span class="footer-updated">Last updated {{ 'now' | date: '%B %Y' }}</span>
+  </div>
+</footer>

@@ -1,0 +1,57 @@
+{% comment %}
+  Renders the Main-Text and Supplementary textbooks from page front matter.
+  Used inside the course layout.
+{% endcomment %}
+
+<ul class="book-list">
+
+  {%- for text in page.Main-Text -%}
+  <li class="book-item">
+    <div class="book-cover-col">
+      <div class="bk-img main-img">
+        {%- if text.image -%}
+        <img src="{{ text.image | prepend: '/assets/img/' | relative_url }}" alt="{{ text.title | strip_html }}" />
+        {%- else -%}
+        <div class="bk-img-inner main-bk">{{ text.title | strip_html | truncate: 30 }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="book-info">
+      <span class="book-badge req">★ Required / 교재</span>
+      <div class="book-title">{{ text.title }}</div>
+      <div class="book-author">{{ text.author }}</div>
+      <div class="book-pub">{{ text.publisher }}</div>
+      {%- if text.link -%}
+      <a href="{{ text.link }}" class="book-buy" target="_blank">Buy / 구매 →</a>
+      {%- endif -%}
+      {%- if text.code -%}
+      <a href="{{ text.code }}" class="book-buy" target="_blank" style="margin-left:6px;">Code →</a>
+      {%- endif -%}
+    </div>
+  </li>
+  {%- endfor -%}
+
+  {%- for text in page.Supplementary -%}
+  <li class="book-item">
+    <div class="book-cover-col">
+      <div class="bk-img supp-img">
+        {%- if text.image -%}
+        <img src="{{ text.image | prepend: '/assets/img/' | relative_url }}" alt="{{ text.title | strip_html }}" />
+        {%- else -%}
+        <div class="bk-img-inner supp-bk1">{{ text.title | strip_html | truncate: 20 }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="book-info">
+      <span class="book-badge supp">Supplementary / 참고</span>
+      <div class="book-title">{{ text.title }}</div>
+      <div class="book-author">{{ text.author }}</div>
+      <div class="book-pub">{{ text.publisher }}</div>
+      {%- if text.link -%}
+      <a href="{{ text.link }}" class="book-buy" target="_blank">Buy / 구매 →</a>
+      {%- endif -%}
+    </div>
+  </li>
+  {%- endfor -%}
+
+</ul>

@@ -1,0 +1,175 @@
+- date: 9/2
+  week: 1
+  title: >
+    <strong>1 - Introduction</strong>
+  supp:
+  readings: p. 1-4
+  hw:
+  slides: "https://docs.google.com/presentation/d/1Bk9vPAcRz5x9TDzoDy95o3GauItB_1UZG9j3hTWOAqw/edit?usp=sharing"
+  img: 2024/jbnu-h/1-intro.jpg
+  logistics:
+
+- date: 9/9
+  week: 2
+  title: >
+    <strong>2 - Fuel Cells for Transportation - Overview (book 2)</strong>
+  supp:
+  readings: p. 1-26
+  hw:
+  slides: "https://docs.google.com/presentation/d/18eDJLJ6xfTaV-NzujnRHVMmIFuDbd3Ngi-GPOgnAfcU/edit?usp=sharing"
+  img: 2024/jbnu-h/2-fc-transportation.jpg
+  logistics:
+
+- date: 9/16
+  week: 3
+  title: >
+    <span style="color: red"><strong>No Class</strong> Chuseok</span>
+
+- date: 9/23
+  week: 4
+  title: >
+    <strong>3 - Electrochemistry and Thermodynamics</strong>
+  supp:
+  readings: p. 5-105
+  hw:
+  slides: "https://docs.google.com/presentation/d/1K8vEGg4Ioh-3H59gLlgPuBKCtznpcf2Y9d-qVoHc09E/edit?usp=sharing"
+  img: 2024/jbnu-h/4-elec-thermo.jpg
+  logistics:
+
+- date: 9/30
+  week: 5
+  title: >
+    <strong>3 - Electrochemistry and Thermodynamics II</strong>
+  supp:
+  readings: p. 107-220
+  hw:
+  slides: "https://docs.google.com/presentation/d/1ccMhncnAow1Fhse9Mx1MwrAGo2BlOYd0yZ4fBsL3_84/edit?usp=sharing"
+  img: 2024/jbnu-h/5-electro-thermo-ii.jpg
+  logistics:
+
+- date: 10/7
+  week: 6
+  title: >
+    <strong>4 - Hydrogen Production I</strong><br>
+    <span style="color: red"><strong>No Class</strong> Hangul Day</span>
+  supp:
+  readings: p. 107-220
+  hw:
+  slides: "https://docs.google.com/presentation/d/1twuu8BQ2ms4E161xIrBIPZ-hfuVbpAb_TU2KATBfdcw/edit?usp=sharing"
+  img: 2024/jbnu-h/6-hydro-prod.jpg
+  logistics:
+
+- date: 10/14
+  week: 7
+  title: >
+    <strong>4 - Hydrogen Production II</strong>
+  supp:
+  readings: p. 221-272
+  hw:
+  slides: "https://docs.google.com/presentation/d/1ZBJarMe5zrZo2vdxYOuaCXkKQDQWQE6jcp_MRm0klBI/edit?usp=sharing"
+  img: 2024/jbnu-h/7-h-prod-2.jpg
+  logistics:
+
+- date: 10/21
+  week: 8
+  title: >
+    <strong>Midterm Test</strong> <br><a href="https://forms.gle/UEsZ6EShzFjA3pkb9">Test</a>
+    <div style="display: none;">[<a href="https://docs.google.com/presentation/d/1u6vWsLWTT_DuuzcHLxIN3L-0Q7aoHN3KNKmY_rcebwM/edit?usp=sharing">Study Guide</a>]
+    </div>
+
+- date: 10/28
+  week: 9
+  title: >
+    <strong>4 - Hydrogen Production III</strong>
+  supp:
+  readings: p. 221-272
+  hw:
+  slides: "https://docs.google.com/presentation/d/1LOagiipx_3kLgA4pED4UbAmV7RQ78KCA46kkMJDQJHI/edit?usp=sharing"
+  img: 2024/jbnu-h/9-h-prod-3.jpg
+  logistics: >
+    <a href="https://docs.google.com/document/d/17-BaNC1jGPIa5ENJyO5FYts_uMhe99Xk/edit?usp=sharing&ouid=111221545203304105756&rtpof=true&sd=true">A4 Template</a><br>
+    <a href="https://docs.google.com/presentation/d/1RIDx0LAzUP3f2Z-OewKEdYPs0aN3al48Fr6XGd2EjHQ/edit?usp=sharing">How To</a><br>
+    <a href="https://www.earticle.net/Article/A434550">SLR Example</a><br>
+    <a href="https://speakerdeck.com/asnowberger">PPT Examples</a>
+
+- date: 11/4
+  week: 10
+  title: >
+    <strong>5 - Hydrogen Storage, Transmission, Conversion</strong>
+  supp:
+  readings: p. 49-89
+  hw:
+  slides: "https://docs.google.com/presentation/d/1H4UL2glUOjJf6EVypLLIv1gmRbMw0tL8vcXPGAuh5d0/edit?usp=sharing"
+  img: 2024/jbnu-h/10-h-storage.jpg
+  logistics: >
+    <a href="https://forms.gle/DoRcdcFRTte1Fa338">Research Update</a>
+
+- date: 11/11
+  week: 11
+  title: >
+    <strong>6 - Fuel Cell Types</strong>
+  supp:
+  readings: p. 149-220
+  hw:
+  slides: "https://docs.google.com/presentation/d/17s7rPrGTtMcKHEI-PsbzS-T3h3lyqtmbLfWIsiXwHRA/edit?usp=sharing"
+  img: 2024/jbnu-h/11-fuel-cells.jpg
+  logistics:
+
+- date: 11/18
+  week: 12
+  title: >
+    <strong>7 - Fuel Cell Systems</strong>
+  supp:
+  readings: p. 221-272
+  hw:
+  slides: "https://docs.google.com/presentation/d/1-uKXMec4nREridDxzNvwVzcJAZU149PYa3o6XBG9dko/edit?usp=sharing"
+  img: 2024/jbnu-h/12-fc-systems.jpg
+  logistics:
+
+- date: 11/25
+  week: 13
+  title: >
+    <strong>8 - Implementation Scenarios I</strong>
+  supp:
+  readings: p. 273-411
+  hw:
+  slides: "https://docs.google.com/presentation/d/129PGDN5T9zW7s3K-dO0oBXszZgd_1ZrV1utyh0-e-YA/edit?usp=sharing"
+  img: 2024/jbnu-h/13-fc-systems-ii.jpg
+  logistics: >
+    <a href="https://forms.gle/p2f8tuwsaukFmwQt7">First Draft Submission</a>
+
+- date: 12/2
+  week: 14
+  title: >
+    <strong>8 - Implementation Scenarios II</strong>
+  supp:
+  readings: p. 413-491
+  hw:
+  slides: "https://docs.google.com/presentation/d/1E_T7H_zKgfGzHbKFQyH8uKVe-J7NZErBNc6Hq1JhK50/edit?usp=sharing"
+  img: 2024/jbnu-h/14-scenarios-i.jpg
+  logistics: >
+    <a href="https://docs.google.com/presentation/d/1gC6BVcZxFh8O7PJ1F7L-0CFsDYjotdk75SFpbT7QEp0/edit?usp=sharing">PPT Template</a><br>
+    <a href="https://docs.google.com/presentation/d/1Ik3-0CFmh_7CxXydx3-pikpX5Dvcte3IniDuSbeZL68/edit?usp=sharing">Short Example</a><br>
+    <a href="https://docs.google.com/presentation/d/1G5-akZ60OWfsFSI9ICHg2PtjkV0gpi-r-1wp0PW27FI/edit?usp=sharing">Long Example</a>
+
+- date: 12/9
+  week: 15
+  title: >
+    <strong>8 - Implementation Scenarios III &amp; Research Presentations</strong>
+  supp:
+  readings: p. 463-491
+  hw:
+  slides: "https://docs.google.com/presentation/d/1HdJFe_RIBRwH6HihIbwzXr8ELfd2-pc6qUvUIMiHIyk/edit?usp=sharing"
+  img: 2024/jbnu-h/15-scenarios-iii.jpg
+  logistics: 
+
+- date: 12/16
+  week: 16
+  title: >
+    <strong>Final Test</strong><br>
+    <a href="https://forms.gle/TJSqP7B6zovzHF7eA">FINAL Paper &amp; PPT Upload</a><br>
+    <a href="https://forms.gle/WoVMFnsQqjkTxXHw8">Team Member Feedback</a>
+    <div style="display: none;"><br>
+      <a href="https://docs.google.com/presentation/d/1oSQPFAFRdGeETDiypbhlOfBN9nqAAO0EMo7AWYQ854k/edit?usp=sharing">Study Guide</a>
+      <a href="">퀴즈</a> | <a href="">실기</a>
+    </div>

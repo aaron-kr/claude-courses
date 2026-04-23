@@ -1,0 +1,220 @@
+- date: 8/25
+  week: 1
+  title: >
+    <strong>Conference Presentations</strong><br>
+    <a href="https://docs.google.com/presentation/d/1KJgk9eaXtaVf_SEy5XcxJ5Om4xsv6LDYUl729R_pays/edit?usp=sharing">0. Student Research (full)</a><br>
+    <a href="https://docs.google.com/presentation/d/1Y_T0BYhbiMy-F0EKliaI6U169T2wFOXlC6CxuHi1y9Q/edit?usp=sharing">1. Select a Topic</a><br>
+    <a href="https://docs.google.com/presentation/d/1N8Hu-Y_YH7uxtR-OoXxICehon4ILtFGYbGlvh1W6QmY/edit?usp=sharing">2. Writing your Paper</a>
+  supp:
+  readings: Use the template files provided to write your paper.
+  hw:
+  slides: "https://docs.google.com/presentation/d/1KJgk9eaXtaVf_SEy5XcxJ5Om4xsv6LDYUl729R_pays/edit?usp=sharing"
+  slides2:
+  img: 0-research.jpg
+  logistics: >
+    <a href="https://drive.google.com/drive/folders/1XRI8KHzocVz4gamFO_V0qjqBXhmhyljl?usp=sharing"><strong>Template files</strong></a>
+
+- date: 9/4
+  week: 1
+  title: >
+    <strong>Introduction</strong>
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1Wmct_UsuYpiEX_Urwc4U5bKQfXosQxwEiLmTAvnxckA/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-mip/1-intro.jpg
+  logistics:
+
+- date: 9/11
+  week: 2
+  title: >
+    Chapter 1. An introduction to neural networks and deep learning<br>
+    (1장. 신경망과 딥러닝 소개)
+  supp:
+  readings:
+  hw: "https://classroom.github.com/a/d_i7Iw9C"
+  slides: "https://docs.google.com/presentation/d/1hBslv1GajNpBA3hXIAPeiiNcIBUMZiEUVf3jMyWX8h0/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-mip/2-cnn.jpg
+  logistics:
+
+- date: 9/18
+  week: 3
+  title: >
+    Chapter 2. Deep reinforcement learning in medical imaging<br>
+    (2장. 의료 영상에서의 딥 강화학습)
+  supp:
+  readings:
+  hw: "https://classroom.github.com/a/1OFMRNSZ"
+  hw2: "https://www.kaggle.com/code/aaronsnowberger/pneumonia-drl"
+  slides: "https://docs.google.com/presentation/d/1MeqFpgAb6s19a63EveW4gEkpJqePA5_JTOCu1MC95cI/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-mip/3-drl.jpg
+  logistics:
+
+- date: 9/25
+  week: 4
+  title: >
+    Chapter 3. CapsNet for medical image segmentation<br>
+    (3장. 의료 영상 분할을 위한 CapsNet)<br>
+    Chapter 4. Transformer for medical image analysis<br>
+    (4장. 의료 영상 분석을 위한 트랜스포머)
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1xGWspq6tJCcAGCE4mvTQtBSfX0VbEOqJx1mmtY7XMrg/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-mip/4-capsnet.jpg
+  logistics: >
+    <a href="https://drive.google.com/drive/folders/1huaKOM8i5aeq2uSQDyasuB-Is7vghCix?usp=sharing">샘플 코드</a>
+
+- date: 10/1
+  week: 5
+  title: >
+    Chapter 5. An overview of disentangled representation learning for MR image harmonization<br>
+    (5장. MR 영상 조화를 위한 분리된 표현 학습 개요)<br>
+    Chapter 6. Hyper-graph learning and its applications for medical image analysis<br>
+    (6장. 의료 영상 분석을 위한 하이퍼 그래프 학습과 그 응용)
+  supp:
+  readings:
+  hw: "https://drive.google.com/file/d/1eMrCMIfva8Gg87F1ZsC8FtnBMXfgvRPw/view?usp=sharing"
+  slides: "https://docs.google.com/presentation/d/1zcd3WFGmGKZduY9hiTwiGLcxdAXKfyByoXBpSb6wZCc/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-mip/5-mr-hyper.jpg
+  logistics:
+
+- date: 10/9
+  week: 6
+  title: >
+    <span style="color: red"><strong>No Class</strong> Chuseok!~</span>
+
+- date: 10/16
+  week: 7
+  title: >
+    Chapter 7. Unsupervised domain adaptation for medical image analysis<br>
+    (7장. 의료 영상 분석을 위한 비지도 도메인 적응)<br>
+    Chapter 8. Medical image synthesis and reconstruction using generative adversarial networks<br>
+    (8장. 생성적 적대 신경망을 이용한 의료 영상 합성 및 재구성)
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1KEPp3V1-0r4AoOHp9F8icfqfCMny6KzUQdFB0_OU7RY/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-mip/6-hypergraphs-domains.jpg
+  logistics: >
+    <a href="https://classroom.google.com/c/ODA0NDc0MDE5MTQz?cjc=6dwfzika">Google 클래스룸 가입</a> (@gmail.com)
+
+- date: 10/23
+  week: 8
+  title: >
+    <strong style="color: red">LMS 온라인 동영상 수업</strong><br>
+    중간고사 스터디 가이드
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/18vEbrSd-8FBsGLwidpNp-Jl82N2SCNaHh9GCstwkh5U/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-mip/7-gans.jpg
+  logistics:
+
+- date: 10/30
+  week: 9
+  title: >
+    <strong>Midterm Test</strong><br>
+    <a href="https://docs.google.com/document/d/1VtltgMQMcxV34BHLNncARVhx5PocbAMUY8i9Fu8vzkA/edit?usp=sharing">스터디 가이드 어휘</a>
+    <hr style="margin-top: 10px; margin-bottom: 10px;">
+    <div style="display: none">
+      <br><a href="https://forms.gle/9tGvm71MB1m4hAf48">중간 퀴즈</a>
+      <br><a href="https://classroom.google.com/c/ODA0NDc0MDE5MTQz/a/ODE3NTgwMjYyMzk0/details">중간 프로젝트</a>
+    </div>
+
+- date: 11/6
+  week: 10
+  title: >
+    Chapter 9. Deep learning for medical image reconstruction<br>
+    (9장. 의료 영상 재구성을 위한 딥러닝)
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/191V8ps0z4W8DqfY36z2kG2lUrs_xT9v_qJNsK659B80/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-mip/9-medical-img-reconstruction.jpg
+  logistics:
+
+- date: 11/13
+  week: 11
+  title: >
+    Chapter 10. Dynamic inference using neural architecture search in medical image segmentation<br>
+    (10장. 의료 영상 분할에서 신경망 구조 검색을 이용한 동적 추론)
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1c-M-fRRt9uBb_co5p7foZZfQzAmYZ3MWW7Ozvx1vONc/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-mip/10-seg.jpg
+  logistics:
+
+- date: 11/20
+  week: 12
+  title: >
+    Chapter 11. Multi-modality cardiac image analysis with deep learning<br>
+    (11장. 딥러닝을 이용한 다중 모달리티 심장 영상 분석)<br>
+    Chapter 12. Deep learning-based medical image registration<br>
+    (12장. 딥러닝 기반 의료 영상 등록)
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1CENvcEjxzAUk_BewXvCD0iPS7RRQSn82QjjVnMBue8g/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-mip/11-multi-modal.jpg
+  logistics:
+
+- date: 11/27
+  week: 13
+  title: >
+    Chapter 13. Data-driven learning strategies for biomarker detection and outcome prediction in Autism from task-based fMRI<br>
+    (13장. 작업 기반 fMRI에서 자폐증의 바이오마커 탐지 및 결과 예측을 위한 데이터 기반 학습 전략)
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1CVT7ygichF3DsBuXfrmAVdRGoJl1C34xj3munaYBZaA/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-mip/12-autism.jpg
+  logistics:
+
+- date: 12/4
+  week: 14
+  title: >
+    Chapter 14. Deep learning in functional brain mapping and associated applications<br>
+    (14장. 기능적 뇌 매핑 및 관련 응용에서의 딥러닝)
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1P1ELBsWSJQN3M2Jc1yMMudGKjTx44Ew7YsO2XXkNf4E/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-mip/13-brain-mapping.jpg
+  logistics:
+
+- date: 12/11
+  week: 15
+  title: >
+    Chapter 15. Detecting, localizing, and classifying polyps from colonoscopy videos using deep learning<br>
+    (15장. 대장내시경 비디오에서 딥러닝을 이용한 폴립 탐지, 위치 파악 및 분류)<br>
+    Chapter 16. OCTA segmentation with limited training data using disentangled representation learning<br>
+    (16장. 분리된 표현 학습을 이용한 제한된 훈련 데이터를 가진 OCTA 분할)
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1HKnH7abJSyrFP0EGDlrJNwqYHVAkSVM4pTDHiPIW4P8/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-mip/14-octa.jpg
+  logistics:
+
+- date: 12/18
+  week: 16
+  title: >
+    <strong>Final Test</strong><br>
+    <div>
+      <a href="https://forms.gle/CFoki2iBDHn9tDqS9">기말 퀴즈</a>
+    </div>

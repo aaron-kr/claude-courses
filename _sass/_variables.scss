@@ -1,0 +1,35 @@
+// ── CSS Custom Properties (injected into :root via _base.scss) ──────────────
+// Dark mode defaults
+$bg-dark:       #090910;
+$surface-dark:  #12121e;
+$border-dark:   #22223a;
+$muted-dark:    #55557a;
+$text-dark:     #eeeeff;
+$sub-dark:      #b8b8d8;
+$accent:        #9b65ff;
+$accent2:       #7eb8f7;
+$accent3:       #6dccdd;
+$warn:          #fbbf24;
+$error:         #fb6f84;
+$tag-bg-dark:   #181828;
+$nav-bg-dark:   rgba(9, 9, 16, 0.92);
+
+// Light mode overrides
+$bg-light:      #f2f2f8;
+$surface-light: #ffffff;
+$border-light:  #e0e0f0;
+$muted-light:   #8888b0;
+$text-light:    #111128;
+$sub-light:     #3a3a62;
+$accent-light:  #7c3aff;
+$accent2-light: #2563eb;
+$accent3-light: #0badbc;
+$warn-light:    #d97706;
+$error-light:   #e5294a;
+$tag-bg-light:  #ebebf8;
+$nav-bg-light:  rgba(242, 242, 248, 0.95);
+
+// Shared
+$radius: 6px;
+$max-width: 960px;
+$nav-height: 52px;

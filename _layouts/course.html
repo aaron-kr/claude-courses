@@ -1,0 +1,151 @@
+---
+layout: default
+---
+<div class="wrap">
+
+  {%- assign info = page.information | first -%}
+
+  <div class="course-hero">
+    <div class="course-badges animate d1">
+      <span class="c-badge code">{{ info.section | default: page.section }}</span>
+      <span class="c-badge sem">{{ page.category | replace: '-', ' ' }}</span>
+      <span class="c-badge uni">{{ page.description | split: ' • ' | last }}</span>
+    </div>
+    <h1 class="animate d2">{{ page.title }}</h1>
+    {% if page.subtitle %}<div class="course-subtitle animate d2">{{ page.subtitle }}</div>{% endif %}
+
+    {%- if page.information.size > 1 -%}
+    {%- comment -%} Multiple sections — show all {%- endcomment -%}
+    <div class="stats-strip animate d3" style="grid-template-columns:repeat({{ page.information.size | times: 3 | at_most: 4 }},1fr);">
+      {%- for section in page.information -%}
+      <div class="strip-item"><span class="strip-label">Section / 분반</span><span class="strip-value">{{ section.section }}</span></div>
+      <div class="strip-item"><span class="strip-label">Time / 수업 시간</span><span class="strip-value">{{ section.time }}</span></div>
+      <div class="strip-item"><span class="strip-label">Room / 강의실</span><span class="strip-value">{{ section.location }}</span></div>
+      {%- endfor -%}
+    </div>
+    {%- else -%}
+    <div class="stats-strip animate d3">
+      <div class="strip-item"><span class="strip-label">Section / 분반</span><span class="strip-value">{{ info.section }}</span></div>
+      <div class="strip-item"><span class="strip-label">Time / 수업 시간</span><span class="strip-value">{{ info.time }}</span></div>
+      <div class="strip-item"><span class="strip-label">Room / 강의실</span><span class="strip-value">{{ info.location }}</span></div>
+      <div class="strip-item"><span class="strip-label">Year / 연도</span><span class="strip-value">{{ page.category | split: '-' | first }}</span></div>
+    </div>
+    {%- endif -%}
+
+    <div class="quick-links animate d3">
+      {%- for section in page.information -%}
+        {%- if section.kakaotalk -%}
+        <a href="{{ section.kakaotalk }}" class="ql-btn kakao" target="_blank">
+          💬 <span class="txt">KakaoTalk{% if page.information.size > 1 %} ({{ section.section }}){% endif %}</span>
+        </a>
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if page.github -%}
+      <a href="{{ page.github }}" class="ql-btn gh" target="_blank">💻 <span class="txt">GitHub Classroom</span></a>
+      {%- endif -%}
+      {%- if page.classroom -%}
+      <a href="{{ page.classroom }}" class="ql-btn" target="_blank">📖 <span class="txt">Google Classroom</span></a>
+      {%- endif -%}
+    </div>
+  </div><!-- /.course-hero -->
+
+  <div class="page-layout">
+    <aside class="sidebar">
+      <ul class="sidebar-nav">
+        <li><a href="#grading">Grading / 평가</a></li>
+        <li><a href="#schedule">Schedule / 일정</a></li>
+        <li><a href="#overview">Overview / 개요</a></li>
+        <li><a href="#textbooks">Textbooks / 교재</a></li>
+        <li><a href="#instructor">Instructor / 강사</a></li>
+        <li><a href="#policies">Policies / 규정</a></li>
+      </ul>
+    </aside>
+
+    <main>
+
+      <!-- ── Grading ──────────────────────────────────────────────────────── -->
+      <div class="crs-section" id="grading">
+        <div class="crs-heading"><span class="crs-label">Grading / 성적 평가</span><span class="crs-line"></span></div>
+
+        {%- if page.grading -%}
+        {%- assign g = page.grading -%}
+        <div class="grade-track">
+          {%- if g.attendance -%}
+          <div class="grade-seg" style="flex:{{ g.attendance }};background:#4a5568;">
+            <span class="grade-pct">{{ g.attendance }}%</span><span class="grade-name">출석</span>
+          </div>
+          {%- endif -%}
+          {%- if g.homework -%}
+          <div class="grade-seg" style="flex:{{ g.homework }};background:#7c3aff;">
+            <span class="grade-pct">{{ g.homework }}%</span><span class="grade-name">과제</span>
+          </div>
+          {%- endif -%}
+          {%- if g.midterm -%}
+          <div class="grade-seg" style="flex:{{ g.midterm }};background:#2563eb;">
+            <span class="grade-pct">{{ g.midterm }}%</span><span class="grade-name">중간</span>
+          </div>
+          {%- endif -%}
+          {%- if g.final -%}
+          <div class="grade-seg" style="flex:{{ g.final }};background:#0e6490;">
+            <span class="grade-pct">{{ g.final }}%</span><span class="grade-name">기말</span>
+          </div>
+          {%- endif -%}
+          {%- if g.project -%}
+          <div class="grade-seg" style="flex:{{ g.project }};background:#b45309;">
+            <span class="grade-pct">{{ g.project }}%</span><span class="grade-name">프로젝트</span>
+          </div>
+          {%- endif -%}
+        </div>
+        <div class="grade-legend">
+          {%- if g.attendance -%}<span class="gl-item"><span class="gl-dot" style="background:#4a5568;"></span>{{ g.attendance }}% 출석</span>{%- endif -%}
+          {%- if g.homework -%}<span class="gl-item"><span class="gl-dot" style="background:#7c3aff;"></span>{{ g.homework }}% 과제</span>{%- endif -%}
+          {%- if g.midterm -%}<span class="gl-item"><span class="gl-dot" style="background:#2563eb;"></span>{{ g.midterm }}% 중간고사</span>{%- endif -%}
+          {%- if g.final -%}<span class="gl-item"><span class="gl-dot" style="background:#0e6490;"></span>{{ g.final }}% 기말고사</span>{%- endif -%}
+          {%- if g.project -%}<span class="gl-item"><span class="gl-dot" style="background:#b45309;"></span>{{ g.project }}% 프로젝트</span>{%- endif -%}
+        </div>
+        {%- else -%}
+        <div class="policy-content">{{ content | split: '#### Grading' | last | split: '##' | first | markdownify }}</div>
+        {%- endif -%}
+      </div>
+
+      <!-- ── Schedule ─────────────────────────────────────────────────────── -->
+      <div class="crs-section" id="schedule">
+        <div class="crs-heading"><span class="crs-label">Schedule / 강의일정</span><span class="crs-line"></span></div>
+        {%- if page.data_file -%}
+          {% include schedule.html data_file=page.data_file %}
+        {%- else -%}
+          <p style="color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:.8rem;">Schedule coming soon.</p>
+        {%- endif -%}
+      </div>
+
+      <!-- ── Overview ─────────────────────────────────────────────────────── -->
+      <div class="crs-section" id="overview">
+        <div class="crs-heading"><span class="crs-label">Overview / 과목 소개</span><span class="crs-line"></span></div>
+        <div class="overview-text">
+          {{ content }}
+        </div>
+      </div>
+
+      <!-- ── Textbooks ─────────────────────────────────────────────────────── -->
+      <div class="crs-section" id="textbooks">
+        <div class="crs-heading"><span class="crs-label">Textbooks / 교재</span><span class="crs-line"></span></div>
+        {% include textbooks.html %}
+      </div>
+
+      <!-- ── Instructor ─────────────────────────────────────────────────────── -->
+      <div class="crs-section" id="instructor">
+        <div class="crs-heading"><span class="crs-label">Instructor / 강사소개</span><span class="crs-line"></span></div>
+        {% include about_aaron.html %}
+      </div>
+
+      <!-- ── Policies ──────────────────────────────────────────────────────── -->
+      <div class="crs-section" id="policies">
+        <div class="crs-heading"><span class="crs-label">Policies / 규정</span><span class="crs-line"></span></div>
+        <div class="policy-content">
+          {% include policies.md %}
+        </div>
+      </div>
+
+    </main>
+  </div><!-- /.page-layout -->
+</div><!-- /.wrap -->

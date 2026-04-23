@@ -1,0 +1,176 @@
+- date: 9/2
+  week: 1
+  title: >
+    <strong>Introduction<br>
+    Chapter 1: Information in Memory</strong>
+  supp:
+  readings: p. 1-12
+  hw:
+  slides: "https://docs.google.com/presentation/d/1RUKGGa5xauYPSy5kErpZ0g64Y8BboRlHqCoYV4tCEh4/edit?usp=sharing"
+  img: 2024/jbnu-data/1-intro-to-data-structs.jpg
+  logistics:
+
+- date: 9/9
+  week: 2
+  title: >
+    <strong>Chapter 2: Binary Search<br>
+    Chapter 3: Dynamic Data Structures</strong>
+  supp:
+  readings: p. 13-42
+  hw: "https://classroom.github.com/a/iWgbTGyF"
+  slides: "https://docs.google.com/presentation/d/1BO2dLHfmBJQ4sD3mnGiKysUhkwNwiEZPJGqXw1mjlL8/edit?usp=sharing"
+  img: 2024/jbnu-data/2-dynamic-structs.jpg
+  logistics: >
+    GitHub File Repository
+
+- date: 9/16
+  week: 3
+  title: >
+    <span style="color: red"><strong>No Class</strong> Chuseok</span>
+
+- date: 9/23
+  week: 4
+  title: >
+    <strong>Chapter 4: Stacks and Queues</strong>
+  supp:
+  readings: p. 43-54
+  hw:
+  slides: "https://docs.google.com/presentation/d/1ihwnNMEvwgi2pY3jvcrVJbx8Tj3riywgc322TqCAJuM/edit?usp=sharing"
+  img: 2024/jbnu-data/4-stacks-queues.jpg
+  logistics:
+
+- date: 9/30
+  week: 5
+  title: >
+    <strong>Chapter 4: Breadth-First Search, Depth-First Search</strong>
+  supp:
+  readings: p. 55-74
+  hw:
+  slides: "https://docs.google.com/presentation/d/1o0NmqEqo4fOQ3O_Fc7hNt6O6AHG5wZlOeRy8V71YYEI/edit?usp=sharing"
+  img: 2024/jbnu-data/5-bfs-dfs.jpg
+  logistics:
+
+- date: 10/7
+  week: 6
+  title: >
+    <strong>Chapter 5: Binary Search Trees</strong><br>
+    <span style="color: red"><strong>No Class</strong> Hangul Day</span>
+  supp:
+  readings: p. 75-92
+  hw:
+  slides: "https://docs.google.com/presentation/d/1X4GhVQ5_pOErCkaV7ozXoZHGqIJl9VtornWSbcb7Iz0/edit?usp=sharing"
+  img: 2024/jbnu-data/6-bst.jpg
+  logistics:
+
+- date: 10/14
+  week: 7
+  title: >
+    Linked List coding<br>
+    <strong>Midterm Study Guide</strong>
+  supp:
+  readings: p. 93-138
+  hw:
+  slides: "https://docs.google.com/presentation/d/1UsHOZvhNlhsnvv5Us7BFWgO2VVKLsYgz8vL1MtzsRrE/edit?usp=sharing"
+  img: 2024/jbnu-data/7-midterm-data.jpg
+  logistics:
+
+- date: 10/21
+  week: 8
+  title: >
+    <strong>Midterm Test</strong><br>
+    <div style="display: none;"><br>
+      [<a href="https://forms.gle/ttHc2kij1EgUoY1H7">1:00pm Test</a>]<br>
+      [<a href="https://forms.gle/Rt78av7X7B1E3SKe6">2:00pm Test</a>]<br>
+      [<a href="https://forms.gle/9VPJ4wwPDvVkqx7T9">3:00pm Test</a>]
+    </div>
+
+- date: 10/28
+  week: 9
+  title: >
+    <strong>Chapter 6: Tries and Adapting Data Structures<br>
+    Chapter 7: Priority Queues and Heaps<br></strong>
+  supp:
+  readings: p. 75-112
+  hw:
+  slides: "https://docs.google.com/presentation/d/1EOs4NeYpEHOYdW4_5iLYc11W96cQGh-Rzv8bZgTuRAk/edit?usp=sharing"
+  img: 2024/jbnu-data/9-tries-heaps.jpg
+  logistics:
+
+- date: 11/4
+  week: 10
+  title: >
+    <strong>Chapter 8: Grids<br>
+    Chapter 9: Spatial Trees</strong>
+  supp:
+  readings: p. 112-170
+  hw:
+  slides: "https://docs.google.com/presentation/d/1NQXvNPi1GljRIC741EqshMUE8PIghqhgkqNlOiy9VVY/edit?usp=sharing"
+  img: 2024/jbnu-data/10-grids.jpg
+  logistics:
+
+- date: 11/11
+  week: 11
+  title: >
+    <strong>Chapter 10: Hash Tables</strong>
+  supp:
+  readings: p. 171-186
+  hw:
+  slides: "https://docs.google.com/presentation/d/1eQVoapljmpDWewLXqM8YmKy7ApHDTdzIxO6PeIXJ6G4/edit?usp=sharing"
+  img: 2024/jbnu-data/11-hash-n-cache.jpg
+  logistics:
+
+- date: 11/18
+  week: 12
+  title: >
+    <strong>Chapter 11: Caches</strong>
+  supp:
+  readings: p. 187-198
+  hw: "https://drive.google.com/drive/folders/1TxYuVy5e4rTR_tev4YKylkYOvKczR-gf?usp=sharing"
+  slides: "https://docs.google.com/presentation/d/1lFWuZq3Q3b9m1vQG_v4yf-gPy369UZQy237ziFBmyl8/edit?usp=sharing"
+  img: 2024/jbnu-data/12-caches.jpg
+  logistics: >
+    Coding with Stacks &amp; Queues
+
+- date: 11/25
+  week: 13
+  title: >
+    <strong>Chapter 12: B-Trees</strong>
+  supp:
+  readings: p. 199-224
+  hw: 
+  slides: "https://docs.google.com/presentation/d/1iymx32ZJCCrFt9xf5ATqGpMRTjIC8d9H7LByhQ73-9s/edit?usp=sharing"
+  img: 2024/jbnu-data/13-b-trees.jpg
+  logistics: 
+
+- date: 12/2
+  week: 14
+  title: >
+    <strong>Chapter 13: Bloom Filters</strong>
+  supp:
+  readings: p. 225-246
+  hw:
+  slides: "https://docs.google.com/presentation/d/1GLSbIfBgXp7z6Ck52DEswRCgwiD0w3ERqW1J9eX9g8I/edit?usp=sharing"
+  img: 2024/jbnu-data/14-blooms.jpg
+  logistics:
+
+- date: 12/9
+  week: 15
+  title: >
+    <strong>Chapter 14: Skip Lists<br>
+    Chapter 15: Graphs<br>
+    Conclusion</strong>
+  supp:
+  readings: p. 247-270
+  hw:
+  slides: "https://docs.google.com/presentation/d/1TLSbANOBsZ5QMhhFPGj96vqxycCP0KbyjEwtXeSNuC8/edit?usp=sharing"
+  img: 2024/jbnu-data/15-graphs.jpg
+  logistics:
+
+- date: 12/16
+  week: 16
+  title: >
+    <strong>Final Test</strong><br>
+    <a href="https://docs.google.com/presentation/d/1TPRLiaSscZ4yvOFj6z4ggvDyX1HEe-zeRvKWIC64d6k/edit?usp=sharing">Study Guide</a>
+    <div style="display: none;"><br>
+      <a href="">퀴즈</a> | <a href="">실기</a>
+    </div>

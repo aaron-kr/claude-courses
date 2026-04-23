@@ -1,0 +1,40 @@
+{% comment %}
+  Renders a course card for the home/archive page.
+  Usage: {% include course_card.html course=course %}
+  OR inside a for loop with 'course' variable.
+{% endcomment %}
+
+{%- assign c = include.course | default: course -%}
+{%- assign uni_parts = c.description | split: ' • ' -%}
+{%- assign uni_name = uni_parts | last -%}
+
+<a class="card" href="{{ c.url | relative_url }}">
+  {%- if c.img -%}
+  <div class="card-thumb" style="background-image:url('{{ c.img | relative_url }}')"></div>
+  {%- endif -%}
+  <div class="card-inner">
+    <div class="card-body">
+      <div class="card-code">{{ c.description | split: ' • ' | first }}</div>
+      <div class="card-title">{{ c.title }}</div>
+      {%- if c.subtitle -%}
+      <div class="card-subtitle">{{ c.subtitle }}</div>
+      {%- endif -%}
+      <div class="card-tags">
+        <span class="tag">{{ c.category | replace: '-', ' ' }}</span>
+        {%- if c.now -%}<span class="tag systems">● Active</span>{%- endif -%}
+      </div>
+      <div class="card-footer">
+        <div class="card-meta">
+          <span>{{ uni_name }}</span>
+        </div>
+        <span class="card-arrow">→</span>
+      </div>
+    </div>
+  </div>
+  {%- comment -%} University badge — abbreviation from logo filename {%- endcomment -%}
+  {%- if c.logo -%}
+  <div class="uni-badge">
+    <span class="ub-abbr">{{ c.logo | remove: '-logo.png' | remove: '-logo-2.png' | upcase }}</span>
+  </div>
+  {%- endif -%}
+</a>

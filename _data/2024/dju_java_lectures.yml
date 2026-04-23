@@ -1,0 +1,165 @@
+- date: 3/5
+  week: 1
+  title: >
+    <strong>과정 소개<br>
+    Chapter 01 자바 첫걸음</strong>
+  supp:
+  readings: p. 1-61
+  hw: "https://classroom.github.com/a/SyYhgV2S"
+  slides: "https://docs.google.com/presentation/d/1dgq3rK8IwWBwq5NWQ_1ncDWYcwRoSZ-qy3gIx5bCa38/edit?usp=sharing"
+  img: 2024/dju-java/1-JAVA-Introduction.jpg
+  logistics: Eclipse 설치
+
+- date: 3/12
+  week: 2
+  title: >
+    <strong>Chapter 02 변수와 자료형<br>
+    Chapter 03 연산자와 형 변환</strong>
+  supp:
+  readings: p. 62-119
+  hw: "https://classroom.github.com/a/Svup5zdP"
+  slides: "https://docs.google.com/presentation/d/1Evtz7ZZvtdlbE_wAVDjft-pxw9RNvv34mto0IR4-_Rg/edit?usp=sharing"
+  img: 2024/dju-java/2-java-vars.jpg
+  logistics: >
+    <a href="https://classroom.github.com/a/rtWQojmw">최종 프로젝트 시작하기</a>
+
+- date: 3/19
+  week: 3
+  title: >
+    <strong>Chapter 04 조건문과 반복문</strong>
+  supp:
+  readings: p. 120-163
+  hw: "https://classroom.github.com/a/uGaciKoA"
+  slides: "https://docs.google.com/presentation/d/1-nkGrU9lxUMzds4dSA_FRfBd_aWdAmbmse65Gjxwdx0/edit?usp=sharing"
+  img: 2024/dju-java/3-java-conditionals-loops.jpg
+  logistics:
+
+- date: 3/26
+  week: 4
+  title: >
+    <strong>Chapter 05 메서드<br>
+    Chapter 06 배열과 문자열</strong>
+  supp:
+  readings: p. 164-231
+  hw: "https://classroom.github.com/a/duPLSDxY"
+  slides: "https://docs.google.com/presentation/d/1En76IiGivpCSeQqqT7zEw46SeXOFlx0H2bc34RQu6-g/edit?usp=sharing"
+  img: 2024/dju-java/4-java-strings-arrays.jpg
+  logistics:
+
+- date: 4/2
+  week: 5
+  title: >
+    <strong>Chapter 07 클래스와 객체</strong>
+  supp:
+  readings: p. 232-291
+  hw: "https://classroom.github.com/a/0j_ZI3Wl"
+  slides: "https://docs.google.com/presentation/d/17ZmGeRP__tAfu7BdWCj68FjFxHnwLXwZgWMNvy4PqG4/edit?usp=sharing"
+  img: 2024/dju-java/5-java-classes.jpg
+  logistics:
+
+- date: 4/9
+  week: 6
+  title: >
+    <strong>Chapter 08 상속과 다형성</strong>
+  supp:
+  readings: p. 292-337
+  hw: "https://classroom.github.com/a/swlC2Xuv"
+  slides: "https://docs.google.com/presentation/d/1outoGybJxMa8NNPeYWkAllqQQFrAOjCJOsp8QezN2TI/edit?usp=sharing"
+  img: 2024/dju-java/6-java-inheritance.jpg
+  logistics:
+
+- date: 4/16
+  week: 7
+  title: >
+    <strong>Chapter 09 추상 클래스와 인터페이스</strong>
+  supp:
+  readings: p. 338-385
+  hw: "https://classroom.github.com/a/1rmukx8C"
+  slides: "https://docs.google.com/presentation/d/1eFESPO9ahi1L3natQo5MbVveKdfUHNYfnyMbZ8Zz0go/edit?usp=sharing"
+  img: 2024/dju-java/7-java-abstraction.jpg
+  logistics:
+
+- date: 4/23
+  week: 8
+  title: >
+    <strong>Midterm Test</strong><br>
+    <a href="https://docs.google.com/presentation/d/1J362ggD1x61HA4gxZMqljtQELSwgWP5k2aU2p-YKwns/edit?usp=sharing">스터디 가이드</a>
+    <div style="display: none;"><br>
+      [<a href="https://forms.gle/k58WZneVGC4vYRwv6">퀴즈</a>]
+      [<a href="https://classroom.github.com/a/_XCgi9Xx">실기</a>]
+    </div>
+
+- date: 4/30
+  week: 9
+  title: >
+    <strong>Chapter 10 패키지</strong>
+  supp:
+  readings: p. 386-445
+  hw: "https://classroom.github.com/a/DhG5o5ZT"
+  slides: "https://docs.google.com/presentation/d/1mD5COBzG8tRTJJ_9ZgqAQ-Wh9SRb5LJQXI6dkjKH9-Y/edit?usp=sharing"
+  img: 2024/dju-java/9-java-packages.jpg
+  logistics:
+
+- date: 5/7
+  week: 10
+  title: >
+    <strong>Chapter 11 예외 처리</strong>
+  supp:
+  readings: p. 446-479
+  hw: "https://classroom.github.com/a/8PEB7cfr"
+  slides: "https://docs.google.com/presentation/d/1qEyUrHs7hKNs4Gn2St9CUNzxk2F-an-thqelgMkZCRk/edit?usp=sharing"
+  img: 2024/dju-java/10-java-exceptions.jpg
+  logistics:
+
+- date: 5/14
+  week: 11
+  title: >
+    <strong>Chapter 12 파일 입출력</strong>
+  supp:
+  readings: p. 480-525
+  hw: "https://classroom.github.com/a/OiHODWlf"
+  slides: "https://docs.google.com/presentation/d/1gd9SuzyNVJDi_Rb0uRZyVe1AsJ5eS87mfJM8GUgLClM/edit?usp=sharing"
+  img: 2024/dju-java/11-java-files.jpg
+  logistics:
+
+- date: 5/21
+  week: 12
+  title: >
+    <strong>Chapter 13 컬렉션</strong>
+  supp:
+  readings: p. 526-595
+  hw: "https://classroom.github.com/a/9gH0M9it"
+  slides: "https://docs.google.com/presentation/d/13ivzMaVcmk8baNGoFp5DagXUWYQE2-vQIpW5opX_D_Y/edit?usp=sharing"
+  img: 2024/dju-java/12-java-collections.jpg
+  logistics:
+
+- date: 5/28
+  week: 13
+  title: >
+    <strong>Chapter 14 사용자 인터페이스 I</strong>
+  supp:
+  readings: p. 596-667
+  hw: "https://classroom.github.com/a/0CabuQ7b"
+  slides: "https://docs.google.com/presentation/d/1eTfCD6v17xcapJSFVpIhUJSoWXcplFTkKv36B-gPE0k/edit?usp=sharing"
+  img: 2024/dju-java/13-java-gui-i.jpg
+  logistics:
+
+- date: 6/4
+  week: 14
+  title: >
+    <strong>Chapter 15 사용자 인터페이스 II</strong>
+  supp:
+  readings: p. 668-729
+  hw: "https://classroom.github.com/a/ud9T4XK6"
+  slides: "https://docs.google.com/presentation/d/1zxUk6soNGRGuCfvFQeBarJ0rBSYTLmyj3O7OsccJ-Hs/edit?usp=sharing"
+  img: 2024/dju-java/14-java-gui-ii.jpg
+  logistics:
+    
+- date: 6/18
+  week: 16
+  title: >
+    <strong>Final Test</strong><br>
+    <a href="https://forms.gle/7joNg9dWWy6gMPae6">퀴즈</a> | <a href="https://classroom.github.com/a/z-Eav5yc">실기</a>
+    <div style="display: none;"><br>
+      <a href="https://docs.google.com/presentation/d/1nTyp8oIDqGmh2wFDEJjhiHu5laj-t19v5i6MW7ieupM/edit?usp=sharing">스터디 가이드</a>
+    </div>

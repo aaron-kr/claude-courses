@@ -1,0 +1,205 @@
+- date: 2/25
+  week: 0
+  skip: true
+  title: >
+    <strong>Conference Presentations</strong><br>
+    <a href="https://docs.google.com/presentation/d/1KJgk9eaXtaVf_SEy5XcxJ5Om4xsv6LDYUl729R_pays/edit?usp=sharing">0. Student Research (full)</a><br>
+    <a href="https://docs.google.com/presentation/d/1Y_T0BYhbiMy-F0EKliaI6U169T2wFOXlC6CxuHi1y9Q/edit?usp=sharing">1. Select a Topic</a><br>
+    <a href="https://docs.google.com/presentation/d/1N8Hu-Y_YH7uxtR-OoXxICehon4ILtFGYbGlvh1W6QmY/edit?usp=sharing">2. Writing your Paper</a>
+  supp:
+  readings: Use the template files provided to write your paper.
+  hw:
+  slides: "https://docs.google.com/presentation/d/1KJgk9eaXtaVf_SEy5XcxJ5Om4xsv6LDYUl729R_pays/edit?usp=sharing"
+  slides2:
+  img: 0-research.jpg
+  logistics: >
+    <a href="https://drive.google.com/drive/folders/1XRI8KHzocVz4gamFO_V0qjqBXhmhyljl?usp=sharing"><strong>Template files</strong></a>
+
+- date: 3/4
+  week: 1
+  title: >
+    <strong>Introduction (to Power Electronics)</strong>
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1AqKXsxozdO7kygE0APDIphQidrPCZyH1qkNd2R0cEck/edit?usp=sharing"
+  slides2:
+  img: 2026/jbnu-pe/1-intro.jpg
+  logistics:
+
+- date: 3/11
+  week: 2
+  title: >
+    <strong>Analysis Method and Rectifiers<br>
+    Load Regulation<br>
+    Power Factor</strong>
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1oV7bPYPWTJqhbRtEKgvtv65PrtZlNFs_vU13-E8OcSE/edit?usp=sharing"
+  slides2:
+  img: 2026/jbnu-pe/2-form-func.jpg
+  logistics:
+
+- date: 3/18
+  week: 3
+  title: >
+    <strong>Rectifiers</strong>
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/16xQNWuYy0dVoetT5M5sfSItp3lR9mrOXc0otvsOCilM/edit?usp=sharing"
+  slides2:
+  img: 2026/jbnu-pe/3-rectifiers.jpg
+  logistics:
+
+- date: 3/25
+  week: 4
+  title: >
+    <strong>Deeper Circuit Understanding</strong>
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1W2Eod9vt70hPOvABpTD8QGYw9OMVGyuoMCF33k5n5-Q/edit?usp=sharing"
+  slides2:
+  img: 2026/jbnu-pe/4-deeper-understanding.jpg
+  logistics:
+
+- date: 4/1
+  week: 5
+  title: >
+    <strong>DC/DC Conversion</strong>
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1TxhjNVLRQb-SN7WJIbXhwQza40QQvIy5nMuNELcr60s/edit?usp=sharing"
+  slides2:
+  img: 2026/jbnu-pe/5-dcdc.jpg
+  logistics:
+
+- date: 4/8
+  week: 6
+  title: >
+    <strong>Converter Waveforms</strong>
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1Hy8NSOwxKLWFnU8Ao_MFJpz9dysEzrpP3gc2Bn0WqWg/edit?usp=sharing"
+  slides2:
+  img: 2026/jbnu-pe/6-converter-waveforms.jpg
+  logistics:
+
+- date: 4/15
+  week: 7
+  title: >
+    <strong>Magnetics</strong>
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1YHTf8RBRG4duVxLo52k3Z1HIUvS4PNCLPd2dUj3QM_w/edit?usp=sharing"
+  slides2:
+  img: 2026/jbnu-pe/7-magnetics.jpg
+  logistics:
+
+- date: 4/22
+  week: 8
+  title: >
+    <strong>Midterm Test</strong><br>
+    <a href="https://docs.google.com/document/d/1xb5qkehXn1Bam3EWPhPwsIPWRGlxOjBv/edit?usp=sharing&ouid=111221545203304105756&rtpof=true&sd=true">Study Guide</a>
+    <div style="display: none;">
+      <a href="#">Test A</a>
+    </div>
+
+- date: 4/29
+  week: 9
+  title: >
+    <strong>Isolated DC/DC Conversion<br>
+    Switching Losses and Snubbers<br>
+    Thermal Modeling and Heat Sinking<br>
+    Inverters<br>
+    Switched-Mode Rectifiers<br>
+    Three-Phase Systems<br>
+    Three-Phase Inverters</strong>
+  supp:
+  readings:
+  hw:
+  slides:
+  slides2:
+  img: 
+  logistics:
+
+- date: 5/6
+  week: 10
+  title: >
+    <strong>Control<br>
+    Current-Mode Control</strong>
+  supp:
+  readings:
+  hw:
+  slides:
+  slides2:
+  img: 
+  logistics:
+
+- date: 5/13
+  week: 11
+  title: >
+    <strong>EMI Filters</strong>
+  supp:
+  readings:
+  hw:
+  slides:
+  slides2:
+  img: 
+  logistics:
+
+- date: 5/20
+  week: 12
+  title: >
+    <strong>Switched-Capacitor Converters</strong>
+  supp:
+  readings:
+  hw:
+  slides:
+  slides2:
+  img: 
+  logistics:
+
+- date: 5/27
+  week: 13
+  title: >
+    <strong>Soft Switching</strong>
+  supp:
+  readings:
+  hw:
+  slides:
+  slides2:
+  img: 
+  logistics:
+
+- date: 6/3
+  week: 14
+  title: >
+    <span style="color: red"><strong>No Class</strong> 선거</span>
+
+- date: 6/10
+  week: 15
+  title: >
+    <strong>Resonant Power Conversion<br>
+    Gate Drive, Level Shift, Layout</strong>
+  supp:
+  readings:
+  hw:
+  slides:
+  slides2:
+  img: 
+  logistics:
+
+- date: 6/17
+  week: 16
+  title: >
+    <strong>Final Test</strong><br>
+    <div style="display: none;">
+      <a href="#">Study Guide</a><br>
+      <a href="#">Test</a>
+    </div>

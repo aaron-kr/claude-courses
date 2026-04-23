@@ -1,0 +1,91 @@
+{% comment %}
+  Usage: {% include schedule.html data_file="2026/hb_cpp_lectures" %}
+  Supports:
+    - Subdirectory path: "2026/hb_cpp_lectures" → site.data["2026"]["hb_cpp_lectures"]
+    - Legacy flat key:   "2026_hb_cpp_lectures" → site.data["2026_hb_cpp_lectures"]
+{% endcomment %}
+
+{%- if include.data_file contains "/" -%}
+  {%- assign _df_parts = include.data_file | split: "/" -%}
+  {%- assign _df_year  = _df_parts[0] -%}
+  {%- assign _df_key   = _df_parts[1] -%}
+  {%- assign lecture_data = site.data[_df_year][_df_key] -%}
+{%- else -%}
+  {%- assign lecture_data = site.data[include.data_file] -%}
+{%- endif -%}
+{%- assign today_ts = 'now' | date: '%s' | plus: 0 -%}
+{%- assign week_num = 0 -%}
+{%- assign skip_count = 0 -%}
+
+<ul class="sched-list">
+{%- for item in lecture_data -%}
+  {%- if item.date -%}
+    {%- assign item_ts = item.date | date: '%s' | plus: 0 -%}
+
+    {%- comment -%} Determine row class {%- endcomment -%}
+    {%- if item.title contains 'No Class' or item.skip -%}
+      {%- assign row_class = 'no-class' -%}
+      {%- assign skip_count = skip_count | plus: 1 -%}
+    {%- elsif item_ts < today_ts -%}
+      {%- assign row_class = 'past' -%}
+    {%- else -%}
+      {%- assign row_class = '' -%}
+    {%- endif -%}
+
+    {%- assign display_week = forloop.index | minus: skip_count -%}
+
+    <a class="sched-row {{ row_class }}" href="{{ item.slides | default: '#' }}"{% if item.slides %} target="_blank"{% endif %}>
+
+      {%- comment -%} Date column {%- endcomment -%}
+      <div class="sched-date{% if item.title contains 'No Class' %} holiday{% endif %}">
+        <span class="date-day">{{ item.date }}</span>
+        {%- if item.title contains 'No Class' -%}
+        <span class="holiday-note">🔴 휴강</span>
+        {%- else -%}
+        <span style="color:var(--muted);font-size:.58rem;">Wk {{ display_week }}</span>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Thumbnail column {%- endcomment -%}
+      {%- if item.img -%}
+      <div class="sched-thumb" style="background-image:url('/assets/img/{{ item.img }}')">
+        {%- if item.slides -%}<div class="sched-extra">▶ Slides</div>{%- endif -%}
+      </div>
+      {%- elsif item.img2 -%}
+      <div class="sched-thumb" style="background-image:url('/assets/img/{{ item.img2 }}')">
+        {%- if item.slides -%}<div class="sched-extra">▶ Slides</div>{%- endif -%}
+      </div>
+      {%- elsif row_class == 'no-class' -%}
+      <div style="width:115px;height:65px;flex-shrink:0;"></div>
+      {%- else -%}
+      <div class="sched-placeholder"></div>
+      {%- endif -%}
+
+      {%- comment -%} Info column {%- endcomment -%}
+      <div class="sched-info">
+        {%- unless item.title contains 'No Class' or item.title contains 'Test' -%}
+        <span class="sched-week">Week {{ display_week }}</span>
+        {%- endunless -%}
+        <div class="sched-title">{{ item.title }}</div>
+        {%- if item.readings -%}
+        <div class="sched-readings">📖 {{ item.readings }}</div>
+        {%- endif -%}
+        {%- if item.logistics -%}
+        <div class="sched-subtitle">{{ item.logistics }}</div>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} HW column {%- endcomment -%}
+      <div class="sched-hw">
+        {%- if item.hw -%}
+        <a href="{{ item.hw }}" class="hw-link" target="_blank" onclick="event.stopPropagation()">HW</a>
+        {%- endif -%}
+        {%- if item.hw2 -%}
+        <a href="{{ item.hw2 }}" class="hw-link" target="_blank" onclick="event.stopPropagation()">HW 2</a>
+        {%- endif -%}
+      </div>
+
+    </a>
+  {%- endif -%}
+{%- endfor -%}
+</ul>

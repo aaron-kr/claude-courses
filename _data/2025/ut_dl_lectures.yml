@@ -1,0 +1,208 @@
+- date: 8/25
+  week: 1
+  skip: true
+  title: >
+    <strong>Conference Presentations</strong><br>
+    <a href="https://docs.google.com/presentation/d/1KJgk9eaXtaVf_SEy5XcxJ5Om4xsv6LDYUl729R_pays/edit?usp=sharing">0. Student Research (full)</a><br>
+    <a href="https://docs.google.com/presentation/d/1Y_T0BYhbiMy-F0EKliaI6U169T2wFOXlC6CxuHi1y9Q/edit?usp=sharing">1. Select a Topic</a><br>
+    <a href="https://docs.google.com/presentation/d/1N8Hu-Y_YH7uxtR-OoXxICehon4ILtFGYbGlvh1W6QmY/edit?usp=sharing">2. Writing your Paper</a>
+  supp:
+  readings: Use the template files provided to write your paper.
+  hw:
+  slides: "https://docs.google.com/presentation/d/1KJgk9eaXtaVf_SEy5XcxJ5Om4xsv6LDYUl729R_pays/edit?usp=sharing"
+  slides2:
+  img: 0-research.jpg
+  logistics: >
+    <a href="https://drive.google.com/drive/folders/1XRI8KHzocVz4gamFO_V0qjqBXhmhyljl?usp=sharing"><strong>Template files</strong></a>
+
+- date: 9/4
+  week: 1
+  title: >
+    <strong>Introduction</strong><br>
+    1장. 머신러닝 개요
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1HPh7fOarIQjSVi9hQDtWaExfXXMMm_0pLI63m17Thko/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-dl/1-intro.jpg
+  logistics:
+
+- date: 9/11
+  week: 2
+  title: >
+    2장. 필수 통계<br>
+    3장. 성능 측정
+  supp:
+  readings:
+  hw: "https://classroom.github.com/a/JkGoGwW4"
+  slides: "https://docs.google.com/presentation/d/1QDz_szn48o2bY6NrFQdrouLPK0DVVZBWH1P1EN17Xjg/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-dl/2-stats.jpg
+  logistics:
+
+- date: 9/18
+  week: 3
+  title: >
+    4장. 베이즈 규칙<br>
+    5장. 곡선과 표면
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1yguw5XPgDO9FRtq2o8MKFWxIBOzExmU-lA-vmsCDgrA/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-dl/3-bayes.jpg
+  logistics:
+
+- date: 9/25
+  week: 4
+  title: >
+    6장. 정보 이론<br>
+    7장. 분류
+  supp:
+  readings:
+  hw: "https://classroom.github.com/a/IMThvxP0"
+  slides: "https://docs.google.com/presentation/d/1p4RDEEcevlC_N9J6Cg3OSdjqKi2EKR6DuC8bUhkjnPE/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-dl/4-info-theory.jpg
+  logistics:
+
+- date: 10/1
+  week: 5
+  title: >
+    8장. 훈련과 테스팅
+  supp:
+  readings:
+  hw: "https://classroom.github.com/a/JSrqe66e"
+  slides: "https://docs.google.com/presentation/d/1DNiS7c2RyQ6aNQDrSAXppxBEph5FuNYH0vTnZ1-wV08/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-dl/5-ml.jpg
+  logistics:
+
+- date: 10/9
+  week: 6
+  title: >
+    <span style="color: red"><strong>No Class</strong> Chuseok!~</span>
+
+- date: 10/16
+  week: 7
+  title: >
+    9장. 과적합과 과소적합<br>
+    10장. 데이터 준비
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1Z2NgQchn5V909BxOzkeyAYW_06j13WE0ATaGYqMPxUo/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-dl/6-data-prep.jpg
+  logistics: >
+    <a href="https://classroom.google.com/c/ODEzMDY3NTg2MDQ5?cjc=ag7acmfu">Google 클래스룸 가입</a> (@gmail.com 사용)
+
+- date: 10/23
+  week: 8
+  title: >
+    <strong style="color: red">LMS 온라인 동영상 수업</strong><br>
+    11장. 분류기<br>
+    12장. 앙상블
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1gATrmVIO2qtRrZyqL6lbGeDt26V6BxiLRbnYd4jGt8A/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-dl/7-classifiers.jpg
+  logistics:
+
+- date: 10/30
+  week: 9
+  title: >
+    <strong>Midterm Test</strong><br>
+    <a style="display: none;" href="https://docs.google.com/document/d/1CdMXIaNnKhKj5R4Y5RPWTEfigSDE8gctFOpSp6N9J6I/edit?usp=sharing">스터디 가이드 어휘</a>
+    <div>
+      <br><a href="https://forms.gle/cjdoXtqpeMPfCCre6">중간 퀴즈</a>
+      <br><a href="https://classroom.google.com/c/ODEzMDY3NTg2MDQ5/a/ODE3MjYzMTgwNzI1/details">중간 프로젝트</a>
+    </div>
+
+- date: 11/6
+  week: 10
+  title: >
+    13장. 신경망<br>
+    14장. 역전파<br>
+    15장. 옵티마이저
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1Zz0kuOWRWHMIlCTOxv4qww065U_sn0LBJ7D2XdRwIkM/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-dl/9-cnns.jpg
+  logistics:
+
+- date: 11/13
+  week: 11
+  title: >
+    16장. 컨볼루션 신경망<br>
+    17장. 실제 컨볼루션 신경망
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1ZaE-dmbFsb0GkLKYfFgjbhxdoYcCLsGGmT4y6omh-Fg/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-dl/10-conv.jpg
+  logistics:
+
+- date: 11/20
+  week: 12
+  title: >
+    18장. 오토인코더<br>
+    19장. 순환 신경망
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/16vZ_GCQMY2XllFLQSmRZy_ksqjBGC1g_5NkaXgzdJek/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-dl/11-autoencoders.jpg
+  logistics:
+
+- date: 11/27
+  week: 13
+  title: >
+    20장. 어텐션과 트랜스포머
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/15ZT2suyrDRR2kT2qh1fALEyMCTIyuuFx5mdzkxQX1gs/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-dl/12-rnns.jpg
+  logistics:
+
+- date: 12/4
+  week: 14
+  title: >
+    21장. 강화학습
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/12INrB9G1sc5vsnwQkbTJ6BYE8lTmr5tlBghWjiUfXDc/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-dl/13-rl.jpg
+  logistics:
+
+- date: 12/11
+  week: 15
+  title: >
+    22장. 생성적 적대 신경망<br>
+    23장. 창의적인 애플리케이션
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1A_WcnyNb-nvjKxtOLZb4rJDlIm-ftGh2J81vqVj3x5s/edit?usp=sharing"
+  slides2:
+  img: 2025/ut-dl/14-gans.jpg
+  logistics:
+
+- date: 12/18
+  week: 16
+  title: >
+    <strong>Final Test</strong><br>
+    <div>
+      <a href="https://forms.gle/WDTPWLdQtpo9x2D6A">기말퀴즈</a>
+    </div>

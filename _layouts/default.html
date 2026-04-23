@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}" data-theme="dark">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  {% include nav.html %}
+  <div class="mobile-nav-backdrop" id="mobile-backdrop"></div>
+
+  {{ content }}
+
+  {% include footer.html %}
+
+  <script>
+  // ── Theme ──────────────────────────────────────────────────────────────────
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    document.querySelectorAll('.theme-btn').forEach(b => b.textContent = t === 'dark' ? '🌙' : '☀️');
+    localStorage.setItem('theme', t);
+  }
+  (() => applyTheme(localStorage.getItem('theme') || 'dark'))();
+  document.querySelectorAll('.theme-btn').forEach(b =>
+    b.addEventListener('click', () => applyTheme(
+      document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+    ))
+  );
+
+  // ── Language toggle ────────────────────────────────────────────────────────
+  let _lang = 'en';
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => {
+    _lang = _lang === 'en' ? 'ko' : 'en';
+    document.querySelectorAll('.lang-btn').forEach(x => x.textContent = _lang === 'en' ? '한국어' : 'English');
+    document.querySelectorAll('[data-en]').forEach(el => {
+      if (_lang === 'ko' && el.dataset.ko) el.textContent = el.dataset.ko;
+      else el.textContent = el.dataset.en;
+    });
+  }));
+
+  // ── Dropdowns (click only) ─────────────────────────────────────────────────
+  document.querySelectorAll('.has-dropdown').forEach(item => {
+    item.querySelector('button').addEventListener('click', e => {
+      e.stopPropagation();
+      const was = item.classList.contains('open');
+      document.querySelectorAll('.has-dropdown.open').forEach(d => d.classList.remove('open'));
+      if (!was) item.classList.add('open');
+    });
+  });
+  document.addEventListener('click', () =>
+    document.querySelectorAll('.has-dropdown.open').forEach(d => d.classList.remove('open'))
+  );
+
+  // ── Hamburger ──────────────────────────────────────────────────────────────
+  const _hb = document.getElementById('hamburger');
+  const _mn = document.getElementById('mobile-nav');
+  const _bd = document.getElementById('mobile-backdrop');
+  if (_hb && _mn) {
+    function _closeMenu() {
+      _mn.classList.remove('open');
+      _hb.classList.remove('open');
+      _hb.setAttribute('aria-expanded', false);
+      if (_bd) _bd.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    _hb.addEventListener('click', () => {
+      const o = _mn.classList.toggle('open');
+      _hb.classList.toggle('open', o);
+      _hb.setAttribute('aria-expanded', o);
+      if (_bd) _bd.classList.toggle('open', o);
+      document.body.style.overflow = o ? 'hidden' : '';
+    });
+    if (_bd) _bd.addEventListener('click', _closeMenu);
+  }
+  // Mobile sub-menus
+  ['courses', 'policies'].forEach(id => {
+    const b = document.getElementById('m-' + id);
+    const s = document.getElementById('m-' + id + '-sub');
+    if (b && s) b.addEventListener('click', () => {
+      const o = s.classList.toggle('open');
+      b.classList.toggle('open', o);
+    });
+  });
+  </script>
+  {% if page.layout == 'course' %}{% include course_scripts.html %}{% endif %}
+</body>
+</html>

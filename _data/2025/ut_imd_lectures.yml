@@ -1,0 +1,175 @@
+- date: 3/6
+  week: 1
+  title: >
+    <strong>Introduction to BIO025</strong><br>
+    - Introduction to Image Processing & Imaging Systems / 영상처리 소개와 영상시스템<br>
+    - 1. 영상처리 소개
+  slides: "https://docs.google.com/presentation/d/1ifv29XGVBWYC-Tbdy4bFKTtaMymaO95F6k3DWtcy-iU/edit?usp=sharing"
+  slides2: "https://docs.google.com/presentation/d/1SfkpW5t11VP2V1xecIVo77lfhniez_wGf7mSzSQjE4k/edit?usp=sharing"
+  img: 2025/ut-imd/1-intro.jpg
+  readings:
+  hw:
+  logistics:
+
+- date: 3/13
+  week: 2
+  title: >
+    <strong>1부 우리 몸을 들여다보다</strong><br>
+    - 1. 몸속 사진 한 장 한 장을 모으면 : X-레이 영상과 CT (임창환)<br>
+    - 2. 뇌는 제가 잘 봅니다 : MRI (임창환)<br>
+    - 3. 소리를 이용해 영상을 보다 : 초음파 영상기기 (임창환)<br>
+    - 4. 몸속에선 어떤 일이 일어나고 있을까? : 핵의학영상 (장동표)
+  slides: "https://docs.google.com/presentation/d/1SfkpW5t11VP2V1xecIVo77lfhniez_wGf7mSzSQjE4k/edit?usp=sharing"
+  img: 2024/ut-imd/2-imd-in-the-body.jpg
+  readings:
+  hw:
+  logistics: >
+    <a href="https://classroom.google.com/c/NzUyMTA1MjYxNTM1?cjc=birwfmk">Google Classroom</a>
+
+- date: 3/20
+  week: 3
+  title: >
+    <strong>2. 영상시스템<br>
+    3. 이온화 방사선 의학영상 획득 장치</strong>
+  slides: "https://docs.google.com/presentation/d/1dS66H_zS9Ovehj3AVuc2fow8SVMmagzGxgtfMygkOEA/edit?usp=sharing"
+  slides2: "https://docs.google.com/presentation/d/1CQhc6GRUHuJYgzMsvEfAV0TLxDVw7OHDk21ChEu6VZE/edit?usp=sharing"
+  img: 2025/ut-imd/3-img-systems.jpg
+  readings: p. 1-48
+  hw: "https://classroom.google.com/c/NzUyMTA1MjYxNTM1/a/NzYxMzk4NDEyODM2/details"
+  logistics: >
+    <a href="https://drive.google.com/drive/folders/1JTTBeT0QbKTXEBh3HdouhrltWxjf0Z70?usp=drive_link">X선 실습 관련 자료</a>
+
+- date: 3/27
+  week: 4
+  title: >
+    <strong>4. 비이온화 방사선 의학영상 획득 장치</strong>
+  slides: "https://docs.google.com/presentation/d/1WxcoFhZhls_g06ZKumi542-CN3Og5OEF6bbBCnYfIK8/edit?usp=sharing"
+  img: 2025/ut-imd/4-img-systems-ii.jpg
+  readings: p. 49-136
+  hw:
+  logistics: >
+    참조: <a href="https://github.com/MrGiovanni/SuPreM">재밌는 데이터</a><br>
+    <a href="https://drive.google.com/drive/folders/1MSmg5UiWg4FhpJjTdnEot9Rmyu4fj-bw?usp=sharing">CT 실습 관련 자료</a>
+
+- date: 4/3
+  week: 5
+  title: >
+    <strong>5. 디지털 영상처리의 기초</strong>
+  slides: "https://docs.google.com/presentation/d/1QLGZR_TeiPL_wEUVgesQlCZHzo1kEnhtIpwRH5eOEj0/edit?usp=sharing"
+  slides2: "https://docs.google.com/presentation/d/13TdMQplzoouUF00Mx8QDtoFawGtNxmAm1WwMcpzuNMI/edit?usp=sharing"
+  img: 2025/ut-imd/5-img-proc-basics.jpg
+  readings: p. 137-228
+  hw:
+  logistics: >
+    <a href="https://drive.google.com/drive/folders/1XIvtiWgg0OcCod1DD0NmYBbtTUACYrzY?usp=sharing">DICOM + 히스토그램</a>
+
+- date: 4/10
+  week: 6
+  title: >
+    <strong>6. 공간 영역에서 영상 개선</strong>
+  slides: "https://docs.google.com/presentation/d/1Vf1e9YOLnY9FXSk0g9ATDhWxU5guqbdNwGp7roAaFrQ/edit?usp=sharing"
+  img: 2025/ut-imd/6-img-enhance.jpg
+  readings: p. 229-282
+  hw:
+  logistics:
+
+- date: 4/17
+  week: 7
+  title: >
+    <strong>7. 주파수 영역에서 영상 개선</strong>
+  slides: "https://docs.google.com/presentation/d/1IDicPIr6OBwUeYZQSptruLixu-67qX7TR4TK07pw_lg/edit?usp=sharing"
+  img: 2025/ut-imd/7-img-enhance-ii.jpg
+  readings: >
+    p. 283-310<br>
+    중간고사 가이드
+  hw:
+  logistics:
+
+- date: 4/24
+  week: 8
+  title: >
+    <strong>Midterm Test</strong><br>
+    <div style="display: none;">
+      <a href="https://docs.google.com/presentation/d/1fkAHd-knE6z9wu8cRkiYnWr7NseiTzsewFmsdcutjDc/edit?usp=sharing">스터디 가이드</a>
+    </div>
+
+- date: >
+    <span style="color: red;">5/1* (LMS)</span>
+  week: 9
+  title: >
+    <strong>8. 영상 복원</strong>
+  slides: "https://docs.google.com/presentation/d/1c9IO3gZktGSLXbGBzNoR-tzdFUbwM9tGNAXZzmAcSsc/edit?usp=sharing"
+  img: 2025/ut-imd/9-restoration.jpg
+  readings: p. 311-346
+  hw:
+  logistics: >
+    <a href="https://drive.google.com/drive/folders/16q0z8jNYAyPl2aWVlOIrzRA7tnr31o8g?usp=sharing">잡음 추가/제거</a>
+
+- date: 5/8
+  week: 10
+  title: >
+    <strong>9. 형태적 영상처리<br>
+    10. 영상 분할</strong>
+  slides: "https://docs.google.com/presentation/d/1E9-UfQBZSk4lNEV_-N4mLpzcznAaUXEHgnRCwrODWs0/edit?usp=sharing"
+  img: 2025/ut-imd/10-morph-seg.jpg
+  readings: p. 347-376
+  hw:
+  logistics: >
+    <a href="https://drive.google.com/drive/folders/1MtuNmNqQK3NGFLKaRefE3u2YuWMNOLCW?usp=drive_link">분할 파일</a>
+
+- date: 5/15
+  week: 11
+  title: >
+    <strong>11. 특징 인식과 분류<br>
+    12. 3차원 가시화</strong>
+  slides: "https://docs.google.com/presentation/d/1pQh8t5wdcYV56zWIpYxigQ4_Cdk4TonT4JjgaAd95oc/edit?usp=sharing"
+  img: 2025/ut-imd/11-features.jpg
+  readings: p. 377-408, 409-422
+  hw:
+  logistics: >
+    <a href="https://classroom.google.com/c/NzUyMTA1MjYxNTM1/a/NzYxMjc3MDA4MzI4/details">붓꽃 데이터 처리 예시</a>
+
+- date: 5/22
+  week: 12
+  title: >
+    <strong>12. 3차원 가시화<br>
+    13. 영상촬영의 의학적 응용</strong>
+  slides: "https://docs.google.com/presentation/d/1kbyeo5XDedrqXceDpHvHcRGj28q93rFf6sqh3_GXqAc/edit?usp=sharing"
+  img: 2025/ut-imd/12-apps.jpg
+  readings: p. 409-422, 423-438
+  hw:
+  logistics:
+
+- date: 5/29
+  week: 13
+  title: >
+    <strong>합성곱 신경망 개념 및 훈련</strong>
+  slides: "https://docs.google.com/presentation/d/13TdMQplzoouUF00Mx8QDtoFawGtNxmAm1WwMcpzuNMI/edit?usp=sharing"
+  slides2: "https://docs.google.com/presentation/d/1ITKw2lGECSjUALFPFLN4bX73FOrXTeMZcJiKmYYPru0/edit?usp=sharing"
+  img: 2025/ut-imd/13-cnn.jpg
+  readings:
+  hw:
+  logistics:
+
+- date: 6/5
+  week: 14
+  title: >
+    <span style="color: red"><strong>No Class</strong> 개교기념일</span>
+
+- date: 6/12
+  week: 14
+  title: >
+    <strong>폐렴 CNN이나 3D 프린팅</strong>
+  slides: "https://docs.google.com/presentation/d/1JRSVpffd82JuVJQMJ1dsKwvZCDdhdstSa3vAwrgD8eo/edit?usp=sharing"
+  img: 2025/ut-imd/14-cnn.jpg
+  readings: >
+    p.439-443<br>
+    기말고사 가이드
+  hw: "https://forms.gle/VrET6KUMzu1U8p6x5"
+  logistics:
+
+- date: 6/19
+  week: 15
+  title: >
+    <strong>Final Test</strong><br>
+    <a href="https://forms.gle/aoPjct5pQBNr4EEf7">기말고사</a>

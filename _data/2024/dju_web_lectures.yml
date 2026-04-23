@@ -1,0 +1,181 @@
+- date: 9/3
+  week: 1
+  title: >
+    <strong>과정 소개<br>
+    Chapter 01 JSP의 개요: 원리를 이해하고 개발 환경 구축하기</strong>
+  supp:
+  readings: p. 20-58
+  hw: "https://classroom.github.com/a/GmHhc-fR"
+  slides: "https://docs.google.com/presentation/d/1DH22ItOwv2yUp7rAxhmSzMdcQ-OMpD8pp_z0FwQ3gpY/edit?usp=sharing"
+  img: 2024/dju-web/1-web-intro.jpg
+  logistics: >
+    최종 프로젝트
+
+- date: 9/10
+  week: 2
+  title: >
+    <strong>Chapter 02 스크립트 태그: 시작 페이지 만들기<br>
+    </strong>
+  supp:
+  readings: p. 59-84
+  hw: "https://classroom.github.com/a/C-KrxYh4"
+  slides: "https://docs.google.com/presentation/d/1Klpquhrdt_P54juJAxcPF_PSxcjrm0H__NoLbZ7ikmk/edit?usp=sharing"
+  img: 2024/dju-web/2-scripts-directives.jpg
+  logistics:
+
+- date: 9/17
+  week: 3
+  title: >
+    <span style="color: red"><strong>No Class</strong> Chuseok</span>
+
+- date: >
+    <span style="color: red">9/21 보강</span>
+  week: 3
+  title: >
+    <strong>Chapter 03 디렉티브 태그: 한글 출력 및 페이지 모듈화하기<br>
+    Chapter 04 액션 태그: 상품 목록 표시하기</strong>
+  supp:
+  readings: p. 86-162
+  hw: "https://classroom.github.com/a/pN-Ohd3G"
+  slides: "https://docs.google.com/presentation/d/1ZdmEnIB5m5z3GrrujlHAdDggIxVu-SS6IwVA7QJ7G4o/edit?usp=sharing"
+  img: 2024/dju-web/3-directives-actions.jpg
+  logistics: >
+    <a href="https://velog.io/@songunnie/project-git-clone%ED%95%9C-%ED%8F%B4%EB%8D%94%EB%A1%9C-Dynamic-Web-Project-%EB%A7%8C%EB%93%A4%EA%B8%B0">git &rarr; 이클립스</a>
+
+- date: 9/24
+  week: 4
+  title: >
+    <strong>Chapter 05 내장 객체: 상품 상세 정보 표시하기</strong>
+  supp:
+  readings: p. 164-198
+  hw: "https://classroom.github.com/a/2UrXLDhk"
+  slides: "https://docs.google.com/presentation/d/1kMU7vVBKGUUNGd5nbSzFxW4KMTwSnsIRB4DJjgLaVH0/edit?usp=sharing"
+  img: 2024/dju-web/4-objects.jpg
+  logistics:
+
+- date: 10/1
+  week: 5
+  title: >
+    <span style="color: red"><strong>No Class</strong> 국군의 날</span>
+
+- date: 10/8
+  week: 6
+  title: >
+    <strong>Chapter 06 폼 태그: 상품 등록 페이지 만들기</strong>
+  supp:
+  readings: p. 200-234
+  hw: "https://classroom.github.com/a/vtg_F8j8"
+  slides: "https://docs.google.com/presentation/d/1XaiuPlaRDzI9Qr7Hm921cSjJS8BNCOHHozXBLeVqwZ0/edit?usp=sharing"
+  img: 2024/dju-web/6-forms.jpg
+  logistics:
+
+- date: 10/15
+  week: 7
+  title: >
+    <strong>Chapter 07 파일 업로드: 상품 이미지 등록하기</strong>
+  supp:
+  readings: p. 236-274
+  hw: "https://classroom.github.com/a/BOJWSL2P"
+  slides: "https://docs.google.com/presentation/d/1GPeh6S8WpWfBSuHCyWanOLSJlPt4HUOhn4gGnG_XXzc/edit?usp=sharing"
+  img: 2024/dju-web/7-file-upload.jpg
+  logistics:
+
+- date: 10/22
+  week: 8
+  title: >
+    <strong>Midterm Test</strong><br>
+    <div style="display: none;">
+      [<a href="https://forms.gle/dLr87oHGcARw4bZ37">퀴즈</a>]
+      [<a href="https://classroom.github.com/a/OC_OKlvj">실기</a>]
+    </div>
+
+- date: 10/29
+  week: 9
+  title: >
+    <strong>Chapter 08 유효성 검사: 상품 등록 데이터의 유효성 검사하기</strong>
+  supp:
+  readings: p. 276-310
+  hw: "https://classroom.github.com/a/zA85zTnl"
+  slides: "https://docs.google.com/presentation/d/1RIpz1rvhRUA2mZ0lLuBOEt2GOGnxD02YY1dnsESIZWA/edit?usp=sharing"
+  img: 2024/dju-web/9-validation.jpg
+  logistics:
+
+- date: 11/5
+  week: 10
+  title: >
+    <strong>Chapter 09 다국어 처리: 상품 등록 페이지의 다국어 처리하기<br>
+    Chapter 10 시큐리티: 상품 등록 페이지의 보안 처리하기</strong>
+  supp:
+  readings: p. 312-352, 354-382
+  hw: "https://classroom.github.com/a/u_di9qK6"
+  slides: "https://docs.google.com/presentation/d/1h31_Yg5HQoMr6ZULRFRcW2pRGbRyvXfN1aLsSzaqT2Q/edit?usp=sharing"
+  img: 2024/dju-web/10-lang-sec.jpg
+  logistics:
+
+- date: 11/12
+  week: 11
+  title: >
+    <strong>Chapter 11 예외 처리: 예외 처리 페이지 만들기<br>
+    Chapter 12 필터: 로그 기록하기</strong>
+  supp:
+  readings: p. 384-412, 414-448
+  hw: "https://classroom.github.com/a/M-sv4CAd"
+  slides: "https://docs.google.com/presentation/d/1BQ9K7bJ6NPeYsqiZrAxeLKhSyiZ6PTyeUwe3neXjPqM/edit?usp=sharing"
+  img: 2024/dju-web/11-errors-filters.jpg
+  logistics:
+
+- date: 11/19
+  week: 12
+  title: >
+    <strong>Chapter 13 세션: 장바구니 페이지 만들기<br>
+    Chapter 14 쿠키: 주문 처리 페이지 만들기</strong>
+  supp:
+  readings: p. 450-482, p. 484-510
+  hw: "https://classroom.github.com/a/G-txcfQk"
+  slides: "https://docs.google.com/presentation/d/1RMlIS-ksp1yOfdg6AISUhsayTYbnXRwfHKNYB8q5Yp0/edit?usp=sharing"
+  img: 2024/dju-web/12-sessions-cookies.jpg
+  logistics:
+
+- date: 11/26
+  week: 13
+  title: >
+    <strong>Chapter 15 데이터베이스 개발 환경 구축: 상품 관리 테이블 생성 및 상품 등록하기</strong>
+  supp:
+  readings: p. 512-546
+  hw: "https://classroom.github.com/a/T-Ap2bhB"
+  slides: "https://docs.google.com/presentation/d/1RGzxC_W6YIZB1izbzGURFQAkak1PPMpqTkMqoUz8epI/edit?usp=sharing"
+  img: 2024/dju-web/13-db.jpg
+  logistics:
+
+- date: 12/3
+  week: 14
+  title: >
+    <strong> Chapter 16 JDBC로 데이터베이스와 JSP 연동: 상품 조회, 등록, 수정, 삭제하기</strong>
+  supp:
+  readings: p. 548-610
+  hw: "https://classroom.github.com/a/7g1vwot9"
+  slides: "https://docs.google.com/presentation/d/1pceTQnZUN2UAYmqInTc6mLy_tGTQG35bjKSkvZGdJIg/edit?usp=sharing"
+  img: 2024/dju-web/14-jdbc.jpg
+  logistics: >
+    <a href="https://naver.me/xTTjuAZ7">박사 연구 설문조사</a>
+
+- date: 12/10
+  week: 15
+  title: >
+    <strong>Chapter 17 JSP 표준 태그 라이브러리: 회원 가입, 수정, 탈퇴하기<br>
+    Chapter 18 웹 MVC: 게시판 만들기</strong>
+  supp:
+  readings: p. 612-640, 642-670
+  hw: "https://classroom.github.com/a/4XB8mAnD"
+  slides: "https://docs.google.com/presentation/d/1niBA9A3laNrecg36qPXUmmVPJOS4_bD5nfGigWmu3I8/edit?usp=sharing"
+  img: 2024/dju-web/15-mvc.jpg
+  logistics:
+
+- date: 12/17
+  week: 16
+  title: >
+    <strong>Final Test</strong><br>
+    <a href="https://forms.gle/JrF6TjUqnM2gQGk38">퀴즈</a> | <a href="https://classroom.github.com/a/C8YEM7x9">실기</a>
+    <div style="display: none;"><br>
+    스터디 가이드: <a href="https://docs.google.com/presentation/d/1_Tmxn7cj2eNgv6EiI5ARVeoHlEzq5LI-zkQoPb9tB24/edit?usp=sharing">전체</a> | <a href="https://docs.google.com/presentation/d/1-xv3-TOqiWZ9k6xHSJ2j_wvDu5xyQWpznPpG22iHk-s/edit?usp=sharing">짧게</a>
+    </div>

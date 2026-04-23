@@ -1,0 +1,224 @@
+- date: 3/6
+  week: 1
+  title: >
+    <strong>Unit 0. 시작하기 / Getting Set up</strong><br>
+    - 수업 소개
+    - Node.JS 소개
+  slides: "https://docs.google.com/presentation/d/1mDevjb5E-z6rCXmBE090GxpsQqBNkcKOOfbKccUcDcs/edit?usp=sharing"
+  readings: <strong>0장 pp. 35-64</strong>
+  logistics:
+  img: 2024/ut-node/0-node-introduction.jpg
+  hw1: "https://classroom.github.com/a/bsh3XZ5b"
+  hw2: "https://classroom.github.com/a/uvgAQkYv"
+
+- date: 3/13
+  week: 2
+  title: >
+    <strong>Unit 0. 시작하기 / Getting Set up</strong><br>
+    - Lesson 0. Node.js의 설정과 JavaScript 엔진 설치 / Setting up Node.js and the JavaScript engine<br>
+    - Lesson 1. 환경설정 / Configuring your environment<br>
+    - Lesson 2. Node.js 애플리케이션 실행 / Running a Node.js application
+  slides: "https://docs.google.com/presentation/d/1bgILKiJ1G_H2YZ7QkU13DmXXabO1kubCrDGaE6XElaE/edit?usp=sharing"
+  slides2: "https://docs.google.com/presentation/d/1vYz8soxeTOsBzbFaLmkDG5njvkDy7CBb_wY1C_PXfFM/edit?usp=sharing"
+  readings: Get Programming with Node, <strong>1장 pp. 67-116</strong>
+  logistics:
+  img: 2024/ut-node/2a-web-review.jpg
+  hw1: "https://classroom.github.com/a/x9xH4e-l"
+  hw2: "https://classroom.github.com/a/nD0EtR_u"
+
+- date: 3/20
+  week: 3
+  title: >
+    <strong>Unit 1. Node.js의 시작 / Getting started with Node.js</strong><br>    
+    - Lesson 3. Node.js 모듈의 생성 / Creating a Node.js module<br>
+    - Lesson 4. Node.js에서 웹 서버 만들기 / Building a simple web server in Node.js<br>
+    - Lesson 5. 수신 데이터 다루기 / Handling incoming data<br>
+  slides: "https://docs.google.com/presentation/d/1FCatIvJsCBDldZiGoBsDvLo2lfk0KLHTtmG1ZlKZ6ls/edit?usp=sharing"
+  readings: Get Programming with Node, <strong>1장 pp. 67-116</strong>
+  logistics:
+  img: 2024/ut-node/3-node-web-app.jpg
+  hw1: "https://classroom.github.com/a/m6tTvNhm"
+  hw2: "https://classroom.github.com/a/4PghjxCa"
+
+- date: 3/27
+  week: 4
+  title: >
+    <strong>Unit 1. Node.js의 시작 / Getting started with Node.js</strong><br>
+    - Lesson 6. 라우트와 외부 파일 / Writing better routes and serving external files<br>
+    - Lesson 7. 캡스톤 프로젝트: 첫 번째 웹 애플리케이션 만들기 / Capstone: Creating your first web application<br>
+  slides: "https://docs.google.com/presentation/d/16ZFD7D5bu-bLhhkkmKltNgV8wkhqAuH3bNlYgFyeFwk/edit?usp=sharing"
+  readings: >
+    - Get Programming with Node, <strong>1, 2장 pp. 117-154</strong>
+    - Get Programming with Node, <strong>2장 pp. 143-185</strong>
+  logistics:
+  img: 2024/ut-node/4-node-web-app.jpg
+  hw1: "https://classroom.github.com/a/ed0IqywE"
+  hw2: "https://classroom.github.com/a/uMfwm9Wo"
+
+- date: 4/3
+  week: 5
+  title: >
+   <strong>Unit 2. Express.js를 통한 웹 개발 / Easier web development with Express.js</strong><br>
+    - Lesson 8. Express.js의 설정 / Setting up an app with Express.js<br>
+    - Lesson 9. Express.js에서의 라우트 / Routing in Express.js<br><br>
+  slides: "https://docs.google.com/presentation/d/1-JXmj71BN_nHFSntmjdnqSdPht_EFJF1OKxqu4MwkKY/edit?usp=sharing"
+  readings: Get Programming with Node, <strong>3장 pp. 187-234</strong>
+  logistics:
+  img: 2024/ut-node/5-node-express.jpg
+  hw1: "https://classroom.github.com/a/cmvIvmhu"
+  hw2: "https://classroom.github.com/a/33C5Nanw"
+
+- date: 4/10
+  week: 6
+  title: >
+    <span style="color: red"><strong>No Class</strong> Election</span>
+
+- date: 4/17
+  week: 7
+  title: >
+   <strong>Unit 2. Express.js를 통한 웹 개발 / Easier web development with Express.js</strong><br>
+    - Lesson 10 뷰와 템플릿의 연결 / Connecting views with templates<br>
+    - Lesson 11. 설정과 에러 처리 / Configurations and error handling<br>
+    - Lesson 12. 캡스톤 프로젝트: Express.js를 통한 Confetti Cuisine 사이트 개선 / Capstone: Enhancing the Confetti Cuisine site with Express.js
+  slides: "https://docs.google.com/presentation/d/1wdHPDWpR2J1sO-dQZTlQ9n52Efq_K73xCdLfYyiamsI/edit?usp=sharing"
+  readings: Get Programming with Node, <strong>3장 pp. 187-234</strong>
+  logistics:
+  img: 2024/ut-node/7-express-capstone.jpg
+  hw1: "https://classroom.github.com/a/KGc0FDaH"
+  hw2: "https://classroom.github.com/a/Qkt1r82C"
+
+- date: 4/24
+  week: 8
+  title: >
+    <strong>Midterm Test</strong>
+    <div style="display: none;"><br>
+      [<a href="https://forms.gle/EJGeVJc4mt1HUSL58">AM 퀴즈</a>]
+      [<a href="https://classroom.github.com/a/O6AyoaYX">AM 실기</a>]<br>
+      [<a href="https://forms.gle/vVYvBdTVbQdCQdCE9">PM 퀴즈</a>]
+      [<a href="https://classroom.github.com/a/dCP9iC4U">PM 실기</a>]
+    </div>
+
+- date: 5/1
+  week: 9
+  title: >
+    <strong>Unit 3. 데이터베이스 연결 / Connecting to a database</strong><br>
+    - Lesson 13. 몽고DB 데이터베이스 셋업 / Setting up a MongoDB database<br>
+    - Lesson 14. Mongoose를 사용한 모델 제작 / Building models with Mongoose<br>
+    - Lesson 15. 컨트롤러와 모델과의 연결 / Connecting controllers and models<br>
+    - Lesson 16. 캡스톤: 사용자 구독 저장 / Capstone: Saving user subscriptions
+  slides: "https://docs.google.com/presentation/d/1nQ9S0eJkDxUubjYuhfDyA1j6DHjCgPsr8s00Q-Q3E14/edit?usp=sharing"
+  readings: Get Programming with Node, <strong>4장 pp. 237-286</strong>
+  logistics:
+  img: 2024/ut-node/9-node-mongodb.jpg
+  hw1: "https://classroom.github.com/a/0Ur4Oyoq"
+  hw2: "https://classroom.github.com/a/crAoyCF_"
+
+- date: 5/8
+  week: 10
+  title: >
+    <strong>Unit 3. 데이터베이스 연결 / Connecting to a database</strong><br>
+    - Lesson 15. 컨트롤러와 모델과의 연결 / Connecting controllers and models<br>
+    - Lesson 16. 캡스톤: 사용자 구독 저장 / Capstone: Saving user subscriptions
+  slides: "https://docs.google.com/presentation/d/1HADbHsUjcF5qTmlddxPz9_pBFFAqmrdMsVqSU7Q8-0o/edit?usp=sharing"
+  readings: Get Programming with Node, <strong>4장 pp. 237-286</strong>
+  logistics:
+  img: 2024/ut-node/10-node-subscribers.jpg
+  hw1: "https://classroom.github.com/a/DJPWgTS6"
+  hw2: "https://classroom.github.com/a/_xVPvR6P"
+
+- date: 5/15
+  week: 11
+  title: >
+    <span style="color: red"><strong>No Class</strong> Buddha's Birthday</span>
+
+- date: 5/22
+  week: 12
+  title: >
+    <strong>Unit 4. 사용자 모델 제작 / Building a User model</strong><br>
+    - Lesson 17. 데이터 모델의 개선 / Improving your data models<br>
+    - Lesson 18. 사용자 모델의 구현 / Building the user model<br>
+  slides: "https://docs.google.com/presentation/d/1mxBwx5XaqK8LbmY7Uz5K3pP4X60jl-nVQIUSmOYC3IQ/edit?usp=sharing"
+  readings: Get Programming with Node, <strong>4장 pp. 289-320</strong>
+  logistics:
+  img: 2024/ut-node/12-crud-operations.jpg
+  hw1: "https://classroom.github.com/a/vu6GfvGY"
+  hw2: "https://classroom.github.com/a/pWYFBDa1"
+
+- date: 5/29
+  week: 13
+  title: >
+    <strong>Unit 4. 사용자 모델 제작 / Building a User model</strong><br>
+    - Lesson 19. 모델의 생성과 읽기 / Creating and reading your models
+    - Lesson 20. 모델의 업데이트와 삭제 / Updating and deleting your models<br>
+    - Lesson 21. 캡스톤 프로젝트: Confetti Cusine에 CRUD 모델 추가 / Capstone: Adding CRUD models to Confetti Cuisine
+  slides: "https://docs.google.com/presentation/d/1-sJux9vT-atzqdPRPIr5yAXHdAWMa4JlL_chu8BO4nU/edit?usp=drivesdk"
+  readings: Get Programming with Node, <strong>4장 pp. 289-320</strong>
+  logistics:
+  img: 2024/ut-node/13-adding-crud.jpg
+  hw1: "https://classroom.github.com/a/3GuLx0wJ"
+  hw2: "https://classroom.github.com/a/Vo0H5yHd"
+
+- date: 6/5
+  week: 14
+  title: >
+    <span style="color: red"><strong>No Class</strong> School Birthday!</span>
+
+- date: >
+    6/12 (대면 보강)
+  week: 보강
+  title: >
+    <strong>Unit 5. 사용자 계정 인증 / Authenticating User accounts</strong><br>
+    - Lesson 22. 세션과 플래시 메시지의 추가 / Adding sessions and flash messages<br>
+    - Lesson 23. 사용자 로그인 폼 생성과 패스워드 해시 / Building a user login and hashing passwords<br>
+    - Lesson 24. 사용자 인증 추가 / Adding user authentication
+  slides: "https://docs.google.com/presentation/d/1g6Ck7VXLIXbyWpdhTv8mS8WGIO-vaE1uc7PiMWUfj0I/edit?usp=sharing"
+  readings: Get Programming with Node, <strong>5장 pp. 321-374</strong>
+  logistics:
+  img: 2024/ut-node/14-node-user-auth.jpg
+  hw1: "https://classroom.github.com/a/50S_JjNZ"
+  hw2: "https://classroom.github.com/a/-3NpQTwD"
+
+- date: >
+    6/11 (LMS)
+  week: 보강
+  title: >
+    <strong>Unit 6. API 빌드 / Building an API</strong><br>
+    - Lesson 26. 애플리케이션에 API 추가 / Adding an API to your application<br>
+    - Lesson 27. 애플리케이션에서 API 액세스 / Accessing your API from your application<br>
+    - Lesson 28. API 보안 / Adding API security<br>
+    - Lesson 29. 캡스톤 프로젝트: API 구현 / Capstone: Implementing an API
+  slides: "https://docs.google.com/presentation/d/185p4mldFRbJ3QhmpilNXfIjIxf79wUy--em0RQziuDs/edit?usp=sharing"
+  readings: Get Programming with Node, <strong>6장 pp. 375-433</strong>
+  logistics:
+  img: 2024/ut-node/15-node-api-build.jpg
+  hw1: "https://classroom.github.com/a/tMrOtBlL"
+  hw2: "https://classroom.github.com/a/1QDu9-PS"
+
+- date: >
+    6/14 (LMS)
+  week: 보강
+  title: >
+    <strong>Unit 7. 채팅 기능 추가 / Adding Chat functionality</strong><br>
+    - Lesson 30. socket.io로의 작업 / Working with Socket.io<br>
+    - Lesson 31. 채팅 메시지의 저장 / Saving chat messages<br>
+    - Lesson 32. 채팅 알림 표시 추가 / Adding a chat notification indicator<br>
+    - Lesson 33. 캡스톤 프로젝트: Confetti Cuisine에 채팅 기능 추가 / Capstone: adding a chat feature to Confetti Cuisine
+  slides: "https://docs.google.com/presentation/d/1q9wL7WjTsKNwMCflU3ajHAgR78lMOh8gR0ZxsrPkmV8/edit?usp=sharing"
+  readings: Get Programming with Node, <strong>7장 pp. 435-479</strong>
+  logistics:
+  img: 2024/ut-node/16-node-chatting.jpg
+  hw1: "https://classroom.github.com/a/soE4SSKd"
+  hw2: "https://classroom.github.com/a/ENNgJsBI"
+
+- date: 6/19
+  week: 18
+  title: >
+    <strong>Final Test</strong><br>
+    <a href="https://forms.gle/8eGgjJpRR8ZaHsce6">오후 퀴즈</a>
+    <a href="https://classroom.github.com/a/Todgmdva">오후 실기</a>
+    <div style="display: none;">
+      <a href="https://forms.gle/8wJxUzwkiWBaHMHb6">오전 퀴즈</a>
+      <a href="https://classroom.github.com/a/LDXST20N">오전 실기</a>
+      <br>
+      <a href="https://docs.google.com/presentation/d/1wPKgFOKqNjXLXB31zkUpLRtnKju_gfsMiBiHlLs2qr4/edit?usp=sharing">스터디 가이다</a>
+    </div>

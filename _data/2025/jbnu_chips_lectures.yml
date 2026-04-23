@@ -1,0 +1,181 @@
+- date: 3/5
+  week: 1
+  title: >
+    <strong>Introduction</strong>
+  supp:
+  readings:
+  hw:
+  slides: "https://docs.google.com/presentation/d/1bK2LOkz07XJgPJYVGUJIWHdn5HWocf398q7BW9L2Im4/edit?usp=sharing"
+  img: 2025/jbnu-chips/1-intro.jpg
+  logistics:
+
+- date: 3/10
+  week: 2
+  title: >
+    <strong>Chapter 1: Semiconductor Fundamentals</strong>
+  supp:
+  readings: p. 1-28
+  hw: "https://classroom.google.com/c/NzU3NjEwNzMxMzU1/a/NzUyNjQxMzc4ODcz/details"
+  slides: "https://docs.google.com/presentation/d/129bKVA0-CvShr8cF2i-iWbHT3_lSrIdYP4AkDmAukzg/edit?usp=sharing"
+  slides2: "https://docs.google.com/presentation/d/16AgmiT68Y3MQ-SGSEZm17FSBU3mOQSkH/edit?usp=sharing&ouid=111221545203304105756&rtpof=true&sd=true"
+  img: 2025/jbnu-chips/2-fundamentals.jpg
+  logistics: >
+    <a href="https://classroom.google.com/c/NzU3NjEwNzMxMzU1?cjc=pfc6jxn">Google Classroom</a>
+
+- date: 3/17
+  week: 3
+  title: >
+    <strong>Chapter 2: PN Junctions and Diodes</strong>
+  supp:
+  readings: p. 29-62
+  hw: "https://classroom.google.com/c/NzU3NjEwNzMxMzU1/a/NzUyOTc3NTYzODc0/details"
+  slides: "https://docs.google.com/presentation/d/1q0lV0Q76ciDuA5KqenPVALfWeRntnPTchaB0XM11bWc/edit?usp=sharing"
+  img: 2025/jbnu-chips/3-diodes.jpg
+  logistics:
+
+- date: 3/24
+  week: 4
+  title: >
+    <strong>Chapter 3: Diode Applications</strong>
+  supp:
+  readings: p. 63-89
+  hw:
+  slides: "https://docs.google.com/presentation/d/1LJRhGGHHsPqi-99KZAHtkNeBllsk6EOCSVOuIUQsyQo/edit?usp=sharing"
+  img: 2025/jbnu-chips/4-diode-apps.jpg
+  logistics:
+
+- date: >
+    <span style="color: red;">3/31 (<a href="https://ieilms.jbnu.ac.kr/">LMS</a>)</span>
+  week: 5
+  title: >
+    <strong>Chapter 3: Diode Applications</strong>
+  supp:
+  readings: p. 63-89
+  hw: "https://classroom.google.com/c/NzU3NjEwNzMxMzU1/a/NzYzODQyNDg0MTYy/details"
+  slides: "https://docs.google.com/presentation/d/1LJRhGGHHsPqi-99KZAHtkNeBllsk6EOCSVOuIUQsyQo/edit?usp=sharing"
+  img: 2025/jbnu-chips/4-diode-apps.jpg
+  logistics: >
+    <span style="color: red;">Watch on (<a href="https://ieilms.jbnu.ac.kr/">LMS</a>)</span>
+
+- date: 4/7
+  week: 6
+  title: >
+    <strong>Chapter 4: Bipolar Junction Transistors (BJTs)</strong>
+  supp:
+  readings: p. 90-140, 141-198, 199-230
+  hw: "https://classroom.google.com/c/NzU3NjEwNzMxMzU1/a/NzY1MzA0NjAwNDQ1/details"
+  slides: "https://docs.google.com/presentation/d/1fm4TtQSv0pwQHbaFn240cHJxekY7GGJMKc4uFOsj5Rw/edit?usp=sharing"
+  img: 2025/jbnu-chips/5-bjt.jpg
+  logistics:
+
+- date: 4/14
+  week: 7
+  title: >
+    <strong>Chapter 5: BJT Biasing</strong>
+  supp:
+  readings: p. 231-265
+  hw: "https://classroom.google.com/c/NzU3NjEwNzMxMzU1/a/NzgzOTkzNzIyNTU4/details"
+  slides: "https://docs.google.com/presentation/d/1HihN3I0B6xjkXPoI_z9Q7IovJZtcA07P7YweWZMVTKE/edit?usp=sharing"
+  img: 2025/jbnu-chips/7-bjt-biasing.jpg
+  logistics:
+
+- date: 4/21
+  week: 8
+  title: >
+    <strong>Midterm Test</strong><br>
+    <a href="https://docs.google.com/presentation/d/117i3kkGyOc4pcVCI63BAO3bqQUtpvTx9h-y5iUd-D6E/edit?usp=sharing">스터디 가이드</a>
+
+- date: 4/28
+  week: 9
+  title: >
+    <strong>Chapter 6: Amplifier Concepts</strong>
+  supp:
+  readings: p. 266-295
+  hw: "https://classroom.google.com/c/NzU3NjEwNzMxMzU1/a/NzgzOTk0NDQ1NzM3/details"
+  slides: "https://docs.google.com/presentation/d/1s8lrIqbFpmh3Q6AdQzJqiAq59Rko8BdnaL20sQZdYsc/edit?usp=sharing"
+  img: 2025/jbnu-chips/9-amplifiers.jpg
+  logistics:
+
+- date: 5/5
+  week: 10
+  title: >
+    <span style="color: red"><strong style="color: red">Monday OFF</strong> 어린이 날 (대체)</span><br>
+    <strong>Chapter 7: BJT Small Signal Amplifiers</strong>
+  readings: p. 266-295
+  hw: "https://classroom.google.com/c/NzU3NjEwNzMxMzU1/a/NzgzOTkyODEyNTM3/details"
+  slides: "https://docs.google.com/presentation/d/1ZleYWxZjNzCipauilmf32yT003k6edmArSMerJf4m6k/edit?usp=sharing"
+  img: 2025/jbnu-chips/10-small-amps.jpg
+  logistics:
+
+- date: 5/12
+  week: 11
+  title: >
+    <strong>Chapter 8: BJT Class A Power Amplifiers<br>
+    Chapter 9: BJT Class B Power Amplifiers</strong>
+  supp:
+  readings: p. 296-324
+  hw: "https://classroom.google.com/c/NzU3NjEwNzMxMzU1/a/NzY4NjEyNjgzMDUw/details"
+  slides: "https://docs.google.com/presentation/d/15G0LGot58VywnP4G4cwzETx9P1Ge08Qk4R48A49MQ_o/edit?usp=sharing"
+  img: 2025/jbnu-chips/11-class-amps.jpg
+  logistics:
+
+- date: 5/19
+  week: 12
+  title: >
+    <strong>Chapter 9: BJT Class B Power Amplifiers<br>
+    Chapter 10: Junction Field Effect Transistors (JFETs)</strong>
+  supp:
+  readings: p. 325-347
+  hw: "https://classroom.google.com/c/NzU3NjEwNzMxMzU1/a/NzgzOTk0MjQ3MTcy/details"
+  hw2: "https://classroom.google.com/c/NzU3NjEwNzMxMzU1/a/NzgzOTk0MTEyNzMw/details"
+  slides: "https://docs.google.com/presentation/d/19Y0v-0Je0jTcbNDqXGM2tgVXLvjfDSIklKhlPmIysh8/edit?usp=sharing"
+  img: 2025/jbnu-chips/12-jfets.jpg
+  logistics:
+
+- date: 5/26
+  week: 13
+  title: >
+    <strong>Chapter 11: JFET Small Signal Amplfiers</strong>
+  supp:
+  readings: p. 348-381
+  hw: "https://classroom.google.com/c/NzU3NjEwNzMxMzU1/a/NzY2NjAyNzYyNTQw/details"
+  slides: "https://docs.google.com/presentation/d/1MgHBirRRBJKUqlc0_-5-HYEvW3Xl-7hOhpMKB55947A/edit?usp=sharing"
+  img: 2025/jbnu-chips/13-jfet-amps.jpg
+  logistics:
+
+- date: 6/2
+  week: 14
+  title: >
+    <strong>Chapter 12: Metal Oxide Semiconductor FETs (MOSFETs)<br>
+    Chapter 13: MOSFET Small Signal Amplifiers</strong>
+  supp:
+  readings: p. 382-428
+  hw: "https://classroom.google.com/c/NzU3NjEwNzMxMzU1/a/Nzg1NjgzNDE2ODU0/details"
+  hw2: "https://classroom.google.com/c/NzU3NjEwNzMxMzU1/a/Nzg1NjgzNDc3NTA4/details"
+  slides: "https://docs.google.com/presentation/d/12De47N36n7H4fTrd5uDew8mDNsprAIxLL49JBKAXoTQ/edit?usp=sharing"
+  img: 2025/jbnu-chips/14-mosfets.jpg
+  logistics:
+
+- date: 6/9
+  week: 15
+  title: >
+    <strong>Chapter 14: Class D Power Amplifiers<br>
+    Chapter 15: Insulated Gate Bipolar Transistors (IGBTs)</strong>
+  supp:
+  readings: p. 429-484
+  hw: "https://classroom.google.com/c/NzU3NjEwNzMxMzU1/a/Nzg2NjQzODMyMDk0/details"
+  hw2: "https://classroom.google.com/c/NzU3NjEwNzMxMzU1/a/Nzg2NjQzOTQ2NTE3/details"
+  slides: "https://docs.google.com/presentation/d/1rUUtjvNvbCKFSoiWHxY2ut7VZe0YMscVRBx3EFtt3Lw/edit?usp=sharing"
+  img: 2025/jbnu-chips/15-igbts.jpg
+  logistics:
+
+- date: 6/16
+  week: 16
+  title: >
+    <strong>Final Test</strong><br>
+    <a href="https://docs.google.com/presentation/d/17_PV2ZLZs5z1mQMurFrm0o_8UC2U1ueXZWZ3Jw0v6BU/edit?usp=sharing">Study Guide</a>
+  logistics: >
+    <strong>Not covered:<br>
+    - Chapter 16: Decibels and Bode Plots<br>
+    - Chapter 17: Frequency Limits<br>
+    - Appendices</strong>
