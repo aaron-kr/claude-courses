@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prof. J. Kim — Courses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── TOKENS ── */
+  :root {
+    --bg:       #0c0c0e;
+    --surface:  #141418;
+    --border:   #2a2a32;
+    --muted:    #4a4a5a;
+    --text:     #e8e8f0;
+    --sub:      #9898b0;
+    --accent:   #7eb8f7;
+    --accent2:  #b9fbc0;
+    --tag-bg:   #1c1c26;
+    --radius:   6px;
+    --nav-bg:   rgba(12,12,14,0.88);
+    --dot-color:#2a2a3a;
+  }
+  [data-theme="light"] {
+    --bg:       #f5f5f8;
+    --surface:  #ffffff;
+    --border:   #dcdce8;
+    --muted:    #9898b2;
+    --text:     #18182c;
+    --sub:      #52527a;
+    --accent:   #2563eb;
+    --accent2:  #16a34a;
+    --tag-bg:   #eeeef8;
+    --nav-bg:   rgba(245,245,248,0.9);
+    --dot-color:#c8c8d8;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background 0.25s, color 0.25s;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ══════════════════════════════════════════
+     NAV  (exact styles from courses.html +
+     dropdown + hamburger + controls)
+  ══════════════════════════════════════════ */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    border-bottom: 1px solid var(--border);
+    background: var(--nav-bg);
+    backdrop-filter: blur(14px);
+  }
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .nav-brand {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  /* ── Main link list ── */
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+    margin-left: 28px;
+    flex: 1;
+  }
+  .nav-links > li > a,
+  .nav-links > li > button {
+    font-size: 0.8rem;
+    color: var(--sub);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+    padding: 0 14px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+  }
+  .nav-links > li > a:hover,
+  .nav-links > li > button:hover { color: var(--text); }
+
+  /* ── Dropdown items ── */
+  .has-dropdown { position: relative; }
+  .nav-dropdown {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    min-width: 220px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 6px 0;
+    display: none;
+    z-index: 300;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+  }
+  .has-dropdown.open .nav-dropdown { display: block; }
+  .nav-dropdown li { list-style: none; }
+  .nav-dropdown li a {
+    display: block;
+    padding: 9px 18px;
+    font-size: 0.8rem;
+    color: var(--sub);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: background 0.15s, color 0.15s;
+  }
+  .nav-dropdown li a:hover { background: var(--tag-bg); color: var(--text); }
+  .nav-dropdown .dd-divider { height: 1px; background: var(--border); margin: 5px 0; }
+  .nav-dropdown .dd-all a { color: var(--accent); font-weight: 500; }
+  .nav-dropdown .dd-code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    margin-right: 6px;
+  }
+  .nav-dropdown .dd-semester {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.64rem;
+    color: var(--muted);
+    float: right;
+    margin-top: 1px;
+  }
+
+  /* ── Right-side controls ── */
+  .nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .ctrl-btn {
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    color: var(--sub);
+    border-radius: var(--radius);
+    padding: 4px 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: color 0.2s, border-color 0.2s;
+    line-height: 1.4;
+  }
+  .ctrl-btn:hover { color: var(--accent); border-color: var(--accent); }
+  .theme-btn { font-size: 0.9rem; padding: 4px 8px; }
+
+  /* ── Hamburger (mobile) ── */
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 8px;
+    color: var(--sub);
+    flex-direction: column;
+    gap: 5px;
+    flex-shrink: 0;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.25s, opacity 0.25s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* ── Mobile menu ── */
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 0 16px;
+    position: relative;
+    z-index: 199;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a,
+  .mobile-nav .m-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 24px;
+    font-size: 0.88rem;
+    color: var(--sub);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    transition: color 0.15s;
+  }
+  .mobile-nav a:hover,
+  .mobile-nav .m-toggle:hover { color: var(--text); }
+  .m-toggle .m-chevron { transition: transform 0.2s; }
+  .m-toggle.open .m-chevron { transform: rotate(180deg); }
+  .mobile-sub {
+    display: none;
+    flex-direction: column;
+    background: var(--tag-bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 2px 0;
+  }
+  .mobile-sub.open { display: flex; }
+  .mobile-sub a {
+    padding: 9px 24px 9px 36px;
+    font-size: 0.82rem;
+  }
+  .mobile-sub .dd-divider { height: 1px; background: var(--border); margin: 3px 0; }
+  .mobile-controls {
+    display: flex;
+    gap: 8px;
+    padding: 10px 24px 0;
+  }
+
+  /* ══════════════════════════════════════════
+     LAYOUT
+  ══════════════════════════════════════════ */
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ══════════════════════════════════════════
+     HERO  (exact from courses.html)
+  ══════════════════════════════════════════ */
+  header {
+    padding: 80px 0 60px;
+    border-bottom: 1px solid var(--border);
+  }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Playfair Display', 'DM Serif Display', serif;
+    font-size: clamp(2.6rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .hero-meta-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .hero-meta-value {
+    font-size: 0.88rem;
+    color: var(--sub);
+  }
+  .hero-desc {
+    margin-top: 32px;
+    max-width: 560px;
+    font-size: 0.95rem;
+    color: var(--sub);
+    line-height: 1.75;
+    border-left: 2px solid var(--border);
+    padding-left: 18px;
+  }
+  .stats-bar {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-top: 36px;
+  }
+  .stat {
+    flex: 1;
+    padding: 14px 20px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Playfair Display', 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+  }
+
+  /* ══════════════════════════════════════════
+     CONTROLS BAR  (filter + sort + thumbs)
+  ══════════════════════════════════════════ */
+  .course-section { padding: 40px 0 60px; }
+  .controls-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .ctrl-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .ctrl-row-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.64rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    width: 42px;
+    flex-shrink: 0;
+  }
+  .pill {
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    color: var(--sub);
+    padding: 4px 13px;
+    border-radius: 999px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.18s;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+  .pill:hover { border-color: var(--accent); color: var(--accent); }
+  .pill.active { background: var(--accent); border-color: var(--accent); color: #0c0c0e; }
+  [data-theme="light"] .pill.active { color: #fff; }
+
+  .thumb-toggle {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    color: var(--sub);
+    padding: 4px 13px;
+    border-radius: var(--radius);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: all 0.18s;
+  }
+  .thumb-toggle:hover { border-color: var(--accent); color: var(--accent); }
+  .thumb-toggle.active { border-color: var(--accent2); color: var(--accent2); background: rgba(185,251,192,0.08); }
+  .thumb-toggle .t-icon { font-size: 0.75rem; }
+
+  /* ══════════════════════════════════════════
+     SEMESTER GROUPS  (exact from courses.html)
+  ══════════════════════════════════════════ */
+  .semester-group { margin-bottom: 52px; }
+  .semester-group:last-child { margin-bottom: 0; }
+  .semester-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .semester-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+  }
+  .semester-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .semester-group.hidden { display: none; }
+  .course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+    gap: 14px;
+  }
+
+  /* ══════════════════════════════════════════
+     COURSE CARD
+  ══════════════════════════════════════════ */
+  a.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.18s, box-shadow 0.2s;
+  }
+  a.card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  a.card:hover {
+    border-color: #3a3a50;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  }
+  [data-theme="light"] a.card:hover {
+    border-color: #b0b0d0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+  a.card:hover::after { opacity: 1; }
+
+  /* ── thumbnail strip at top ── */
+  .card-thumb {
+    display: none;
+    width: 72px;
+    min-height: 96px;
+    flex-shrink: 0;
+    /* no border-radius per spec */
+  }
+  /* course-grid with thumbs: cards go side-by-side layout */
+  .card-inner {
+    display: flex;
+    flex: 1;
+  }
+  .thumbs-active .card-thumb { display: block; }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* ── uni badge (upper-right, faded logo placeholder) ── */
+  .uni-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text);
+    border: 1.5px solid var(--text);
+    opacity: 0.14;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1.3;
+    text-align: center;
+  }
+  .uni-badge .ub-abbr { font-size: 0.75rem; font-weight: 500; }
+
+  .card-code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    padding-right: 58px; /* avoid overlap with badge */
+  }
+  .card-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.35;
+  }
+  .card-desc {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.55;
+    flex: 1;
+  }
+  .card-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+  }
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .tag.grad  { color: #d4a0ff; border-color: #3a2a50; }
+  .tag.ugrad { color: var(--accent2); border-color: #1a3026; }
+  .tag.seminar { color: #ffcf7e; border-color: #3a2e0a; }
+  [data-theme="light"] .tag.grad   { color: #7c3aed; border-color: #ddd0f8; }
+  [data-theme="light"] .tag.ugrad  { color: #16a34a; border-color: #bbf7d0; }
+  [data-theme="light"] .tag.seminar{ color: #d97706; border-color: #fde68a; }
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+  }
+  .card-students {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+  }
+  .card-arrow {
+    font-size: 0.75rem;
+    color: var(--muted);
+    opacity: 0;
+    transition: opacity 0.18s, transform 0.18s;
+  }
+  a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
+
+  /* ══════════════════════════════════════════
+     FOOTER  (exact from courses.html)
+  ══════════════════════════════════════════ */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 36px 0;
+    position: relative;
+    z-index: 1;
+  }
+  .footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+  }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--accent); }
+
+  /* ══════════════════════════════════════════
+     ANIMATIONS  (exact from courses.html)
+  ══════════════════════════════════════════ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate { animation: fadeUp 0.55s ease both; }
+  .d1 { animation-delay: 0.05s; }
+  .d2 { animation-delay: 0.12s; }
+  .d3 { animation-delay: 0.20s; }
+  .d4 { animation-delay: 0.28s; }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════════ */
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    h1 { font-size: 2.2rem; }
+    .hero-meta { gap: 20px; }
+    .stats-bar { flex-wrap: wrap; }
+    .stat { flex: 0 0 50%; border-bottom: 1px solid var(--border); }
+    .stat:nth-child(2n) { border-right: none; }
+    .stat:nth-last-child(-n+2) { border-bottom: none; }
+    .ctrl-row-label { display: none; }
+    .thumb-toggle { margin-left: 0; }
+    .course-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 420px) {
+    .nav-controls { gap: 4px; }
+    .ctrl-btn { padding: 3px 7px; font-size: 0.63rem; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">jkim.edu</a>
+
+    <ul class="nav-links" id="desktop-nav">
+      <li><a href="#" data-i18n="nav_about">About</a></li>
+      <li><a href="#" data-i18n="nav_research">Research</a></li>
+
+      <!-- Courses dropdown -->
+      <li class="has-dropdown" id="dd-courses">
+        <button data-i18n="nav_courses">Courses ▾</button>
+        <ul class="nav-dropdown">
+          <li><span class="dd-semester" style="float:none;display:block;padding:6px 18px 2px;font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;" data-i18n="dd_current">Spring 2025</span></li>
+          <li><a href="course-cs4820.html"><span class="dd-code">4820</span>Advanced Machine Learning</a></li>
+          <li><a href="course-cs3310.html"><span class="dd-code">3310</span>Algorithms &amp; Complexity</a></li>
+          <li><a href="course-cs6001.html"><span class="dd-code">6001</span>Seminar: Foundation Models</a></li>
+          <li class="dd-divider"></li>
+          <li class="dd-all"><a href="archive.html" data-i18n="dd_all_courses">All Courses →</a></li>
+        </ul>
+      </li>
+
+      <!-- Policies dropdown -->
+      <li class="has-dropdown" id="dd-policies">
+        <button data-i18n="nav_policies">Policies ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="policy-ai.html" data-i18n="pol_ai">AI &amp; ChatGPT Use</a></li>
+          <li><a href="policy-exams.html" data-i18n="pol_exams">Exam Policy</a></li>
+          <li><a href="policy-assignments.html" data-i18n="pol_assign">Assignment Policy</a></li>
+          <li><a href="policy-attendance.html" data-i18n="pol_attend">Attendance Policy</a></li>
+          <li><a href="policy-grading.html" data-i18n="pol_grade">Grading Policy</a></li>
+          <li class="dd-divider"></li>
+          <li class="dd-all"><a href="policies.html" data-i18n="dd_all_policies">All Policies →</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#" data-i18n="nav_pubs">Publications</a></li>
+      <li><a href="#" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-controls">
+      <button class="ctrl-btn theme-btn" id="theme-btn" title="Toggle theme">🌙</button>
+      <button class="ctrl-btn" id="lang-btn">한국어</button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu (separate block below nav bar) -->
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#" data-i18n="nav_about">About</a>
+    <a href="#" data-i18n="nav_research">Research</a>
+
+    <button class="m-toggle" id="m-courses">
+      <span data-i18n="nav_courses">Courses</span>
+      <span class="m-chevron">▾</span>
+    </button>
+    <div class="mobile-sub" id="m-courses-sub">
+      <a href="course-cs4820.html">CS 4820 — Advanced Machine Learning</a>
+      <a href="course-cs3310.html">CS 3310 — Algorithms &amp; Complexity</a>
+      <a href="course-cs6001.html">CS 6001 — Foundation Models Seminar</a>
+      <div class="dd-divider"></div>
+      <a href="archive.html" data-i18n="dd_all_courses">All Courses →</a>
+    </div>
+
+    <button class="m-toggle" id="m-policies">
+      <span data-i18n="nav_policies">Policies</span>
+      <span class="m-chevron">▾</span>
+    </button>
+    <div class="mobile-sub" id="m-policies-sub">
+      <a href="policy-ai.html" data-i18n="pol_ai">AI &amp; ChatGPT Use</a>
+      <a href="policy-exams.html" data-i18n="pol_exams">Exam Policy</a>
+      <a href="policy-assignments.html" data-i18n="pol_assign">Assignment Policy</a>
+      <a href="policy-attendance.html" data-i18n="pol_attend">Attendance Policy</a>
+      <a href="policy-grading.html" data-i18n="pol_grade">Grading Policy</a>
+      <div class="dd-divider"></div>
+      <a href="policies.html" data-i18n="dd_all_policies">All Policies →</a>
+    </div>
+
+    <a href="#" data-i18n="nav_pubs">Publications</a>
+    <a href="#" data-i18n="nav_contact">Contact</a>
+    <div class="mobile-controls">
+      <button class="ctrl-btn theme-btn" id="theme-btn-m">🌙</button>
+      <button class="ctrl-btn" id="lang-btn-m">한국어</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<div class="wrap">
+  <header>
+    <p class="eyebrow animate d1" data-i18n="eyebrow">Associate Professor · Dept. of Computer Science</p>
+    <h1 class="animate d2">Teaching &amp;<br><em data-i18n="h1_em">Courses</em></h1>
+
+    <div class="hero-meta animate d3">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label" data-i18n="meta_inst_label">Institution</span>
+        <span class="hero-meta-value" data-i18n="meta_inst">Yonsei University</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label" data-i18n="meta_lab_label">Lab</span>
+        <span class="hero-meta-value" data-i18n="meta_lab">AI &amp; Systems Lab</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label" data-i18n="meta_office_label">Office</span>
+        <span class="hero-meta-value" data-i18n="meta_office">Engineering Hall 412</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label" data-i18n="meta_email_label">Email</span>
+        <span class="hero-meta-value">jkim@yonsei.ac.kr</span>
+      </div>
+    </div>
+
+    <p class="hero-desc animate d4" data-i18n="hero_desc">
+      I teach courses at the intersection of machine learning, systems, and theory. My goal is to give students both rigorous foundations and practical intuitions — from first principles to deployment.
+    </p>
+
+    <div class="stats-bar animate d4">
+      <div class="stat"><div class="stat-num">18</div><div class="stat-label" data-i18n="stat1">Courses taught</div></div>
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label" data-i18n="stat2">Semesters</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label" data-i18n="stat3">Grad seminars</div></div>
+      <div class="stat"><div class="stat-num">~800</div><div class="stat-label" data-i18n="stat4">Students total</div></div>
+    </div>
+  </header>
+
+  <!-- ══════════════════ COURSES ══════════════════ -->
+  <section class="course-section" id="courses">
+
+    <!-- Controls bar -->
+    <div class="controls-bar">
+      <div class="ctrl-row">
+        <span class="ctrl-row-label" data-i18n="ctrl_filter">Filter</span>
+        <button class="pill active" data-filter="all" data-i18n="pill_all">All</button>
+        <button class="pill" data-filter="grad" data-i18n="pill_grad">Graduate</button>
+        <button class="pill" data-filter="ugrad" data-i18n="pill_ugrad">Undergraduate</button>
+        <button class="pill" data-filter="seminar" data-i18n="pill_seminar">Seminar</button>
+      </div>
+      <div class="ctrl-row">
+        <span class="ctrl-row-label" data-i18n="ctrl_year">Year</span>
+        <button class="pill active" data-year="all" data-i18n="pill_all">All</button>
+        <button class="pill" data-year="2025">2025</button>
+        <button class="pill" data-year="2024">2024</button>
+        <button class="pill" data-year="2023">2023</button>
+      </div>
+      <div class="ctrl-row">
+        <span class="ctrl-row-label" data-i18n="ctrl_sort">Sort</span>
+        <button class="pill active" data-sort="newest" data-i18n="pill_newest">Newest</button>
+        <button class="pill" data-sort="oldest" data-i18n="pill_oldest">Oldest</button>
+        <button class="pill" data-sort="az" data-i18n="pill_az">A → Z</button>
+        <button class="thumb-toggle" id="thumb-toggle">
+          <span class="t-icon">⊞</span>
+          <span data-i18n="thumb_show">Show Thumbnails</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── Spring 2025 ── -->
+    <div class="semester-group" data-year="2025" data-order="1">
+      <div class="semester-heading">
+        <span class="semester-label">Spring 2025</span>
+        <span class="semester-line"></span>
+      </div>
+      <div class="course-grid">
+
+        <a class="card" href="course-cs4820-sp25.html"
+           data-title="Advanced Machine Learning" data-level="grad" data-code="CS 4820">
+          <div class="card-inner">
+            <div class="card-thumb" style="background:linear-gradient(160deg,#4f46e5,#7c3aed)"></div>
+            <div class="card-body">
+              <span class="card-code">CS 4820</span>
+              <div class="card-title">Advanced Machine Learning</div>
+              <div class="card-desc">Probabilistic graphical models, variational inference, deep generative models, and scalable approximate inference.</div>
+              <div class="card-tags"><span class="tag grad">Graduate</span><span class="tag">3 credits</span></div>
+              <div class="card-footer"><span class="card-students">↳ 42 students</span><span class="card-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
+        </a>
+
+        <a class="card" href="course-cs3310-sp25.html"
+           data-title="Algorithms &amp; Complexity" data-level="ugrad" data-code="CS 3310">
+          <div class="card-inner">
+            <div class="card-thumb" style="background:linear-gradient(160deg,#0891b2,#0d9488)"></div>
+            <div class="card-body">
+              <span class="card-code">CS 3310</span>
+              <div class="card-title">Algorithms &amp; Complexity</div>
+              <div class="card-desc">Divide-and-conquer, dynamic programming, network flow, NP-completeness, and approximation algorithms.</div>
+              <div class="card-tags"><span class="tag ugrad">Undergrad</span><span class="tag">3 credits</span></div>
+              <div class="card-footer"><span class="card-students">↳ 118 students</span><span class="card-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
+        </a>
+
+        <a class="card" href="course-cs6001-sp25.html"
+           data-title="Seminar: Foundation Models" data-level="seminar" data-code="CS 6001">
+          <div class="card-inner">
+            <div class="card-thumb" style="background:linear-gradient(160deg,#1e3a8a,#4338ca)"></div>
+            <div class="card-body">
+              <span class="card-code">CS 6001</span>
+              <div class="card-title">Seminar: Foundation Models</div>
+              <div class="card-desc">Weekly reading group covering pretraining, RLHF, in-context learning, and emerging capabilities in large language models.</div>
+              <div class="card-tags"><span class="tag seminar">Seminar</span><span class="tag grad">Graduate</span></div>
+              <div class="card-footer"><span class="card-students">↳ 14 students</span><span class="card-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ── Fall 2024 ── -->
+    <div class="semester-group" data-year="2024" data-order="2">
+      <div class="semester-heading">
+        <span class="semester-label">Fall 2024</span>
+        <span class="semester-line"></span>
+      </div>
+      <div class="course-grid">
+
+        <a class="card" href="course-cs4820-f24.html"
+           data-title="Advanced Machine Learning" data-level="grad" data-code="CS 4820">
+          <div class="card-inner">
+            <div class="card-thumb" style="background:linear-gradient(160deg,#4f46e5,#7c3aed)"></div>
+            <div class="card-body">
+              <span class="card-code">CS 4820</span>
+              <div class="card-title">Advanced Machine Learning</div>
+              <div class="card-desc">Probabilistic graphical models, variational inference, deep generative models, and scalable approximate inference.</div>
+              <div class="card-tags"><span class="tag grad">Graduate</span><span class="tag">3 credits</span></div>
+              <div class="card-footer"><span class="card-students">↳ 38 students</span><span class="card-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
+        </a>
+
+        <a class="card" href="course-cs2210-f24.html"
+           data-title="Data Structures" data-level="ugrad" data-code="CS 2210">
+          <div class="card-inner">
+            <div class="card-thumb" style="background:linear-gradient(160deg,#ea580c,#dc2626)"></div>
+            <div class="card-body">
+              <span class="card-code">CS 2210</span>
+              <div class="card-title">Data Structures</div>
+              <div class="card-desc">Arrays, linked lists, trees, heaps, hash tables, and graph algorithms with emphasis on correctness and efficiency proofs.</div>
+              <div class="card-tags"><span class="tag ugrad">Undergrad</span><span class="tag">3 credits</span></div>
+              <div class="card-footer"><span class="card-students">↳ 156 students</span><span class="card-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
+        </a>
+
+        <a class="card" href="course-cs5510-f24.html"
+           data-title="Distributed Systems" data-level="grad" data-code="CS 5510">
+          <div class="card-inner">
+            <div class="card-thumb" style="background:linear-gradient(160deg,#7c3aed,#be185d)"></div>
+            <div class="card-body">
+              <span class="card-code">CS 5510</span>
+              <div class="card-title">Distributed Systems</div>
+              <div class="card-desc">Consensus protocols, fault tolerance, CAP theorem, and hands-on projects building distributed key-value stores.</div>
+              <div class="card-tags"><span class="tag grad">Graduate</span><span class="tag">3 credits</span></div>
+              <div class="card-footer"><span class="card-students">↳ 55 students</span><span class="card-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ── Spring 2024 ── -->
+    <div class="semester-group" data-year="2024" data-order="3">
+      <div class="semester-heading">
+        <span class="semester-label">Spring 2024</span>
+        <span class="semester-line"></span>
+      </div>
+      <div class="course-grid">
+
+        <a class="card" href="course-cs3310-sp24.html"
+           data-title="Algorithms &amp; Complexity" data-level="ugrad" data-code="CS 3310">
+          <div class="card-inner">
+            <div class="card-thumb" style="background:linear-gradient(160deg,#0891b2,#0d9488)"></div>
+            <div class="card-body">
+              <span class="card-code">CS 3310</span>
+              <div class="card-title">Algorithms &amp; Complexity</div>
+              <div class="card-desc">Divide-and-conquer, dynamic programming, network flow, NP-completeness, and approximation algorithms.</div>
+              <div class="card-tags"><span class="tag ugrad">Undergrad</span><span class="tag">3 credits</span></div>
+              <div class="card-footer"><span class="card-students">↳ 130 students</span><span class="card-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
+        </a>
+
+        <a class="card" href="course-cs4910-sp24.html"
+           data-title="ML for Systems" data-level="grad" data-code="CS 4910">
+          <div class="card-inner">
+            <div class="card-thumb" style="background:linear-gradient(160deg,#0e7490,#1d4ed8)"></div>
+            <div class="card-body">
+              <span class="card-code">CS 4910</span>
+              <div class="card-title">ML for Systems</div>
+              <div class="card-desc">Applying machine learning to compiler optimization, database query planning, network routing, and OS scheduling.</div>
+              <div class="card-tags"><span class="tag grad">Graduate</span><span class="tag">3 credits</span></div>
+              <div class="card-footer"><span class="card-students">↳ 28 students</span><span class="card-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
+        </a>
+
+        <a class="card" href="course-cs6002-sp24.html"
+           data-title="Seminar: Alignment &amp; Safety" data-level="seminar" data-code="CS 6002">
+          <div class="card-inner">
+            <div class="card-thumb" style="background:linear-gradient(160deg,#831843,#7c2d12)"></div>
+            <div class="card-body">
+              <span class="card-code">CS 6002</span>
+              <div class="card-title">Seminar: Alignment &amp; Safety</div>
+              <div class="card-desc">Current literature on AI alignment: reward modeling, interpretability, scalable oversight, and constitutional AI.</div>
+              <div class="card-tags"><span class="tag seminar">Seminar</span><span class="tag grad">Graduate</span></div>
+              <div class="card-footer"><span class="card-students">↳ 11 students</span><span class="card-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ── Fall 2023 ── -->
+    <div class="semester-group" data-year="2023" data-order="4">
+      <div class="semester-heading">
+        <span class="semester-label">Fall 2023</span>
+        <span class="semester-line"></span>
+      </div>
+      <div class="course-grid">
+
+        <a class="card" href="course-cs4820-f23.html"
+           data-title="Advanced Machine Learning" data-level="grad" data-code="CS 4820">
+          <div class="card-inner">
+            <div class="card-thumb" style="background:linear-gradient(160deg,#4f46e5,#7c3aed)"></div>
+            <div class="card-body">
+              <span class="card-code">CS 4820</span>
+              <div class="card-title">Advanced Machine Learning</div>
+              <div class="card-desc">Probabilistic graphical models, variational inference, deep generative models, and scalable approximate inference.</div>
+              <div class="card-tags"><span class="tag grad">Graduate</span><span class="tag">3 credits</span></div>
+              <div class="card-footer"><span class="card-students">↳ 35 students</span><span class="card-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
+        </a>
+
+        <a class="card" href="course-cs2210-f23.html"
+           data-title="Data Structures" data-level="ugrad" data-code="CS 2210">
+          <div class="card-inner">
+            <div class="card-thumb" style="background:linear-gradient(160deg,#ea580c,#dc2626)"></div>
+            <div class="card-body">
+              <span class="card-code">CS 2210</span>
+              <div class="card-title">Data Structures</div>
+              <div class="card-desc">Arrays, linked lists, trees, heaps, hash tables, and graph algorithms with emphasis on correctness and efficiency proofs.</div>
+              <div class="card-tags"><span class="tag ugrad">Undergrad</span><span class="tag">3 credits</span></div>
+              <div class="card-footer"><span class="card-students">↳ 148 students</span><span class="card-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
+        </a>
+
+        <a class="card" href="course-cs3110-f23.html"
+           data-title="Intro to AI" data-level="ugrad" data-code="CS 3110">
+          <div class="card-inner">
+            <div class="card-thumb" style="background:linear-gradient(160deg,#b45309,#15803d)"></div>
+            <div class="card-body">
+              <span class="card-code">CS 3110</span>
+              <div class="card-title">Intro to AI</div>
+              <div class="card-desc">Search algorithms, constraint satisfaction, Bayesian reasoning, reinforcement learning, and neural networks from scratch.</div>
+              <div class="card-tags"><span class="tag ugrad">Undergrad</span><span class="tag">3 credits</span></div>
+              <div class="card-footer"><span class="card-students">↳ 90 students</span><span class="card-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ── Spring 2023 ── -->
+    <div class="semester-group" data-year="2023" data-order="5">
+      <div class="semester-heading">
+        <span class="semester-label">Spring 2023</span>
+        <span class="semester-line"></span>
+      </div>
+      <div class="course-grid">
+
+        <a class="card" href="course-cs3110-sp23.html"
+           data-title="Intro to AI" data-level="ugrad" data-code="CS 3110">
+          <div class="card-inner">
+            <div class="card-thumb" style="background:linear-gradient(160deg,#b45309,#15803d)"></div>
+            <div class="card-body">
+              <span class="card-code">CS 3110</span>
+              <div class="card-title">Intro to AI</div>
+              <div class="card-desc">Search algorithms, constraint satisfaction, Bayesian reasoning, reinforcement learning, and neural networks from scratch.</div>
+              <div class="card-tags"><span class="tag ugrad">Undergrad</span><span class="tag">3 credits</span></div>
+              <div class="card-footer"><span class="card-students">↳ 82 students</span><span class="card-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
+        </a>
+
+        <a class="card" href="course-cs4910-sp23.html"
+           data-title="ML for Systems" data-level="grad" data-code="CS 4910">
+          <div class="card-inner">
+            <div class="card-thumb" style="background:linear-gradient(160deg,#0e7490,#1d4ed8)"></div>
+            <div class="card-body">
+              <span class="card-code">CS 4910</span>
+              <div class="card-title">ML for Systems</div>
+              <div class="card-desc">Applying machine learning to compiler optimization, database query planning, network routing, and OS scheduling.</div>
+              <div class="card-tags"><span class="tag grad">Graduate</span><span class="tag">3 credits</span></div>
+              <div class="card-footer"><span class="card-students">↳ 22 students</span><span class="card-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
+        </a>
+
+        <a class="card" href="course-cs3310-sp23.html"
+           data-title="Algorithms &amp; Complexity" data-level="ugrad" data-code="CS 3310">
+          <div class="card-inner">
+            <div class="card-thumb" style="background:linear-gradient(160deg,#0891b2,#0d9488)"></div>
+            <div class="card-body">
+              <span class="card-code">CS 3310</span>
+              <div class="card-title">Algorithms &amp; Complexity</div>
+              <div class="card-desc">Divide-and-conquer, dynamic programming, network flow, NP-completeness, and approximation algorithms.</div>
+              <div class="card-tags"><span class="tag ugrad">Undergrad</span><span class="tag">3 credits</span></div>
+              <div class="card-footer"><span class="card-students">↳ 125 students</span><span class="card-arrow">→</span></div>
+            </div>
+          </div>
+          <div class="uni-badge"><span class="ub-abbr">YU</span><span>연세</span></div>
+        </a>
+
+      </div>
+    </div>
+
+  </section>
+</div><!-- /.wrap -->
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-note" data-i18n="footer_copy">© 2025 J. Kim · Last updated April 2025</span>
+    <div class="footer-links">
+      <a href="#">Google Scholar</a>
+      <a href="#">GitHub</a>
+      <a href="#" data-i18n="footer_cv">CV</a>
+      <a href="#" data-i18n="footer_lab">Lab</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ══════════════════════════════════════════════
+   i18n
+══════════════════════════════════════════════ */
+const T = {
+  en: {
+    nav_about:'About', nav_research:'Research', nav_courses:'Courses ▾',
+    nav_policies:'Policies ▾', nav_pubs:'Publications', nav_contact:'Contact',
+    dd_current:'Spring 2025', dd_all_courses:'All Courses →', dd_all_policies:'All Policies →',
+    pol_ai:'AI & ChatGPT Use', pol_exams:'Exam Policy', pol_assign:'Assignment Policy',
+    pol_attend:'Attendance Policy', pol_grade:'Grading Policy',
+    eyebrow:'Associate Professor · Dept. of Computer Science',
+    h1_em:'Courses',
+    meta_inst_label:'Institution', meta_inst:'Yonsei University',
+    meta_lab_label:'Lab', meta_lab:'AI & Systems Lab',
+    meta_office_label:'Office', meta_office:'Engineering Hall 412',
+    meta_email_label:'Email',
+    hero_desc:'I teach courses at the intersection of machine learning, systems, and theory. My goal is to give students both rigorous foundations and practical intuitions — from first principles to deployment.',
+    stat1:'Courses taught', stat2:'Semesters', stat3:'Grad seminars', stat4:'Students total',
+    ctrl_filter:'Filter', ctrl_year:'Year', ctrl_sort:'Sort',
+    pill_all:'All', pill_grad:'Graduate', pill_ugrad:'Undergraduate', pill_seminar:'Seminar',
+    pill_newest:'Newest', pill_oldest:'Oldest', pill_az:'A → Z',
+    thumb_show:'Show Thumbnails', thumb_hide:'Hide Thumbnails',
+    footer_copy:'© 2025 J. Kim · Last updated April 2025',
+    footer_cv:'CV', footer_lab:'Lab',
+  },
+  ko: {
+    nav_about:'소개', nav_research:'연구', nav_courses:'강의 ▾',
+    nav_policies:'정책 ▾', nav_pubs:'논문', nav_contact:'연락처',
+    dd_current:'2025년 봄학기', dd_all_courses:'전체 강의 →', dd_all_policies:'전체 정책 →',
+    pol_ai:'AI · ChatGPT 사용 정책', pol_exams:'시험 정책', pol_assign:'과제 정책',
+    pol_attend:'출석 정책', pol_grade:'성적 정책',
+    eyebrow:'부교수 · 컴퓨터공학과',
+    h1_em:'강의',
+    meta_inst_label:'소속', meta_inst:'연세대학교',
+    meta_lab_label:'연구실', meta_lab:'AI · 시스템 연구실',
+    meta_office_label:'연구실 호수', meta_office:'공학관 412호',
+    meta_email_label:'이메일',
+    hero_desc:'머신러닝, 시스템, 이론의 교차점에서 강의합니다. 제1원리부터 실제 배포까지 — 엄밀한 기초와 실용적 직관을 동시에 전달하는 것이 목표입니다.',
+    stat1:'총 강의 수', stat2:'학기 수', stat3:'대학원 세미나', stat4:'총 수강생',
+    ctrl_filter:'필터', ctrl_year:'연도', ctrl_sort:'정렬',
+    pill_all:'전체', pill_grad:'대학원', pill_ugrad:'학부', pill_seminar:'세미나',
+    pill_newest:'최신순', pill_oldest:'오래된순', pill_az:'이름순',
+    thumb_show:'썸네일 보기', thumb_hide:'썸네일 숨기기',
+    footer_copy:'© 2025 김교수 · 마지막 업데이트 2025년 4월',
+    footer_cv:'이력서', footer_lab:'연구실',
+  }
+};
+let currentLang = 'en';
+function applyLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (T[lang][key] !== undefined) el.textContent = T[lang][key];
+  });
+  document.getElementById('lang-btn').textContent    = lang === 'en' ? '한국어' : 'English';
+  document.getElementById('lang-btn-m').textContent  = lang === 'en' ? '한국어' : 'English';
+  // Also update thumb toggle text based on current state
+  const tt = document.getElementById('thumb-toggle');
+  const isActive = tt.classList.contains('active');
+  tt.querySelector('[data-i18n="thumb_show"], [data-i18n="thumb_hide"]')
+    ?.setAttribute('data-i18n', isActive ? 'thumb_hide' : 'thumb_show');
+}
+
+/* ══════════════════════════════════════════════
+   THEME
+══════════════════════════════════════════════ */
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  const icon = theme === 'dark' ? '🌙' : '☀️';
+  document.getElementById('theme-btn').textContent   = icon;
+  document.getElementById('theme-btn-m').textContent = icon;
+  localStorage.setItem('theme', theme);
+}
+(function() {
+  const saved = localStorage.getItem('theme') || 'dark';
+  applyTheme(saved);
+})();
+document.getElementById('theme-btn').addEventListener('click', () => {
+  applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+});
+document.getElementById('theme-btn-m').addEventListener('click', () => {
+  applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+});
+
+/* ══════════════════════════════════════════════
+   LANG TOGGLE
+══════════════════════════════════════════════ */
+document.getElementById('lang-btn').addEventListener('click',   () => applyLang(currentLang === 'en' ? 'ko' : 'en'));
+document.getElementById('lang-btn-m').addEventListener('click', () => applyLang(currentLang === 'en' ? 'ko' : 'en'));
+
+/* ══════════════════════════════════════════════
+   DROPDOWN (click-based, close on outside click)
+══════════════════════════════════════════════ */
+document.querySelectorAll('.has-dropdown').forEach(item => {
+  const btn = item.querySelector('button');
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const wasOpen = item.classList.contains('open');
+    // close all
+    document.querySelectorAll('.has-dropdown.open').forEach(d => d.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+document.addEventListener('click', () => {
+  document.querySelectorAll('.has-dropdown.open').forEach(d => d.classList.remove('open'));
+});
+
+/* ══════════════════════════════════════════════
+   HAMBURGER
+══════════════════════════════════════════════ */
+const hamburger  = document.getElementById('hamburger');
+const mobileNav  = document.getElementById('mobile-nav');
+hamburger.addEventListener('click', () => {
+  const open = mobileNav.classList.toggle('open');
+  hamburger.classList.toggle('open', open);
+  hamburger.setAttribute('aria-expanded', open);
+});
+// Mobile accordions
+['courses','policies'].forEach(id => {
+  const btn = document.getElementById('m-' + id);
+  const sub = document.getElementById('m-' + id + '-sub');
+  btn.addEventListener('click', () => {
+    const open = sub.classList.toggle('open');
+    btn.classList.toggle('open', open);
+  });
+});
+
+/* ══════════════════════════════════════════════
+   THUMBNAILS
+══════════════════════════════════════════════ */
+const thumbToggle   = document.getElementById('thumb-toggle');
+const courseSection = document.getElementById('courses');
+thumbToggle.addEventListener('click', () => {
+  const active = courseSection.classList.toggle('thumbs-active');
+  thumbToggle.classList.toggle('active', active);
+  const spanEl = thumbToggle.querySelector('span[data-i18n]');
+  if (spanEl) {
+    const key = active ? 'thumb_hide' : 'thumb_show';
+    spanEl.setAttribute('data-i18n', key);
+    spanEl.textContent = T[currentLang][key];
+  }
+  thumbToggle.querySelector('.t-icon').textContent = active ? '⊟' : '⊞';
+});
+
+/* ══════════════════════════════════════════════
+   FILTER + YEAR + SORT
+══════════════════════════════════════════════ */
+let activeFilter = 'all';
+let activeYear   = 'all';
+let activeSort   = 'newest';
+
+function applyFilters() {
+  const groups = [...document.querySelectorAll('.semester-group')];
+
+  // Sort groups
+  const section = document.getElementById('courses');
+  if (activeSort === 'newest') {
+    groups.sort((a,b) => +a.dataset.order - +b.dataset.order);
+  } else if (activeSort === 'oldest') {
+    groups.sort((a,b) => +b.dataset.order - +a.dataset.order);
+  }
+  // Re-append in sorted order
+  groups.forEach(g => section.appendChild(g));
+
+  // Year visibility
+  groups.forEach(group => {
+    const matchYear = activeYear === 'all' || group.dataset.year === activeYear;
+    group.classList.toggle('hidden', !matchYear);
+  });
+
+  // Level/type filter per card
+  document.querySelectorAll('.semester-group:not(.hidden)').forEach(group => {
+    const cards = [...group.querySelectorAll('a.card')];
+    let anyVisible = false;
+    cards.forEach(card => {
+      let visible = true;
+      if (activeFilter !== 'all') {
+        const lvl = card.dataset.level || '';
+        if (activeFilter === 'grad')    visible = lvl === 'grad';
+        if (activeFilter === 'ugrad')   visible = lvl === 'ugrad';
+        if (activeFilter === 'seminar') visible = lvl === 'seminar';
+      }
+      card.style.display = visible ? '' : 'none';
+      if (visible) anyVisible = true;
+    });
+    if (!anyVisible && activeFilter !== 'all') group.classList.add('hidden');
+  });
+
+  // A→Z sort cards inside each group
+  if (activeSort === 'az') {
+    document.querySelectorAll('.course-grid').forEach(grid => {
+      const cards = [...grid.querySelectorAll('a.card')];
+      cards.sort((a,b) => (a.dataset.title||'').localeCompare(b.dataset.title||''));
+      cards.forEach(c => grid.appendChild(c));
+    });
+  }
+}
+
+// Filter pills
+document.querySelectorAll('[data-filter]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    // reset card display
+    document.querySelectorAll('a.card').forEach(c => c.style.display = '');
+    applyFilters();
+  });
+});
+// Year pills
+document.querySelectorAll('[data-year]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-year]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeYear = btn.dataset.year;
+    // reset group visibility
+    document.querySelectorAll('.semester-group').forEach(g => g.classList.remove('hidden'));
+    applyFilters();
+  });
+});
+// Sort pills
+document.querySelectorAll('[data-sort]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-sort]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeSort = btn.dataset.sort;
+    document.querySelectorAll('a.card').forEach(c => c.style.display = '');
+    applyFilters();
+  });
+});
+</script>
+</body>
+</html>
