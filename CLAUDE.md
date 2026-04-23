@@ -8,11 +8,12 @@ A **static multi-page courses website** for Prof. Aaron Snowberger, who teaches 
 
 | Day | University | Korean |
 |---|---|---|
-| Monday | Yonsei University | 연세대학교 |
-| Tuesday | KAIST | 카이스트 |
-| Wednesday | Sungkyunkwan University | 성균관대학교 |
-| Thursday | Hanyang University | 한양대학교 |
-| Friday | Korea University | 고려대학교 |
+| Monday | Korea Transportation University | 교통대학교 |
+| Tuesday | Wonkwang University | 원광대학교 |
+| Wednesday | Jeonbuk University (am) | 전북대학교 |
+| Wednesday | Hanbat University (pm) | 한밭대학교 |
+| Thursday | Jeonbuk University | 전북대학교 |
+| Friday | Jeonju National University of Education | 전주교육대학교 |
 
 ## Current State (as of last Claude session)
 
@@ -79,9 +80,9 @@ a.card               — Full-card anchor with gradient top border
 ## Color Usage Guide (maintain these ratios)
 
 ```
-~45% purple (--accent)  — Primary headings, main CTAs, active pills
-~30% blue   (--accent2) — Secondary buttons, link metadata, filters
-~25% teal   (--accent3) — Card borders, status indicators, code labels
+~50% purple (--accent)  — Primary headings, main CTAs, active pills
+~35% blue   (--accent2) — Secondary buttons, link metadata, filters
+~15% teal   (--accent3) — Card borders, status indicators, code labels
          warn (#fbbf24) — HW due dates, warning announcements  
          error (#fb6f84) — Holiday dates, error states
 ```
@@ -106,13 +107,13 @@ Open the project folder in VS Code, open any `.html` file, and use the Claude si
 
 ## Multi-Site Architecture
 
-This is the **courses site** only. Related sites (not yet built):
+This is the **courses site** only. Related sites (built with Claude and deployed):
 
-| Site | Purpose | Recommended Stack |
-|---|---|---|
-| **PAI Lab site** | Research, publications, conference info | Astro |
-| **Contact site** | CV, bio, full contact info | Simple static HTML |
-| **Personal blog** | Writing, notes | Ghost or Astro |
+| Site | Purpose | Recommended Stack | URL |
+|---|---|---|---|
+| **PAI Lab site** | Research, publications, conference info | Astro on Vercel | [pailab.io](http://pailab.io) |
+| **Contact site** | CV, bio, full contact info | Jekyll on GitHub pages | [aaronsnowberger.com](https://aaronsnowberger.com) or [press.aaron.kr](https://press.aaron.kr) |
+| **Personal blog** | Writing, notes | Nextjs front for WP back | [aaron.kr](https://aaron.kr) (front), [notes.aaron.kr](https://notes.aaron.kr) (back) |
 
 **Profile image strategy:** Host canonical image at Cloudinary. Use same URL in all sites. Update once → all sites reflect it instantly.
 
@@ -130,6 +131,8 @@ This is the **courses site** only. Related sites (not yet built):
 - The 상대평가 / 절대평가 distinction (relative vs absolute grading) is important in Korean universities
 
 ## Session History
+
+Let's keep this and update it continuously as we go along.
 
 This project was built iteratively in multiple Claude sessions:
 1. Session 1: Initial courses.html with dark theme, dot-grid background

@@ -30,7 +30,7 @@ A multi-page static HTML/CSS/JS website for Prof. Aaron Snowberger's teaching po
 --accent3: #0badbc
 ```
 
-**Color mix target:** ~45% purple, ~30% blue, ~25% teal across the site.
+**Color mix target:** ~50% purple, ~35% blue, ~15% teal across the site.
 
 ### Typography
 ```
