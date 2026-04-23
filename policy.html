@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Aaron Snowberger — Academic Policies</title>
+<title>AI & ChatGPT Use Policy — Aaron Snowberger</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
 <style>
 :root{--bg:#090910;--surface:#12121e;--border:#22223a;--muted:#55557a;--text:#eeeeff;--sub:#b8b8d8;--accent:#9b65ff;--accent2:#7eb8f7;--accent3:#6dccdd;--warn:#fbbf24;--error:#fb6f84;--tag-bg:#181828;--radius:6px;--nav-bg:rgba(9,9,16,.9)}
@@ -179,63 +179,39 @@ footer{border-top:1px solid var(--border);padding:48px 0 28px;position:relative;
   .ctrl-row-label{display:none}
 }
 
-.pol-section{padding:44px 0 0}
-.policy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:52px}
-a.pol-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:border-color .2s,transform .18s,box-shadow .2s}
-a.pol-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .2s}
-a.pol-card:hover{border-color:#3a3a5a;transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.4)}
-a.pol-card:hover::after{opacity:1}
-.pol-card-body{display:flex;flex-direction:column;gap:8px;padding:18px;flex:1;min-width:0}
-.pol-code{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.08em;padding-right:56px}
-.pol-card-title{font-size:.9rem;font-weight:500;color:var(--text);line-height:1.35}
-.pol-excerpt{position:relative;max-height:82px;overflow:hidden;font-size:.78rem;color:var(--sub);line-height:1.6;flex:1}
-.pol-excerpt::after{content:'';position:absolute;bottom:0;left:0;right:0;height:36px;background:linear-gradient(transparent,var(--surface));pointer-events:none}
-[data-theme=light] .pol-excerpt::after{background:linear-gradient(transparent,#fff)}
-.read-more{display:inline-block;margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.04em;pointer-events:none;transition:letter-spacing .2s}
-a.pol-card:hover .read-more{letter-spacing:.08em}
-.pol-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
-.pol-tag{font-family:'IBM Plex Mono',monospace;font-size:.62rem;padding:2px 8px;border-radius:3px;background:var(--tag-bg);border:1px solid var(--border);color:var(--muted);letter-spacing:.04em}
-.pol-tag.core{color:var(--accent);border-color:rgba(155,101,255,.3)}
-.pol-tag.ai-p{color:#c084fc;border-color:#3a2a5a}
-.pol-tag.assess{color:var(--accent2);border-color:rgba(126,184,247,.25)}
-.pol-tag.conduct{color:var(--warn);border-color:#3a2e0a}
-.pol-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:4px}
-.pol-updated{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted)}
-.pol-arrow{font-size:.75rem;color:var(--muted);opacity:0;transition:opacity .18s,transform .18s}
-a.pol-card:hover .pol-arrow{opacity:1;transform:translateX(3px)}
-.uni-badge{position:absolute;top:14px;right:14px;width:50px;height:50px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.56rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text);border:1.5px solid var(--text);opacity:.12;pointer-events:none;user-select:none;line-height:1.3;text-align:center}
-.uni-badge .ub-abbr{font-size:.72rem}
-/* List */
-.list-section{padding:0 0 52px}
-.section-heading{display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.section-label{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
-.section-line{flex:1;height:1px;background:var(--border)}
-.pol-list{list-style:none}
-a.pol-list-item{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:background .15s;margin:0 -28px;padding-left:28px;padding-right:28px}
-a.pol-list-item:first-child{border-top:1px solid var(--border)}
-a.pol-list-item:hover{background:var(--surface)}
-.pl-num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);width:28px;flex-shrink:0}
-.pl-content{flex:1;min-width:0}
-.pl-title{font-size:.92rem;font-weight:500;color:var(--text);line-height:1.35}
-.pl-desc{font-size:.78rem;color:var(--muted);margin-top:3px;line-height:1.5}
-.pl-meta{display:flex;gap:10px;flex-shrink:0;align-items:center}
-.pl-date{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted);white-space:nowrap}
-.pl-arrow{font-size:.75rem;color:var(--muted);opacity:0;transition:opacity .15s,transform .15s}
-a.pol-list-item:hover .pl-arrow{opacity:1;transform:translateX(3px)}
-/* FAQ - Playfair headers */
-.faq-section{padding:0 0 64px}
-.faq-list{list-style:none}
-.faq-item{border-bottom:1px solid var(--border)}
-.faq-item:first-child{border-top:1px solid var(--border)}
-.faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 0;cursor:pointer;background:none;border:none;width:100%;text-align:left;font-family:'Playfair Display','DM Serif Display',serif;font-size:1.05rem;font-weight:700;color:var(--text);transition:color .2s;gap:16px;line-height:1.3}
-.faq-q:hover{color:var(--accent)}
-.faq-chevron{font-size:.7rem;color:var(--muted);transition:transform .25s;flex-shrink:0;font-family:'IBM Plex Mono',monospace}
-.faq-item.open .faq-chevron{transform:rotate(180deg)}
-.faq-item.open .faq-q{color:var(--accent)}
-.faq-a{display:none;padding:0 0 18px 0;font-size:.88rem;color:var(--sub);line-height:1.8;max-width:640px}
-.faq-a p+p{margin-top:10px}
-.faq-item.open .faq-a{display:block}
-@media(max-width:700px){.policy-grid{grid-template-columns:1fr}.pl-desc{display:none}}
+.pol-page{padding:44px 0 72px}
+.pol-page-layout{display:grid;grid-template-columns:180px 1fr;gap:48px;align-items:start;padding-top:32px}
+.pol-sidebar{position:sticky;top:72px}
+.pol-sidebar-nav{list-style:none;border-left:2px solid var(--border);padding-left:16px}
+.pol-sidebar-nav li{margin-bottom:2px}
+.pol-sidebar-nav a{font-size:.78rem;color:var(--muted);text-decoration:none;display:block;padding:4px 0;transition:color .2s}
+.pol-sidebar-nav a:hover,.pol-sidebar-nav a.active{color:var(--accent)}
+.pol-sidebar-nav a.active{border-left:2px solid var(--accent);margin-left:-18px;padding-left:16px}
+/* Policy meta bar */
+.pol-meta-bar{display:flex;gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:20px;background:var(--surface)}
+.pol-meta-item{flex:1;padding:10px 16px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:2px}
+.pol-meta-item:last-child{border-right:none}
+.pol-meta-label{font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.pol-meta-value{font-size:.82rem;color:var(--sub)}
+/* Policy content */
+.pol-content-section{margin-bottom:44px}
+.pol-content-section h2{font-family:'Playfair Display','DM Serif Display',serif;font-size:1.35rem;font-weight:700;color:var(--text);margin-bottom:14px}
+.pol-content-section p{font-size:.9rem;color:var(--sub);line-height:1.85;margin-bottom:12px}
+.pol-content-section p:last-child{margin-bottom:0}
+.pol-rule-list{list-style:none;margin:12px 0}
+.pol-rule-list li{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.88rem;color:var(--sub);line-height:1.7}
+.pol-rule-list li:first-child{border-top:1px solid var(--border)}
+.pol-rule-num{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--accent);flex-shrink:0;width:24px;padding-top:3px}
+.pol-highlight{background:rgba(155,101,255,.08);border:1px solid rgba(155,101,255,.2);border-radius:var(--radius);padding:14px 18px;margin:16px 0;font-size:.88rem;color:var(--sub);line-height:1.7}
+.pol-highlight strong{color:var(--text)}
+/* Related policies */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+a.related-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-decoration:none;color:inherit;transition:border-color .2s,transform .15s;display:flex;flex-direction:column;gap:4px}
+a.related-card:hover{border-color:#3a3a5a;transform:translateY(-1px)}
+.related-code{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--accent);letter-spacing:.06em}
+.related-title{font-size:.8rem;font-weight:500;color:var(--text);line-height:1.3}
+.back-all{display:inline-flex;align-items:center;gap:7px;margin-bottom:28px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.04em;padding:7px 16px;border-radius:var(--radius);text-decoration:none}
+@media(max-width:900px){.pol-page-layout{grid-template-columns:1fr}.pol-sidebar{display:none}.related-grid{grid-template-columns:1fr 1fr}.pol-meta-bar{flex-wrap:wrap}}
 </style>
 </head>
 <body>
@@ -300,48 +276,98 @@ a.pol-list-item:hover .pl-arrow{opacity:1;transform:translateX(3px)}
 </nav>
 <div class="wrap">
 <header>
-  <p class="eyebrow animate d1">Course Policies &amp; Expectations</p>
-  <h1 class="animate d2">Academic<br><em>Policies</em></h1>
-  <p class="hero-desc animate d3" style="margin-top:28px;border-left:2px solid var(--border);padding-left:18px">These policies apply to all of my courses unless the specific course syllabus states otherwise. Please read carefully before the semester begins.</p>
+  <p class="eyebrow animate d1">Academic Policy &mdash; POL 01</p>
+  <h1 class="animate d2">AI &amp; ChatGPT<br><em>Use Policy</em></h1>
+  <div class="pol-meta-bar animate d3">
+    <div class="pol-meta-item"><span class="pol-meta-label">Policy Code</span><span class="pol-meta-value">POL &mdash; 01</span></div>
+    <div class="pol-meta-item"><span class="pol-meta-label">Effective</span><span class="pol-meta-value">September 2023</span></div>
+    <div class="pol-meta-item"><span class="pol-meta-label">Last Updated</span><span class="pol-meta-value">January 2025</span></div>
+    <div class="pol-meta-item"><span class="pol-meta-label">Applies To</span><span class="pol-meta-value">All courses</span></div>
+  </div>
 </header>
-<section class="pol-section">
-  <div class="section-heading animate d3"><span class="section-label">Featured Policies</span><span class="section-line"></span></div>
-  <div class="policy-grid animate d4">
-<a class="pol-card" href="policy-ai.html">
-  <div class="pol-card-body"><span class="pol-code">POL &mdash; 01</span><div class="pol-card-title">AI &amp; ChatGPT Use Policy</div>
-  <div class="pol-excerpt">Generative AI tools (ChatGPT, Claude, Copilot) are permitted under specific conditions. All submitted work must reflect your own understanding. AI use must be disclosed. In exams, AI is strictly prohibited unless stated otherwise.</div><span class="read-more">Read full policy &#x2192;</span>
-  <div class="pol-tags"><span class="pol-tag ai-p">AI Tools</span><span class="pol-tag core">Core</span></div>
-  <div class="pol-card-footer"><span class="pol-updated">Updated Jan 2025</span><span class="pol-arrow">&#x2192;</span></div>
-  </div><div class="uni-badge"><span class="ub-abbr">AS</span><span>YU</span></div>
-</a>
-<a class="pol-card" href="policies.html">
-  <div class="pol-card-body"><span class="pol-code">POL &mdash; 02</span><div class="pol-card-title">Grading Policy</div>
-  <div class="pol-excerpt">Assignments 40%, Midterm 25%, Final 30%, Participation 5%. Standard letter scale. Late submissions penalized 10%/day without approved extension. Grade appeals in writing within two weeks.</div><span class="read-more">Read full policy &#x2192;</span>
-  <div class="pol-tags"><span class="pol-tag assess">Grading</span><span class="pol-tag core">Core</span></div>
-  <div class="pol-card-footer"><span class="pol-updated">Updated Aug 2024</span><span class="pol-arrow">&#x2192;</span></div>
-  </div><div class="uni-badge"><span class="ub-abbr">AS</span><span>YU</span></div>
-</a>
-<a class="pol-card" href="policies.html">
-  <div class="pol-card-body"><span class="pol-code">POL &mdash; 03</span><div class="pol-card-title">Assignment &amp; Collaboration</div>
-  <div class="pol-excerpt">Unless labeled as group work, all assignments must be individual. High-level discussion is ok; code and writing must be yours. Plagiarism detection is used. Violations result in a failing grade.</div><span class="read-more">Read full policy &#x2192;</span>
-  <div class="pol-tags"><span class="pol-tag conduct">Integrity</span><span class="pol-tag core">Core</span></div>
-  <div class="pol-card-footer"><span class="pol-updated">Updated Aug 2024</span><span class="pol-arrow">&#x2192;</span></div>
-  </div><div class="uni-badge"><span class="ub-abbr">AS</span><span>YU</span></div>
-</a>
+
+<div class="pol-page">
+  <a href="policies.html" class="back-all pill animate d3" style="border-radius:var(--radius);font-size:.72rem">&#x2190; All Policies</a>
+
+  <div class="pol-page-layout">
+    <aside class="pol-sidebar">
+      <ul class="pol-sidebar-nav">
+        <li><a href="#overview" class="active">Overview</a></li>
+        <li><a href="#permitted">What's Permitted</a></li>
+        <li><a href="#prohibited">What's Prohibited</a></li>
+        <li><a href="#disclosure">Disclosure Rules</a></li>
+        <li><a href="#consequences">Consequences</a></li>
+        <li><a href="#rationale">Rationale</a></li>
+      </ul>
+    </aside>
+
+    <main>
+      <div class="pol-content-section" id="overview">
+        <h2>Overview</h2>
+        <p>Generative AI tools &mdash; including ChatGPT, Claude, Gemini, Copilot, and similar systems &mdash; are powerful aids for learning and productivity. This policy establishes clear boundaries for their use in my courses, balancing pedagogical value with academic integrity.</p>
+        <p>This policy reflects the evolving nature of AI in academia. It will be reviewed and updated each semester. Students are expected to be aware of the current version at the start of each course.</p>
+        <div class="pol-highlight"><strong>Bottom line:</strong> You may use AI as a thinking partner and learning aid. You may not use it to generate the substance of work you submit as your own. Disclosure is mandatory whenever AI was involved.</div>
+      </div>
+
+      <div class="pol-content-section" id="permitted">
+        <h2>What is Permitted</h2>
+        <p>The following uses of AI are acceptable in this course:</p>
+        <ul class="pol-rule-list">
+          <li><span class="pol-rule-num">01</span><span>Using AI to <strong>brainstorm ideas</strong>, explore approaches, or break down a problem &mdash; as long as the final work reflects your own thinking and analysis.</span></li>
+          <li><span class="pol-rule-num">02</span><span>Using AI to <strong>understand concepts or definitions</strong> you encounter in the course material, as a supplement to textbooks and lectures.</span></li>
+          <li><span class="pol-rule-num">03</span><span>Using AI to <strong>debug code</strong> you wrote, or to explain error messages. The solution logic must remain yours.</span></li>
+          <li><span class="pol-rule-num">04</span><span>Using AI to <strong>improve grammar or clarity</strong> of writing you have already drafted, without changing the substance or argument.</span></li>
+          <li><span class="pol-rule-num">05</span><span>Using AI to <strong>generate example code</strong> that you then study, modify, and understand &mdash; with disclosure &mdash; for homework problems that explicitly permit this.</span></li>
+        </ul>
+      </div>
+
+      <div class="pol-content-section" id="prohibited">
+        <h2>What is Prohibited</h2>
+        <ul class="pol-rule-list">
+          <li><span class="pol-rule-num">01</span><span>Submitting AI-generated text as your own written analysis, reasoning, or argumentation &mdash; even with minor edits.</span></li>
+          <li><span class="pol-rule-num">02</span><span>Using AI to generate complete or near-complete solutions to homework problems or programming assignments.</span></li>
+          <li><span class="pol-rule-num">03</span><span>Using any AI tool during in-class exams, quizzes, or assessments unless explicitly permitted for that specific assessment.</span></li>
+          <li><span class="pol-rule-num">04</span><span>Using AI to translate between Korean and English when the assignment requires demonstrating proficiency in either language.</span></li>
+          <li><span class="pol-rule-num">05</span><span>Failing to disclose AI use when it occurred. Undisclosed AI use is treated as academic dishonesty regardless of the extent of involvement.</span></li>
+        </ul>
+      </div>
+
+      <div class="pol-content-section" id="disclosure">
+        <h2>Disclosure Requirements</h2>
+        <p>When you use AI in any permitted way on a submission, include a disclosure statement at the end. Example:</p>
+        <div class="pol-highlight" style="font-family:'IBM Plex Mono',monospace;font-size:.8rem;line-height:1.7">
+          <strong>AI Disclosure:</strong> I used ChatGPT (GPT-4) to brainstorm the structure of my answer in Problem 3. I then wrote the full response myself based on course materials. I also used Claude to check for grammatical errors in my final writeup.
+        </div>
+        <p>Be specific: name the tool, describe how you used it, and explain what the final output reflects in your own work. Vague disclosures (&ldquo;I used AI&rdquo;) are not sufficient.</p>
+      </div>
+
+      <div class="pol-content-section" id="consequences">
+        <h2>Consequences of Violation</h2>
+        <p>Violations of this policy are treated as academic dishonesty. Consequences depend on severity:</p>
+        <ul class="pol-rule-list">
+          <li><span class="pol-rule-num">&#x26A0;</span><span><strong>Minor violation</strong> (e.g., using AI beyond permitted scope but disclosing): Zero on the assignment, verbal warning.</span></li>
+          <li><span class="pol-rule-num">&#x26A0;</span><span><strong>Major violation</strong> (e.g., AI-generated submission without disclosure): Failing grade for the course and report to the university honor committee.</span></li>
+        </ul>
+      </div>
+
+      <div class="pol-content-section" id="rationale">
+        <h2>Rationale</h2>
+        <p>I permit AI use because I believe the ability to work effectively with AI tools is a genuine skill you will need in your career. Pretending these tools don't exist would be a disservice to your education.</p>
+        <p>I prohibit substituting AI for your own thinking because the goal of your education is to develop <em>your</em> ability to reason, analyze, and create. If AI does that work for you, you don't develop. The assessment is not the point &mdash; the learning is.</p>
+        <p>I require disclosure because honesty is foundational to academic trust, and because understanding how you used AI helps me improve assignments over time.</p>
+      </div>
+
+      <div class="pol-content-section">
+        <h2>Related Policies</h2>
+        <div class="related-grid">
+          <a class="related-card" href="policies.html"><span class="related-code">POL &mdash; 03</span><span class="related-title">Assignment &amp; Collaboration Policy</span></a>
+          <a class="related-card" href="policies.html"><span class="related-code">POL &mdash; 04</span><span class="related-title">Exam &amp; Assessment Policy</span></a>
+          <a class="related-card" href="policies.html"><span class="related-code">POL &mdash; 02</span><span class="related-title">Grading Policy</span></a>
+        </div>
+      </div>
+    </main>
   </div>
-  <div class="list-section">
-    <div class="section-heading"><span class="section-label">All Policies</span><span class="section-line"></span></div>
-    <ul class="pol-list">
-<li><a class="pol-list-item" href="policy-ai.html"><span class="pl-num">01</span><div class="pl-content"><div class="pl-title">AI &amp; ChatGPT Use Policy</div><div class="pl-desc">Rules on generative AI, disclosure requirements, and exam restrictions.</div></div><div class="pl-meta"><span class="pl-date">Jan 2025</span><span class="pl-arrow">&#x2192;</span></div></a></li><li><a class="pol-list-item" href="policies.html"><span class="pl-num">02</span><div class="pl-content"><div class="pl-title">Grading Policy</div><div class="pl-desc">Grade breakdown, late penalties, and grade appeal procedures.</div></div><div class="pl-meta"><span class="pl-date">Aug 2024</span><span class="pl-arrow">&#x2192;</span></div></a></li><li><a class="pol-list-item" href="policies.html"><span class="pl-num">03</span><div class="pl-content"><div class="pl-title">Assignment &amp; Collaboration</div><div class="pl-desc">Individual vs. group work, plagiarism, code sharing rules.</div></div><div class="pl-meta"><span class="pl-date">Aug 2024</span><span class="pl-arrow">&#x2192;</span></div></a></li><li><a class="pol-list-item" href="policies.html"><span class="pl-num">04</span><div class="pl-content"><div class="pl-title">Exam &amp; Assessment Policy</div><div class="pl-desc">Closed-book rules, makeup exams, disability accommodations.</div></div><div class="pl-meta"><span class="pl-date">Aug 2024</span><span class="pl-arrow">&#x2192;</span></div></a></li><li><a class="pol-list-item" href="policies.html"><span class="pl-num">05</span><div class="pl-content"><div class="pl-title">Attendance &amp; Participation</div><div class="pl-desc">Excused absences, participation grading, maximum absences.</div></div><div class="pl-meta"><span class="pl-date">Mar 2025</span><span class="pl-arrow">&#x2192;</span></div></a></li><li><a class="pol-list-item" href="policies.html"><span class="pl-num">06</span><div class="pl-content"><div class="pl-title">Office Hours &amp; Communication</div><div class="pl-desc">OH schedule, email response policy, grade discussion rules.</div></div><div class="pl-meta"><span class="pl-date">Jan 2025</span><span class="pl-arrow">&#x2192;</span></div></a></li><li><a class="pol-list-item" href="policies.html"><span class="pl-num">07</span><div class="pl-content"><div class="pl-title">Recording &amp; Sharing Policy</div><div class="pl-desc">Rules on recording lectures and sharing course materials.</div></div><div class="pl-meta"><span class="pl-date">Jan 2025</span><span class="pl-arrow">&#x2192;</span></div></a></li>
-    </ul>
-  </div>
-  <div class="faq-section">
-    <div class="section-heading"><span class="section-label">Frequently Asked Questions</span><span class="section-line"></span></div>
-    <ul class="faq-list">
-<li class="faq-item"><button class="faq-q"><span>Can I use ChatGPT to help write my assignments?</span><span class="faq-chevron">&#x25BE;</span></button><div class="faq-a"><p>Yes, with proper disclosure. You may use AI for brainstorming, concept exploration, and debugging code. All submitted writing and analysis must be your own. Add a disclosure statement at the end of any submission where AI was used, specifying the tool and how it was used.</p></div></li><li class="faq-item"><button class="faq-q"><span>What happens if I miss an exam?</span><span class="faq-chevron">&#x25BE;</span></button><div class="faq-a"><p>Makeup exams are only permitted for documented medical emergencies or official university conflicts. Notify me at least 48 hours in advance when possible. Simply forgetting or misreading the schedule does not qualify.</p></div></li><li class="faq-item"><button class="faq-q"><span>How do I appeal a grade?</span><span class="faq-chevron">&#x25BE;</span></button><div class="faq-a"><p>Submit a written regrade request within two weeks. Email a clear, specific explanation of which problem was graded incorrectly and why. Regrading may result in a higher or lower score.</p></div></li><li class="faq-item"><button class="faq-q"><span>How many absences are allowed?</span><span class="faq-chevron">&#x25BE;</span></button><div class="faq-a"><p>Up to three unexcused absences without penalty. Each additional absence reduces your participation grade by 1%. Documented absences for illness or emergency are excused if submitted within one week.</p></div></li><li class="faq-item"><button class="faq-q"><span>Can I submit assignments late?</span><span class="faq-chevron">&#x25BE;</span></button><div class="faq-a"><p>Late submissions are penalized 10% per calendar day without an approved extension. Ask before the deadline, not after.</p></div></li>
-    </ul>
-  </div>
-</section>
+</div>
 </div><footer>
   <div class="footer-grid">
     <div class="f-col"><span class="f-brand">Aaron Snowberger</span><span>Associate Professor &middot; CS</span><span>PAI Lab (Physical AI)</span><a href="mailto:snowberger@yonsei.ac.kr">snowberger@yonsei.ac.kr</a></div>
@@ -391,6 +417,18 @@ if(_tt){
     if(ic)ic.textContent=a?'\u229F':'\u229E';
   });
 }
-document.querySelectorAll('.faq-q').forEach(b=>{b.addEventListener('click',()=>{const i=b.closest('.faq-item');const w=i.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(x=>x.classList.remove('open'));if(!w)i.classList.add('open')})})</script>
+
+const sIds=['overview','permitted','prohibited','disclosure','consequences','rationale'];
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.pol-sidebar-nav a').forEach(a=>a.classList.remove('active'));
+      const a=document.querySelector(`.pol-sidebar-nav a[href="#${e.target.id}"]`);
+      if(a)a.classList.add('active');
+    }
+  });
+},{rootMargin:'-25% 0px -65% 0px'});
+sIds.forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el)});
+</script>
 </body>
 </html>

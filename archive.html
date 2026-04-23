@@ -2,23 +2,23 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Prof. J. Kim — Course Archive</title>
+<title>Aaron Snowberger — Course Archive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#090910;--surface:#12121e;--border:#22223a;--muted:#55557a;--text:#eeeeff;--sub:#b0b0d0;--accent:#9b65ff;--accent2:#6dccdd;--accent3:#4ade80;--warn:#fbbf24;--tag-bg:#181828;--radius:6px;--nav-bg:rgba(9,9,16,.88)}
-[data-theme=light]{--bg:#f2f2f8;--surface:#fff;--border:#e0e0f0;--muted:#8888b0;--text:#111128;--sub:#40406a;--accent:#7c3aff;--accent2:#0badbc;--accent3:#16a34a;--warn:#d97706;--tag-bg:#ebebf8;--nav-bg:rgba(242,242,248,.92)}
+:root{--bg:#090910;--surface:#12121e;--border:#22223a;--muted:#55557a;--text:#eeeeff;--sub:#b8b8d8;--accent:#9b65ff;--accent2:#7eb8f7;--accent3:#6dccdd;--warn:#fbbf24;--error:#fb6f84;--tag-bg:#181828;--radius:6px;--nav-bg:rgba(9,9,16,.9)}
+[data-theme=light]{--bg:#f2f2f8;--surface:#fff;--border:#e0e0f0;--muted:#8888b0;--text:#111128;--sub:#3a3a62;--accent:#7c3aff;--accent2:#2563eb;--accent3:#0badbc;--warn:#d97706;--error:#e5294a;--tag-bg:#ebebf8;--nav-bg:rgba(242,242,248,.94)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background-color:var(--bg);background-image:radial-gradient(ellipse 80% 60% at 8% 40%,rgba(155,101,255,.09) 0%,transparent 70%),radial-gradient(ellipse 65% 70% at 92% 8%,rgba(109,204,221,.08) 0%,transparent 70%),radial-gradient(ellipse 55% 45% at 55% 92%,rgba(155,101,255,.06) 0%,transparent 70%);background-attachment:fixed;color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;min-height:100vh;overflow-x:hidden;transition:background-color .25s,color .25s}
-[data-theme=light] body{background-image:radial-gradient(ellipse 80% 60% at 8% 40%,rgba(124,58,255,.05) 0%,transparent 70%),radial-gradient(ellipse 65% 70% at 92% 8%,rgba(11,173,188,.04) 0%,transparent 70%),radial-gradient(ellipse 55% 45% at 55% 92%,rgba(124,58,255,.03) 0%,transparent 70%)}
+body{background-color:var(--bg);background-image:radial-gradient(ellipse 80% 60% at 8% 40%,rgba(155,101,255,.09) 0%,transparent 70%),radial-gradient(ellipse 65% 70% at 92% 8%,rgba(126,184,247,.07) 0%,transparent 70%),radial-gradient(ellipse 55% 45% at 55% 92%,rgba(155,101,255,.06) 0%,transparent 70%);background-attachment:fixed;color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;min-height:100vh;overflow-x:hidden;transition:background-color .25s,color .25s}
+[data-theme=light] body{background-image:radial-gradient(ellipse 80% 60% at 8% 40%,rgba(124,58,255,.05) 0%,transparent 70%),radial-gradient(ellipse 65% 70% at 92% 8%,rgba(37,99,235,.04) 0%,transparent 70%),radial-gradient(ellipse 55% 45% at 55% 92%,rgba(124,58,255,.03) 0%,transparent 70%)}
 body::before{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(-52deg,transparent,transparent 30px,rgba(255,255,255,.011) 30px,rgba(255,255,255,.011) 31px);pointer-events:none;z-index:0}
 [data-theme=light] body::before{background-image:repeating-linear-gradient(-52deg,transparent,transparent 30px,rgba(0,0,0,.012) 30px,rgba(0,0,0,.012) 31px)}
 
 nav{position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border);background:var(--nav-bg);backdrop-filter:blur(16px)}
-.nav-inner{max-width:920px;margin:0 auto;padding:0 24px;height:52px;display:flex;align-items:center}
+.nav-inner{max-width:960px;margin:0 auto;padding:0 28px;height:52px;display:flex;align-items:center}
 .nav-brand{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--accent);letter-spacing:.04em;text-decoration:none;flex-shrink:0}
 .nav-links{display:flex;gap:0;list-style:none;margin-left:auto}
-.nav-links>li>a,.nav-links>li>button{font-size:.8rem;color:var(--sub);text-decoration:none;letter-spacing:.02em;transition:color .2s;padding:0 13px;height:52px;display:flex;align-items:center;background:none;border:none;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;font-weight:300}
+.nav-links>li>a,.nav-links>li>button{font-size:.8rem;color:var(--sub);text-decoration:none;letter-spacing:.02em;transition:color .2s;padding:0 12px;height:52px;display:flex;align-items:center;background:none;border:none;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;font-weight:300}
 .nav-links>li>a:hover,.nav-links>li>button:hover{color:var(--text)}
 .nav-links>li>a.active-page{color:var(--accent)}
 .has-dropdown{position:relative}
@@ -30,6 +30,7 @@ nav{position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border);back
 .nav-dropdown .dd-divider{height:1px;background:var(--border);margin:5px 0}
 .nav-dropdown .dd-all a{color:var(--accent)}
 .nav-dropdown .dd-code{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);margin-right:6px}
+.dd-semester{display:block;padding:6px 18px 3px;font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
 .nav-controls{display:flex;align-items:center;gap:7px;margin-left:14px;flex-shrink:0}
 .ctrl-btn{background:var(--tag-bg);border:1px solid var(--border);color:var(--sub);border-radius:var(--radius);padding:4px 10px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;cursor:pointer;letter-spacing:.04em;transition:color .2s,border-color .2s;line-height:1.4}
 .ctrl-btn:hover{color:var(--accent);border-color:var(--accent)}
@@ -51,40 +52,72 @@ nav{position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border);back
 .mobile-sub .dd-divider{height:1px;background:var(--border);margin:3px 0}
 .mobile-controls{display:flex;gap:8px;padding:10px 24px 0}
 
-.wrap{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:0 24px}
+.wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 28px}
 .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px}
 h1{font-family:'Playfair Display','DM Serif Display',serif;font-size:clamp(2.6rem,6vw,4rem);font-weight:700;line-height:1.08;letter-spacing:-.02em;color:var(--text)}
 h1 em{font-style:italic;color:var(--accent)}
-.hero-meta{display:flex;gap:32px;margin-top:28px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:28px;margin-top:28px;flex-wrap:wrap}
 .hero-meta-item{display:flex;flex-direction:column;gap:2px}
 .hero-meta-label{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
 .hero-meta-value{font-size:.88rem;color:var(--sub)}
-.hero-desc{margin-top:32px;max-width:560px;font-size:.95rem;color:var(--sub);line-height:1.8;border-left:2px solid var(--border);padding-left:18px}
-.stats-bar{display:flex;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:36px}
+.hero-desc{margin-top:28px;max-width:560px;font-size:.95rem;color:var(--sub);line-height:1.8;border-left:2px solid var(--border);padding-left:18px}
+.stats-bar{display:flex;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:28px;background:var(--surface)}
 .stat{flex:1;padding:14px 20px;border-right:1px solid var(--border);text-align:center}
 .stat:last-child{border-right:none}
 .stat-num{font-family:'Playfair Display','DM Serif Display',serif;font-size:1.6rem;color:var(--accent);line-height:1}
 .stat-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+
+/* ── Sliding fill buttons ── */
+.pill,.filter-toggle-btn,.back-btn{
+  position:relative;overflow:hidden;
+  background:linear-gradient(to right,var(--accent) 50%,var(--tag-bg) 50%);
+  background-size:205% 100%;background-position:100%;
+  border:1px solid var(--border);color:var(--sub);
+  border-radius:999px;
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;
+  padding:5px 14px;cursor:pointer;letter-spacing:.04em;line-height:1.5;
+  transition:background-position .32s ease,color .2s,border-color .2s;
+}
+.pill:hover,.filter-toggle-btn:hover,.back-btn:hover{background-position:0;color:#fff;border-color:var(--accent)}
+.pill.active{background-position:0;color:#fff;border-color:var(--accent)}
+.filter-toggle-btn{border-radius:var(--radius);padding:5px 13px}
+.filter-toggle-btn.open{background-position:0;color:#fff;border-color:var(--accent)}
+/* Thumb toggle uses accent2 (blue) */
+.thumb-toggle{
+  position:relative;overflow:hidden;
+  background:linear-gradient(to right,var(--accent2) 50%,var(--tag-bg) 50%);
+  background-size:205% 100%;background-position:100%;
+  border:1px solid var(--border);color:var(--sub);
+  border-radius:var(--radius);font-family:'IBM Plex Mono',monospace;
+  font-size:.68rem;padding:5px 13px;cursor:pointer;letter-spacing:.04em;
+  transition:background-position .32s ease,color .2s;
+  display:flex;align-items:center;gap:6px;
+}
+.thumb-toggle:hover{background-position:0;color:var(--bg);border-color:var(--accent2)}
+.thumb-toggle.active{background-position:0;color:var(--bg);border-color:var(--accent2)}
+/* CTA button */
+.cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(to right,rgba(255,255,255,.18) 50%,var(--accent) 50%);
+  background-size:205% 100%;background-position:100%;
+  color:#fff;border:none;border-radius:var(--radius);
+  padding:11px 24px;font-size:.85rem;font-family:'IBM Plex Mono',monospace;
+  letter-spacing:.04em;text-decoration:none;cursor:pointer;
+  transition:background-position .32s ease,transform .15s;
+}
+.cta-btn:hover{background-position:0;transform:translateX(2px)}
 
 .section-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px}
 .section-heading-row{display:flex;align-items:center;gap:14px;flex:1;min-width:0}
 .section-label{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
 .section-line{flex:1;height:1px;background:var(--border)}
 .section-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.filter-toggle-btn,.thumb-toggle{display:flex;align-items:center;gap:6px;background:var(--tag-bg);border:1px solid var(--border);color:var(--sub);padding:5px 13px;border-radius:var(--radius);font-family:'IBM Plex Mono',monospace;font-size:.68rem;cursor:pointer;letter-spacing:.04em;transition:all .2s}
-.filter-toggle-btn:hover{border-color:var(--accent);color:var(--accent)}
-.filter-toggle-btn.open{border-color:var(--accent);color:var(--accent);background:rgba(155,101,255,.08)}
-.thumb-toggle:hover{border-color:var(--accent2);color:var(--accent2)}
-.thumb-toggle.active{border-color:var(--accent2);color:var(--accent2);background:rgba(109,204,221,.08)}
 .filter-panel{display:none;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin-bottom:24px}
 .filter-panel.open{display:flex}
 .ctrl-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .ctrl-row-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;width:46px;flex-shrink:0}
-.pill{background:var(--tag-bg);border:1px solid var(--border);color:var(--sub);padding:4px 13px;border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:.7rem;cursor:pointer;transition:all .18s;letter-spacing:.04em;line-height:1.5}
-.pill:hover{border-color:var(--accent);color:var(--accent)}
-.pill.active{background:var(--accent);border-color:var(--accent);color:#fff}
 
-.course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:14px}
+.course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
 .thumbs-active .course-grid{grid-template-columns:repeat(2,1fr)}
 a.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:border-color .2s,transform .18s,box-shadow .2s}
 a.card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .2s}
@@ -97,15 +130,22 @@ a.card:hover::after{opacity:1}
 .card-body{display:flex;flex-direction:column;gap:8px;padding:18px;flex:1;min-width:0}
 .card-code{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.08em;padding-right:58px}
 .card-title{font-size:.9rem;font-weight:500;color:var(--text);line-height:1.35}
-.card-desc{font-size:.78rem;color:var(--muted);line-height:1.55;flex:1}
+.card-desc{font-size:.8rem;color:var(--sub);line-height:1.55;flex:1}
 .card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
 .tag{font-family:'IBM Plex Mono',monospace;font-size:.62rem;padding:2px 8px;border-radius:3px;background:var(--tag-bg);border:1px solid var(--border);color:var(--muted);letter-spacing:.04em}
 .tag.grad{color:#c084fc;border-color:#3a2a5a}
-.tag.ugrad{color:var(--accent2);border-color:#1a3038}
+.tag.ugrad{color:var(--accent2);border-color:#1a3048}
 .tag.seminar{color:var(--warn);border-color:#3a2e0a}
+.tag.ml{color:var(--accent);border-color:#2d1a5a}
+.tag.theory{color:var(--accent2);border-color:#1a2e4a}
+.tag.systems{color:var(--accent3);border-color:#1a3038}
+.tag.ai-tag{color:#fb6f84;border-color:#3a1a28}
 [data-theme=light] .tag.grad{color:#7c3aed;border-color:#ddd0f8}
-[data-theme=light] .tag.ugrad{color:var(--accent2);border-color:#b2eef4}
+[data-theme=light] .tag.ugrad{color:#2563eb;border-color:#bfdbfe}
 [data-theme=light] .tag.seminar{color:var(--warn);border-color:#fde68a}
+[data-theme=light] .tag.ml{color:var(--accent);border-color:#ddd0f8}
+[data-theme=light] .tag.theory{color:var(--accent2);border-color:#bfdbfe}
+[data-theme=light] .tag.systems{color:var(--accent3);border-color:#a5f3fc}
 .card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:4px;padding-top:8px;border-top:1px solid var(--border)}
 .card-meta{font-family:'IBM Plex Mono',monospace;font-size:.63rem;color:var(--muted);display:flex;flex-direction:column;gap:2px}
 .card-arrow{font-size:.75rem;color:var(--muted);opacity:0;transition:opacity .18s,transform .18s}
@@ -114,12 +154,12 @@ a.card:hover .card-arrow{opacity:1;transform:translateX(3px)}
 .uni-badge .ub-abbr{font-size:.72rem;font-weight:500}
 
 footer{border-top:1px solid var(--border);padding:48px 0 28px;position:relative;z-index:1}
-.footer-grid{max-width:920px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;margin-bottom:28px}
+.footer-grid{max-width:960px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;gap:24px;margin-bottom:28px}
 .f-brand{font-family:'IBM Plex Mono',monospace;font-size:.88rem;color:var(--accent);letter-spacing:.04em;display:block;margin-bottom:10px}
 .f-col p,.f-col a,.f-col span{display:block;font-size:.8rem;color:var(--muted);margin-bottom:5px;text-decoration:none;transition:color .2s;line-height:1.5}
 .f-col a:hover{color:var(--sub)}
 .f-heading{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;display:block}
-.footer-bottom{max-width:920px;margin:0 auto;padding:16px 24px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-bottom{max-width:960px;margin:0 auto;padding:16px 28px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .footer-copy,.footer-updated{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--muted)}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
@@ -135,56 +175,56 @@ footer{border-top:1px solid var(--border);padding:48px 0 28px;position:relative;
   .stat:nth-child(2n){border-right:none}
   .stat:nth-last-child(-n+2){border-bottom:none}
   .thumbs-active .course-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .footer-grid{flex-direction:column;gap:28px}
   .ctrl-row-label{display:none}
 }
-.dd-semester{display:block;padding:6px 18px 3px;font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+
 .archive-page{padding:40px 0 60px}
-.back-link{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);text-decoration:none;letter-spacing:.04em;transition:color .2s;margin-bottom:0}
-.back-link:hover{color:var(--accent)}
+.back-btn{display:inline-flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.04em;padding:7px 16px;border-radius:var(--radius);margin-top:24px;text-decoration:none}
 .semester-group,.uni-group-arch{margin-bottom:36px}.semester-group.hidden,.uni-group-arch.hidden{display:none}
+/* Current semester: highlighted borders */
+.semester-group.is-current{border:1px solid rgba(155,101,255,.2);border-radius:8px;padding:18px;margin-left:-18px;margin-right:-18px;background:rgba(155,101,255,.03)}
+.semester-group.is-current .group-label{color:var(--accent)}
 .group-heading{display:flex;align-items:center;gap:14px;margin-bottom:14px}
 .group-label{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
 .group-line{flex:1;height:1px;background:var(--border)}
-/* Archive list rows */
+.is-current .group-line{background:rgba(155,101,255,.25)}
+.current-chip{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(155,101,255,.15);color:var(--accent);border:1px solid rgba(155,101,255,.3);border-radius:3px;padding:2px 7px}
+/* Archive list */
 .archive-list{list-style:none}
-a.archive-item{display:flex;align-items:stretch;text-decoration:none;color:inherit;border-bottom:1px solid var(--border);position:relative;overflow:hidden;transition:background .15s;min-height:90px}
+a.archive-item{display:flex;align-items:stretch;text-decoration:none;color:inherit;border-bottom:1px solid var(--border);position:relative;overflow:hidden;transition:background .15s;min-height:88px}
 a.archive-item:first-child{border-top:1px solid var(--border)}
 a.archive-item:hover{background:var(--surface)}
-.item-thumb{display:none;width:64px;flex-shrink:0;background-size:cover;background-position:center top}
+.item-thumb{display:none;width:62px;flex-shrink:0;background-size:cover;background-position:center top}
 .thumbs-active .item-thumb{display:block}
-.item-content{display:flex;align-items:flex-start;flex:1;padding:14px 70px 14px 0;gap:14px;min-width:0}
-.thumbs-active .item-content{padding-left:16px}
-.item-code{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.06em;flex-shrink:0;width:62px;padding-top:2px}
+.item-content{display:flex;align-items:flex-start;flex:1;padding:14px 72px 14px 0;gap:14px;min-width:0}
+.thumbs-active .item-content{padding-left:14px}
+.item-code{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.06em;flex-shrink:0;width:64px;padding-top:2px}
 .item-main{flex:1;min-width:0}
-.item-title{font-size:.92rem;font-weight:500;color:var(--text);line-height:1.35;margin-bottom:3px}
-.item-subtitle{font-size:.78rem;color:var(--muted);line-height:1.5;margin-bottom:6px}
-.item-meta-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:4px}
+.item-title{font-size:.92rem;font-weight:500;color:var(--text);line-height:1.35;margin-bottom:2px}
+.item-subtitle{font-size:.76rem;color:var(--muted);line-height:1.5;margin-bottom:6px}
+.item-meta-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .item-meta-val{font-family:'IBM Plex Mono',monospace;font-size:.63rem;color:var(--muted)}
 .item-tag{font-family:'IBM Plex Mono',monospace;font-size:.6rem;padding:1px 7px;border-radius:2px;background:var(--tag-bg);border:1px solid var(--border);color:var(--muted)}
-.item-tag.grad{color:#c084fc;border-color:#3a2a5a}
-.item-tag.ugrad{color:var(--accent2);border-color:#1a3038}
+.item-tag.ml{color:var(--accent);border-color:rgba(155,101,255,.3)}
+.item-tag.theory{color:var(--accent2);border-color:rgba(126,184,247,.25)}
+.item-tag.systems{color:var(--accent3);border-color:rgba(109,204,221,.2)}
 .item-tag.seminar{color:var(--warn);border-color:#3a2e0a}
-[data-theme=light] .item-tag.grad{color:#7c3aed;border-color:#ddd0f8}
-[data-theme=light] .item-tag.ugrad{color:var(--accent2);border-color:#b2eef4}
-[data-theme=light] .item-tag.seminar{color:var(--warn);border-color:#fde68a}
+[data-theme=light] .item-tag.ml{color:var(--accent);border-color:#ddd0f8}
+[data-theme=light] .item-tag.theory{color:#2563eb;border-color:#bfdbfe}
 .archived-badge{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.08em;color:var(--muted);border:1px solid var(--border);padding:1px 6px;border-radius:2px;flex-shrink:0}
-.archived-badge.current{color:var(--accent2);border-color:var(--accent2)}
+.archived-badge.current-bdg{color:var(--accent3);border-color:var(--accent3)}
 .item-arrow{font-size:.72rem;color:var(--muted);opacity:0;transition:opacity .15s,transform .15s;position:absolute;right:16px;top:50%;transform:translateY(-50%)}
 a.archive-item:hover .item-arrow{opacity:1;transform:translateY(-50%) translateX(3px)}
 .uni-badge{position:absolute;top:14px;right:14px;width:48px;height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.55rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text);border:1.5px solid var(--text);opacity:.12;pointer-events:none;user-select:none;line-height:1.3;text-align:center}
 .uni-badge .ub-abbr{font-size:.7rem;font-weight:500}
-@media(max-width:700px){
-  .item-meta-row{flex-direction:column;gap:4px;align-items:flex-start}
-  .item-code{display:none}
-  .section-actions{width:100%}
-}
+@media(max-width:700px){.item-meta-row{flex-wrap:wrap;gap:4px}.section-actions{width:100%}.item-code{display:none}}
 </style>
 </head>
 <body>
 <nav>
   <div class="nav-inner">
-    <a class="nav-brand" href="index.html">jkim.edu</a>
+    <a class="nav-brand" href="index.html">snowberger.edu</a>
     <ul class="nav-links">
       <li><a href="index.html">About</a></li>
       <li><a href="#">Research</a></li>
@@ -243,30 +283,26 @@ a.archive-item:hover .item-arrow{opacity:1;transform:translateY(-50%) translateX
 </nav>
 <div class="wrap">
 <header>
-  <a href="index.html" class="back-link animate d1">&#x2190; Current Courses</a>
-  <p class="eyebrow animate d1" style="margin-top:16px">Complete Course Record</p>
+  <p class="eyebrow animate d1">Complete Course Record</p>
   <h1 class="animate d2">Course<br><em>Archive</em></h1>
-  <p class="hero-desc animate d3">All courses taught since 2023. Use filters to browse by level, school, or year. Click any row for syllabi and materials.</p>
+  <a href="index.html" class="back-btn pill animate d3" style="border-radius:var(--radius);font-size:.72rem">&#x2190; Current Courses</a>
+  <p class="hero-desc animate d3" style="margin-top:16px;border-left:2px solid var(--border);padding-left:18px">All courses since 2023 across five universities. Use filters to browse by school, topic, or year.</p>
 </header>
-
 <section class="archive-page" id="thumb-section">
   <div class="section-top">
-    <div class="section-heading-row">
-      <span class="section-label" id="group-mode-label">By Semester</span>
-      <span class="section-line"></span>
-    </div>
+    <div class="section-heading-row"><span class="section-label" id="group-mode-label">By Semester</span><span class="section-line"></span></div>
     <div class="section-actions">
       <button class="filter-toggle-btn" id="filter-toggle-btn">&#x2699; Filters</button>
       <button class="thumb-toggle" id="thumb-toggle"><span class="t-icon">&#x229E;</span> Thumbnails</button>
     </div>
   </div>
-
   <div class="filter-panel" id="filter-panel">
     <div class="ctrl-row">
-      <span class="ctrl-row-label">Level</span>
+      <span class="ctrl-row-label">Topic</span>
       <button class="pill active" data-filter="all">All</button>
-      <button class="pill" data-filter="grad">Graduate</button>
-      <button class="pill" data-filter="ugrad">Undergrad</button>
+      <button class="pill" data-filter="ml">ML</button>
+      <button class="pill" data-filter="theory">Theory</button>
+      <button class="pill" data-filter="systems">Systems</button>
       <button class="pill" data-filter="seminar">Seminar</button>
     </div>
     <div class="ctrl-row">
@@ -286,11 +322,14 @@ a.archive-item:hover .item-arrow{opacity:1;transform:translateY(-50%) translateX
   </div>
 
   <div id="semester-view">
-
-    <div class="semester-group" data-year="2025" data-order="1">
-      <div class="group-heading"><span class="group-label">Spring 2025 &mdash; Current</span><span class="group-line"></span></div>
+    <div class="semester-group is-current" data-year="2025" data-order="1">
+      <div class="group-heading">
+        <span class="group-label">Spring 2025</span>
+        <span class="current-chip">&#x25CF; Current</span>
+        <span class="group-line"></span>
+      </div>
       <ul class="archive-list">
-        <a class="archive-item" href="course.html" data-level="grad" data-title="Advanced Machine Learning" data-school="yonsei">
+<a class="archive-item" href="course.html" data-level="ml" data-title="Advanced Machine Learning" data-school="yonsei">
   <div class="item-thumb" style="background:linear-gradient(180deg,#3d28a0,#9b65ff)"></div>
   <div class="item-content">
     <span class="item-code">CS 4820</span>
@@ -299,117 +338,111 @@ a.archive-item:hover .item-arrow{opacity:1;transform:translateY(-50%) translateX
       <div class="item-subtitle">&#xACE0;&#xAE09; &#xBA38;&#xC2E0;&#xB7EC;&#xB2DD; / Advanced ML</div>
       <div class="item-meta-row">
         <span class="item-meta-val">Tue/Thu 2:00&ndash;3:30</span>
-        <span class="item-meta-val">Engineering 302</span>
-        <span class="item-tag grad">Graduate</span>
-        <span class="archived-badge current">CURRENT</span>
+        <span class="item-meta-val">Eng 302</span>
+        <span class="item-tag ml">ML</span>
+        <span class="archived-badge current-bdg">CURRENT</span>
       </div>
     </div>
   </div>
   <span class="item-arrow">&#x2192;</span>
   <div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
-</a>
-        <a class="archive-item" href="#" data-level="ugrad" data-title="Algorithms &amp; Complexity" data-school="yonsei">
-  <div class="item-thumb" style="background:linear-gradient(180deg,#0c6478,#6dccdd)"></div>
+</a><a class="archive-item" href="#" data-level="theory" data-title="Algorithms &amp; Complexity" data-school="yonsei">
+  <div class="item-thumb" style="background:linear-gradient(180deg,#0c4a78,#7eb8f7)"></div>
   <div class="item-content">
     <span class="item-code">CS 3310</span>
     <div class="item-main">
       <div class="item-title">Algorithms &amp; Complexity</div>
-      <div class="item-subtitle">&#xC54C;&#xACE0;&#xB9AC;&#xC998; &amp; &#xBCF5;&#xC7A1;&#xB3C4; / Algorithms &amp; Complexity</div>
+      <div class="item-subtitle">&#xC54C;&#xACE0;&#xB9AC;&#xC998; / Algorithms</div>
       <div class="item-meta-row">
         <span class="item-meta-val">Mon/Wed 10:30&ndash;12:00</span>
-        <span class="item-meta-val">Science Hall B-12</span>
-        <span class="item-tag ugrad">Undergrad</span>
-        <span class="archived-badge current">CURRENT</span>
+        <span class="item-meta-val">Science B-12</span>
+        <span class="item-tag theory">Theory</span>
+        <span class="archived-badge current-bdg">CURRENT</span>
       </div>
     </div>
   </div>
   <span class="item-arrow">&#x2192;</span>
   <div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
-</a>
-        <a class="archive-item" href="#" data-level="seminar" data-title="Seminar: Foundation Models" data-school="yonsei">
+</a><a class="archive-item" href="#" data-level="seminar" data-title="Seminar: Foundation Models" data-school="yonsei">
   <div class="item-thumb" style="background:linear-gradient(180deg,#1e3a8a,#4338ca)"></div>
   <div class="item-content">
     <span class="item-code">CS 6001</span>
     <div class="item-main">
       <div class="item-title">Seminar: Foundation Models</div>
-      <div class="item-subtitle">&#xAE30;&#xBC18; &#xBAA8;&#xB378; &#xC138;&#xBBF8;&#xB098; / Foundation Models</div>
+      <div class="item-subtitle">&#xAE30;&#xBC18; &#xBAA8;&#xB378; &#xC138;&#xBBF8;&#xB098;</div>
       <div class="item-meta-row">
         <span class="item-meta-val">Fri 2:00&ndash;4:00</span>
-        <span class="item-meta-val">Grad Seminar Rm 8</span>
+        <span class="item-meta-val">Grad Rm 8</span>
         <span class="item-tag seminar">Seminar</span>
-        <span class="archived-badge current">CURRENT</span>
+        <span class="archived-badge current-bdg">CURRENT</span>
       </div>
     </div>
   </div>
   <span class="item-arrow">&#x2192;</span>
   <div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
-</a>
-        <a class="archive-item" href="#" data-level="grad" data-title="Distributed Systems" data-school="kaist">
+</a><a class="archive-item" href="#" data-level="systems" data-title="Distributed Systems" data-school="kaist">
   <div class="item-thumb" style="background:linear-gradient(180deg,#5b21b6,#c026d3)"></div>
   <div class="item-content">
     <span class="item-code">CS 5510</span>
     <div class="item-main">
       <div class="item-title">Distributed Systems</div>
-      <div class="item-subtitle">&#xBD84;&#xC0B0; &#xC2DC;&#xC2A4;&#xD15C; / Distributed Systems</div>
+      <div class="item-subtitle">&#xBD84;&#xC0B0; &#xC2DC;&#xC2A4;&#xD15C;</div>
       <div class="item-meta-row">
         <span class="item-meta-val">Tue/Thu 9:00&ndash;10:30</span>
-        <span class="item-meta-val">N1 Bldg 201</span>
-        <span class="item-tag grad">Graduate</span>
-        <span class="archived-badge current">CURRENT</span>
+        <span class="item-meta-val">N1 201</span>
+        <span class="item-tag systems">Systems</span>
+        <span class="archived-badge current-bdg">CURRENT</span>
       </div>
     </div>
   </div>
   <span class="item-arrow">&#x2192;</span>
   <div class="uni-badge"><span class="ub-abbr">KA</span><span>&#xCE74;&#xC774;&#xC2A4;&#xD2B8;</span></div>
-</a>
-        <a class="archive-item" href="#" data-level="grad" data-title="ML for Systems" data-school="kaist">
+</a><a class="archive-item" href="#" data-level="ml" data-title="ML for Systems" data-school="kaist">
   <div class="item-thumb" style="background:linear-gradient(180deg,#0e6490,#1d4ed8)"></div>
   <div class="item-content">
     <span class="item-code">CS 4910</span>
     <div class="item-main">
       <div class="item-title">ML for Systems</div>
-      <div class="item-subtitle">&#xC2DC;&#xC2A4;&#xD15C; ML / ML for Systems</div>
+      <div class="item-subtitle">&#xC2DC;&#xC2A4;&#xD15C; ML</div>
       <div class="item-meta-row">
         <span class="item-meta-val">Mon/Wed 1:00&ndash;2:30</span>
-        <span class="item-meta-val">N1 Bldg 115</span>
-        <span class="item-tag grad">Graduate</span>
-        <span class="archived-badge current">CURRENT</span>
+        <span class="item-meta-val">N1 115</span>
+        <span class="item-tag ml">ML</span>
+        <span class="archived-badge current-bdg">CURRENT</span>
       </div>
     </div>
   </div>
   <span class="item-arrow">&#x2192;</span>
   <div class="uni-badge"><span class="ub-abbr">KA</span><span>&#xCE74;&#xC774;&#xC2A4;&#xD2B8;</span></div>
-</a>
-        <a class="archive-item" href="#" data-level="ugrad" data-title="Intro to AI" data-school="skku">
+</a><a class="archive-item" href="#" data-level="ml" data-title="Intro to AI" data-school="skku">
   <div class="item-thumb" style="background:linear-gradient(180deg,#b45309,#16a34a)"></div>
   <div class="item-content">
     <span class="item-code">CS 3110</span>
     <div class="item-main">
       <div class="item-title">Intro to AI</div>
-      <div class="item-subtitle">&#xC778;&#xACF5;&#xC9C0;&#xB2A5; &#xAC1C;&#xB860; / Introduction to AI</div>
+      <div class="item-subtitle">&#xC778;&#xACF5;&#xC9C0;&#xB2A5; &#xAC1C;&#xB860;</div>
       <div class="item-meta-row">
         <span class="item-meta-val">Mon/Thu 3:00&ndash;4:30</span>
-        <span class="item-meta-val">Eng Hall 201</span>
-        <span class="item-tag ugrad">Undergrad</span>
-        <span class="archived-badge current">CURRENT</span>
+        <span class="item-meta-val">Eng 201</span>
+        <span class="item-tag ml">AI</span>
+        <span class="archived-badge current-bdg">CURRENT</span>
       </div>
     </div>
   </div>
   <span class="item-arrow">&#x2192;</span>
   <div class="uni-badge"><span class="ub-abbr">SK</span><span>&#xC131;&#xADE0;&#xAD00;</span></div>
-</a>
-        <a class="archive-item" href="#" data-level="ugrad" data-title="Data Structures" data-school="skku">
+</a><a class="archive-item" href="#" data-level="theory" data-title="Data Structures" data-school="skku">
   <div class="item-thumb" style="background:linear-gradient(180deg,#b91c1c,#ea580c)"></div>
   <div class="item-content">
     <span class="item-code">CS 2210</span>
     <div class="item-main">
       <div class="item-title">Data Structures</div>
-      <div class="item-subtitle">&#xC790;&#xB8CC; &#xAD6C;&#xC870; / Data Structures</div>
+      <div class="item-subtitle">&#xC790;&#xB8CC; &#xAD6C;&#xC870;</div>
       <div class="item-meta-row">
         <span class="item-meta-val">Tue/Fri 10:00&ndash;11:30</span>
-        <span class="item-meta-val">IT Bldg 305</span>
-        <span class="item-tag ugrad">Undergrad</span>
-        <span class="archived-badge current">CURRENT</span>
+        <span class="item-meta-val">IT 305</span>
+        <span class="item-tag theory">Theory</span>
+        <span class="archived-badge current-bdg">CURRENT</span>
       </div>
     </div>
   </div>
@@ -421,53 +454,51 @@ a.archive-item:hover .item-arrow{opacity:1;transform:translateY(-50%) translateX
     <div class="semester-group" data-year="2024" data-order="2">
       <div class="group-heading"><span class="group-label">Fall 2024</span><span class="group-line"></span></div>
       <ul class="archive-list">
-        <a class="archive-item" href="#" data-level="grad" data-title="Advanced Machine Learning" data-school="yonsei">
+<a class="archive-item" href="#" data-level="ml" data-title="Advanced Machine Learning" data-school="yonsei">
   <div class="item-thumb" style="background:linear-gradient(180deg,#3d28a0,#9b65ff)"></div>
   <div class="item-content">
     <span class="item-code">CS 4820</span>
     <div class="item-main">
       <div class="item-title">Advanced Machine Learning</div>
-      <div class="item-subtitle">&#xACE0;&#xAE09; &#xBA38;&#xC2E0;&#xB7EC;&#xB2DD; / Advanced ML</div>
+      <div class="item-subtitle">&#xACE0;&#xAE09; &#xBA38;&#xC2E0;&#xB7EC;&#xB2DD;</div>
       <div class="item-meta-row">
         <span class="item-meta-val">Tue/Thu 2:00&ndash;3:30</span>
-        <span class="item-meta-val">Engineering 302</span>
-        <span class="item-tag grad">Graduate</span>
+        <span class="item-meta-val">Eng 302</span>
+        <span class="item-tag ml">ML</span>
         <span class="archived-badge ">Archived</span>
       </div>
     </div>
   </div>
   <span class="item-arrow">&#x2192;</span>
   <div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
-</a>
-        <a class="archive-item" href="#" data-level="ugrad" data-title="Data Structures" data-school="yonsei">
+</a><a class="archive-item" href="#" data-level="theory" data-title="Data Structures" data-school="yonsei">
   <div class="item-thumb" style="background:linear-gradient(180deg,#b91c1c,#ea580c)"></div>
   <div class="item-content">
     <span class="item-code">CS 2210</span>
     <div class="item-main">
       <div class="item-title">Data Structures</div>
-      <div class="item-subtitle">&#xC790;&#xB8CC; &#xAD6C;&#xC870; / Data Structures</div>
+      <div class="item-subtitle">&#xC790;&#xB8CC; &#xAD6C;&#xC870;</div>
       <div class="item-meta-row">
         <span class="item-meta-val">Tue/Fri 10:00&ndash;11:30</span>
-        <span class="item-meta-val">IT Bldg 305</span>
-        <span class="item-tag ugrad">Undergrad</span>
+        <span class="item-meta-val">IT 305</span>
+        <span class="item-tag theory">Theory</span>
         <span class="archived-badge ">Archived</span>
       </div>
     </div>
   </div>
   <span class="item-arrow">&#x2192;</span>
   <div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
-</a>
-        <a class="archive-item" href="#" data-level="grad" data-title="Distributed Systems" data-school="kaist">
+</a><a class="archive-item" href="#" data-level="systems" data-title="Distributed Systems" data-school="kaist">
   <div class="item-thumb" style="background:linear-gradient(180deg,#5b21b6,#c026d3)"></div>
   <div class="item-content">
     <span class="item-code">CS 5510</span>
     <div class="item-main">
       <div class="item-title">Distributed Systems</div>
-      <div class="item-subtitle">&#xBD84;&#xC0B0; &#xC2DC;&#xC2A4;&#xD15C; / Distributed Systems</div>
+      <div class="item-subtitle">&#xBD84;&#xC0B0; &#xC2DC;&#xC2A4;&#xD15C;</div>
       <div class="item-meta-row">
         <span class="item-meta-val">Mon/Wed 9:00&ndash;10:30</span>
-        <span class="item-meta-val">N1 Bldg 201</span>
-        <span class="item-tag grad">Graduate</span>
+        <span class="item-meta-val">N1 201</span>
+        <span class="item-tag systems">Systems</span>
         <span class="archived-badge ">Archived</span>
       </div>
     </div>
@@ -480,52 +511,33 @@ a.archive-item:hover .item-arrow{opacity:1;transform:translateY(-50%) translateX
     <div class="semester-group" data-year="2024" data-order="3">
       <div class="group-heading"><span class="group-label">Spring 2024</span><span class="group-line"></span></div>
       <ul class="archive-list">
-        <a class="archive-item" href="#" data-level="ugrad" data-title="Algorithms &amp; Complexity" data-school="yonsei">
-  <div class="item-thumb" style="background:linear-gradient(180deg,#0c6478,#6dccdd)"></div>
+<a class="archive-item" href="#" data-level="theory" data-title="Algorithms &amp; Complexity" data-school="yonsei">
+  <div class="item-thumb" style="background:linear-gradient(180deg,#0c4a78,#7eb8f7)"></div>
   <div class="item-content">
     <span class="item-code">CS 3310</span>
     <div class="item-main">
       <div class="item-title">Algorithms &amp; Complexity</div>
-      <div class="item-subtitle">&#xC54C;&#xACE0;&#xB9AC;&#xC998; / Algorithms</div>
+      <div class="item-subtitle">&#xC54C;&#xACE0;&#xB9AC;&#xC998;</div>
       <div class="item-meta-row">
         <span class="item-meta-val">Mon/Wed 10:30&ndash;12:00</span>
-        <span class="item-meta-val">Science Hall B-12</span>
-        <span class="item-tag ugrad">Undergrad</span>
+        <span class="item-meta-val">Science B-12</span>
+        <span class="item-tag theory">Theory</span>
         <span class="archived-badge ">Archived</span>
       </div>
     </div>
   </div>
   <span class="item-arrow">&#x2192;</span>
   <div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
-</a>
-        <a class="archive-item" href="#" data-level="grad" data-title="ML for Systems" data-school="kaist">
-  <div class="item-thumb" style="background:linear-gradient(180deg,#0e6490,#1d4ed8)"></div>
-  <div class="item-content">
-    <span class="item-code">CS 4910</span>
-    <div class="item-main">
-      <div class="item-title">ML for Systems</div>
-      <div class="item-subtitle">&#xC2DC;&#xC2A4;&#xD15C; ML / ML for Systems</div>
-      <div class="item-meta-row">
-        <span class="item-meta-val">Tue/Thu 1:00&ndash;2:30</span>
-        <span class="item-meta-val">N1 Bldg 115</span>
-        <span class="item-tag grad">Graduate</span>
-        <span class="archived-badge ">Archived</span>
-      </div>
-    </div>
-  </div>
-  <span class="item-arrow">&#x2192;</span>
-  <div class="uni-badge"><span class="ub-abbr">KA</span><span>&#xCE74;&#xC774;&#xC2A4;&#xD2B8;</span></div>
-</a>
-        <a class="archive-item" href="#" data-level="seminar" data-title="Seminar: Alignment &amp; Safety" data-school="korea">
+</a><a class="archive-item" href="#" data-level="seminar" data-title="Seminar: Alignment &amp; Safety" data-school="korea">
   <div class="item-thumb" style="background:linear-gradient(180deg,#7c2d12,#831843)"></div>
   <div class="item-content">
     <span class="item-code">CS 6002</span>
     <div class="item-main">
       <div class="item-title">Seminar: Alignment &amp; Safety</div>
-      <div class="item-subtitle">&#xC815;&#xB82C; &#xBC0F; &#xC548;&#xC804; &#xC138;&#xBBF8;&#xB098; / Alignment Seminar</div>
+      <div class="item-subtitle">&#xC815;&#xB82C; &#xC138;&#xBBF8;&#xB098;</div>
       <div class="item-meta-row">
         <span class="item-meta-val">Thu 5:00&ndash;7:00</span>
-        <span class="item-meta-val">Hwajung Hall 401</span>
+        <span class="item-meta-val">Hwajung 401</span>
         <span class="item-tag seminar">Seminar</span>
         <span class="archived-badge ">Archived</span>
       </div>
@@ -539,7 +551,7 @@ a.archive-item:hover .item-arrow{opacity:1;transform:translateY(-50%) translateX
     <div class="semester-group" data-year="2023" data-order="4">
       <div class="group-heading"><span class="group-label">Fall 2023</span><span class="group-line"></span></div>
       <ul class="archive-list">
-        <a class="archive-item" href="#" data-level="grad" data-title="Advanced Machine Learning" data-school="yonsei">
+<a class="archive-item" href="#" data-level="ml" data-title="Advanced Machine Learning" data-school="skku">
   <div class="item-thumb" style="background:linear-gradient(180deg,#3d28a0,#9b65ff)"></div>
   <div class="item-content">
     <span class="item-code">CS 4820</span>
@@ -548,34 +560,15 @@ a.archive-item:hover .item-arrow{opacity:1;transform:translateY(-50%) translateX
       <div class="item-subtitle">&#xACE0;&#xAE09; &#xBA38;&#xC2E0;&#xB7EC;&#xB2DD;</div>
       <div class="item-meta-row">
         <span class="item-meta-val">Tue/Thu 2:00&ndash;3:30</span>
-        <span class="item-meta-val">Engineering 302</span>
-        <span class="item-tag grad">Graduate</span>
-        <span class="archived-badge ">Archived</span>
-      </div>
-    </div>
-  </div>
-  <span class="item-arrow">&#x2192;</span>
-  <div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
-</a>
-        <a class="archive-item" href="#" data-level="ugrad" data-title="Data Structures" data-school="skku">
-  <div class="item-thumb" style="background:linear-gradient(180deg,#b91c1c,#ea580c)"></div>
-  <div class="item-content">
-    <span class="item-code">CS 2210</span>
-    <div class="item-main">
-      <div class="item-title">Data Structures</div>
-      <div class="item-subtitle">&#xC790;&#xB8CC; &#xAD6C;&#xC870;</div>
-      <div class="item-meta-row">
-        <span class="item-meta-val">Tue/Fri 10:00&ndash;11:30</span>
-        <span class="item-meta-val">IT Bldg 305</span>
-        <span class="item-tag ugrad">Undergrad</span>
+        <span class="item-meta-val">Eng 302</span>
+        <span class="item-tag ml">ML</span>
         <span class="archived-badge ">Archived</span>
       </div>
     </div>
   </div>
   <span class="item-arrow">&#x2192;</span>
   <div class="uni-badge"><span class="ub-abbr">SK</span><span>&#xC131;&#xADE0;&#xAD00;</span></div>
-</a>
-        <a class="archive-item" href="#" data-level="ugrad" data-title="Intro to AI" data-school="skku">
+</a><a class="archive-item" href="#" data-level="ml" data-title="Intro to AI" data-school="skku">
   <div class="item-thumb" style="background:linear-gradient(180deg,#b45309,#16a34a)"></div>
   <div class="item-content">
     <span class="item-code">CS 3110</span>
@@ -584,8 +577,8 @@ a.archive-item:hover .item-arrow{opacity:1;transform:translateY(-50%) translateX
       <div class="item-subtitle">&#xC778;&#xACF5;&#xC9C0;&#xB2A5; &#xAC1C;&#xB860;</div>
       <div class="item-meta-row">
         <span class="item-meta-val">Mon/Thu 3:00&ndash;4:30</span>
-        <span class="item-meta-val">Eng Hall 201</span>
-        <span class="item-tag ugrad">Undergrad</span>
+        <span class="item-meta-val">Eng 201</span>
+        <span class="item-tag ml">AI</span>
         <span class="archived-badge ">Archived</span>
       </div>
     </div>
@@ -595,94 +588,22 @@ a.archive-item:hover .item-arrow{opacity:1;transform:translateY(-50%) translateX
 </a>
       </ul>
     </div>
-    <div class="semester-group" data-year="2023" data-order="5">
-      <div class="group-heading"><span class="group-label">Spring 2023</span><span class="group-line"></span></div>
-      <ul class="archive-list">
-        <a class="archive-item" href="#" data-level="ugrad" data-title="Algorithms &amp; Complexity" data-school="yonsei">
-  <div class="item-thumb" style="background:linear-gradient(180deg,#0c6478,#6dccdd)"></div>
-  <div class="item-content">
-    <span class="item-code">CS 3310</span>
-    <div class="item-main">
-      <div class="item-title">Algorithms &amp; Complexity</div>
-      <div class="item-subtitle">&#xC54C;&#xACE0;&#xB9AC;&#xC998;</div>
-      <div class="item-meta-row">
-        <span class="item-meta-val">Mon/Wed 10:30&ndash;12:00</span>
-        <span class="item-meta-val">Science Hall B-12</span>
-        <span class="item-tag ugrad">Undergrad</span>
-        <span class="archived-badge ">Archived</span>
-      </div>
-    </div>
-  </div>
-  <span class="item-arrow">&#x2192;</span>
-  <div class="uni-badge"><span class="ub-abbr">YU</span><span>&#xC5F0;&#xC138;</span></div>
-</a>
-        <a class="archive-item" href="#" data-level="grad" data-title="ML for Systems" data-school="kaist">
-  <div class="item-thumb" style="background:linear-gradient(180deg,#0e6490,#1d4ed8)"></div>
-  <div class="item-content">
-    <span class="item-code">CS 4910</span>
-    <div class="item-main">
-      <div class="item-title">ML for Systems</div>
-      <div class="item-subtitle">&#xC2DC;&#xC2A4;&#xD15C; ML</div>
-      <div class="item-meta-row">
-        <span class="item-meta-val">Tue/Thu 1:00&ndash;2:30</span>
-        <span class="item-meta-val">N1 Bldg 115</span>
-        <span class="item-tag grad">Graduate</span>
-        <span class="archived-badge ">Archived</span>
-      </div>
-    </div>
-  </div>
-  <span class="item-arrow">&#x2192;</span>
-  <div class="uni-badge"><span class="ub-abbr">KA</span><span>&#xCE74;&#xC774;&#xC2A4;&#xD2B8;</span></div>
-</a>
-        <a class="archive-item" href="#" data-level="seminar" data-title="Seminar: Alignment &amp; Safety" data-school="korea">
-  <div class="item-thumb" style="background:linear-gradient(180deg,#7c2d12,#831843)"></div>
-  <div class="item-content">
-    <span class="item-code">CS 6002</span>
-    <div class="item-main">
-      <div class="item-title">Seminar: Alignment &amp; Safety</div>
-      <div class="item-subtitle">&#xC815;&#xB82C; &#xC138;&#xBBF8;&#xB098;</div>
-      <div class="item-meta-row">
-        <span class="item-meta-val">Thu 5:00&ndash;7:00</span>
-        <span class="item-meta-val">Hwajung Hall 401</span>
-        <span class="item-tag seminar">Seminar</span>
-        <span class="archived-badge ">Archived</span>
-      </div>
-    </div>
-  </div>
-  <span class="item-arrow">&#x2192;</span>
-  <div class="uni-badge"><span class="ub-abbr">KU</span><span>&#xACE0;&#xB824;</span></div>
-</a>
-      </ul>
-    </div>
   </div><!-- /semester-view -->
 
-  <!-- University view (shown when sort=uni) -->
   <div id="uni-view" style="display:none">
-    <div class="semester-group">
-      <div class="group-heading"><span class="group-label">&#xC5F0;&#xC138;&#xB300; &mdash; Yonsei University</span><span class="group-line"></span></div>
-      <ul class="archive-list" id="uni-yonsei"></ul>
-    </div>
-    <div class="semester-group">
-      <div class="group-heading"><span class="group-label">KAIST</span><span class="group-line"></span></div>
-      <ul class="archive-list" id="uni-kaist"></ul>
-    </div>
-    <div class="semester-group">
-      <div class="group-heading"><span class="group-label">&#xC131;&#xADE0;&#xAD00;&#xB300; &mdash; Sungkyunkwan</span><span class="group-line"></span></div>
-      <ul class="archive-list" id="uni-skku"></ul>
-    </div>
-    <div class="semester-group">
-      <div class="group-heading"><span class="group-label">&#xACE0;&#xB824;&#xB300; &mdash; Korea University</span><span class="group-line"></span></div>
-      <ul class="archive-list" id="uni-korea"></ul>
-    </div>
+    <div class="semester-group"><div class="group-heading"><span class="group-label">&#xC5F0;&#xC138;&#xB300; &mdash; Yonsei</span><span class="group-line"></span></div><ul class="archive-list" id="uni-yonsei"></ul></div>
+    <div class="semester-group"><div class="group-heading"><span class="group-label">KAIST</span><span class="group-line"></span></div><ul class="archive-list" id="uni-kaist"></ul></div>
+    <div class="semester-group"><div class="group-heading"><span class="group-label">&#xC131;&#xADE0;&#xAD00;&#xB300; &mdash; Sungkyunkwan</span><span class="group-line"></span></div><ul class="archive-list" id="uni-skku"></ul></div>
+    <div class="semester-group"><div class="group-heading"><span class="group-label">&#xACE0;&#xB824;&#xB300; &mdash; Korea University</span><span class="group-line"></span></div><ul class="archive-list" id="uni-korea"></ul></div>
   </div>
 </section>
 </div><footer>
   <div class="footer-grid">
-    <div class="f-col"><span class="f-brand">Prof. J. Kim</span><span>Associate Professor &middot; CS</span><span>PAI Lab (Physical AI)</span><a href="mailto:jkim@yonsei.ac.kr">jkim@yonsei.ac.kr</a></div>
+    <div class="f-col"><span class="f-brand">Aaron Snowberger</span><span>Associate Professor &middot; CS</span><span>PAI Lab (Physical AI)</span><a href="mailto:snowberger@yonsei.ac.kr">snowberger@yonsei.ac.kr</a></div>
     <div class="f-col"><span class="f-heading">Teaching</span><a href="index.html">Current Courses</a><a href="archive.html">Course Archive</a><a href="policies.html">Academic Policies</a></div>
     <div class="f-col"><span class="f-heading">Connect</span><a href="#">Google Scholar</a><a href="#">GitHub</a><a href="#">PAI Lab &#x2192;</a><a href="#">CV / Resume</a></div>
   </div>
-  <div class="footer-bottom"><span class="footer-copy">&copy; 2025 J. Kim</span><span class="footer-updated">Last updated April 2025</span></div>
+  <div class="footer-bottom"><span class="footer-copy">&copy; 2025 Aaron Snowberger</span><span class="footer-updated">Last updated April 2025</span></div>
 </footer>
 <script>
 function applyTheme(t){
@@ -727,53 +648,39 @@ if(_tt){
 }
 
 let aF='all',aY='all',aSort='newest';
-function runArcFilters(){
-  const semView=document.getElementById('semester-view');
-  const uniView=document.getElementById('uni-view');
+function runArc(){
+  const sv=document.getElementById('semester-view'),uv=document.getElementById('uni-view');
   const lbl=document.getElementById('group-mode-label');
   if(aSort==='uni'){
-    semView.style.display='none';uniView.style.display='';
+    sv.style.display='none';uv.style.display='';
     if(lbl)lbl.textContent='By University';
-    // populate uni lists from semester items
     ['yonsei','kaist','skku','korea'].forEach(s=>{
       const list=document.getElementById('uni-'+s);
-      if(!list)return;
-      list.innerHTML='';
-      document.querySelectorAll('#semester-view a.archive-item[data-school="'+s+'"]').forEach(item=>{
-        const clone=item.cloneNode(true);
-        list.appendChild(clone);
-      });
+      if(!list)return;list.innerHTML='';
+      sv.querySelectorAll(`a.archive-item[data-school="${s}"]`).forEach(item=>list.appendChild(item.cloneNode(true)));
     });
     return;
   }
-  semView.style.display='';uniView.style.display='none';
+  sv.style.display='';uv.style.display='none';
   if(lbl)lbl.textContent='By Semester';
-  const groups=[...document.querySelectorAll('#semester-view .semester-group')];
-  if(aSort==='newest')groups.sort((a,b)=>+a.dataset.order-+b.dataset.order);
-  else if(aSort==='oldest')groups.sort((a,b)=>+b.dataset.order-+a.dataset.order);
-  groups.forEach(g=>semView.appendChild(g));
-  groups.forEach(g=>{
-    const okY=aY==='all'||g.dataset.year===aY;
-    g.classList.toggle('hidden',!okY);
-  });
-  document.querySelectorAll('#semester-view .semester-group:not(.hidden)').forEach(g=>{
+  const gs=[...sv.querySelectorAll('.semester-group')];
+  gs.sort((a,b)=>aSort==='oldest'?+b.dataset.order-+a.dataset.order:+a.dataset.order-+b.dataset.order);
+  gs.forEach(g=>sv.appendChild(g));
+  gs.forEach(g=>{g.classList.toggle('hidden',aY!=='all'&&g.dataset.year!==aY)});
+  sv.querySelectorAll('.semester-group:not(.hidden)').forEach(g=>{
     const items=[...g.querySelectorAll('a.archive-item')];
     let any=false;
     items.forEach(item=>{
-      const vis=aF==='all'||(aF===item.dataset.level);
+      const vis=aF==='all'||item.dataset.level===aF;
       item.style.display=vis?'':'none';if(vis)any=true;
     });
     if(!any&&aF!=='all')g.classList.add('hidden');
   });
-  if(aSort==='az'){
-    document.querySelectorAll('#semester-view .archive-list').forEach(list=>{
-      [...list.querySelectorAll('a.archive-item')].sort((a,b)=>(a.dataset.title||'').localeCompare(b.dataset.title||'')).forEach(i=>list.appendChild(i));
-    });
-  }
+  if(aSort==='az')sv.querySelectorAll('.archive-list').forEach(list=>{[...list.querySelectorAll('a.archive-item')].sort((a,b)=>(a.dataset.title||'').localeCompare(b.dataset.title||'')).forEach(i=>list.appendChild(i))});
 }
-document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');aF=b.dataset.filter;document.querySelectorAll('a.archive-item').forEach(i=>i.style.display='');runArcFilters()}));
-document.querySelectorAll('[data-year]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-year]').forEach(x=>x.classList.remove('active'));b.classList.add('active');aY=b.dataset.year;document.querySelectorAll('.semester-group').forEach(g=>{g.classList.remove('hidden');[...g.querySelectorAll('a.archive-item')].forEach(i=>i.style.display='')});runArcFilters()}));
-document.querySelectorAll('[data-sort]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-sort]').forEach(x=>x.classList.remove('active'));b.classList.add('active');aSort=b.dataset.sort;runArcFilters()}));
+document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');aF=b.dataset.filter;document.querySelectorAll('a.archive-item').forEach(i=>i.style.display='');runArc()}));
+document.querySelectorAll('[data-year]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-year]').forEach(x=>x.classList.remove('active'));b.classList.add('active');aY=b.dataset.year;document.querySelectorAll('.semester-group').forEach(g=>{g.classList.remove('hidden');g.querySelectorAll('a.archive-item').forEach(i=>i.style.display='')});runArc()}));
+document.querySelectorAll('[data-sort]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-sort]').forEach(x=>x.classList.remove('active'));b.classList.add('active');aSort=b.dataset.sort;runArc()}));
 </script>
 </body>
 </html>

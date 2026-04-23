@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Aaron Snowberger — Academic Policies</title>
+<title>Aaron Snowberger — Office Hours</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
 <style>
 :root{--bg:#090910;--surface:#12121e;--border:#22223a;--muted:#55557a;--text:#eeeeff;--sub:#b8b8d8;--accent:#9b65ff;--accent2:#7eb8f7;--accent3:#6dccdd;--warn:#fbbf24;--error:#fb6f84;--tag-bg:#181828;--radius:6px;--nav-bg:rgba(9,9,16,.9)}
@@ -179,63 +179,53 @@ footer{border-top:1px solid var(--border);padding:48px 0 28px;position:relative;
   .ctrl-row-label{display:none}
 }
 
-.pol-section{padding:44px 0 0}
-.policy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:52px}
-a.pol-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:border-color .2s,transform .18s,box-shadow .2s}
-a.pol-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .2s}
-a.pol-card:hover{border-color:#3a3a5a;transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.4)}
-a.pol-card:hover::after{opacity:1}
-.pol-card-body{display:flex;flex-direction:column;gap:8px;padding:18px;flex:1;min-width:0}
-.pol-code{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.08em;padding-right:56px}
-.pol-card-title{font-size:.9rem;font-weight:500;color:var(--text);line-height:1.35}
-.pol-excerpt{position:relative;max-height:82px;overflow:hidden;font-size:.78rem;color:var(--sub);line-height:1.6;flex:1}
-.pol-excerpt::after{content:'';position:absolute;bottom:0;left:0;right:0;height:36px;background:linear-gradient(transparent,var(--surface));pointer-events:none}
-[data-theme=light] .pol-excerpt::after{background:linear-gradient(transparent,#fff)}
-.read-more{display:inline-block;margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.04em;pointer-events:none;transition:letter-spacing .2s}
-a.pol-card:hover .read-more{letter-spacing:.08em}
-.pol-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
-.pol-tag{font-family:'IBM Plex Mono',monospace;font-size:.62rem;padding:2px 8px;border-radius:3px;background:var(--tag-bg);border:1px solid var(--border);color:var(--muted);letter-spacing:.04em}
-.pol-tag.core{color:var(--accent);border-color:rgba(155,101,255,.3)}
-.pol-tag.ai-p{color:#c084fc;border-color:#3a2a5a}
-.pol-tag.assess{color:var(--accent2);border-color:rgba(126,184,247,.25)}
-.pol-tag.conduct{color:var(--warn);border-color:#3a2e0a}
-.pol-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:4px}
-.pol-updated{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted)}
-.pol-arrow{font-size:.75rem;color:var(--muted);opacity:0;transition:opacity .18s,transform .18s}
-a.pol-card:hover .pol-arrow{opacity:1;transform:translateX(3px)}
-.uni-badge{position:absolute;top:14px;right:14px;width:50px;height:50px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.56rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text);border:1.5px solid var(--text);opacity:.12;pointer-events:none;user-select:none;line-height:1.3;text-align:center}
-.uni-badge .ub-abbr{font-size:.72rem}
-/* List */
-.list-section{padding:0 0 52px}
-.section-heading{display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.section-label{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
-.section-line{flex:1;height:1px;background:var(--border)}
-.pol-list{list-style:none}
-a.pol-list-item{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:background .15s;margin:0 -28px;padding-left:28px;padding-right:28px}
-a.pol-list-item:first-child{border-top:1px solid var(--border)}
-a.pol-list-item:hover{background:var(--surface)}
-.pl-num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);width:28px;flex-shrink:0}
-.pl-content{flex:1;min-width:0}
-.pl-title{font-size:.92rem;font-weight:500;color:var(--text);line-height:1.35}
-.pl-desc{font-size:.78rem;color:var(--muted);margin-top:3px;line-height:1.5}
-.pl-meta{display:flex;gap:10px;flex-shrink:0;align-items:center}
-.pl-date{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted);white-space:nowrap}
-.pl-arrow{font-size:.75rem;color:var(--muted);opacity:0;transition:opacity .15s,transform .15s}
-a.pol-list-item:hover .pl-arrow{opacity:1;transform:translateX(3px)}
-/* FAQ - Playfair headers */
-.faq-section{padding:0 0 64px}
-.faq-list{list-style:none}
-.faq-item{border-bottom:1px solid var(--border)}
-.faq-item:first-child{border-top:1px solid var(--border)}
-.faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 0;cursor:pointer;background:none;border:none;width:100%;text-align:left;font-family:'Playfair Display','DM Serif Display',serif;font-size:1.05rem;font-weight:700;color:var(--text);transition:color .2s;gap:16px;line-height:1.3}
-.faq-q:hover{color:var(--accent)}
-.faq-chevron{font-size:.7rem;color:var(--muted);transition:transform .25s;flex-shrink:0;font-family:'IBM Plex Mono',monospace}
-.faq-item.open .faq-chevron{transform:rotate(180deg)}
-.faq-item.open .faq-q{color:var(--accent)}
-.faq-a{display:none;padding:0 0 18px 0;font-size:.88rem;color:var(--sub);line-height:1.8;max-width:640px}
-.faq-a p+p{margin-top:10px}
-.faq-item.open .faq-a{display:block}
-@media(max-width:700px){.policy-grid{grid-template-columns:1fr}.pl-desc{display:none}}
+.oh-page{padding:40px 0 72px}
+/* Today highlight */
+.today-strip{background:var(--surface);border-bottom:1px solid var(--border);padding:6px 28px;display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);position:relative;z-index:1}
+.today-dot{width:7px;height:7px;border-radius:50%;background:var(--accent3);flex-shrink:0;box-shadow:0 0 8px var(--accent3)}
+.today-school-txt{color:var(--sub)}
+/* Schedule grid */
+.week-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:28px}
+.day-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;position:relative;overflow:hidden;transition:border-color .2s}
+.day-card.today-card{border-color:var(--accent);box-shadow:0 0 20px rgba(155,101,255,.12)}
+.day-card.today-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.day-name{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}
+.day-school{font-size:.9rem;font-weight:500;color:var(--text);line-height:1.3;margin-bottom:6px}
+.day-school-kr{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--muted)}
+.day-oh{margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.day-oh-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:4px}
+.day-oh-time{font-size:.82rem;color:var(--accent2)}
+.day-oh-room{font-size:.75rem;color:var(--muted);font-family:'IBM Plex Mono',monospace}
+.today-chip-sm{position:absolute;top:14px;right:14px;font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(155,101,255,.15);color:var(--accent);border:1px solid rgba(155,101,255,.3);border-radius:3px;padding:2px 6px}
+/* Contact cards */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;position:relative;overflow:hidden}
+.contact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.contact-card.primary::before{background:linear-gradient(90deg,#fee500,#fbbf24)}
+.contact-card.secondary::before{background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.contact-card.tertiary::before{background:linear-gradient(90deg,var(--accent2),var(--accent3))}
+.contact-rank{font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;display:block}
+.contact-name{font-size:.95rem;font-weight:500;color:var(--text);margin-bottom:6px}
+.contact-desc{font-size:.78rem;color:var(--sub);line-height:1.6;margin-bottom:12px}
+.contact-link{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.04em;text-decoration:none;padding:6px 14px;border-radius:var(--radius);border:1px solid var(--border);color:var(--sub);background:linear-gradient(to right,var(--accent) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%;transition:background-position .32s ease,color .2s}
+.contact-link:hover{background-position:0;color:#fff;border-color:var(--accent)}
+/* Booking section */
+.booking-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-top:14px;display:flex;gap:28px;align-items:flex-start;position:relative;overflow:hidden}
+.booking-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3))}
+.booking-text{flex:1}
+.booking-text h3{font-family:'Playfair Display','DM Serif Display',serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:8px}
+.booking-text p{font-size:.85rem;color:var(--sub);line-height:1.75;margin-bottom:14px}
+.booking-recommend{background:rgba(126,184,247,.06);border:1px solid rgba(126,184,247,.2);border-radius:var(--radius);padding:12px 16px;font-size:.82rem;color:var(--sub)}
+.booking-recommend strong{color:var(--accent2);font-weight:500}
+.booking-actions{display:flex;flex-direction:column;gap:8px;flex-shrink:0;min-width:150px}
+.book-btn{display:flex;align-items:center;justify-content:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.04em;text-decoration:none;padding:9px 18px;border-radius:var(--radius);border:1px solid var(--border);color:var(--sub);background:linear-gradient(to right,var(--accent2) 50%,var(--surface) 50%);background-size:205% 100%;background-position:100%;transition:background-position .32s ease,color .2s}
+.book-btn:hover{background-position:0;color:var(--bg);border-color:var(--accent2)}
+/* Section headings */
+.oh-heading{display:flex;align-items:center;gap:14px;margin:36px 0 18px}
+.oh-label{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
+.oh-line{flex:1;height:1px;background:var(--border)}
+@media(max-width:800px){.week-grid{grid-template-columns:repeat(3,1fr)}.contact-grid{grid-template-columns:1fr}.booking-box{flex-direction:column}.booking-actions{flex-direction:row}}
+@media(max-width:500px){.week-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -298,50 +288,109 @@ a.pol-list-item:hover .pl-arrow{opacity:1;transform:translateX(3px)}
     </div>
   </div>
 </nav>
+<div class="today-strip" id="today-strip">
+  <span class="today-dot"></span>
+  <span id="today-text">Loading&hellip;</span>
+</div>
 <div class="wrap">
 <header>
-  <p class="eyebrow animate d1">Course Policies &amp; Expectations</p>
-  <h1 class="animate d2">Academic<br><em>Policies</em></h1>
-  <p class="hero-desc animate d3" style="margin-top:28px;border-left:2px solid var(--border);padding-left:18px">These policies apply to all of my courses unless the specific course syllabus states otherwise. Please read carefully before the semester begins.</p>
+  <p class="eyebrow animate d1">Availability &amp; Contact</p>
+  <h1 class="animate d2">Office<br><em>Hours</em></h1>
+  <p class="hero-desc animate d3" style="margin-top:28px;border-left:2px solid var(--border);padding-left:18px">I teach at a different campus each weekday. Office hours are typically held <strong style="color:var(--text)">immediately after class</strong> at the day's campus. For quick questions, KakaoTalk is always the fastest route.</p>
 </header>
-<section class="pol-section">
-  <div class="section-heading animate d3"><span class="section-label">Featured Policies</span><span class="section-line"></span></div>
-  <div class="policy-grid animate d4">
-<a class="pol-card" href="policy-ai.html">
-  <div class="pol-card-body"><span class="pol-code">POL &mdash; 01</span><div class="pol-card-title">AI &amp; ChatGPT Use Policy</div>
-  <div class="pol-excerpt">Generative AI tools (ChatGPT, Claude, Copilot) are permitted under specific conditions. All submitted work must reflect your own understanding. AI use must be disclosed. In exams, AI is strictly prohibited unless stated otherwise.</div><span class="read-more">Read full policy &#x2192;</span>
-  <div class="pol-tags"><span class="pol-tag ai-p">AI Tools</span><span class="pol-tag core">Core</span></div>
-  <div class="pol-card-footer"><span class="pol-updated">Updated Jan 2025</span><span class="pol-arrow">&#x2192;</span></div>
-  </div><div class="uni-badge"><span class="ub-abbr">AS</span><span>YU</span></div>
-</a>
-<a class="pol-card" href="policies.html">
-  <div class="pol-card-body"><span class="pol-code">POL &mdash; 02</span><div class="pol-card-title">Grading Policy</div>
-  <div class="pol-excerpt">Assignments 40%, Midterm 25%, Final 30%, Participation 5%. Standard letter scale. Late submissions penalized 10%/day without approved extension. Grade appeals in writing within two weeks.</div><span class="read-more">Read full policy &#x2192;</span>
-  <div class="pol-tags"><span class="pol-tag assess">Grading</span><span class="pol-tag core">Core</span></div>
-  <div class="pol-card-footer"><span class="pol-updated">Updated Aug 2024</span><span class="pol-arrow">&#x2192;</span></div>
-  </div><div class="uni-badge"><span class="ub-abbr">AS</span><span>YU</span></div>
-</a>
-<a class="pol-card" href="policies.html">
-  <div class="pol-card-body"><span class="pol-code">POL &mdash; 03</span><div class="pol-card-title">Assignment &amp; Collaboration</div>
-  <div class="pol-excerpt">Unless labeled as group work, all assignments must be individual. High-level discussion is ok; code and writing must be yours. Plagiarism detection is used. Violations result in a failing grade.</div><span class="read-more">Read full policy &#x2192;</span>
-  <div class="pol-tags"><span class="pol-tag conduct">Integrity</span><span class="pol-tag core">Core</span></div>
-  <div class="pol-card-footer"><span class="pol-updated">Updated Aug 2024</span><span class="pol-arrow">&#x2192;</span></div>
-  </div><div class="uni-badge"><span class="ub-abbr">AS</span><span>YU</span></div>
-</a>
+
+<div class="oh-page">
+  <div class="oh-heading animate d3"><span class="oh-label">Weekly Campus Schedule</span><span class="oh-line"></span></div>
+  <div class="week-grid animate d4" id="week-grid">
+    <div class="day-card" data-day="1">
+      <div class="day-name">Monday</div>
+      <div class="day-school">Yonsei University</div>
+      <div class="day-school-kr">&#xC5F0;&#xC138;&#xB300;&#xD559;&#xAD50;</div>
+      <div class="day-oh">
+        <span class="day-oh-label">Office Hours</span>
+        <div class="day-oh-time">2:00&ndash;4:00 PM</div>
+        <div class="day-oh-room">Eng Hall 412</div>
+      </div>
+    </div>
+    <div class="day-card" data-day="2">
+      <div class="day-name">Tuesday</div>
+      <div class="day-school">KAIST</div>
+      <div class="day-school-kr">&#xCE74;&#xC774;&#xC2A4;&#xD2B8;</div>
+      <div class="day-oh">
+        <span class="day-oh-label">Office Hours</span>
+        <div class="day-oh-time">11:00 AM&ndash;1:00 PM</div>
+        <div class="day-oh-room">N1 Building 306</div>
+      </div>
+    </div>
+    <div class="day-card" data-day="3">
+      <div class="day-name">Wednesday</div>
+      <div class="day-school">Sungkyunkwan University</div>
+      <div class="day-school-kr">&#xC131;&#xADE0;&#xAD00;&#xB300;&#xD559;&#xAD50;</div>
+      <div class="day-oh">
+        <span class="day-oh-label">Office Hours</span>
+        <div class="day-oh-time">3:00&ndash;5:00 PM</div>
+        <div class="day-oh-room">Eng Hall 203</div>
+      </div>
+    </div>
+    <div class="day-card" data-day="4">
+      <div class="day-name">Thursday</div>
+      <div class="day-school">Hanyang University</div>
+      <div class="day-school-kr">&#xD55C;&#xC591;&#xB300;&#xD559;&#xAD50;</div>
+      <div class="day-oh">
+        <span class="day-oh-label">Office Hours</span>
+        <div class="day-oh-time">After class / by appt.</div>
+        <div class="day-oh-room">HIT Bldg lobby</div>
+      </div>
+    </div>
+    <div class="day-card" data-day="5">
+      <div class="day-name">Friday</div>
+      <div class="day-school">Korea University</div>
+      <div class="day-school-kr">&#xACE0;&#xB824;&#xB300;&#xD559;&#xAD50;</div>
+      <div class="day-oh">
+        <span class="day-oh-label">Office Hours</span>
+        <div class="day-oh-time">After seminar / by appt.</div>
+        <div class="day-oh-room">Anam Campus</div>
+      </div>
+    </div>
   </div>
-  <div class="list-section">
-    <div class="section-heading"><span class="section-label">All Policies</span><span class="section-line"></span></div>
-    <ul class="pol-list">
-<li><a class="pol-list-item" href="policy-ai.html"><span class="pl-num">01</span><div class="pl-content"><div class="pl-title">AI &amp; ChatGPT Use Policy</div><div class="pl-desc">Rules on generative AI, disclosure requirements, and exam restrictions.</div></div><div class="pl-meta"><span class="pl-date">Jan 2025</span><span class="pl-arrow">&#x2192;</span></div></a></li><li><a class="pol-list-item" href="policies.html"><span class="pl-num">02</span><div class="pl-content"><div class="pl-title">Grading Policy</div><div class="pl-desc">Grade breakdown, late penalties, and grade appeal procedures.</div></div><div class="pl-meta"><span class="pl-date">Aug 2024</span><span class="pl-arrow">&#x2192;</span></div></a></li><li><a class="pol-list-item" href="policies.html"><span class="pl-num">03</span><div class="pl-content"><div class="pl-title">Assignment &amp; Collaboration</div><div class="pl-desc">Individual vs. group work, plagiarism, code sharing rules.</div></div><div class="pl-meta"><span class="pl-date">Aug 2024</span><span class="pl-arrow">&#x2192;</span></div></a></li><li><a class="pol-list-item" href="policies.html"><span class="pl-num">04</span><div class="pl-content"><div class="pl-title">Exam &amp; Assessment Policy</div><div class="pl-desc">Closed-book rules, makeup exams, disability accommodations.</div></div><div class="pl-meta"><span class="pl-date">Aug 2024</span><span class="pl-arrow">&#x2192;</span></div></a></li><li><a class="pol-list-item" href="policies.html"><span class="pl-num">05</span><div class="pl-content"><div class="pl-title">Attendance &amp; Participation</div><div class="pl-desc">Excused absences, participation grading, maximum absences.</div></div><div class="pl-meta"><span class="pl-date">Mar 2025</span><span class="pl-arrow">&#x2192;</span></div></a></li><li><a class="pol-list-item" href="policies.html"><span class="pl-num">06</span><div class="pl-content"><div class="pl-title">Office Hours &amp; Communication</div><div class="pl-desc">OH schedule, email response policy, grade discussion rules.</div></div><div class="pl-meta"><span class="pl-date">Jan 2025</span><span class="pl-arrow">&#x2192;</span></div></a></li><li><a class="pol-list-item" href="policies.html"><span class="pl-num">07</span><div class="pl-content"><div class="pl-title">Recording &amp; Sharing Policy</div><div class="pl-desc">Rules on recording lectures and sharing course materials.</div></div><div class="pl-meta"><span class="pl-date">Jan 2025</span><span class="pl-arrow">&#x2192;</span></div></a></li>
-    </ul>
+
+  <div class="oh-heading"><span class="oh-label">How to Reach Me</span><span class="oh-line"></span></div>
+  <div class="contact-grid">
+    <div class="contact-card primary">
+      <span class="contact-rank">&#x2460; Quickest</span>
+      <div class="contact-name">KakaoTalk Open Chat</div>
+      <p class="contact-desc">Best for quick questions, logistics, and anything time-sensitive. I check this regularly throughout the day.</p>
+      <a href="#" class="contact-link" style="background:linear-gradient(to right,#fee500 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%">&#x1F4AC; Open KakaoTalk</a>
+    </div>
+    <div class="contact-card secondary">
+      <span class="contact-rank">&#x2461; Formal</span>
+      <div class="contact-name">Email</div>
+      <p class="contact-desc">For formal requests, documentation, or anything requiring a written record. Please include your student ID and course in the subject line. Response within 48 hrs.</p>
+      <a href="mailto:snowberger@yonsei.ac.kr" class="contact-link">&#x2709; Send Email</a>
+    </div>
+    <div class="contact-card tertiary">
+      <span class="contact-rank">&#x2462; In Person</span>
+      <div class="contact-name">On Campus</div>
+      <p class="contact-desc">Find me after class at the campus where I teach that day. No appointment needed during posted office hours. For other times, please email first.</p>
+      <a href="#week-grid" class="contact-link">&#x1F4CD; See Schedule &#x2191;</a>
+    </div>
   </div>
-  <div class="faq-section">
-    <div class="section-heading"><span class="section-label">Frequently Asked Questions</span><span class="section-line"></span></div>
-    <ul class="faq-list">
-<li class="faq-item"><button class="faq-q"><span>Can I use ChatGPT to help write my assignments?</span><span class="faq-chevron">&#x25BE;</span></button><div class="faq-a"><p>Yes, with proper disclosure. You may use AI for brainstorming, concept exploration, and debugging code. All submitted writing and analysis must be your own. Add a disclosure statement at the end of any submission where AI was used, specifying the tool and how it was used.</p></div></li><li class="faq-item"><button class="faq-q"><span>What happens if I miss an exam?</span><span class="faq-chevron">&#x25BE;</span></button><div class="faq-a"><p>Makeup exams are only permitted for documented medical emergencies or official university conflicts. Notify me at least 48 hours in advance when possible. Simply forgetting or misreading the schedule does not qualify.</p></div></li><li class="faq-item"><button class="faq-q"><span>How do I appeal a grade?</span><span class="faq-chevron">&#x25BE;</span></button><div class="faq-a"><p>Submit a written regrade request within two weeks. Email a clear, specific explanation of which problem was graded incorrectly and why. Regrading may result in a higher or lower score.</p></div></li><li class="faq-item"><button class="faq-q"><span>How many absences are allowed?</span><span class="faq-chevron">&#x25BE;</span></button><div class="faq-a"><p>Up to three unexcused absences without penalty. Each additional absence reduces your participation grade by 1%. Documented absences for illness or emergency are excused if submitted within one week.</p></div></li><li class="faq-item"><button class="faq-q"><span>Can I submit assignments late?</span><span class="faq-chevron">&#x25BE;</span></button><div class="faq-a"><p>Late submissions are penalized 10% per calendar day without an approved extension. Ask before the deadline, not after.</p></div></li>
-    </ul>
+
+  <div class="oh-heading"><span class="oh-label">Booking an Appointment</span><span class="oh-line"></span></div>
+  <div class="booking-box">
+    <div class="booking-text">
+      <h3>Want to schedule a meeting?</h3>
+      <p>For meetings outside of regular office hours, or if you need a guaranteed time slot, I recommend using <strong style="color:var(--accent2)">Cal.com</strong> &mdash; a free, open-source scheduling tool where you can see my available slots and book directly. No more back-and-forth emails.</p>
+      <div class="booking-recommend">
+        <strong>Recommended:</strong> <strong>Cal.com</strong> (free) &mdash; set up once, students book on their own. Supports multiple time zones. Alternatively, <strong>Calendly</strong> works just as well. Both can be embedded on any page of this site.
+      </div>
+    </div>
+    <div class="booking-actions">
+      <a href="https://cal.com" target="_blank" class="book-btn">&#x1F4C5; Book on Cal.com</a>
+      <a href="mailto:snowberger@yonsei.ac.kr?subject=Meeting Request" class="book-btn">&#x2709; Email Instead</a>
+    </div>
   </div>
-</section>
+</div>
 </div><footer>
   <div class="footer-grid">
     <div class="f-col"><span class="f-brand">Aaron Snowberger</span><span>Associate Professor &middot; CS</span><span>PAI Lab (Physical AI)</span><a href="mailto:snowberger@yonsei.ac.kr">snowberger@yonsei.ac.kr</a></div>
@@ -391,6 +440,17 @@ if(_tt){
     if(ic)ic.textContent=a?'\u229F':'\u229E';
   });
 }
-document.querySelectorAll('.faq-q').forEach(b=>{b.addEventListener('click',()=>{const i=b.closest('.faq-item');const w=i.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(x=>x.classList.remove('open'));if(!w)i.classList.add('open')})})</script>
+
+const sched2={1:'Yonsei University',2:'KAIST',3:'Sungkyunkwan University',4:'Hanyang University',5:'Korea University'};
+(()=>{
+  const strip=document.getElementById('today-strip'),txt=document.getElementById('today-text');
+  const d=new Date().getDay();
+  if(sched2[d]){
+    txt.innerHTML='Today at: <span class="today-school-txt">'+sched2[d]+'</span>';
+    const card=document.querySelector(`.day-card[data-day="${d}"]`);
+    if(card){card.classList.add('today-card');card.insertAdjacentHTML('afterbegin','<span class="today-chip-sm">Today</span>');}
+  }else{txt.innerHTML='No classes today &mdash; enjoy the weekend!';strip.style.setProperty('--accent3','var(--muted)');}
+})();
+</script>
 </body>
 </html>
