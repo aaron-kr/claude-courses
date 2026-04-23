@@ -3,9 +3,9 @@
 # date format: YYYY-MM-DD
 # type: info | warn | error  (maps to CSS color variables)
 
-# - date: 2026-04-23
-#   type: warn
-#   title: Midterm Week
-#   title_ko: 중간고사 기간
-#   body: All midterm exams are scheduled the week of April 28–May 2. Check your course page for details.
-#   body_ko: 4월 28일~5월 2일 중간고사가 예정되어 있습니다. 세부 사항은 강의 페이지를 확인하세요.
+- date: 2026-04-24
+  type: info
+  title: Site Redesign
+  title_ko: 사이트 개편
+  body: Welcome to the newly redesigned courses site — now built with Jekyll on GitHub Pages. Courses, schedules, and policies are updated for Spring 2026.
+  body_ko: Jekyll 기반으로 새롭게 개편된 강좌 사이트에 오신 것을 환영합니다. 강좌, 강의 일정, 규정이 2026년 1학기에 맞게 업데이트되었습니다.

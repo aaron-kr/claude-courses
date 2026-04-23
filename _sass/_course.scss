@@ -210,11 +210,20 @@
 .instructor-links { display: flex; flex-direction: column; gap: 4px; a { font-family: 'IBM Plex Mono', monospace; font-size: .7rem; color: var(--sub); text-decoration: none; transition: color .2s; &:hover { color: var(--accent3); } } }
 .instructor-bio { font-size: .88rem; color: var(--sub); line-height: 1.7; margin-top: 16px; }
 
-// ── Policies embedded section ────────────────────────────────────────────────
+// ── Policy content — Markdown-rendered ───────────────────────────────────────
 .policy-content {
+  h3 { font-size: 1rem; font-weight: 500; color: var(--text); margin: 1.6rem 0 .6rem; }
   h4 { font-family: 'IBM Plex Mono', monospace; font-size: .72rem; color: var(--accent2); text-transform: uppercase; letter-spacing: .1em; margin: 1.5rem 0 .5rem; }
-  ul { margin-bottom: 1rem; }
-  p  { font-size: .88rem; }
+  h5 { font-size: .88rem; font-weight: 500; color: var(--sub); margin: 1.2rem 0 .4rem; }
+  p  { font-size: .9rem; color: var(--sub); line-height: 1.8; margin-bottom: .9rem; }
+  ul, ol { margin: .5rem 0 1rem 1.4rem; li { margin-bottom: .35rem; font-size: .9rem; color: var(--sub); } }
+  strong { color: var(--text); }
+  a  { color: var(--accent2); &:hover { color: var(--accent); } }
+  code { font-size: .8em; }
+  hr { margin: 1.5rem 0; }
+  pre { background: var(--tag-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; overflow-x: auto; margin-bottom: 1rem;
+    code { background: none; border: none; padding: 0; font-size: .8rem; }
+  }
 }
 
 // ── Responsive ───────────────────────────────────────────────────────────────

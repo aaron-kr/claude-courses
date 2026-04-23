@@ -32,6 +32,17 @@
   --nav-bg: #{$nav-bg-light};
 }
 
+// ── i18n language toggle ──────────────────────────────────────────────────────
+// .lang-ko elements hidden by default (English is default)
+// When <html class="ko"> is set by JS, flip visibility
+.lang-ko { display: none; }
+html.ko .lang-en { display: none; }
+html.ko .lang-ko { display: inline; }
+// Block-level variants (for divs/paragraphs)
+.lang-ko-block { display: none; }
+html.ko .lang-en-block { display: none; }
+html.ko .lang-ko-block { display: block; }
+
 // ── Reset ────────────────────────────────────────────────────────────────────
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -97,9 +108,12 @@ body::before {
 }
 
 // ── Typography ───────────────────────────────────────────────────────────────
+// Slightly larger base font on wider screens (10-15% boost via clamp)
+html { font-size: clamp(15px, 1.05vw, 17px); }
+
 h1 {
   font-family: 'Playfair Display', 'DM Serif Display', serif;
-  font-size: clamp(2.6rem, 6vw, 4rem);
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: -.02em;
@@ -107,8 +121,8 @@ h1 {
   em { font-style: italic; color: var(--accent); }
 }
 
-h2 { font-family: 'Playfair Display', 'DM Serif Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; }
-h3 { font-size: 1.1rem; font-weight: 500; color: var(--text); margin-bottom: .4rem; }
+h2 { font-family: 'Playfair Display', 'DM Serif Display', serif; font-size: clamp(1.45rem, 2.5vw, 1.8rem); font-weight: 700; color: var(--text); margin-bottom: .5rem; }
+h3 { font-size: clamp(1rem, 1.8vw, 1.2rem); font-weight: 500; color: var(--text); margin-bottom: .4rem; }
 
 a { color: var(--accent2); text-decoration: none; &:hover { color: var(--accent); } }
 

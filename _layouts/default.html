@@ -26,14 +26,21 @@
   );
 
   // ── Language toggle ────────────────────────────────────────────────────────
-  let _lang = 'en';
-  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => {
-    _lang = _lang === 'en' ? 'ko' : 'en';
-    document.querySelectorAll('.lang-btn').forEach(x => x.textContent = _lang === 'en' ? '한국어' : 'English');
+  function applyLang(lang) {
+    document.documentElement.classList.toggle('ko', lang === 'ko');
+    document.querySelectorAll('.lang-btn').forEach(x => x.textContent = lang === 'en' ? '한국어' : 'English');
+    // Legacy data-en / data-ko attribute support
     document.querySelectorAll('[data-en]').forEach(el => {
-      if (_lang === 'ko' && el.dataset.ko) el.textContent = el.dataset.ko;
+      if (lang === 'ko' && el.dataset.ko) el.textContent = el.dataset.ko;
       else el.textContent = el.dataset.en;
     });
+    localStorage.setItem('lang', lang);
+  }
+  let _lang = localStorage.getItem('lang') || 'en';
+  applyLang(_lang);
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => {
+    _lang = _lang === 'en' ? 'ko' : 'en';
+    applyLang(_lang);
   }));
 
   // ── Dropdowns (click only) ─────────────────────────────────────────────────

@@ -12,9 +12,18 @@ a.sched-row {
   gap: 12px;
   &:first-child { border-top: 1px solid var(--border); }
   &:hover { background: var(--surface); }
-  &.no-class .sched-info { text-align: center; }
   &.past   { opacity: .65; }
   &.current { border-left: 2px solid var(--accent3); padding-left: 10px; }
+  // NO CLASS and TEST rows: centered layout, suppress thumbnail
+  &.no-class,
+  &.test-row {
+    justify-content: flex-start;
+    .sched-info {
+      text-align: center;
+      flex: 1;
+    }
+    .sched-week { display: none; }
+  }
 }
 
 .sched-date {
@@ -29,8 +38,10 @@ a.sched-row {
   gap: 2px;
   align-self: center;
   &.holiday .date-day { color: var(--error); font-weight: 500; }
+  &.test-date .date-day { color: var(--warn); font-weight: 500; }
 }
 .holiday-note { font-size: .54rem; color: var(--error); letter-spacing: .06em; text-transform: uppercase; }
+.test-note    { font-size: .54rem; color: var(--warn);  letter-spacing: .06em; text-transform: uppercase; }
 
 .sched-thumb {
   width: 115px;
@@ -47,11 +58,17 @@ a.sched-row {
   img { width: 100%; height: 100%; object-fit: cover; }
 }
 .sched-extra { font-family: 'IBM Plex Mono', monospace; font-size: .5rem; color: rgba(255,255,255,.45); background: rgba(0,0,0,.45); padding: 2px 5px; letter-spacing: .04em; line-height: 1.4; }
-.sched-placeholder { width: 115px; height: 65px; background: linear-gradient(135deg, rgba(155,101,255,.15), rgba(109,204,221,.1)); border-radius: 3px; flex-shrink: 0; }
+
+// Spacer: same dimensions as thumb but invisible — keeps layout aligned for no-class/test rows
+.sched-spacer { width: 115px; height: 65px; flex-shrink: 0; }
 
 .sched-info { flex: 1; min-width: 0; align-self: center; }
 .sched-week { font-family: 'IBM Plex Mono', monospace; font-size: .6rem; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; display: block; }
 .sched-title { font-size: .88rem; font-weight: 500; color: var(--text); line-height: 1.35; margin-top: 2px; }
+.sched-title br + * { margin-top: 0; }
+// Inside test/no-class rows: strip <br> visual border lines
+.no-class .sched-title br,
+.test-row  .sched-title br { display: inline; }
 .sched-subtitle { font-size: .73rem; color: var(--muted); margin-top: 2px; }
 .sched-readings { font-size: .78rem; color: var(--sub); margin-top: 4px; line-height: 1.5; }
 
@@ -62,7 +79,9 @@ a.sched-row {
   align-items: flex-end;
   align-self: center;
   flex-shrink: 0;
-  width: 80px;
+  width: 20%;        // ~20% of row width for notes/resources space
+  min-width: 80px;
+  max-width: 160px;
   min-height: 1px;
 }
 .hw-link {
@@ -81,6 +100,6 @@ a.sched-row {
 }
 
 @media (max-width: 560px) {
-  .sched-thumb, .sched-placeholder { width: 72px; height: 40.5px; }
+  .sched-thumb, .sched-spacer { width: 72px; height: 40.5px; }
   .sched-hw { display: none; }
 }

@@ -91,7 +91,7 @@ claude-courses/
     (+ 2025, 2024, 2023 data files to be added)
 ```
 
-## Current State (as of Session 7 — April 2026)
+## Current State (as of Session 8 — April 2026)
 
 | Component | Status | Notes |
 |---|---|---|
@@ -113,9 +113,19 @@ claude-courses/
 | 2023 courses | ✅ Complete | 7 courses in `_courses/2023/` (all redirect to external sites) |
 | Special/Online courses | ✅ Complete | 5 courses in `_courses/special/` (iksan 2021, hs-python/web 2023, eduonix) |
 | Special data files | ✅ Complete | `_data/2021/iksan_gg_lectures.yml` (nested year subdirectory) |
-| AI Policy page | ✅ Complete | `_pages/policy-ai.md` at `/policies/ai/`; linked from nav + policies page |
+| AI Policy page | ✅ Complete | `_pages/policy-ai.md` at `/policies/ai/`; featured card on policies page |
+| All policy pages | ✅ Complete | Individual pages: attendance, assignments, tests, collaboration, late, AI |
+| Homepage redesign | ✅ Complete | University groups, Research CTA, Lab Notes, profile links, only current courses |
+| Archive redesign | ✅ Complete | List-row layout, filter by semester + university, Show Thumbnails toggle |
+| Course layout | ✅ Complete | Removed policies section; added prereqs, dropcap, grading-type (상대평가) |
+| Schedule include | ✅ Complete | TEST rows centered like NO CLASS; no thumbnail for no-img rows; HW 20% width |
+| i18n toggle | ✅ Complete | `html.ko` class; `lang-en`/`lang-ko` CSS; persists in localStorage |
+| Email obfuscation | ✅ Complete | `@` → `&#064;` in about_aaron, footer |
+| Card thumbnails | ✅ Complete | Full-height left panel (`background-position: left center`) |
+| Font size | ✅ Complete | `html { font-size: clamp(15px, 1.05vw, 17px) }` + larger h1/h2/h3 |
+| Office hours | ✅ Complete | How to Reach Me boxes, Today pill, cal.com booking stub |
+| Nav brand | ✅ Complete | `courses.aaron.kr` |
 | Assets (images) | ⏳ Pending | Must be copied from `../aaronkr-courses.github.io/assets/` |
-| i18n / lang toggle | ⏳ Partial | `data-en`/`data-ko` attrs exist; full toggle not wired |
 
 ## Active TODOs / Next Steps
 
@@ -125,9 +135,11 @@ claude-courses/
 - [ ] **Set GitHub Pages source** to root `/` (not `/docs`)
 
 ### Next sessions
-- [ ] Wire up full i18n toggle (data-en / data-ko attributes on all nav/page elements)
 - [ ] Add a 404.html page
 - [ ] Add `favicon` from Cloudinary
+- [ ] Wire up cal.com booking (user needs to create cal.com/aaronkr account)
+- [ ] Add `tags:` front matter to course files for richer filtering
+- [ ] Apply `lang-en`/`lang-ko` spans to remaining bilingual content in course files
 
 ### Later / Nice to have
 - [ ] Add `sitemap.xml` (auto via jekyll-sitemap plugin)
@@ -145,6 +157,11 @@ claude-courses/
 7. **Dark mode default** — `data-theme="dark"` on `<html>`, toggled via localStorage. Same as HTML prototype.
 8. **Click dropdowns** — NOT hover. Hover was explicitly rejected in earlier sessions.
 9. **Hamburger is an overlay** — `position: fixed`, NOT push-down. Uses `#mobile-backdrop`.
+10. **i18n** — `html.ko` class set by JS on toggle; persisted in `localStorage`. CSS `.lang-ko { display:none }` / `html.ko .lang-en { display:none }`. Use `<span class="lang-en">` / `<span class="lang-ko">` for inline, `lang-en-block`/`lang-ko-block` for block elements. Legacy `data-en`/`data-ko` also supported.
+11. **Card thumbnails** — `a.card` is always `flex-direction:row`. `.card-thumb` hidden by default; `background-position:left center` shows only left half of book. Revealed via `.thumbs-active` class on parent container.
+12. **Archive rows** — `.arch-row.current` uses `::before`/`::after` pseudo-elements for 3px gradient top+bottom border. Filter JS sets `.arch-hidden` on `<li>` elements.
+13. **Policy pages** — Each policy is its own page in `_pages/policy-*.md`. The main `/policies/` page shows a featured card (AI) + list rows. No anchor-only links.
+14. **Email obfuscation** — Always render email as `{{ email | replace: '@', ' &#064; ' }}` in HTML. The `mailto:` href still uses the raw address.
 
 ## Design System
 

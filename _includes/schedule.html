@@ -21,15 +21,27 @@
 {%- for item in lecture_data -%}
   {%- if item.date -%}
     {%- assign item_ts = item.date | date: '%s' | plus: 0 -%}
+    {%- assign title_lower = item.title | downcase -%}
 
     {%- comment -%} Determine row class {%- endcomment -%}
-    {%- if item.title contains 'No Class' or item.skip -%}
+    {%- if title_lower contains 'no class' or title_lower contains '휴강' or item.skip -%}
       {%- assign row_class = 'no-class' -%}
+      {%- assign row_type = 'noclass' -%}
+      {%- assign skip_count = skip_count | plus: 1 -%}
+    {%- elsif title_lower contains 'test' or title_lower contains 'exam' or title_lower contains 'midterm' or title_lower contains 'final' or title_lower contains '시험' -%}
+      {%- assign row_type = 'test' -%}
+      {%- if item_ts < today_ts -%}
+        {%- assign row_class = 'test-row past' -%}
+      {%- else -%}
+        {%- assign row_class = 'test-row' -%}
+      {%- endif -%}
       {%- assign skip_count = skip_count | plus: 1 -%}
     {%- elsif item_ts < today_ts -%}
       {%- assign row_class = 'past' -%}
+      {%- assign row_type = 'normal' -%}
     {%- else -%}
       {%- assign row_class = '' -%}
+      {%- assign row_type = 'normal' -%}
     {%- endif -%}
 
     {%- assign display_week = forloop.index | minus: skip_count -%}
@@ -37,35 +49,39 @@
     <a class="sched-row {{ row_class }}" href="{{ item.slides | default: '#' }}"{% if item.slides %} target="_blank"{% endif %}>
 
       {%- comment -%} Date column {%- endcomment -%}
-      <div class="sched-date{% if item.title contains 'No Class' %} holiday{% endif %}">
+      <div class="sched-date{%- if row_type == 'noclass' %} holiday{%- elsif row_type == 'test' %} test-date{%- endif -%}">
         <span class="date-day">{{ item.date }}</span>
-        {%- if item.title contains 'No Class' -%}
+        {%- if row_type == 'noclass' -%}
         <span class="holiday-note">🔴 휴강</span>
+        {%- elsif row_type == 'test' -%}
+        <span class="test-note">📝 시험</span>
         {%- else -%}
         <span style="color:var(--muted);font-size:.58rem;">Wk {{ display_week }}</span>
         {%- endif -%}
       </div>
 
-      {%- comment -%} Thumbnail column {%- endcomment -%}
-      {%- if item.img -%}
-      <div class="sched-thumb" style="background-image:url('/assets/img/{{ item.img }}')">
-        {%- if item.slides -%}<div class="sched-extra">▶ Slides</div>{%- endif -%}
-      </div>
+      {%- comment -%} Thumbnail / spacer column {%- endcomment -%}
+      {%- if row_type == 'noclass' or row_type == 'test' -%}
+        {%- comment -%} No-class and test rows: spacer only, no image {%- endcomment -%}
+        <div class="sched-spacer"></div>
+      {%- elsif item.img -%}
+        <div class="sched-thumb" style="background-image:url('/assets/img/{{ item.img }}')">
+          {%- if item.slides -%}<div class="sched-extra">▶ Slides</div>{%- endif -%}
+        </div>
       {%- elsif item.img2 -%}
-      <div class="sched-thumb" style="background-image:url('/assets/img/{{ item.img2 }}')">
-        {%- if item.slides -%}<div class="sched-extra">▶ Slides</div>{%- endif -%}
-      </div>
-      {%- elsif row_class == 'no-class' -%}
-      <div style="width:115px;height:65px;flex-shrink:0;"></div>
+        <div class="sched-thumb" style="background-image:url('/assets/img/{{ item.img2 }}')">
+          {%- if item.slides -%}<div class="sched-extra">▶ Slides</div>{%- endif -%}
+        </div>
       {%- else -%}
-      <div class="sched-placeholder"></div>
+        {%- comment -%} Regular row with no image: spacer (no placeholder gradient) {%- endcomment -%}
+        <div class="sched-spacer"></div>
       {%- endif -%}
 
       {%- comment -%} Info column {%- endcomment -%}
       <div class="sched-info">
-        {%- unless item.title contains 'No Class' or item.title contains 'Test' -%}
+        {%- if row_type == 'normal' -%}
         <span class="sched-week">Week {{ display_week }}</span>
-        {%- endunless -%}
+        {%- endif -%}
         <div class="sched-title">{{ item.title }}</div>
         {%- if item.readings -%}
         <div class="sched-readings">📖 {{ item.readings }}</div>
@@ -75,13 +91,13 @@
         {%- endif -%}
       </div>
 
-      {%- comment -%} HW column {%- endcomment -%}
+      {%- comment -%} HW column (~20% width) {%- endcomment -%}
       <div class="sched-hw">
         {%- if item.hw -%}
-        <a href="{{ item.hw }}" class="hw-link" target="_blank" onclick="event.stopPropagation()">HW</a>
+        <a href="{{ item.hw }}" class="hw-link" target="_blank" onclick="event.stopPropagation()">HW →</a>
         {%- endif -%}
         {%- if item.hw2 -%}
-        <a href="{{ item.hw2 }}" class="hw-link" target="_blank" onclick="event.stopPropagation()">HW 2</a>
+        <a href="{{ item.hw2 }}" class="hw-link" target="_blank" onclick="event.stopPropagation()">HW 2 →</a>
         {%- endif -%}
       </div>
 

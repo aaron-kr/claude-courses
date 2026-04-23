@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>CS 4820 — Advanced ML — Snowberger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#090910;--surface:#12121e;--border:#22223a;--muted:#55557a;--text:#eeeeff;--sub:#b8b8d8;--accent:#9b65ff;--accent2:#7eb8f7;--accent3:#6dccdd;--warn:#fbbf24;--error:#fb6f84;--tag-bg:#181828;--radius:6px;--nav-bg:rgba(9,9,16,.92)}
+[data-theme=light]{--bg:#f2f2f8;--surface:#fff;--border:#e0e0f0;--muted:#8888b0;--text:#111128;--sub:#3a3a62;--accent:#7c3aff;--accent2:#2563eb;--accent3:#0badbc;--warn:#d97706;--error:#e5294a;--tag-bg:#ebebf8;--nav-bg:rgba(242,242,248,.95)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 8% 40%,rgba(155,101,255,.10) 0%,transparent 68%),
+    radial-gradient(ellipse 65% 70% at 92% 8%,rgba(126,184,247,.08) 0%,transparent 68%),
+    radial-gradient(ellipse 50% 45% at 55% 90%,rgba(109,204,221,.07) 0%,transparent 65%);
+  background-attachment:fixed;
+  color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;min-height:100vh;overflow-x:hidden;transition:background-color .25s,color .25s;
+}
+[data-theme=light] body{
+  background-image:
+    radial-gradient(ellipse 80% 60% at 8% 40%,rgba(124,58,255,.05) 0%,transparent 68%),
+    radial-gradient(ellipse 65% 70% at 92% 8%,rgba(37,99,235,.04) 0%,transparent 68%),
+    radial-gradient(ellipse 50% 45% at 55% 90%,rgba(11,173,188,.04) 0%,transparent 65%);
+}
+/* Animated mesh grid */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(155,101,255,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(109,204,221,.042) 1px,transparent 1px);
+  background-size:40px 40px;
+  animation:meshWave 22s ease-in-out infinite;
+}
+[data-theme=light] body::before{
+  background-image:
+    linear-gradient(rgba(124,58,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(11,173,188,.032) 1px,transparent 1px);
+}
+@keyframes meshWave{
+  0%,100%{transform:translateY(0) skewY(0deg) skewX(0deg)}
+  25%{transform:translateY(-14px) skewY(.18deg) skewX(.06deg)}
+  50%{transform:translateY(-6px) skewY(-.12deg) skewX(-.04deg)}
+  75%{transform:translateY(-20px) skewY(.08deg) skewX(.08deg)}
+}
+
+nav{position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border);background:var(--nav-bg);backdrop-filter:blur(18px)}
+.nav-inner{max-width:960px;margin:0 auto;padding:0 28px;height:52px;display:flex;align-items:center}
+.nav-brand{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--accent);letter-spacing:.04em;text-decoration:none;flex-shrink:0}
+.nav-links{display:flex;gap:0;list-style:none;margin-left:auto}
+.nav-links>li>a,.nav-links>li>button{font-size:.8rem;color:var(--sub);text-decoration:none;letter-spacing:.02em;transition:color .2s;padding:0 12px;height:52px;display:flex;align-items:center;background:none;border:none;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;font-weight:300}
+.nav-links>li>a:hover,.nav-links>li>button:hover{color:var(--text)}
+.nav-links>li>a.active-page{color:var(--accent)}
+.has-dropdown{position:relative}
+.nav-dropdown{position:absolute;top:calc(100% + 1px);right:0;min-width:220px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:6px 0;display:none;z-index:300;box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.has-dropdown.open .nav-dropdown{display:block}
+.nav-dropdown li{list-style:none}
+.nav-dropdown li a{display:block;padding:9px 18px;font-size:.8rem;color:var(--sub);text-decoration:none;transition:background .15s,color .15s}
+.nav-dropdown li a:hover{background:var(--tag-bg);color:var(--text)}
+.nav-dropdown .dd-divider{height:1px;background:var(--border);margin:5px 0}
+.nav-dropdown .dd-all a{color:var(--accent)}
+.nav-dropdown .dd-code{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);margin-right:6px}
+.dd-semester{display:block;padding:6px 18px 3px;font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.nav-controls{display:flex;align-items:center;gap:7px;margin-left:14px;flex-shrink:0}
+.ctrl-btn{background:var(--tag-bg);border:1px solid var(--border);color:var(--sub);border-radius:var(--radius);padding:4px 10px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;cursor:pointer;letter-spacing:.04em;transition:color .2s,border-color .2s;line-height:1.4}
+.ctrl-btn:hover{color:var(--accent);border-color:var(--accent)}
+.theme-btn{font-size:.88rem;padding:4px 8px}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:6px;color:var(--sub);flex-direction:column;gap:5px;flex-shrink:0}
+.hamburger span{display:block;width:21px;height:1.5px;background:currentColor;transition:transform .25s,opacity .25s}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-nav{display:none;flex-direction:column;background:var(--surface);border-bottom:1px solid var(--border);padding:8px 0 16px;position:fixed;top:52px;left:0;right:0;bottom:0;z-index:198;overflow-y:auto}
+.mobile-nav.open{display:flex}.mobile-nav-backdrop{display:none;position:fixed;inset:0;z-index:197;background:rgba(0,0,0,.45);backdrop-filter:blur(2px)}.mobile-nav-backdrop.open{display:block}
+.mobile-nav a,.mobile-nav .m-toggle{display:flex;align-items:center;justify-content:space-between;padding:11px 24px;font-size:.88rem;color:var(--sub);text-decoration:none;background:none;border:none;width:100%;text-align:left;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:300;transition:color .15s}
+.mobile-nav a:hover,.mobile-nav .m-toggle:hover{color:var(--text)}
+.m-toggle .m-chevron{transition:transform .2s}
+.m-toggle.open .m-chevron{transform:rotate(180deg)}
+.mobile-sub{display:none;flex-direction:column;background:var(--tag-bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:2px 0}
+.mobile-sub.open{display:flex}
+.mobile-sub a{padding:9px 24px 9px 36px;font-size:.82rem}
+.mobile-sub .dd-divider{height:1px;background:var(--border);margin:3px 0}
+.mobile-controls{display:flex;gap:8px;padding:10px 24px 0}
+
+.wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 28px}
+/* Today pill - replaces white strip */
+.today-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(109,204,221,.08);border:1px solid rgba(109,204,221,.22);border-radius:999px;padding:5px 14px;font-family:'IBM Plex Mono',monospace;font-size:.67rem;color:var(--accent3);letter-spacing:.04em;margin-bottom:18px;position:relative;z-index:1}
+.today-pill.noclass{background:rgba(85,85,122,.08);border-color:rgba(85,85,122,.22);color:var(--muted)}
+.today-dot{width:6px;height:6px;border-radius:50%;background:var(--accent3);flex-shrink:0;animation:todayPulse 2.4s ease infinite}
+.today-pill.noclass .today-dot{background:var(--muted);animation:none}
+@keyframes todayPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
+[data-theme=light] .today-pill{background:rgba(11,173,188,.06);border-color:rgba(11,173,188,.2);color:var(--accent3)}
+/* Hero */
+header{padding:80px 0 52px;border-bottom:1px solid var(--border)}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px}
+h1{font-family:'Playfair Display','DM Serif Display',serif;font-size:clamp(2.6rem,6vw,4rem);font-weight:700;line-height:1.08;letter-spacing:-.02em;color:var(--text)}
+h1 em{font-style:italic;color:var(--accent)}
+.hero-meta{display:flex;gap:28px;margin-top:28px;flex-wrap:wrap}
+.hero-meta-item{display:flex;flex-direction:column;gap:2px}
+.hero-meta-label{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.hero-meta-value{font-size:.88rem;color:var(--sub)}
+.hero-desc{margin-top:28px;max-width:560px;font-size:.95rem;color:var(--sub);line-height:1.8;border-left:2px solid var(--accent3);padding-left:18px}
+.stats-bar{display:flex;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:28px;background:var(--surface)}
+.stat{flex:1;padding:14px 20px;border-right:1px solid var(--border);text-align:center}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Playfair Display','DM Serif Display',serif;font-size:1.6rem;color:var(--accent);line-height:1}
+.stat-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+
+/* Sliding fill pill (purple default) */
+.pill{position:relative;overflow:hidden;background:linear-gradient(to right,var(--accent) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%;border:1px solid var(--border);color:var(--sub);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:.7rem;padding:5px 14px;cursor:pointer;letter-spacing:.04em;line-height:1.5;transition:background-position .32s ease,color .2s,border-color .2s}
+.pill:hover,.pill.active{background-position:0;color:#fff;border-color:var(--accent)}
+/* pill-blue variant */
+.pill-blue{background:linear-gradient(to right,var(--accent2) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%}
+.pill-blue:hover,.pill-blue.active{background-position:0;color:#fff;border-color:var(--accent2)}
+/* pill-teal variant */
+.pill-teal{background:linear-gradient(to right,var(--accent3) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%}
+.pill-teal:hover,.pill-teal.active{background-position:0;color:var(--bg);border-color:var(--accent3)}
+/* Filter toggle (teal) */
+.filter-toggle-btn{position:relative;overflow:hidden;background:linear-gradient(to right,var(--accent3) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%;border:1px solid var(--border);color:var(--sub);border-radius:var(--radius);font-family:'IBM Plex Mono',monospace;font-size:.7rem;padding:5px 13px;cursor:pointer;letter-spacing:.04em;line-height:1.5;display:flex;align-items:center;gap:6px;transition:background-position .32s ease,color .2s,border-color .2s}
+.filter-toggle-btn:hover,.filter-toggle-btn.open{background-position:0;color:var(--bg);border-color:var(--accent3)}
+/* Thumb toggle (blue) */
+.thumb-toggle{position:relative;overflow:hidden;background:linear-gradient(to right,var(--accent2) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%;border:1px solid var(--border);color:var(--sub);border-radius:var(--radius);font-family:'IBM Plex Mono',monospace;font-size:.68rem;padding:5px 13px;cursor:pointer;letter-spacing:.04em;display:flex;align-items:center;gap:6px;transition:background-position .32s ease,color .2s}
+.thumb-toggle:hover,.thumb-toggle.active{background-position:0;color:var(--bg);border-color:var(--accent2)}
+/* Back button (purple) */
+.back-btn{display:inline-flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.04em;padding:7px 16px;border-radius:var(--radius);text-decoration:none;position:relative;overflow:hidden;background:linear-gradient(to right,var(--accent) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%;border:1px solid var(--border);color:var(--sub);transition:background-position .32s ease,color .2s,border-color .2s}
+.back-btn:hover{background-position:0;color:#fff;border-color:var(--accent)}
+/* CTA button */
+.cta-btn{display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;background:linear-gradient(to right,rgba(255,255,255,.2) 50%,var(--accent) 50%);background-size:205% 100%;background-position:100%;color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:var(--radius);padding:11px 24px;font-size:.85rem;font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;text-decoration:none;transition:background-position .32s ease,transform .15s}
+.cta-btn:hover{background-position:0;transform:translateX(2px)}
+[data-theme=light] .cta-btn{background:linear-gradient(to right,rgba(255,255,255,.3) 50%,var(--accent) 50%);background-size:205% 100%;background-position:100%;border-color:rgba(255,255,255,.4)}
+[data-theme=light] .cta-btn:hover{background-position:0;color:#fff}
+
+.section-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.section-heading-row{display:flex;align-items:center;gap:14px;flex:1;min-width:0}
+.section-label{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
+.section-line{flex:1;height:1px;background:var(--border)}
+.section-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.filter-panel{display:none;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin-bottom:24px}
+.filter-panel.open{display:flex}
+.ctrl-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ctrl-row-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;width:46px;flex-shrink:0}
+
+.course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.thumbs-active .course-grid{grid-template-columns:repeat(2,1fr)}
+a.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:border-color .2s,transform .18s,box-shadow .2s}
+/* Always-on top border gradient - teal+purple */
+a.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent3),var(--accent),var(--accent2));opacity:.55;transition:opacity .2s}
+a.card:hover::before{opacity:1}
+a.card:hover{border-color:#3a3a5a;transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.22)}
+[data-theme=light] a.card:hover{border-color:#c0c0e0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+.card-inner{display:flex;flex:1}
+.card-thumb{display:none;width:82px;min-height:112px;flex-shrink:0;background-size:cover;background-position:center top}
+.thumbs-active .card-thumb{display:block}
+.card-body{display:flex;flex-direction:column;gap:8px;padding:18px;flex:1;min-width:0}
+.card-code{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent3);letter-spacing:.08em;padding-right:58px}
+.card-title{font-size:.9rem;font-weight:500;color:var(--text);line-height:1.35}
+.card-desc{font-size:.8rem;color:var(--sub);line-height:1.55;flex:1}
+.card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.tag{font-family:'IBM Plex Mono',monospace;font-size:.62rem;padding:2px 8px;border-radius:3px;background:var(--tag-bg);border:1px solid var(--border);color:var(--muted);letter-spacing:.04em}
+.tag.ml{color:var(--accent);border-color:rgba(155,101,255,.3)}
+.tag.theory{color:var(--accent2);border-color:rgba(126,184,247,.28)}
+.tag.systems{color:var(--accent3);border-color:rgba(109,204,221,.28)}
+.tag.ai-tag{color:#fb6f84;border-color:rgba(251,111,132,.3)}
+.tag.seminar{color:var(--warn);border-color:rgba(251,191,36,.28)}
+.tag.credits{color:var(--muted);border-color:var(--border)}
+[data-theme=light] .tag.ml{color:var(--accent);border-color:rgba(124,58,255,.25)}
+[data-theme=light] .tag.theory{color:#2563eb;border-color:#bfdbfe}
+[data-theme=light] .tag.systems{color:var(--accent3);border-color:rgba(11,173,188,.25)}
+[data-theme=light] .tag.ai-tag{color:#e5294a;border-color:rgba(229,41,74,.25)}
+.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:4px;padding-top:8px;border-top:1px solid var(--border)}
+.card-meta{font-family:'IBM Plex Mono',monospace;font-size:.63rem;color:var(--muted);display:flex;flex-direction:column;gap:2px}
+.card-arrow{font-size:.75rem;color:var(--muted);opacity:0;transition:opacity .18s,transform .18s}
+a.card:hover .card-arrow{opacity:1;transform:translateX(3px)}
+.uni-badge{position:absolute;top:14px;right:14px;width:50px;height:50px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.56rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text);border:1.5px solid var(--text);opacity:.12;pointer-events:none;user-select:none;line-height:1.3;text-align:center}
+.uni-badge .ub-abbr{font-size:.72rem;font-weight:500}
+
+footer{border-top:1px solid var(--border);padding:48px 0 28px;position:relative;z-index:1}
+.footer-grid{max-width:960px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;gap:24px;margin-bottom:28px}
+.f-brand{font-family:'IBM Plex Mono',monospace;font-size:.88rem;color:var(--accent3);letter-spacing:.04em;display:block;margin-bottom:10px}
+.f-col p,.f-col a,.f-col span{display:block;font-size:.8rem;color:var(--muted);margin-bottom:5px;text-decoration:none;transition:color .2s;line-height:1.5}
+.f-col a:hover{color:var(--sub)}
+.f-heading{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;display:block}
+.footer-bottom{max-width:960px;margin:0 auto;padding:16px 28px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-copy,.footer-updated{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--muted)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.animate{animation:fadeUp .55s ease both}
+.d1{animation-delay:.05s}.d2{animation-delay:.12s}.d3{animation-delay:.2s}.d4{animation-delay:.28s}
+
+@media(max-width:700px){
+  .nav-links{display:none}.hamburger{display:flex}
+  h1{font-size:2.2rem}
+  .hero-meta{gap:18px}
+  .stats-bar{flex-wrap:wrap}
+  .stat{flex:0 0 50%;border-bottom:1px solid var(--border)}
+  .stat:nth-child(2n){border-right:none}
+  .stat:nth-last-child(-n+2){border-bottom:none}
+  .thumbs-active .course-grid{grid-template-columns:1fr}
+  .footer-grid{flex-direction:column;gap:28px}
+  .ctrl-row-label{display:none}
+}
+
+.course-hero{padding:80px 0 36px;border-bottom:1px solid var(--border)}
+.c-badge{font-family:'IBM Plex Mono',monospace;font-size:.62rem;padding:2px 9px;border-radius:3px;letter-spacing:.05em}
+.c-badge.code{background:rgba(109,204,221,.1);color:var(--accent3);border:1px solid rgba(109,204,221,.25)}
+.c-badge.sem{background:rgba(126,184,247,.08);color:var(--accent2);border:1px solid rgba(126,184,247,.2)}
+.c-badge.uni{background:var(--tag-bg);color:var(--muted);border:1px solid var(--border)}
+.course-badges{display:flex;gap:6px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.course-hero h1{font-size:clamp(1.9rem,5vw,3rem)}
+.course-dept{font-size:.8rem;color:var(--muted);margin-top:6px;font-family:'IBM Plex Mono',monospace;letter-spacing:.04em}
+.stats-strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:20px;background:var(--surface)}
+.strip-item{display:flex;flex-direction:column;justify-content:center;padding:10px 15px;border-right:1px solid var(--border);gap:2px}
+.strip-item:last-child{border-right:none}
+.strip-label{font-family:'IBM Plex Mono',monospace;font-size:.56rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.strip-value{font-size:.82rem;color:var(--text);line-height:1.3}
+.quick-links{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.ql-btn{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.04em;text-decoration:none;padding:5px 12px;border-radius:var(--radius);border:1px solid var(--border);color:var(--sub);background-size:205% 100%;background-position:100%;transition:background-position .32s ease,color .2s,border-color .2s;position:relative;overflow:hidden}
+.ql-btn{background-image:linear-gradient(to right,var(--accent2) 50%,var(--tag-bg) 50%)}
+.ql-btn:hover{background-position:0;color:var(--bg);border-color:var(--accent2)}
+.ql-btn.kakao{background-image:linear-gradient(to right,#fee500 50%,var(--tag-bg) 50%)}
+.ql-btn.kakao:hover{background-position:0;color:#2a1800;border-color:#fee500}
+.ql-btn.gh{background-image:linear-gradient(to right,var(--accent) 50%,var(--tag-bg) 50%)}
+.ql-btn.gh:hover{background-position:0;color:#fff;border-color:var(--accent)}
+.ql-btn.syllabus{background-image:linear-gradient(to right,var(--accent3) 50%,var(--tag-bg) 50%)}
+.ql-btn.syllabus:hover{background-position:0;color:var(--bg);border-color:var(--accent3)}
+/* Layout */
+.page-layout{display:grid;grid-template-columns:170px 1fr;gap:44px;align-items:start;padding-top:40px}
+.sidebar{position:sticky;top:72px}
+.sidebar-nav{list-style:none;border-left:2px solid var(--border);padding-left:16px}
+.sidebar-nav li{margin-bottom:2px}
+.sidebar-nav a{font-size:.76rem;color:var(--muted);text-decoration:none;letter-spacing:.02em;transition:color .2s;display:block;padding:5px 0}
+.sidebar-nav a:hover{color:var(--sub)}
+.sidebar-nav a.active{color:var(--accent3);border-left:2px solid var(--accent3);margin-left:-18px;padding-left:16px}
+.crs-section{margin-bottom:50px}
+.crs-section:last-child{margin-bottom:0}
+.crs-heading{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.crs-label{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
+.crs-line{flex:1;height:1px;background:var(--border)}
+/* ── Grading ── */
+/* Grading system badge */
+.grading-type{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.gs-badge{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.08em;padding:3px 10px;border-radius:3px}
+.gs-badge.relative-grading{background:rgba(155,101,255,.1);color:var(--accent);border:1px solid rgba(155,101,255,.28)}
+.gs-badge.absolute-grading{background:rgba(126,184,247,.08);color:var(--accent2);border:1px solid rgba(126,184,247,.22)}
+.gs-desc{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--muted)}
+/* Thermometer bar - flat colors, no gradient */
+.grade-track{display:flex;height:44px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
+.grade-seg{display:flex;align-items:center;justify-content:center;gap:7px;padding:0 10px;cursor:default}
+.grade-pct{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:#fff;font-weight:500;letter-spacing:.04em;white-space:nowrap}
+.grade-name{font-size:.65rem;color:rgba(255,255,255,.65);white-space:nowrap}
+@media(max-width:600px){.grade-name{display:none}}
+.grade-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.gl-item{display:flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--muted)}
+.gl-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+/* ── Schedule ── */
+.sched-list{list-style:none}
+/* Use table-like flex for perfect column alignment */
+a.sched-row{
+  display:flex;
+  align-items:center;  /* center all items vertically */
+  text-decoration:none;color:inherit;
+  border-bottom:1px solid var(--border);
+  transition:background .15s;
+  padding:10px 0;
+  gap:12px;
+}
+a.sched-row:first-child{border-top:1px solid var(--border)}
+a.sched-row:hover{background:var(--surface)}
+/* Fixed-width columns: date | thumb | info | hw */
+.sched-date{
+  width:60px;flex-shrink:0;
+  font-family:'IBM Plex Mono',monospace;font-size:.66rem;
+  color:var(--muted);line-height:1.45;
+  display:flex;flex-direction:column;gap:2px;
+  align-self:center;
+}
+.sched-date.holiday .date-day{color:#fb6f84;font-weight:500}
+.holiday-note{font-size:.54rem;color:#fb6f84;letter-spacing:.06em;text-transform:uppercase}
+/* 16:9 at 115×65 */
+.sched-thumb{
+  width:115px;height:65px;
+  flex-shrink:0;
+  border-radius:3px;overflow:hidden;
+  background-size:cover;background-position:center;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  align-self:center;
+}
+.sched-extra{font-family:'IBM Plex Mono',monospace;font-size:.5rem;color:rgba(255,255,255,.45);background:rgba(0,0,0,.45);padding:2px 5px;letter-spacing:.04em;line-height:1.4}
+.sched-info{flex:1;min-width:0;align-self:center}
+.sched-week{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;display:block}
+.sched-title{font-size:.88rem;font-weight:500;color:var(--text);line-height:1.35;margin-top:2px}
+.sched-subtitle{font-size:.73rem;color:var(--muted);margin-top:2px}
+/* HW links column - same height as row, centered */
+.sched-hw{
+  display:flex;flex-direction:column;gap:5px;
+  align-items:flex-end;
+  align-self:center;  /* <-- critical fix */
+  flex-shrink:0;
+  width:80px;
+  min-height:1px; /* no intrinsic height needed */
+}
+.hw-link{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--accent);text-decoration:none;letter-spacing:.03em;border:1px solid rgba(155,101,255,.28);border-radius:3px;padding:3px 7px;white-space:nowrap;transition:background .15s}
+.hw-link:hover{background:rgba(155,101,255,.1)}
+.hw-link.due{color:var(--warn);border-color:rgba(251,191,36,.28)}
+.hw-link.due:hover{background:rgba(251,191,36,.08)}
+/* Holiday row: no thumb, centered text */
+.sched-row.no-class .sched-info{text-align:center}
+/* ── Overview ── */
+.overview-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+/* Prerequisites box */
+.prereq-box{background:rgba(126,184,247,.05);border:1px solid rgba(126,184,247,.18);border-radius:var(--radius);padding:13px 16px;margin-bottom:16px}
+.prereq-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:6px}
+.prereq-list{list-style:none;display:flex;flex-direction:column;gap:4px}
+.prereq-list li{font-size:.82rem;color:var(--sub);line-height:1.5;display:flex;gap:8px}
+.prereq-list li::before{content:'&#x2BC8;';color:var(--accent2);font-size:.55rem;margin-top:4px;flex-shrink:0}
+.prereq-kr{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);display:block;margin-top:2px}
+/* Dropcap: same color as headings */
+.overview-grid{display:grid;grid-template-columns:1fr 155px;gap:22px;align-items:start}
+.overview-text p{font-size:.9rem;color:var(--sub);line-height:1.85;margin-bottom:10px}
+.overview-text p:last-child{margin-bottom:0}
+.dropcap::first-letter{
+  font-family:'Playfair Display','DM Serif Display',serif;
+  font-size:3.6rem;font-weight:700;
+  color:var(--text); /* matches headings */
+  float:left;line-height:.82;
+  margin:4px 9px -4px 0;padding:0;
+}
+.overview-book{border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.book-placeholder-hero{width:100%;aspect-ratio:1/1.414;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,var(--accent),var(--accent2));font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:rgba(255,255,255,.4);padding:10px;text-align:center;line-height:1.6}
+/* ── Textbooks: fixed column, right-aligned images ── */
+.book-list{list-style:none}
+.book-item{display:flex;padding:16px 0;border-bottom:1px solid var(--border)}
+.book-item:first-child{border-top:1px solid var(--border)}
+/* Image column: fixed 92px, ALL images right-aligned */
+.book-cover-col{
+  width:92px;flex-shrink:0;
+  display:flex;
+  justify-content:flex-end; /* right-align so gap from text is consistent */
+  align-items:flex-start;
+  padding-right:0;
+}
+/* Aspect ratio 1:1.414 (A4 portrait) */
+.bk-img{
+  border-radius:3px;overflow:hidden;
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.bk-img.main-img{width:72px;aspect-ratio:1/1.414}
+.bk-img.supp-img{width:50px;aspect-ratio:1/1.414}
+.bk-img-inner{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-family:'IBM Plex Mono',monospace;font-size:.54rem;color:rgba(255,255,255,.35);text-align:center;padding:6px;line-height:1.4}
+.bk-img-inner.main-bk{background:linear-gradient(160deg,var(--accent),var(--accent2))}
+.bk-img-inner.supp-bk1{background:linear-gradient(160deg,#1a4a8a,var(--accent2))}
+.bk-img-inner.supp-bk2{background:linear-gradient(160deg,#0e6490,#0c3048)}
+.book-info{flex:1;padding-left:18px}
+.book-badge{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:2px;margin-bottom:6px;display:inline-block}
+.book-badge.req{background:rgba(109,204,221,.1);color:var(--accent3);border:1px solid rgba(109,204,221,.25)}
+.book-badge.supp{background:rgba(126,184,247,.07);color:var(--accent2);border:1px solid rgba(126,184,247,.18)}
+.book-title{font-size:.88rem;font-weight:500;color:var(--text);line-height:1.3;margin-bottom:3px}
+.book-author{font-size:.78rem;color:var(--muted);margin-bottom:2px}
+.book-pub{font-family:'IBM Plex Mono',monospace;font-size:.63rem;color:var(--muted);margin-bottom:7px}
+.book-buy{font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.04em;text-decoration:none;padding:3px 10px;border-radius:3px;display:inline-flex;align-items:center;gap:5px;background-image:linear-gradient(to right,var(--accent3) 50%,var(--tag-bg) 50%);background-size:205% 100%;background-position:100%;color:var(--sub);border:1px solid var(--border);transition:background-position .32s ease,color .2s}
+.book-buy:hover{background-position:0;color:var(--bg);border-color:var(--accent3)}
+/* ── Instructor ── */
+.instructor-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;display:flex;gap:18px;align-items:flex-start;position:relative;overflow:hidden}
+.instructor-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent3),var(--accent),var(--accent2))}
+.instructor-avatar{width:66px;height:66px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--accent),var(--accent3));display:flex;align-items:center;justify-content:center;font-size:1.4rem;border:2px solid var(--border)}
+.instructor-name{font-family:'Playfair Display','DM Serif Display',serif;font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:3px}
+.instructor-role{font-size:.78rem;color:var(--muted);margin-bottom:8px}
+.instructor-links{display:flex;flex-direction:column;gap:4px}
+.instructor-links a{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--sub);text-decoration:none;transition:color .2s}
+.instructor-links a:hover{color:var(--accent3)}
+@media(max-width:900px){
+  .page-layout{grid-template-columns:1fr}.sidebar{display:none}
+  .overview-grid{grid-template-columns:1fr}.stats-strip{grid-template-columns:repeat(2,1fr)}
+  .strip-item:nth-child(2n){border-right:none}
+}
+@media(max-width:560px){
+  .sched-thumb{width:72px;height:40.5px}
+  .sched-hw{display:none}
+  .quick-links .ql-btn .txt{display:none}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">snowberger.edu</a>
+    <ul class="nav-links">
+      <li><a href="index.html">About</a></li>
+      <li><a href="#">Research</a></li>
+      <li class="has-dropdown" id="dd-courses">
+        <button>Courses &#x25BE;</button>
+        <ul class="nav-dropdown">
+          <li><span class="dd-semester">Spring 2025</span></li>
+          <li><a href="course.html"><span class="dd-code">4820</span>Advanced Machine Learning</a></li>
+          <li><a href="#"><span class="dd-code">3310</span>Algorithms &amp; Complexity</a></li>
+          <li><a href="#"><span class="dd-code">6001</span>Foundation Models Seminar</a></li>
+          <li class="dd-divider"></li>
+          <li class="dd-all"><a href="archive.html">All Courses &#x2192;</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown" id="dd-policies">
+        <button>Policies &#x25BE;</button>
+        <ul class="nav-dropdown">
+          <li><a href="policies.html">AI &amp; ChatGPT Use</a></li>
+          <li><a href="policies.html">Exam Policy</a></li>
+          <li><a href="policies.html">Assignment Policy</a></li>
+          <li><a href="policies.html">Attendance Policy</a></li>
+          <li class="dd-divider"></li>
+          <li class="dd-all"><a href="policies.html">All Policies &#x2192;</a></li>
+        </ul>
+      </li>
+      <li><a href="archive.html">Archive</a></li>
+    </ul>
+    <div class="nav-controls">
+      <button class="ctrl-btn theme-btn-all" style="font-size:.88rem;padding:4px 8px">&#x1F319;</button>
+      <button class="ctrl-btn lang-btn-all">&#xD55C;&#xAD6D;&#xC5B4;</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">About</a>
+    <a href="#">Research</a>
+    <button class="m-toggle" id="m-courses"><span>Courses</span><span class="m-chevron">&#x25BE;</span></button>
+    <div class="mobile-sub" id="m-courses-sub">
+      <a href="course.html">CS 4820 &mdash; Advanced ML</a>
+      <a href="#">CS 3310 &mdash; Algorithms</a>
+      <div class="dd-divider"></div>
+      <a href="archive.html">All Courses &#x2192;</a>
+    </div>
+    <button class="m-toggle" id="m-policies"><span>Policies</span><span class="m-chevron">&#x25BE;</span></button>
+    <div class="mobile-sub" id="m-policies-sub">
+      <a href="policies.html">AI &amp; ChatGPT Use</a>
+      <div class="dd-divider"></div>
+      <a href="policies.html">All Policies &#x2192;</a>
+    </div>
+    <a href="archive.html">Archive</a>
+    <div class="mobile-controls">
+      <button class="ctrl-btn theme-btn-all" style="font-size:.88rem;padding:4px 8px">&#x1F319;</button>
+      <button class="ctrl-btn lang-btn-all">&#xD55C;&#xAD6D;&#xC5B4;</button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav-backdrop" id="mobile-backdrop"></div>
+<div class="wrap">
+<div class="course-hero">
+  <div class="course-badges animate d1">
+    <span class="c-badge code">CS 4820</span>
+    <span class="c-badge sem">Spring 2025</span>
+    <span class="c-badge uni">&#xC5F0;&#xC138;&#xB300; &mdash; Yonsei</span>
+  </div>
+  <h1 class="animate d2">Advanced<br><em>Machine Learning</em></h1>
+  <div class="course-dept animate d2">Dept. of Computer Science &amp; Engineering &nbsp;&middot;&nbsp; &#xC5F0;&#xC138;&#xB300;&#xD559;&#xAD50; &#xCEF4;&#xD4E8;&#xD130;&#xACF5;&#xD559;&#xACFC;</div>
+  <div class="stats-strip animate d3">
+    <div class="strip-item"><span class="strip-label">Section / &#xBD84;&#xBC18;</span><span class="strip-value">01</span></div>
+    <div class="strip-item"><span class="strip-label">Time / &#xC218;&#xC5C5; &#xC2DC;&#xAC04;</span><span class="strip-value">Tue/Thu 2:00&ndash;3:30</span></div>
+    <div class="strip-item"><span class="strip-label">Room / &#xAC15;&#xC758;&#xC2E4;</span><span class="strip-value">Engineering 302</span></div>
+    <div class="strip-item"><span class="strip-label">University / &#xB300;&#xD559;&#xAD50;</span><span class="strip-value">&#xC5F0;&#xC138;&#xB300;&#xD559;&#xAD50;</span></div>
+  </div>
+  <div class="quick-links animate d3">
+    <a href="#" class="ql-btn kakao">&#x1F4AC; <span class="txt">KakaoTalk</span></a>
+    <a href="#" class="ql-btn">&#x1F4D6; <span class="txt">Google Classroom</span></a>
+    <a href="#" class="ql-btn gh">&#x1F4BB; <span class="txt">GitHub Classroom</span></a>
+    <a href="#" class="ql-btn syllabus">&#x1F4C4; <span class="txt">Syllabus PDF</span></a>
+  </div>
+</div>
+
+<div class="page-layout">
+  <aside class="sidebar">
+    <ul class="sidebar-nav">
+      <li><a href="#grading" class="active">Grading</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#textbooks">Textbooks</a></li>
+      <li><a href="#instructor">Instructor</a></li>
+    </ul>
+  </aside>
+  <main>
+
+    <div class="crs-section" id="grading">
+      <div class="crs-heading"><span class="crs-label">Grading / &#xC131;&#xC801; &#xD3C9;&#xAC00;</span><span class="crs-line"></span></div>
+      <div class="grading-type">
+        <span class="gs-badge relative-grading">&#xC0C1;&#xB300;&#xD3C9;&#xAC00;</span>
+        <span class="gs-desc">A: 25% max &nbsp;&middot;&nbsp; A+B: 60% max &nbsp;&middot;&nbsp; C&#xC774;&#xD558;: 40% min</span>
+      </div>
+      <div class="grade-track">
+        <div class="grade-seg" style="flex:2;background:#7c3aff"><span class="grade-pct">40%</span><span class="grade-name">Assignments</span></div>
+        <div class="grade-seg" style="flex:1.25;background:#2563eb"><span class="grade-pct">25%</span><span class="grade-name">Midterm</span></div>
+        <div class="grade-seg" style="flex:1.5;background:#0e6490"><span class="grade-pct">30%</span><span class="grade-name">Final</span></div>
+        <div class="grade-seg" style="flex:.25;background:#b45309"><span class="grade-pct">5%</span></div>
+      </div>
+      <div class="grade-legend">
+        <span class="gl-item"><span class="gl-dot" style="background:#7c3aff"></span>40% &#xACFC;&#xC81C;</span>
+        <span class="gl-item"><span class="gl-dot" style="background:#2563eb"></span>25% &#xC911;&#xAC04;&#xACE0;&#xC0AC;</span>
+        <span class="gl-item"><span class="gl-dot" style="background:#0e6490"></span>30% &#xAE30;&#xB9D0;&#xACE0;&#xC0AC;</span>
+        <span class="gl-item"><span class="gl-dot" style="background:#b45309"></span>5% &#xC218;&#xC5C5; &#xCC38;&#xC5EC;</span>
+      </div>
+    </div>
+
+    <div class="crs-section" id="schedule">
+      <div class="crs-heading"><span class="crs-label">Schedule / &#xC218;&#xC5C5; &#xC77C;&#xC815;</span><span class="crs-line"></span></div>
+      <ul class="sched-list">
+        <a class="sched-row" href="#">
+          <div class="sched-date"><span class="date-day">Mar 4</span><span>Tue</span></div>
+          <div class="sched-thumb" style="background:linear-gradient(135deg,#1e1e3f,#3d28a0)"><div class="sched-extra">W1 Slides</div></div>
+          <div class="sched-info"><span class="sched-week">Week 1</span><div class="sched-title">Introduction &amp; Course Overview</div><div class="sched-subtitle">Probability review, MLE, Bayesian inference</div></div>
+          <div class="sched-hw"></div>
+        </a>
+        <a class="sched-row" href="#">
+          <div class="sched-date"><span class="date-day">Mar 6</span><span>Thu</span></div>
+          <div class="sched-thumb" style="background:linear-gradient(135deg,#1e1e3f,#3d28a0)"><div class="sched-extra">W1 + Code</div></div>
+          <div class="sched-info"><span class="sched-week">Week 1</span><div class="sched-title">Gaussian Processes</div><div class="sched-subtitle">Kernels, posterior prediction, hyperparameter optimization</div></div>
+          <div class="sched-hw"><a href="#" class="hw-link">HW 1 Out</a></div>
+        </a>
+        <a class="sched-row" href="#">
+          <div class="sched-date"><span class="date-day">Mar 11</span><span>Tue</span></div>
+          <div class="sched-thumb" style="background:linear-gradient(135deg,#0c3048,#1a4a8a)"><div class="sched-extra">W2 Slides</div></div>
+          <div class="sched-info"><span class="sched-week">Week 2</span><div class="sched-title">Probabilistic Graphical Models</div><div class="sched-subtitle">Bayesian networks, directed graphs, conditional independence</div></div>
+          <div class="sched-hw"></div>
+        </a>
+        <a class="sched-row no-class" href="#">
+          <div class="sched-date sched-date holiday"><span class="date-day">Mar 18</span><span class="holiday-note">&#x1F534; No Class</span></div>
+          <div class="sched-info">
+            <span class="sched-week">Week 3</span>
+            <div class="sched-title" style="color:#fb6f84">Independence Movement Day / &#xC0BC;&#xC77C;&#xC808;</div>
+            <div class="sched-subtitle">3&#xC6D4; 1&#xC77C; &mdash; &#xD734;&#xAC15;</div>
+          </div>
+          <div class="sched-hw"></div>
+        </a>
+        <a class="sched-row" href="#">
+          <div class="sched-date"><span class="date-day">Mar 20</span><span>Thu</span></div>
+          <div class="sched-thumb" style="background:linear-gradient(135deg,#1a3820,#15803d)"><div class="sched-extra">W3 Slides</div></div>
+          <div class="sched-info"><span class="sched-week">Week 3</span><div class="sched-title">Variational Inference</div><div class="sched-subtitle">ELBO, mean-field approximation, variational EM</div></div>
+          <div class="sched-hw"><a href="#" class="hw-link due">HW 1 Due</a><a href="#" class="hw-link">HW 2 Out</a></div>
+        </a>
+        <a class="sched-row" href="#">
+          <div class="sched-date"><span class="date-day">Apr 8</span><span>Tue</span></div>
+          <div class="sched-thumb" style="background:linear-gradient(135deg,#2e1048,#5b21b6)"><div class="sched-extra">W6 Slides</div></div>
+          <div class="sched-info"><span class="sched-week">Week 6</span><div class="sched-title">Normalizing Flows &amp; VAEs</div><div class="sched-subtitle">Latent variable models, reparameterization trick, &#x3B2;-VAE</div></div>
+          <div class="sched-hw"><a href="#" class="hw-link due">HW 2 Due</a><a href="#" class="hw-link">HW 3 Out</a></div>
+        </a>
+      </ul>
+    </div>
+
+    <div class="crs-section" id="overview">
+      <div class="crs-heading"><span class="crs-label">Overview / &#xACFC;&#xBAA9; &#xC18C;&#xAC1C;</span><span class="crs-line"></span></div>
+      <div class="overview-tags">
+        <span class="tag ml">ML</span>
+        <span class="tag theory">Theory</span>
+        <span class="tag" style="color:var(--accent3);border-color:rgba(109,204,221,.28)">Probabilistic</span>
+        <span class="tag credits">3 credits</span>
+      </div>
+      <!-- Prerequisites box -->
+      <div class="prereq-box">
+        <span class="prereq-label">Prerequisites / &#xC120;&#xC218;&#xACFC;&#xBAA9;</span>
+        <ul class="prereq-list">
+          <li><span>Linear algebra and multivariable calculus<span class="prereq-kr">&#xC120;&#xD615;&#xB300;&#xC218;&#xD559; &#xBC0F; &#xBBF8;&#xBD84;&#xC801;&#xBD84;&#xD559;</span></span></li>
+          <li><span>Probability theory and statistics<span class="prereq-kr">&#xD655;&#xB960;&#xB860; &#xBC0F; &#xD1B5;&#xACC4;&#xD559;</span></span></li>
+          <li><span>Introductory machine learning (CS 3110 or equivalent)<span class="prereq-kr">&#xAE30;&#xCD08; &#xBA38;&#xC2E0;&#xB7EC;&#xB2DD; &#xACFC;&#xBAA9; &#xC774;&#xC218;&#xC790;</span></span></li>
+          <li><span>Python with NumPy and PyTorch<span class="prereq-kr">Python, NumPy, PyTorch &#xC0AC;&#xC6A9; &#xAC00;&#xB2A5;</span></span></li>
+        </ul>
+      </div>
+      <div class="overview-grid">
+        <div class="overview-text">
+          <p class="dropcap">Advanced topics in machine learning with emphasis on probabilistic methods and deep generative models. Students develop both theoretical foundations and practical implementation skills needed for independent research.</p>
+          <p>By semester end, students will derive and implement probabilistic inference algorithms, train deep generative models, and critically evaluate current ML research papers.</p>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--muted);margin-top:12px;border-left:2px solid var(--border);padding-left:10px">&#xD655;&#xB960; &#xBC29;&#xBC95;&#xB860;&#xACFC; &#xC2EC;&#xCE35; &#xC0DD;&#xC131; &#xBAA8;&#xB378;&#xC5D0; &#xC911;&#xC810;&#xC744; &#xB454; &#xACE0;&#xAE09; &#xBA38;&#xC2E0;&#xB7EC;&#xB2DD; &#xACFC;&#xBAA9;&#xC73C;&#xB85C;, &#xBCF8;&#xACFC;&#xBAA9;&#xC744; &#xD1B5;&#xD574; &#xD655;&#xB960;&#xC801; &#xCD94;&#xB860; &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC744; &#xC720;&#xB3C4;&#xD558;&#xACE0; &#xD604;&#xB300; ML &#xB17C;&#xBB38;&#xC744; &#xBE44;&#xD310;&#xC801;&#xC73C;&#xB85C; &#xD3C9;&#xAC00;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+        </div>
+        <div class="overview-book">
+          <div class="book-placeholder-hero">Bishop<br>PRML<br><br>Main<br>Textbook</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="crs-section" id="textbooks">
+      <div class="crs-heading"><span class="crs-label">Textbooks / &#xAD50;&#xC7AC;</span><span class="crs-line"></span></div>
+      <ul class="book-list">
+        <li class="book-item">
+          <div class="book-cover-col">
+            <div class="bk-img main-img"><div class="bk-img-inner main-bk">Bishop<br>PRML</div></div>
+          </div>
+          <div class="book-info">
+            <span class="book-badge req">&#x2605; Required / &#xAD50;&#xC7AC;</span>
+            <div class="book-title">Pattern Recognition and Machine Learning</div>
+            <div class="book-author">Christopher M. Bishop</div>
+            <div class="book-pub">Springer &middot; 2006 &middot; ISBN 978-0387310732</div>
+            <a href="#" class="book-buy">Buy / PDF &#x2192;</a>
+          </div>
+        </li>
+        <li class="book-item">
+          <div class="book-cover-col">
+            <div class="bk-img supp-img"><div class="bk-img-inner supp-bk1">Murphy<br>PML</div></div>
+          </div>
+          <div class="book-info">
+            <span class="book-badge supp">Supplementary / &#xCC38;&#xACE0;</span>
+            <div class="book-title">Probabilistic Machine Learning: An Introduction</div>
+            <div class="book-author">Kevin P. Murphy &mdash; MIT Press, 2022</div>
+            <div class="book-pub">Free PDF online</div>
+            <a href="https://probml.github.io/pml-book/" class="book-buy" target="_blank">Free PDF &#x2192;</a>
+          </div>
+        </li>
+        <li class="book-item">
+          <div class="book-cover-col">
+            <div class="bk-img supp-img"><div class="bk-img-inner supp-bk2">DL<br>GBC</div></div>
+          </div>
+          <div class="book-info">
+            <span class="book-badge supp">Supplementary / &#xCC38;&#xACE0;</span>
+            <div class="book-title">Deep Learning</div>
+            <div class="book-author">Goodfellow, Bengio &amp; Courville &mdash; MIT Press, 2016</div>
+            <div class="book-pub">Free at deeplearningbook.org</div>
+            <a href="https://www.deeplearningbook.org" class="book-buy" target="_blank">Free Online &#x2192;</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="crs-section" id="instructor">
+      <div class="crs-heading"><span class="crs-label">Instructor / &#xAD50;&#xC218;</span><span class="crs-line"></span></div>
+      <div class="instructor-box">
+        <div class="instructor-avatar">&#x1F9D1;&#x200D;&#x1F4BB;</div>
+        <div>
+          <div class="instructor-name">Prof. Aaron Snowberger</div>
+          <div class="instructor-role">Associate Professor &middot; CS &amp; Engineering &middot; Yonsei University</div>
+          <div class="instructor-links">
+            <a href="mailto:snowberger@yonsei.ac.kr">&#x2709; snowberger@yonsei.ac.kr</a>
+            <a href="office-hours.html">&#x1F3E2; Eng Hall 412 &mdash; OH: Tue/Thu 4:00&ndash;5:30 PM</a>
+            <a href="#">&#x1F52C; PAI Lab (Physical AI) &#x2192;</a>
+            <a href="#">&#x1F4C4; Full CV &amp; Bio &#x2192;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</div><footer>
+  <div class="footer-grid">
+    <div class="f-col"><span class="f-brand">Aaron Snowberger</span><span>Associate Professor &middot; CS</span><span>PAI Lab (Physical AI)</span><a href="mailto:snowberger@yonsei.ac.kr">snowberger@yonsei.ac.kr</a></div>
+    <div class="f-col"><span class="f-heading">Teaching</span><a href="index.html">Current Courses</a><a href="archive.html">Course Archive</a><a href="policies.html">Academic Policies</a></div>
+    <div class="f-col"><span class="f-heading">Connect</span><a href="#">Google Scholar</a><a href="#">GitHub</a><a href="#">PAI Lab &#x2192;</a><a href="#">CV / Resume</a></div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copy">&copy; 2025 Aaron Snowberger</span><span class="footer-updated">Last updated April 2025</span></div>
+</footer>
+<script>
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  document.querySelectorAll('.theme-btn-all').forEach(b=>b.textContent=t==='dark'?'\uD83C\uDF19':'\u2600\uFE0F');
+  localStorage.setItem('theme',t);
+}
+(()=>applyTheme(localStorage.getItem('theme')||'dark'))();
+document.querySelectorAll('.theme-btn-all').forEach(b=>b.addEventListener('click',()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')));
+let _lang='en';
+document.querySelectorAll('.lang-btn-all').forEach(b=>b.addEventListener('click',()=>{
+  _lang=_lang==='en'?'ko':'en';
+  document.querySelectorAll('.lang-btn-all').forEach(x=>x.textContent=_lang==='en'?'\uD55C\uAD6D\uC5B4':'English');
+}));
+document.querySelectorAll('.has-dropdown').forEach(item=>{
+  item.querySelector('button').addEventListener('click',e=>{
+    e.stopPropagation();
+    const was=item.classList.contains('open');
+    document.querySelectorAll('.has-dropdown.open').forEach(d=>d.classList.remove('open'));
+    if(!was)item.classList.add('open');
+  });
+});
+document.addEventListener('click',()=>document.querySelectorAll('.has-dropdown.open').forEach(d=>d.classList.remove('open')));
+const _hb=document.getElementById('hamburger'),_mn=document.getElementById('mobile-nav');
+if(_hb&&_mn){
+  const _bd=document.getElementById('mobile-backdrop');
+  function _closeMenu(){_mn.classList.remove('open');_hb.classList.remove('open');_hb.setAttribute('aria-expanded',false);if(_bd)_bd.classList.remove('open');document.body.style.overflow=''}
+  _hb.addEventListener('click',()=>{const o=_mn.classList.toggle('open');_hb.classList.toggle('open',o);_hb.setAttribute('aria-expanded',o);if(_bd)_bd.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''});
+  if(_bd)_bd.addEventListener('click',_closeMenu);
+}
+['courses','policies'].forEach(id=>{
+  const b=document.getElementById('m-'+id),s=document.getElementById('m-'+id+'-sub');
+  if(b&&s)b.addEventListener('click',()=>{const o=s.classList.toggle('open');b.classList.toggle('open',o)});
+});
+const _ft=document.getElementById('filter-toggle-btn'),_fp=document.getElementById('filter-panel');
+if(_ft&&_fp)_ft.addEventListener('click',()=>{const o=_fp.classList.toggle('open');_ft.classList.toggle('open',o)});
+const _tt=document.getElementById('thumb-toggle');
+if(_tt){
+  const _sec=document.getElementById('thumb-section');
+  _tt.addEventListener('click',()=>{
+    if(!_sec)return;
+    const a=_sec.classList.toggle('thumbs-active');
+    _tt.classList.toggle('active',a);
+    const ic=_tt.querySelector('.t-icon');
+    if(ic)ic.textContent=a?'\u229F':'\u229E';
+  });
+}
+
+const sIds=['grading','schedule','overview','textbooks','instructor'];
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.sidebar-nav a').forEach(a=>a.classList.remove('active'));const a=document.querySelector(`.sidebar-nav a[href="#${e.target.id}"]`);if(a)a.classList.add('active')}})},{rootMargin:'-25% 0px -65% 0px'});
+sIds.forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el)});
+</script>
+</body>
+</html>

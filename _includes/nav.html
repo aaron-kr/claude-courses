@@ -1,6 +1,6 @@
 <nav>
   <div class="nav-inner">
-    <a class="nav-brand" href="{{ '/' | relative_url }}">snowberger.edu</a>
+    <a class="nav-brand" href="{{ '/' | relative_url }}">courses.aaron.kr</a>
     <ul class="nav-links">
       <li><a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active-page"{% endif %}>Courses</a></li>
       <li class="has-dropdown" id="dd-courses">
@@ -23,13 +23,13 @@
       <li class="has-dropdown" id="dd-policies">
         <button>Policies &#x25BE;</button>
         <ul class="nav-dropdown">
-          <li><a href="{{ '/policies' | relative_url }}#attendance">Attendance 출석</a></li>
-          <li><a href="{{ '/policies' | relative_url }}#assignments">Assignments 과제</a></li>
-          <li><a href="{{ '/policies' | relative_url }}#tests">Tests 시험</a></li>
-          <li><a href="{{ '/policies' | relative_url }}#collaboration">Collaboration 협력</a></li>
-          <li><a href="{{ '/policies' | relative_url }}#late">Late Policy 지각</a></li>
+          <li><a href="{{ '/policies/attendance' | relative_url }}">Attendance 출석</a></li>
+          <li><a href="{{ '/policies/assignments' | relative_url }}">Assignments 과제</a></li>
+          <li><a href="{{ '/policies/tests' | relative_url }}">Tests 시험</a></li>
+          <li><a href="{{ '/policies/collaboration' | relative_url }}">Collaboration 협력</a></li>
+          <li><a href="{{ '/policies/late' | relative_url }}">Late Policy 지각</a></li>
           <li class="dd-divider"></li>
-          <li><a href="{{ '/policies/ai' | relative_url }}">AI Tools Policy</a></li>
+          <li><a href="{{ '/policies/ai' | relative_url }}">★ AI Tools Policy</a></li>
           <li class="dd-divider"></li>
           <li class="dd-all"><a href="{{ '/policies' | relative_url }}">All Policies &#x2192;</a></li>
         </ul>
