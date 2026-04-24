@@ -17,12 +17,12 @@
       </div>
     </div>
     <div class="book-info">
-      <span class="book-badge req">★ Required / 교재</span>
+      <span class="book-badge req">★ <span class="lang-en">Required</span><span class="lang-ko">교재</span></span>
       <div class="book-title">{{ text.title }}</div>
       <div class="book-author">{{ text.author }}</div>
       <div class="book-pub">{{ text.publisher }}</div>
       {%- if text.link -%}
-      <a href="{{ text.link }}" class="book-buy" target="_blank">Buy / 구매 →</a>
+      <a href="{{ text.link }}" class="book-buy" target="_blank"><span class="lang-en">Buy</span><span class="lang-ko">구매</span> →</a>
       {%- endif -%}
       {%- if text.code -%}
       <a href="{{ text.code }}" class="book-buy" target="_blank" style="margin-left:6px;">Code →</a>
@@ -43,12 +43,12 @@
       </div>
     </div>
     <div class="book-info">
-      <span class="book-badge supp">Supplementary / 참고</span>
+      <span class="book-badge supp"><span class="lang-en">Supplementary</span><span class="lang-ko">참고</span></span>
       <div class="book-title">{{ text.title }}</div>
       <div class="book-author">{{ text.author }}</div>
       <div class="book-pub">{{ text.publisher }}</div>
       {%- if text.link -%}
-      <a href="{{ text.link }}" class="book-buy" target="_blank">Buy / 구매 →</a>
+      <a href="{{ text.link }}" class="book-buy" target="_blank"><span class="lang-en">Buy</span><span class="lang-ko">구매</span> →</a>
       {%- endif -%}
     </div>
   </li>

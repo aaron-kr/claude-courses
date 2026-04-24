@@ -63,9 +63,14 @@ eyebrow: Teaching History
     {%- for cat in site.course_categories -%}
       {%- assign cat_courses = site.courses | where: "category", cat.key | sort: "importance" -%}
       {%- if cat_courses.size > 0 -%}
-      <div class="archive-semester" data-sem="{{ cat.key }}">
-        <div class="semester-label" style="margin-bottom:8px;">{{ cat.label }}</div>
-        <ul class="archive-list" style="margin-bottom:40px;">
+      {%- assign is_current = cat_courses | where: "now", "Yes" | size -%}
+      <div class="semester-group{% if is_current > 0 %} is-current{% endif %}" data-sem="{{ cat.key }}">
+        <div class="group-heading">
+          <span class="group-label">{{ cat.label }}</span>
+          {%- if is_current > 0 -%}<span class="current-chip">Current</span>{%- endif -%}
+          <span class="group-line"></span>
+        </div>
+        <ul class="archive-list">
           {%- for course in cat_courses -%}
             {%- assign _uni = course.logo | remove: '-logo.png' | remove: '-logo-2.png' | upcase -%}
             {%- assign _info = course.information | first -%}
@@ -86,36 +91,33 @@ eyebrow: Teaching History
               {%- assign _tc = 'theory' -%}{%- assign _tl2 = 'CS' -%}
             {%- endif -%}
             <li>
-              <a class="arch-row{% if course.now %} current{% endif %}"
+              <a class="archive-item"
                  href="{{ course.url | relative_url }}"
                  data-uni="{{ _uni }}"
                  data-sem="{{ course.category }}">
                 {%- if course.img -%}
-                <div class="arch-thumb" style="background-image:url('{{ course.img | relative_url }}')"></div>
+                <div class="item-thumb" style="background-image:url('{{ course.img | relative_url }}')"></div>
                 {%- else -%}
-                <div class="arch-thumb" style="background:var(--surface);"></div>
+                <div class="item-thumb"></div>
                 {%- endif -%}
-                <div class="arch-main">
-                  <div class="arch-code">
+                <div class="item-content">
+                  <div class="item-code">
                     <span class="uni-init-tag">{{ _uni }}</span>
                     {{ course.description | split: ' • ' | first }}
+                    {%- unless course.now %}<span class="archived-badge">Archived</span>{%- endunless -%}
                   </div>
-                  <div class="arch-title">{{ course.title }}{% if course.subtitle %} <span style="font-weight:300;color:var(--muted);font-size:.82rem;">/ {{ course.subtitle }}</span>{% endif %}</div>
-                  <div class="arch-tags">
-                    <span class="tag {{ _tc }}">{{ _tl2 }}</span>
-                    {%- if course.now -%}<span class="tag systems">● Active</span>{%- endif -%}
+                  <div class="item-main">
+                    <div class="item-title">{{ course.title }}</div>
+                    {%- if course.subtitle %}<div class="item-subtitle">{{ course.subtitle }}</div>{%- endif -%}
+                    <div class="item-meta-row">
+                      <span class="item-tag {{ _tc }}">{{ _tl2 }}</span>
+                      {%- if _info.time -%}<span class="item-meta-val">{{ _info.time }}</span>{%- endif -%}
+                      {%- if _info.location -%}<span class="item-meta-val">{{ _info.location }}</span>{%- endif -%}
+                    </div>
                   </div>
                 </div>
-                <div class="arch-meta">
-                  {%- if _info.time -%}
-                  <span class="arch-meta-time">{{ _info.time }}</span>
-                  {%- endif -%}
-                  {%- if _info.location -%}
-                  <span class="arch-meta-time">{{ _info.location }}</span>
-                  {%- endif -%}
-                  <span class="arch-meta-uni">{{ course.description | split: ' • ' | last }}</span>
-                </div>
-                <span class="arch-arrow">→</span>
+                <span class="item-uni">{{ course.description | split: ' • ' | last }}</span>
+                <span class="item-arrow">→</span>
               </a>
             </li>
           {%- endfor -%}
@@ -132,7 +134,7 @@ eyebrow: Teaching History
   let activeSem = 'all';
   let activeUni = 'all';
 
-  const allRows = document.querySelectorAll('.arch-row');
+  const allRows = document.querySelectorAll('.archive-item');
 
   function countVisible() {
     let n = 0;
@@ -150,9 +152,8 @@ eyebrow: Teaching History
       const uniOk = activeUni === 'all' || uni === activeUni;
       li.classList.toggle('arch-hidden', !(semOk && uniOk));
     });
-    // Hide semester headings with no visible rows
-    document.querySelectorAll('.archive-semester').forEach(sec => {
-      const vis = sec.querySelectorAll('.arch-row:not(.arch-hidden), li:not(.arch-hidden) .arch-row');
+    // Hide semester group headings with no visible rows
+    document.querySelectorAll('.semester-group').forEach(sec => {
       const anyVis = [...sec.querySelectorAll('li')].some(li => !li.classList.contains('arch-hidden'));
       sec.style.display = anyVis ? '' : 'none';
     });

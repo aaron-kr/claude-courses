@@ -1,38 +1,208 @@
 ---
 layout: default
 title: Late Policy
-subtitle: 지각 제출 정책
 permalink: /policies/late/
-eyebrow: Academic Policy
 ---
 
+<style>
+.pol-page{padding:40px 0 72px}
+.pol-page-layout{display:grid;grid-template-columns:170px 1fr;gap:44px;align-items:start;padding-top:32px}
+.pol-sidebar{position:sticky;top:72px}
+.pol-sidebar-nav{list-style:none;border-left:2px solid var(--border);padding-left:16px}
+.pol-sidebar-nav li{margin-bottom:2px}
+.pol-sidebar-nav a{font-size:.76rem;color:var(--muted);text-decoration:none;display:block;padding:4px 0;transition:color .2s}
+.pol-sidebar-nav a:hover,.pol-sidebar-nav a.active{color:var(--accent3)}
+.pol-sidebar-nav a.active{border-left:2px solid var(--accent3);margin-left:-18px;padding-left:16px}
+.pol-meta-bar{display:flex;gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--surface);margin-bottom:32px}
+.pol-meta-item{flex:1;padding:9px 14px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:2px}
+.pol-meta-item:last-child{border-right:none}
+.pol-meta-label{font-family:'IBM Plex Mono',monospace;font-size:.56rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.pol-meta-value{font-size:.8rem;color:var(--sub)}
+.pol-content-section{margin-bottom:42px}
+.pol-content-section h2{font-family:'Playfair Display','DM Serif Display',serif;font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:12px}
+.pol-content-section p{font-size:.9rem;color:var(--sub);line-height:1.85;margin-bottom:10px}
+.pol-rule-list{list-style:none;margin:10px 0}
+.pol-rule-list li{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.88rem;color:var(--sub);line-height:1.7}
+.pol-rule-list li:first-child{border-top:1px solid var(--border)}
+.pol-rule-num{font-family:'IBM Plex Mono',monospace;font-size:.63rem;color:var(--accent3);flex-shrink:0;width:22px;padding-top:3px}
+.pol-highlight{background:rgba(109,204,221,.06);border:1px solid rgba(109,204,221,.2);border-radius:var(--radius);padding:13px 16px;margin:14px 0;font-size:.88rem;color:var(--sub);line-height:1.75}
+.pol-highlight strong{color:var(--text)}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+a.related-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-decoration:none;color:inherit;transition:border-color .2s,transform .15s,box-shadow .15s;display:flex;flex-direction:column;gap:6px;position:relative;overflow:hidden}
+a.related-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent3),var(--accent));opacity:.5;transition:opacity .2s}
+a.related-card:hover::before{opacity:1}
+a.related-card:hover{border-color:rgba(109,204,221,.3);transform:translateY(-1px)}
+.related-code{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--accent3);letter-spacing:.06em}
+.related-title{font-size:.88rem;font-weight:500;color:var(--text);line-height:1.3;margin-top:4px}
+.related-desc{font-size:.75rem;color:var(--muted);margin-top:3px;line-height:1.4}
+@media(max-width:900px){.pol-page-layout{grid-template-columns:1fr}.pol-sidebar{display:none}.related-grid{grid-template-columns:1fr 1fr}.pol-meta-bar{flex-wrap:wrap}}
+</style>
+
 <div class="wrap">
-  <header style="padding:60px 0 36px;border-bottom:1px solid var(--border);">
-    <a href="{{ '/policies' | relative_url }}" class="back-btn" style="margin-bottom:16px;display:inline-block;">← All Policies</a>
-    <div class="eyebrow">Late Policy / 지각 제출 정책</div>
-    <h1>Late<br><em>Policy</em></h1>
-    <p style="margin-top:16px;max-width:560px;font-size:.95rem;color:var(--muted);line-height:1.8;border-left:2px solid var(--border);padding-left:18px;">
-      <span class="lang-en">6 total late days per semester. After that, penalties apply.</span>
-      <span class="lang-ko">학기당 총 6일의 지각 유예 일수. 이후에는 감점이 적용됩니다.</span>
-    </p>
-  </header>
-  <main style="padding:40px 0 80px;max-width:720px;">
-    <div class="policy-content">
-      <h3><span class="lang-en">Late Days</span><span class="lang-ko">지각 유예 일수</span></h3>
-      <p><span class="lang-en">You have <strong>6 total late days</strong> for the semester, usable on any assignment. Late days are counted by calendar day (a new late day begins at 12:00 am KST).</span><span class="lang-ko">학기 전체에 걸쳐 어떤 과제에도 사용 가능한 <strong>총 6일의 지각 유예 일수</strong>가 있습니다. 지각일은 역일 기준으로 계산됩니다(새 지각일은 한국 표준시 오전 12시에 시작).</span></p>
-
-      <h3><span class="lang-en">Penalty Schedule</span><span class="lang-ko">감점 일정</span></h3>
-      <ul>
-        <li><span class="lang-en">On time: full credit.</span><span class="lang-ko">제때 제출: 전점.</span></li>
-        <li><span class="lang-en">Within late-day allowance: full credit.</span><span class="lang-ko">지각 유예 일수 내: 전점.</span></li>
-        <li><span class="lang-en">After late days exhausted: 50% penalty per late day (≈2.08% per hour).</span><span class="lang-ko">지각 유예 일수 소진 후: 지각일당 50% 감점(≈시간당 2.08%).</span></li>
-        <li><span class="lang-en">48+ hours after late-day limit exceeded: zero credit.</span><span class="lang-ko">지각 유예 일수 초과 48시간 이후: 0점.</span></li>
-      </ul>
-
-      <p><strong><span class="lang-en">You must submit at least 75% of all assignments and practices (even for zero credit) to pass the course.</span><span class="lang-ko">과락 방지를 위해 모든 과제와 실습의 최소 75%를 제출해야 합니다(0점이라도).</span></strong></p>
-
-      <hr>
-      <p style="font-size:.82rem;color:var(--muted);"><em><span class="lang-en">Last updated: April 2026.</span><span class="lang-ko">마지막 업데이트: 2026년 4월.</span></em></p>
+<header>
+  <p class="eyebrow animate d1">
+    <span class="lang-en">Academic Policy &mdash; POL 06</span>
+    <span class="lang-ko">학사 규정 &mdash; POL 06</span>
+  </p>
+  <h1 class="animate d2">
+    <span class="lang-en">Late<br><em>Policy</em></span>
+    <span class="lang-ko">지각 제출<br><em>정책</em></span>
+  </h1>
+</header>
+<div class="pol-page">
+  <a href="{{ '/policies' | relative_url }}" class="back-btn animate d1" style="margin-bottom:18px;display:inline-flex">
+    ← <span class="lang-en">All Policies</span><span class="lang-ko">전체 정책</span>
+  </a>
+  <div class="pol-meta-bar animate d2">
+    <div class="pol-meta-item">
+      <span class="pol-meta-label"><span class="lang-en">Policy Code</span><span class="lang-ko">정책 코드</span></span>
+      <span class="pol-meta-value">POL &mdash; 06</span>
     </div>
-  </main>
+    <div class="pol-meta-item">
+      <span class="pol-meta-label"><span class="lang-en">Effective</span><span class="lang-ko">시행일</span></span>
+      <span class="pol-meta-value"><span class="lang-en">September 2023</span><span class="lang-ko">2023년 9월</span></span>
+    </div>
+    <div class="pol-meta-item">
+      <span class="pol-meta-label"><span class="lang-en">Last Updated</span><span class="lang-ko">최종 수정</span></span>
+      <span class="pol-meta-value"><span class="lang-en">April 2026</span><span class="lang-ko">2026년 4월</span></span>
+    </div>
+    <div class="pol-meta-item">
+      <span class="pol-meta-label"><span class="lang-en">Applies To</span><span class="lang-ko">적용 범위</span></span>
+      <span class="pol-meta-value"><span class="lang-en">All courses</span><span class="lang-ko">모든 강좌</span></span>
+    </div>
+  </div>
+  <div class="pol-page-layout">
+    <aside class="pol-sidebar">
+      <ul class="pol-sidebar-nav">
+        <li><a href="#overview" class="active"><span class="lang-en">Overview</span><span class="lang-ko">개요</span></a></li>
+        <li><a href="#late-days"><span class="lang-en">Late Days</span><span class="lang-ko">지각 유예 일수</span></a></li>
+        <li><a href="#penalties"><span class="lang-en">Penalties</span><span class="lang-ko">감점</span></a></li>
+        <li><a href="#minimum"><span class="lang-en">Minimum Submission</span><span class="lang-ko">최소 제출</span></a></li>
+        <li><a href="#exceptions"><span class="lang-en">Exceptions</span><span class="lang-ko">예외</span></a></li>
+      </ul>
+    </aside>
+    <main>
+      <div class="pol-content-section" id="overview">
+        <h2><span class="lang-en">Overview</span><span class="lang-ko">개요</span></h2>
+        <p>
+          <span class="lang-en">Life happens. This policy gives you flexibility through a bank of late days each semester, while still ensuring fairness to all students.</span>
+          <span class="lang-ko">살다 보면 예상치 못한 일이 생깁니다. 이 정책은 학기마다 지각 유예 일수를 통해 유연성을 제공하면서도 모든 학생에 대한 공정성을 보장합니다.</span>
+        </p>
+        <div class="pol-highlight">
+          <strong><span class="lang-en">Bottom line:</span><span class="lang-ko">핵심:</span></strong>
+          <span class="lang-en"> You have <strong>6 total late days</strong> per semester. Use them wisely. After they are exhausted, a 50% penalty applies per late day, then zero after 48 hours.</span>
+          <span class="lang-ko"> 학기당 <strong>총 6일의 지각 유예 일수</strong>가 있습니다. 현명하게 사용하세요. 소진 후에는 지각일당 50% 감점이 적용되고, 48시간 후에는 0점입니다.</span>
+        </div>
+      </div>
+
+      <div class="pol-content-section" id="late-days">
+        <h2><span class="lang-en">Late Days</span><span class="lang-ko">지각 유예 일수</span></h2>
+        <p>
+          <span class="lang-en">You have <strong>6 total late days</strong> for the semester, usable on any homework assignment. Late days are counted by calendar day &mdash; a new late day begins at 12:00 am KST.</span>
+          <span class="lang-ko">학기 전체에 걸쳐 어떤 과제에도 사용 가능한 <strong>총 6일의 지각 유예 일수</strong>가 있습니다. 지각일은 역일 기준으로 계산됩니다 &mdash; 새 지각일은 한국 표준시 오전 12시에 시작합니다.</span>
+        </p>
+        <ul class="pol-rule-list">
+          <li>
+            <span class="pol-rule-num">01</span>
+            <span><span class="lang-en">Late days are applied automatically &mdash; no need to ask permission.</span><span class="lang-ko">지각일은 자동으로 적용됩니다 &mdash; 허가를 요청할 필요가 없습니다.</span></span>
+          </li>
+          <li>
+            <span class="pol-rule-num">02</span>
+            <span><span class="lang-en">You can use multiple late days on a single assignment (e.g., 2 days late = 2 late days used).</span><span class="lang-ko">단일 과제에 여러 지각일을 사용할 수 있습니다(예: 2일 지각 = 지각일 2일 사용).</span></span>
+          </li>
+          <li>
+            <span class="pol-rule-num">03</span>
+            <span><span class="lang-en">Late days do <em>not</em> apply to in-class practice exercises, tests, or final projects.</span><span class="lang-ko">지각일은 수업 내 실습, 시험 또는 최종 프로젝트에는 적용되지 <em>않습니다</em>.</span></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="pol-content-section" id="penalties">
+        <h2><span class="lang-en">Penalty Schedule</span><span class="lang-ko">감점 일정</span></h2>
+        <ul class="pol-rule-list">
+          <li>
+            <span class="pol-rule-num">01</span>
+            <span><span class="lang-en"><strong>On time:</strong> Full credit.</span><span class="lang-ko"><strong>제때 제출:</strong> 전점.</span></span>
+          </li>
+          <li>
+            <span class="pol-rule-num">02</span>
+            <span><span class="lang-en"><strong>Within late-day allowance:</strong> Full credit &mdash; no penalty.</span><span class="lang-ko"><strong>지각 유예 일수 내:</strong> 전점 &mdash; 감점 없음.</span></span>
+          </li>
+          <li>
+            <span class="pol-rule-num">03</span>
+            <span><span class="lang-en"><strong>After late days exhausted:</strong> 50% penalty per calendar day late (≈2.08% per hour).</span><span class="lang-ko"><strong>지각 유예 일수 소진 후:</strong> 역일 기준 지각일당 50% 감점(≈시간당 2.08%).</span></span>
+          </li>
+          <li>
+            <span class="pol-rule-num">04</span>
+            <span><span class="lang-en"><strong>48+ hours after late days exhausted:</strong> Zero credit. However, you must still submit to meet the 75% minimum.</span><span class="lang-ko"><strong>지각 유예 일수 소진 48시간 이후:</strong> 0점. 단, 75% 최소 기준을 충족하려면 여전히 제출해야 합니다.</span></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="pol-content-section" id="minimum">
+        <h2><span class="lang-en">Minimum Submission Requirement</span><span class="lang-ko">최소 제출 요건</span></h2>
+        <p>
+          <span class="lang-en">You must submit at least <strong>75% of all assignments and practice exercises</strong> (even for zero credit) to pass the course. An incomplete or late submission that earns zero is still better than no submission at all.</span>
+          <span class="lang-ko">과락 방지를 위해 모든 과제와 실습의 최소 <strong>75%를 제출</strong>해야 합니다(0점이라도). 0점을 받는 불완전하거나 지각 제출이 아예 제출하지 않는 것보다 낫습니다.</span>
+        </p>
+        <div class="pol-highlight">
+          <strong><span class="lang-en">Always submit something.</span><span class="lang-ko">항상 무언가를 제출하세요.</span></strong>
+          <span class="lang-en"> Even if your work is incomplete or you have used all your late days, submit what you have. Partial credit and meeting the 75% threshold both matter.</span>
+          <span class="lang-ko"> 작업이 불완전하거나 지각일을 모두 소진했더라도 가진 것을 제출하세요. 부분 점수와 75% 기준 충족 모두 중요합니다.</span>
+        </div>
+      </div>
+
+      <div class="pol-content-section" id="exceptions">
+        <h2><span class="lang-en">Exceptions</span><span class="lang-ko">예외</span></h2>
+        <p>
+          <span class="lang-en">In cases of extended serious illness, family emergency, or other exceptional circumstances, contact me as early as possible. Extensions beyond your late-day bank may be granted at my discretion with appropriate documentation.</span>
+          <span class="lang-ko">장기 질병, 가족 위기 또는 기타 예외적인 상황의 경우 가능한 한 빨리 연락해 주세요. 적절한 서류와 함께 내 재량으로 지각일 이상의 연장이 허용될 수 있습니다.</span>
+        </p>
+        <p>
+          <span class="lang-en">Late days and extensions do <em>not</em> apply to tests, exams, or in-class activities that were missed due to unexcused absence.</span>
+          <span class="lang-ko">지각일과 연장은 정당하지 않은 결석으로 놓친 시험이나 수업 내 활동에는 적용되지 <em>않습니다</em>.</span>
+        </p>
+      </div>
+
+      <div class="pol-content-section" id="related">
+        <h2><span class="lang-en">Related Policies</span><span class="lang-ko">관련 정책</span></h2>
+        <div class="related-grid">
+          <a href="{{ '/policies/assignments' | relative_url }}" class="related-card">
+            <span class="related-code">POL — 03</span>
+            <span class="related-title"><span class="lang-en">Assignments &amp; Practice</span><span class="lang-ko">과제 및 실습</span></span>
+            <span class="related-desc"><span class="lang-en">Submission rules and grading.</span><span class="lang-ko">제출 규정 및 채점.</span></span>
+          </a>
+          <a href="{{ '/policies/attendance' | relative_url }}" class="related-card">
+            <span class="related-code">POL — 02</span>
+            <span class="related-title"><span class="lang-en">Attendance &amp; Participation</span><span class="lang-ko">출석 및 참여</span></span>
+            <span class="related-desc"><span class="lang-en">Absence limits and penalties.</span><span class="lang-ko">결석 한도 및 감점.</span></span>
+          </a>
+          <a href="{{ '/policies/tests' | relative_url }}" class="related-card">
+            <span class="related-code">POL — 04</span>
+            <span class="related-title"><span class="lang-en">Tests &amp; Exams</span><span class="lang-ko">시험 정책</span></span>
+            <span class="related-desc"><span class="lang-en">Exam rules — late days do not apply.</span><span class="lang-ko">시험 규정 &mdash; 지각일 미적용.</span></span>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
 </div>
+</div>
+
+<script>
+(function(){
+  const sections = document.querySelectorAll('.pol-content-section[id]');
+  const links    = document.querySelectorAll('.pol-sidebar-nav a');
+  if (!sections.length || !links.length) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const a = document.querySelector(`.pol-sidebar-nav a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-25% 0px -65% 0px' });
+  sections.forEach(s => obs.observe(s));
+})();
+</script>

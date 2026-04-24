@@ -28,10 +28,10 @@
 {%- endif -%}
 
 <a class="card" href="{{ c.url | relative_url }}">
-  {%- if c.img -%}
-  <div class="card-thumb" style="background-image:url('{{ c.img | relative_url }}')"></div>
-  {%- endif -%}
   <div class="card-inner">
+    {%- if c.img -%}
+    <div class="card-thumb" style="background-image:url('{{ c.img | relative_url }}')"></div>
+    {%- endif -%}
     <div class="card-body">
       <div class="card-code">
         {%- if uni_init != '' -%}<span class="uni-init-tag">{{ uni_init }}</span>{%- endif -%}
@@ -53,7 +53,7 @@
         <span class="card-arrow">→</span>
       </div>
     </div>
-  </div>
+  </div><!-- .card-inner -->
   {%- if c.logo -%}
   <div class="uni-badge">
     <span class="ub-abbr">{{ uni_init }}</span>

@@ -7,14 +7,14 @@
       <a href="mailto:{{ site.email }}">{{ site.email | replace: '@', ' &#064; ' }}</a>
     </div>
     <div class="f-col">
-      <span class="f-heading">Teaching</span>
-      <a href="{{ '/' | relative_url }}">Current Courses</a>
-      <a href="{{ '/archive' | relative_url }}">Course Archive</a>
-      <a href="{{ '/policies' | relative_url }}">Academic Policies</a>
-      <a href="{{ '/office-hours' | relative_url }}">Office Hours</a>
+      <span class="f-heading"><span class="lang-en">Teaching</span><span class="lang-ko">강의</span></span>
+      <a href="{{ '/' | relative_url }}"><span class="lang-en">Current Courses</span><span class="lang-ko">현재 강좌</span></a>
+      <a href="{{ '/archive' | relative_url }}"><span class="lang-en">Course Archive</span><span class="lang-ko">강의 이력</span></a>
+      <a href="{{ '/policies' | relative_url }}"><span class="lang-en">Academic Policies</span><span class="lang-ko">학사 규정</span></a>
+      <a href="{{ '/office-hours' | relative_url }}"><span class="lang-en">Office Hours</span><span class="lang-ko">상담 시간</span></a>
     </div>
     <div class="f-col">
-      <span class="f-heading">Connect</span>
+      <span class="f-heading"><span class="lang-en">Connect</span><span class="lang-ko">연락처</span></span>
       {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}" target="_blank">GitHub</a>{% endif %}
       {% if site.linkedin_username %}<a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank">LinkedIn</a>{% endif %}
       {% if site.scholar_userid %}<a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" target="_blank">Google Scholar</a>{% endif %}

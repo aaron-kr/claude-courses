@@ -121,11 +121,15 @@ claude-courses/
 | Schedule include | ✅ Complete | TEST rows centered like NO CLASS; no thumbnail for no-img rows; HW 20% width |
 | i18n toggle | ✅ Complete | `html.ko` class; `lang-en`/`lang-ko` CSS; persists in localStorage |
 | Email obfuscation | ✅ Complete | `@` → `&#064;` in about_aaron, footer |
-| Card thumbnails | ✅ Complete | Full-height left panel (`background-position: left center`) |
+| Card thumbnails | ✅ Complete | 82px wide thumb inside `.card-inner`; `background-position:center top`; shown via `.thumbs-active` |
 | Font size | ✅ Complete | `html { font-size: clamp(15px, 1.05vw, 17px) }` + larger h1/h2/h3 |
 | Office hours | ✅ Complete | How to Reach Me boxes, Today pill, cal.com booking stub |
 | Nav brand | ✅ Complete | `courses.aaron.kr` |
 | Assets (images) | ⏳ Pending | Must be copied from `../aaronkr-courses.github.io/assets/` |
+| i18n — nav/footer/layouts | ✅ Complete | All nav, footer, course.html, schedule.html, textbooks.html now use `lang-en`/`lang-ko` spans |
+| Policy page redesign | ✅ Complete | All 6 policy pages now use `pol-page-layout` sidebar + `pol-meta-bar` + `pol-rule-list` matching REAL design |
+| Office hours redesign | ✅ Complete | `.week-grid`, `.contact-card.c1/c2/c3`, `.booking-box` matching REAL design |
+| Archive redesign | ✅ Complete | `.archive-item`/`.semester-group` matching REAL design; filter JS updated |
 
 ## Active TODOs / Next Steps
 
@@ -139,7 +143,7 @@ claude-courses/
 - [ ] Add `favicon` from Cloudinary
 - [ ] Wire up cal.com booking (user needs to create cal.com/aaronkr account)
 - [ ] Add `tags:` front matter to course files for richer filtering
-- [ ] Apply `lang-en`/`lang-ko` spans to remaining bilingual content in course files
+- [ ] Apply `lang-en`/`lang-ko` spans to course body content (Markdown files in `_courses/`)
 
 ### Later / Nice to have
 - [ ] Add `sitemap.xml` (auto via jekyll-sitemap plugin)
@@ -158,8 +162,8 @@ claude-courses/
 8. **Click dropdowns** — NOT hover. Hover was explicitly rejected in earlier sessions.
 9. **Hamburger is an overlay** — `position: fixed`, NOT push-down. Uses `#mobile-backdrop`.
 10. **i18n** — `html.ko` class set by JS on toggle; persisted in `localStorage`. CSS `.lang-ko { display:none }` / `html.ko .lang-en { display:none }`. Use `<span class="lang-en">` / `<span class="lang-ko">` for inline, `lang-en-block`/`lang-ko-block` for block elements. Legacy `data-en`/`data-ko` also supported.
-11. **Card thumbnails** — `a.card` is always `flex-direction:row`. `.card-thumb` hidden by default; `background-position:left center` shows only left half of book. Revealed via `.thumbs-active` class on parent container.
-12. **Archive rows** — `.arch-row.current` uses `::before`/`::after` pseudo-elements for 3px gradient top+bottom border. Filter JS sets `.arch-hidden` on `<li>` elements.
+11. **Card thumbnails** — `a.card` is `flex-direction:column`. `.card-inner` is `flex-direction:row`. `.card-thumb` (82px wide) lives inside `.card-inner`. Hidden by default; revealed via `.thumbs-active` class on parent container. `background-position:center top`.
+12. **Archive rows** — `.archive-item` link rows inside `.semester-group` divs. `.semester-group.is-current` uses `::before`/`::after` pseudo-elements for gradient borders. Filter JS sets `.arch-hidden` on `<li>` elements. Legacy `.arch-row` kept for compat.
 13. **Policy pages** — Each policy is its own page in `_pages/policy-*.md`. The main `/policies/` page shows a featured card (AI) + list rows. No anchor-only links.
 14. **Email obfuscation** — Always render email as `{{ email | replace: '@', ' &#064; ' }}` in HTML. The `mailto:` href still uses the raw address.
 

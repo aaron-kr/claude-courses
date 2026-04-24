@@ -52,11 +52,11 @@
       <div class="sched-date{%- if row_type == 'noclass' %} holiday{%- elsif row_type == 'test' %} test-date{%- endif -%}">
         <span class="date-day">{{ item.date }}</span>
         {%- if row_type == 'noclass' -%}
-        <span class="holiday-note">🔴 휴강</span>
+        <span class="holiday-note">🔴 <span class="lang-en">No Class</span><span class="lang-ko">휴강</span></span>
         {%- elsif row_type == 'test' -%}
-        <span class="test-note">📝 시험</span>
+        <span class="test-note">📝 <span class="lang-en">Exam</span><span class="lang-ko">시험</span></span>
         {%- else -%}
-        <span style="color:var(--muted);font-size:.58rem;">Wk {{ display_week }}</span>
+        <span style="color:var(--muted);font-size:.58rem;"><span class="lang-en">Wk</span><span class="lang-ko">주</span> {{ display_week }}</span>
         {%- endif -%}
       </div>
 
@@ -80,7 +80,7 @@
       {%- comment -%} Info column {%- endcomment -%}
       <div class="sched-info">
         {%- if row_type == 'normal' -%}
-        <span class="sched-week">Week {{ display_week }}</span>
+        <span class="sched-week"><span class="lang-en">Week</span><span class="lang-ko">주차</span> {{ display_week }}</span>
         {%- endif -%}
         <div class="sched-title">{{ item.title }}</div>
         {%- if item.readings -%}
