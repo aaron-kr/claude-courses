@@ -4,57 +4,8 @@ title: Office Hours
 permalink: /office-hours/
 ---
 
-<style>
-.oh-page{padding:44px 0 72px}
-.week-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-.day-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;position:relative;overflow:hidden;transition:border-color .2s}
-.day-logo{position:absolute;top:10px;right:10px;width:44px;height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.52rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text);border:1.5px solid var(--text);opacity:.1;line-height:1.3;text-align:center;z-index:0;pointer-events:none}
-.day-logo .dl-abbr{font-size:.68rem;font-weight:500}
-.day-card.today-card{border-color:rgba(109,204,221,.45)}
-.day-card.today-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent3),var(--accent2))}
-.today-chip-sm{position:absolute;top:10px;left:10px;font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(109,204,221,.12);color:var(--accent3);border:1px solid rgba(109,204,221,.28);border-radius:3px;padding:2px 6px;z-index:2}
-.day-name{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
-.day-school{font-size:.85rem;font-weight:500;color:var(--text);line-height:1.3;margin-bottom:4px}
-.day-school-kr{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted)}
-.day-oh{margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
-.day-oh-label{font-family:'IBM Plex Mono',monospace;font-size:.56rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:4px}
-.day-oh-time{font-size:.78rem;color:var(--accent2)}
-.day-oh-room{font-size:.7rem;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-top:2px}
-.oh-heading{display:flex;align-items:center;gap:14px;margin:36px 0 18px}
-.oh-label{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
-.oh-line{flex:1;height:1px;background:var(--border)}
-.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;position:relative;overflow:hidden}
-.contact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
-.contact-card.c1::before{background:linear-gradient(90deg,#fee500,#fbbf24)}
-.contact-card.c2::before{background:linear-gradient(90deg,var(--accent),var(--accent2))}
-.contact-card.c3::before{background:linear-gradient(90deg,var(--accent2),var(--accent3))}
-.contact-rank{font-family:'IBM Plex Mono',monospace;font-size:.57rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px;display:block}
-.contact-name{font-size:.9rem;font-weight:500;color:var(--text);margin-bottom:5px}
-.contact-desc{font-size:.78rem;color:var(--sub);line-height:1.65;margin-bottom:11px}
-.contact-link{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:.67rem;letter-spacing:.04em;text-decoration:none;padding:5px 13px;border-radius:var(--radius);border:1px solid var(--border);color:var(--sub);background-size:205% 100%;background-position:100%;transition:background-position .32s ease,color .2s,border-color .2s}
-.contact-link.cl-kakao{background-image:linear-gradient(to right,#fee500 50%,var(--tag-bg) 50%)}
-.contact-link.cl-kakao:hover{background-position:0;color:#2a1800;border-color:#fee500}
-.contact-link.cl-email{background-image:linear-gradient(to right,var(--accent) 50%,var(--tag-bg) 50%)}
-.contact-link.cl-email:hover{background-position:0;color:#fff;border-color:var(--accent)}
-.contact-link.cl-campus{background-image:linear-gradient(to right,var(--accent3) 50%,var(--tag-bg) 50%)}
-.contact-link.cl-campus:hover{background-position:0;color:var(--bg);border-color:var(--accent3)}
-.booking-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:14px;position:relative}
-.booking-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent3),var(--accent),var(--accent2))}
-.booking-header{padding:20px 24px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.booking-title{font-family:'Playfair Display','DM Serif Display',serif;font-size:1.15rem;font-weight:700;color:var(--text)}
-.booking-title span{font-family:'IBM Plex Mono',monospace;font-size:.65rem;font-weight:400;color:var(--accent3);background:rgba(109,204,221,.1);border:1px solid rgba(109,204,221,.22);border-radius:3px;padding:2px 8px;margin-left:10px;vertical-align:middle}
-.booking-meta{font-size:.8rem;color:var(--muted)}
-.booking-footer{padding:14px 24px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.booking-note{font-size:.78rem;color:var(--muted)}
-.booking-link{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--accent3);text-decoration:none;letter-spacing:.04em}
-.booking-link:hover{text-decoration:underline}
-@media(max-width:800px){.week-grid{grid-template-columns:repeat(3,1fr)}.contact-grid{grid-template-columns:1fr}}
-@media(max-width:500px){.week-grid{grid-template-columns:repeat(2,1fr)}}
-</style>
-
 <div class="wrap">
-<header>
+<header class="page-header">
   <div class="today-pill animate d1" id="today-pill">
     <span class="today-dot"></span>
     <span id="today-text">Loading&hellip;</span>

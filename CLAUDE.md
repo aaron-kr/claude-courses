@@ -91,12 +91,12 @@ claude-courses/
     (+ 2025, 2024, 2023 data files to be added)
 ```
 
-## Current State (as of Session 8 — April 2026)
+## Current State (as of Session 10 — April 2026)
 
 | Component | Status | Notes |
 |---|---|---|
 | Jekyll scaffolding | ✅ Complete | Gemfile, _config.yml, .gitignore |
-| SCSS design system | ✅ Complete | 7 partials extracted from HTML prototype |
+| SCSS design system | ✅ Complete | 8 partials: added `_pages.scss` in Session 10 |
 | Layouts | ✅ Complete | default, course, page |
 | Includes | ✅ Complete | All 9 includes including shared policies |
 | Home page | ✅ Complete | Today pill, stats bar, course grid by semester, announcements |
@@ -130,6 +130,16 @@ claude-courses/
 | Policy page redesign | ✅ Complete | All 6 policy pages now use `pol-page-layout` sidebar + `pol-meta-bar` + `pol-rule-list` matching REAL design |
 | Office hours redesign | ✅ Complete | `.week-grid`, `.contact-card.c1/c2/c3`, `.booking-box` matching REAL design |
 | Archive redesign | ✅ Complete | `.archive-item`/`.semester-group` matching REAL design; filter JS updated |
+| Current courses display | ✅ Fixed | YAML `now: Yes` is boolean `true`; all Liquid filters use `where_exp: "c", "c.now"` |
+| Page headers (80px) | ✅ Fixed | `.page-header` class in `_pages.scss`; applied to archive, policies, OH, and all policy pages |
+| Inline style deduplication | ✅ Fixed | Pol-page CSS + OH CSS moved to `_sass/_pages.scss`; all inline `<style>` blocks removed |
+| Announcements (new style) | ✅ Fixed | `ann-*` CSS in `_home.scss`; old YAML section removed from `index.md` |
+| Research CTA | ✅ Fixed | Uses `.cta-card` + `.cta-content` + `.cta-image` (two-column); CSS already in `_home.scss` |
+| Archive cleanup | ✅ Fixed | Removed 130-line prototype HTML; single filter panel; bilingual pills; `.uni-badge` in rows |
+| Archive item layout | ✅ Fixed | `.item-code` now left column; `.item-content` is `display:flex`; thumb fills row height |
+| Instructor bio | ✅ Fixed | Bio paragraph now inside `.instructor-box` in `about_aaron.html` |
+| pol-rule-list borders | ✅ Fixed | No top/bottom outer borders; only dividers between items |
+| Related policy cards | ✅ Fixed | `min-height: 110px; padding: 18px 18px 22px` in `_pages.scss` |
 
 ## Active TODOs / Next Steps
 
@@ -144,6 +154,7 @@ claude-courses/
 - [ ] Wire up cal.com booking (user needs to create cal.com/aaronkr account)
 - [ ] Add `tags:` front matter to course files for richer filtering
 - [ ] Apply `lang-en`/`lang-ko` spans to course body content (Markdown files in `_courses/`)
+- [ ] Create `_data/nav.yml` + rewrite `nav.html` to render from YAML (nav items editable without touching HTML)
 
 ### Later / Nice to have
 - [ ] Add `sitemap.xml` (auto via jekyll-sitemap plugin)
@@ -162,7 +173,9 @@ claude-courses/
 8. **Click dropdowns** — NOT hover. Hover was explicitly rejected in earlier sessions.
 9. **Hamburger is an overlay** — `position: fixed`, NOT push-down. Uses `#mobile-backdrop`.
 10. **i18n** — `html.ko` class set by JS on toggle; persisted in `localStorage`. CSS `.lang-ko { display:none }` / `html.ko .lang-en { display:none }`. Use `<span class="lang-en">` / `<span class="lang-ko">` for inline, `lang-en-block`/`lang-ko-block` for block elements. Legacy `data-en`/`data-ko` also supported.
-11. **Card thumbnails** — `a.card` is `flex-direction:column`. `.card-inner` is `flex-direction:row`. `.card-thumb` (82px wide) lives inside `.card-inner`. Hidden by default; revealed via `.thumbs-active` class on parent container. `background-position:center top`.
+11. **YAML boolean `now`** — Course front matter `now: Yes` is YAML boolean `true`. Always use `where_exp: "c", "c.now"` in Liquid filters — NEVER `where: "now", "Yes"` which silently matches nothing.
+12. **`_pages.scss`** — Page-level CSS (pol-page layout, oh-page, `.page-header`) lives in `_sass/_pages.scss`. Do NOT put it in inline `<style>` blocks in `.md` files; import is already in `_sass/main.scss`.
+13. **Card thumbnails** — `a.card` is `flex-direction:column`. `.card-inner` is `flex-direction:row`. `.card-thumb` (82px wide) lives inside `.card-inner`. Hidden by default; revealed via `.thumbs-active` class on parent container. `background-position:center top`.
 12. **Archive rows** — `.archive-item` link rows inside `.semester-group` divs. `.semester-group.is-current` uses `::before`/`::after` pseudo-elements for gradient borders. Filter JS sets `.arch-hidden` on `<li>` elements. Legacy `.arch-row` kept for compat.
 13. **Policy pages** — Each policy is its own page in `_pages/policy-*.md`. The main `/policies/` page shows a featured card (AI) + list rows. No anchor-only links.
 14. **Email obfuscation** — Always render email as `{{ email | replace: '@', ' &#064; ' }}` in HTML. The `mailto:` href still uses the raw address.

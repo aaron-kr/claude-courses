@@ -22,7 +22,7 @@ permalink: /
     </p>
 
     <div class="stats-bar animate d4">
-      {%- assign active_courses = site.courses | where: "now", "Yes" -%}
+      {%- assign active_courses = site.courses | where_exp: "c", "c.now" -%}
       {%- assign total_courses  = site.courses | size -%}
       {%- comment -%} Count unique universities from active courses via logo abbr {%- endcomment -%}
       {%- assign _seen_unis = "" -%}
@@ -81,30 +81,6 @@ permalink: /
     </div>
   </header>
 
-  <!-- ── Announcements ────────────────────────────────────────────────────── -->
-  {%- if site.data.announcements and site.data.announcements.size > 0 -%}
-  <div class="announcements-section animate d4">
-    {%- for item in site.data.announcements -%}
-    <div class="announce-item {{ item.type | default: 'info' }}">
-      <div class="announce-meta">
-        <span class="announce-date">{{ item.date | date: "%b %-d" }}</span>
-        <span class="announce-type">{{ item.type | default: 'info' }}</span>
-      </div>
-      <div class="announce-body">
-        <div class="announce-title">
-          <span class="lang-en">{{ item.title }}</span>
-          <span class="lang-ko">{{ item.title_ko | default: item.title }}</span>
-        </div>
-        <div class="announce-text">
-          <span class="lang-en">{{ item.body }}</span>
-          <span class="lang-ko">{{ item.body_ko | default: item.body }}</span>
-        </div>
-      </div>
-    </div>
-    {%- endfor -%}
-  </div>
-  {%- endif -%}
-
   <!-- ── Spring 2026 — Current Courses by University ───────────────────── -->
   <div class="semester-section animate d4">
     <div class="section-top">
@@ -124,7 +100,7 @@ permalink: /
     </div>
 
     <div id="thumb-section">
-      {%- assign current_courses = site.courses | where: "now", "Yes" -%}
+      {%- assign current_courses = site.courses | where_exp: "c", "c.now" -%}
 
       {%- comment -%} University groups in teaching-day order {%- endcomment -%}
       {%- assign uni_names = "한국교통대학교,원광대학교,전북대학교,한밭대학교,전주교육대학교" | split: "," -%}
@@ -212,32 +188,38 @@ permalink: /
 </div>
 
   <!-- ── Research CTA ────────────────────────────────────────────────────── -->
-  <div class="research-cta animate d5">
-    <div class="rc-eyebrow">
-      <span class="lang-en">Research / PAI Lab</span>
-      <span class="lang-ko">연구 / PAI 연구소</span>
+  <div class="cta-card animate d5" style="margin:52px 0;">
+    <div class="cta-content">
+      <div class="rc-eyebrow">
+        <span class="lang-en">Research / PAI Lab</span>
+        <span class="lang-ko">연구 / PAI 연구소</span>
+      </div>
+      <h3 class="rc-title">
+        <span class="lang-en">Looking for <em>Research Assistants</em></span>
+        <span class="lang-ko"><em>연구 보조원</em>을 찾습니다</span>
+      </h3>
+      <p class="rc-desc">
+        <span class="lang-en">Interested in computer vision, NLP, or applied machine learning?
+        The PAI Lab at Hanbat National University is accepting undergraduate and graduate research assistants for 2026.</span>
+        <span class="lang-ko">컴퓨터 비전, 자연어 처리 또는 응용 머신러닝에 관심 있으신가요?
+        한밭대학교 PAI 연구소에서 2026년도 학부 및 대학원 연구 보조원을 모집합니다.</span>
+      </p>
+      <div class="rc-tags">
+        <span class="rc-tag">Computer Vision</span>
+        <span class="rc-tag">NLP</span>
+        <span class="rc-tag">Signal Processing</span>
+        <span class="rc-tag">Image Processing</span>
+        <span class="rc-tag">Machine Learning</span>
+      </div>
+      <a href="https://pailab.io" class="cta-btn" target="_blank">
+        <span class="lang-en">Visit PAI Lab →</span>
+        <span class="lang-ko">PAI 연구소 →</span>
+      </a>
     </div>
-    <h3 class="rc-title">
-      <span class="lang-en">Looking for <em>Research Assistants</em></span>
-      <span class="lang-ko"><em>연구 보조원</em>을 찾습니다</span>
-    </h3>
-    <p class="rc-desc">
-      <span class="lang-en">Interested in computer vision, NLP, or applied machine learning?
-      The PAI Lab at Hanbat National University is accepting undergraduate and graduate research assistants for 2026.</span>
-      <span class="lang-ko">컴퓨터 비전, 자연어 처리 또는 응용 머신러닝에 관심 있으신가요?
-      한밭대학교 PAI 연구소에서 2026년도 학부 및 대학원 연구 보조원을 모집합니다.</span>
-    </p>
-    <div class="rc-tags">
-      <span class="rc-tag">Computer Vision</span>
-      <span class="rc-tag">NLP</span>
-      <span class="rc-tag">Signal Processing</span>
-      <span class="rc-tag">Image Processing</span>
-      <span class="rc-tag">Machine Learning</span>
+    <div class="cta-image">
+      <span style="font-size:2rem;opacity:.35;margin-bottom:4px;">🔬</span>
+      PAI LAB<br>pailab.io
     </div>
-    <a href="https://pailab.io" class="cta-btn" target="_blank">
-      <span class="lang-en">Visit PAI Lab →</span>
-      <span class="lang-ko">PAI 연구소 →</span>
-    </a>
   </div>
 
   <!-- ── Recent Lab Notes ─────────────────────────────────────────────── -->

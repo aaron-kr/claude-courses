@@ -4,42 +4,8 @@ title: Assignments & Practice Policy
 permalink: /policies/assignments/
 ---
 
-<style>
-.pol-page{padding:40px 0 72px}
-.pol-page-layout{display:grid;grid-template-columns:170px 1fr;gap:44px;align-items:start;padding-top:32px}
-.pol-sidebar{position:sticky;top:72px}
-.pol-sidebar-nav{list-style:none;border-left:2px solid var(--border);padding-left:16px}
-.pol-sidebar-nav li{margin-bottom:2px}
-.pol-sidebar-nav a{font-size:.76rem;color:var(--muted);text-decoration:none;display:block;padding:4px 0;transition:color .2s}
-.pol-sidebar-nav a:hover,.pol-sidebar-nav a.active{color:var(--accent3)}
-.pol-sidebar-nav a.active{border-left:2px solid var(--accent3);margin-left:-18px;padding-left:16px}
-.pol-meta-bar{display:flex;gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--surface);margin-bottom:32px}
-.pol-meta-item{flex:1;padding:9px 14px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:2px}
-.pol-meta-item:last-child{border-right:none}
-.pol-meta-label{font-family:'IBM Plex Mono',monospace;font-size:.56rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
-.pol-meta-value{font-size:.8rem;color:var(--sub)}
-.pol-content-section{margin-bottom:42px}
-.pol-content-section h2{font-family:'Playfair Display','DM Serif Display',serif;font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:12px}
-.pol-content-section p{font-size:.9rem;color:var(--sub);line-height:1.85;margin-bottom:10px}
-.pol-rule-list{list-style:none;margin:10px 0}
-.pol-rule-list li{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.88rem;color:var(--sub);line-height:1.7}
-.pol-rule-list li:first-child{border-top:1px solid var(--border)}
-.pol-rule-num{font-family:'IBM Plex Mono',monospace;font-size:.63rem;color:var(--accent3);flex-shrink:0;width:22px;padding-top:3px}
-.pol-highlight{background:rgba(109,204,221,.06);border:1px solid rgba(109,204,221,.2);border-radius:var(--radius);padding:13px 16px;margin:14px 0;font-size:.88rem;color:var(--sub);line-height:1.75}
-.pol-highlight strong{color:var(--text)}
-.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-a.related-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-decoration:none;color:inherit;transition:border-color .2s,transform .15s,box-shadow .15s;display:flex;flex-direction:column;gap:6px;position:relative;overflow:hidden}
-a.related-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent3),var(--accent));opacity:.5;transition:opacity .2s}
-a.related-card:hover::before{opacity:1}
-a.related-card:hover{border-color:rgba(109,204,221,.3);transform:translateY(-1px)}
-.related-code{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--accent3);letter-spacing:.06em}
-.related-title{font-size:.88rem;font-weight:500;color:var(--text);line-height:1.3;margin-top:4px}
-.related-desc{font-size:.75rem;color:var(--muted);margin-top:3px;line-height:1.4}
-@media(max-width:900px){.pol-page-layout{grid-template-columns:1fr}.pol-sidebar{display:none}.related-grid{grid-template-columns:1fr 1fr}.pol-meta-bar{flex-wrap:wrap}}
-</style>
-
 <div class="wrap">
-<header>
+<header class="page-header">
   <p class="eyebrow animate d1">
     <span class="lang-en">Academic Policy &mdash; POL 03</span>
     <span class="lang-ko">학사 규정 &mdash; POL 03</span>

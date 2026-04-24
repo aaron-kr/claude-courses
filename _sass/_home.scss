@@ -60,31 +60,47 @@ header.home-hero {
 }
 
 // ── Announcements ────────────────────────────────────────────────────────────
-.announcements-section { margin: 32px 0 0; }
-.announce-item {
+.announce-section { margin-top: 52px; }
+.announce-list { list-style: none; }
+a.announce-item {
   display: flex;
-  gap: 14px;
-  align-items: flex-start;
+  gap: 12px;
+  align-items: center;
   padding: 12px 0;
   border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: background .15s;
   &:first-child { border-top: 1px solid var(--border); }
+  &:last-child  { border-bottom: none; }
+  &:hover { background: rgba(155,101,255,.04); }
 }
-.announce-meta { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; width: 70px; }
-.announce-date { font-family: 'IBM Plex Mono', monospace; font-size: .65rem; color: var(--muted); padding-top: 2px; }
-.announce-type {
+.ann-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  &.new  { background: var(--accent);  box-shadow: 0 0 6px rgba(155,101,255,.5); }
+  &.teal { background: var(--accent3); }
+  &.info { background: var(--accent2); }
+  &.warn { background: var(--warn); }
+}
+.ann-body  { flex: 1; min-width: 0; }
+.ann-title { font-size: .88rem; font-weight: 500; color: var(--text); line-height: 1.4; margin-bottom: 2px; }
+.ann-desc  { font-size: .78rem; color: var(--muted); line-height: 1.5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ann-meta  { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.ann-date  { font-family: 'IBM Plex Mono', monospace; font-size: .62rem; color: var(--muted); white-space: nowrap; }
+.ann-badge {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: .56rem;
-  text-transform: uppercase;
-  letter-spacing: .07em;
-  padding: 1px 5px;
-  border-radius: 2px;
-  .announce-item.info  & { background: rgba(109,204,221,.1);  color: var(--accent3); border: 1px solid rgba(109,204,221,.2); }
-  .announce-item.warn  & { background: rgba(251,191,36,.1);   color: var(--warn);    border: 1px solid rgba(251,191,36,.2); }
-  .announce-item.error & { background: rgba(251,111,132,.1);  color: var(--error);   border: 1px solid rgba(251,111,132,.2); }
+  font-size: .58rem;
+  letter-spacing: .06em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  &.course { background: rgba(155,101,255,.1);  color: var(--accent);  border: 1px solid rgba(155,101,255,.25); }
+  &.lab    { background: rgba(109,204,221,.1);  color: var(--accent3); border: 1px solid rgba(109,204,221,.25); }
+  &.admin  { background: rgba(126,184,247,.08); color: var(--accent2); border: 1px solid rgba(126,184,247,.22); }
 }
-.announce-body  { flex: 1; font-size: .88rem; color: var(--sub); line-height: 1.55; }
-.announce-title { font-size: .88rem; color: var(--text); font-weight: 500; margin-bottom: 3px; }
-.announce-text  { font-size: .82rem; color: var(--sub); line-height: 1.5; }
+.ann-arrow { font-size: .75rem; color: var(--muted); opacity: 0; transition: opacity .18s, transform .18s; }
+a.announce-item:hover .ann-arrow { opacity: 1; transform: translateX(3px); }
 
 // ── University group ─────────────────────────────────────────────────────────
 .uni-group { margin-bottom: 48px; }
@@ -218,5 +234,7 @@ header.home-hero {
   .stat:nth-child(2n) { border-right: none; }
   .stat:nth-last-child(-n+2) { border-bottom: none; }
   .research-cta { padding: 24px 20px; }
+  .cta-image { display: none; }
   .uni-group-name { display: none; }
+  .ann-desc { display: none; }
 }

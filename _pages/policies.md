@@ -5,9 +5,6 @@ permalink: /policies/
 ---
 
 <style>
-.section-heading{display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.section-label-sm{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
-.section-line-sm{flex:1;height:1px;background:var(--border)}
 .pol-section{padding:44px 0 0}
 .policy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(262px,1fr));gap:14px;margin-bottom:52px}
 a.pol-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:border-color .2s,transform .18s,box-shadow .2s}
@@ -34,8 +31,8 @@ a.pol-card:hover .read-more{letter-spacing:.08em}
 a.pol-card:hover .pol-arrow{opacity:1;transform:translateX(3px)}
 .list-section{padding:0 0 52px}
 .pol-list{list-style:none}
-a.pol-list-item{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:background .15s;margin:0 -28px;padding-left:28px;padding-right:28px}
-a.pol-list-item:first-child{border-top:1px solid var(--border)}
+a.pol-list-item{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;transition:background .15s}
+a.pol-list-item:last-child{border-bottom:none}
 a.pol-list-item:hover{background:var(--surface)}
 .pl-num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--muted);width:28px;flex-shrink:0}
 .pl-content{flex:1;min-width:0}
@@ -60,7 +57,7 @@ a.pol-list-item:hover .pl-arrow{opacity:1;transform:translateX(3px)}
 </style>
 
 <div class="wrap">
-<header>
+<header class="page-header">
   <p class="eyebrow animate d1">
     <span class="lang-en">Course Policies &amp; Expectations</span>
     <span class="lang-ko">수업 규정 및 기대</span>
