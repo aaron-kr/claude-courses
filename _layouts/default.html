@@ -2,6 +2,14 @@
 <html lang="{{ site.lang | default: 'en' }}" data-theme="dark">
 <head>
   {% include head.html %}
+  <script>
+  // Apply saved theme + language before first paint (prevents flash)
+  (function(){
+    var t = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+    if (localStorage.getItem('lang') === 'ko') document.documentElement.classList.add('ko');
+  })();
+  </script>
 </head>
 <body>
   {% include nav.html %}
@@ -77,15 +85,65 @@
     });
     if (_bd) _bd.addEventListener('click', _closeMenu);
   }
-  // Mobile sub-menus
-  ['courses', 'policies'].forEach(id => {
-    const b = document.getElementById('m-' + id);
-    const s = document.getElementById('m-' + id + '-sub');
-    if (b && s) b.addEventListener('click', () => {
+  // Mobile sub-menus (driven by data-sub attribute)
+  document.querySelectorAll('.m-toggle[data-sub]').forEach(b => {
+    const s = document.getElementById(b.dataset.sub);
+    if (s) b.addEventListener('click', () => {
       const o = s.classList.toggle('open');
       b.classList.toggle('open', o);
     });
   });
+
+  // ── Cascading hero waves (canvas) ─────────────────────────────────────────
+  (function() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var colors = ['rgba(155,101,255,','rgba(109,204,221,','rgba(126,184,247,','rgba(251,111,132,','rgba(155,101,255,'];
+    var ops    = [0.13, 0.09, 0.07, 0.06, 0.05];
+    var phases = [0, 1.2, 2.4, 0.6, 1.8];
+    var speeds = [0.7, 0.5, 0.35, 0.6, 0.45];
+    var ampls  = [28, 24, 18, 22, 16];
+    var freqs  = [1.1, 1.7, 2.3, 1.4, 2.0];
+    var bases  = [0.75, 0.80, 0.84, 0.88, 0.92];
+
+    document.querySelectorAll('.home-hero, .page-header, .course-hero').forEach(function(hero) {
+      var cv = document.createElement('canvas');
+      cv.className = 'hero-waves';
+      hero.insertBefore(cv, hero.firstChild);
+      var ctx = cv.getContext('2d');
+      var t = Math.random() * 100;
+
+      function resize() {
+        cv.width  = window.innerWidth;
+        cv.height = hero.offsetHeight || 300;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      function draw() {
+        var w = cv.width, h = cv.height;
+        ctx.clearRect(0, 0, w, h);
+        for (var c = 4; c >= 0; c--) {
+          var bY = h * bases[c];
+          ctx.beginPath();
+          ctx.moveTo(0, h);
+          for (var x = 0; x <= w; x += 4) {
+            var nx = x / w;
+            var y = bY
+              - Math.sin(nx * Math.PI * freqs[c] * 2 + t * speeds[c] + phases[c]) * ampls[c]
+              - Math.sin(nx * Math.PI * freqs[c] * 3.7 + t * speeds[c] * 0.6 + phases[c] * 1.4) * ampls[c] * 0.35;
+            ctx.lineTo(x, y);
+          }
+          ctx.lineTo(w, h);
+          ctx.closePath();
+          ctx.fillStyle = colors[c] + ops[c] + ')';
+          ctx.fill();
+        }
+        t += 0.01;
+        requestAnimationFrame(draw);
+      }
+      draw();
+    });
+  })();
   </script>
   {% if page.layout == 'course' %}{% include course_scripts.html %}{% endif %}
 </body>

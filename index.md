@@ -13,7 +13,7 @@ permalink: /
     </div>
 
     <div class="eyebrow">Prof. Aaron Snowberger</div>
-    <h1 class="animate d2">Courses &amp;<br><em>Teaching</em></h1>
+    <h1 class="animate d2">Teaching &amp;<br><em>Courses</em></h1>
     <p class="hero-desc animate d3">
       <span class="lang-en">Computer Science &amp; Engineering courses taught at five Korean universities.
       Find schedules, textbooks, assignments, and policies for all active courses.</span>
@@ -103,11 +103,11 @@ permalink: /
       {%- assign current_courses = site.courses | where_exp: "c", "c.now" -%}
 
       {%- comment -%} University groups in teaching-day order {%- endcomment -%}
-      {%- assign uni_names = "한국교통대학교,원광대학교,전북대학교,한밭대학교,전주교육대학교" | split: "," -%}
-      {%- assign uni_abbrs = "UT,WKU,JBNU,HB,JNUE" | split: "," -%}
-      {%- assign uni_days_en = "Monday,Tuesday,Wednesday &amp; Thursday,Wednesday,Friday" | split: "," -%}
-      {%- assign uni_days_ko = "월요일,화요일,수요일 · 목요일,수요일,금요일" | split: "," -%}
-      {%- assign uni_full_en = "Korea Transportation University,Wonkwang University,Jeonbuk National University,Hanbat National University,Jeonju National University of Education" | split: "," -%}
+      {%- assign uni_names = "한국교통대학교,원광대학교,한밭대학교,전북대학교,전주교육대학교" | split: "," -%}
+      {%- assign uni_abbrs = "UT,WKU,HB,JBNU,JNUE" | split: "," -%}
+      {%- assign uni_days_en = "Monday,Tuesday,Wednesday,Wednesday &amp; Thursday,Friday" | split: "," -%}
+      {%- assign uni_days_ko = "월요일,화요일,수요일,수요일 · 목요일,금요일" | split: "," -%}
+      {%- assign uni_full_en = "Korea Transportation University,Wonkwang University,Hanbat National University,Jeonbuk National University,Jeonju National University of Education" | split: "," -%}
 
       {%- for i in (0..4) -%}
         {%- assign uni = uni_names[i] -%}
@@ -283,8 +283,8 @@ permalink: /
   const schedule = {
     1: { name: 'UT — Korea Transportation University', ko: '한국교통대학교 (월요일)' },
     2: { name: 'WKU — Wonkwang University',           ko: '원광대학교 (화요일)' },
-    3: { name: 'JBNU — Jeonbuk University',           ko: '전북대학교 (수요일)' },
-    4: { name: 'HB — Hanbat University',              ko: '한밭대학교 (목요일)' },
+    3: { name: 'HB — Hanbat University',              ko: '한밭대학교 (수요일)' },
+    4: { name: 'JBNU — Jeonbuk University',           ko: '전북대학교 (수요일 · 목요일)' },
     5: { name: 'JNUE — Jeonju Natl. Univ. of Ed.',   ko: '전주교육대학교 (금요일)' },
   };
   const day = new Date().getDay();
@@ -306,11 +306,18 @@ permalink: /
 const _tt = document.getElementById('thumb-toggle');
 if (_tt) {
   const _sec = document.getElementById('thumb-section');
+  if (localStorage.getItem('thumbs') === '1') {
+    _sec.classList.add('thumbs-active');
+    _tt.classList.add('active');
+    const _ic0 = _tt.querySelector('.t-icon');
+    if (_ic0) _ic0.textContent = '⊟';
+  }
   _tt.addEventListener('click', () => {
     const a = _sec.classList.toggle('thumbs-active');
     _tt.classList.toggle('active', a);
     const ic = _tt.querySelector('.t-icon');
     if (ic) ic.textContent = a ? '⊟' : '⊞';
+    localStorage.setItem('thumbs', a ? '1' : '0');
   });
 }
 </script>

@@ -1,9 +1,10 @@
 ---
 layout: course
+init: JBNU
 title: Data Structures
 subtitle: 데이터 구조
 description: 2024년 2학기 • 전북대학교
-logo: jbnu-logo-2.png
+logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/jbnu-logo-2_khm1ys.png
 img: assets/img/books/data-structs.jpg
 importance: 2
 category: 2024-2

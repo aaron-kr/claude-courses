@@ -29,7 +29,7 @@ permalink: /office-hours/
   <div class="week-grid animate d4" id="week-grid">
 
     <div class="day-card" data-day="1">
-      <div class="day-logo"><span class="dl-abbr">UT</span></div>
+      <div class="uni-badge"><img src="{{ site.universities[0].logo }}" class="ub-abbr" /></div>
       <div class="day-name"><span class="lang-en">Monday</span><span class="lang-ko">월요일</span></div>
       <div class="day-school"><span class="lang-en">Korea Transportation Univ.</span><span class="lang-ko">한국교통대학교</span></div>
       <div class="day-school-kr">교통대 (UT)</div>
@@ -41,7 +41,7 @@ permalink: /office-hours/
     </div>
 
     <div class="day-card" data-day="2">
-      <div class="day-logo"><span class="dl-abbr">WKU</span></div>
+      <div class="uni-badge"><img src="{{ site.universities[1].logo }}" class="ub-abbr" /></div>
       <div class="day-name"><span class="lang-en">Tuesday</span><span class="lang-ko">화요일</span></div>
       <div class="day-school"><span class="lang-en">Wonkwang University</span><span class="lang-ko">원광대학교</span></div>
       <div class="day-school-kr">원광대 (WKU)</div>
@@ -53,20 +53,8 @@ permalink: /office-hours/
     </div>
 
     <div class="day-card" data-day="3">
-      <div class="day-logo"><span class="dl-abbr">JBNU</span></div>
+      <div class="uni-badge"><img src="{{ site.universities[3].logo }}" class="ub-abbr" /></div>
       <div class="day-name"><span class="lang-en">Wednesday</span><span class="lang-ko">수요일</span></div>
-      <div class="day-school"><span class="lang-en">Jeonbuk National Univ.</span><span class="lang-ko">전북대학교</span></div>
-      <div class="day-school-kr">전북대 (JBNU)</div>
-      <div class="day-oh">
-        <span class="day-oh-label"><span class="lang-en">Office Hours</span><span class="lang-ko">상담 시간</span></span>
-        <div class="day-oh-time"><span class="lang-en">After class (AM)</span><span class="lang-ko">수업 후 (오전)</span></div>
-        <div class="day-oh-room">전주캠퍼스</div>
-      </div>
-    </div>
-
-    <div class="day-card" data-day="4">
-      <div class="day-logo"><span class="dl-abbr">HB</span></div>
-      <div class="day-name"><span class="lang-en">Thursday</span><span class="lang-ko">목요일</span></div>
       <div class="day-school"><span class="lang-en">Hanbat University</span><span class="lang-ko">한밭대학교</span></div>
       <div class="day-school-kr">한밭대 (HB)</div>
       <div class="day-oh">
@@ -76,8 +64,20 @@ permalink: /office-hours/
       </div>
     </div>
 
+    <div class="day-card" data-day="4">
+      <div class="uni-badge"><img src="{{ site.universities[2].logo }}" class="ub-abbr" /></div>
+      <div class="day-name"><span class="lang-en">Thursday</span><span class="lang-ko">목요일</span></div>
+      <div class="day-school"><span class="lang-en">Jeonbuk National Univ.</span><span class="lang-ko">전북대학교</span></div>
+      <div class="day-school-kr">전북대 (JBNU)</div>
+      <div class="day-oh">
+        <span class="day-oh-label"><span class="lang-en">Office Hours</span><span class="lang-ko">상담 시간</span></span>
+        <div class="day-oh-time"><span class="lang-en">After class</span><span class="lang-ko">수업 후</span></div>
+        <div class="day-oh-room">전주캠퍼스</div>
+      </div>
+    </div>
+
     <div class="day-card" data-day="5">
-      <div class="day-logo"><span class="dl-abbr">JNUE</span></div>
+      <div class="uni-badge"><img src="{{ site.universities[4].logo }}" class="ub-abbr" /></div>
       <div class="day-name"><span class="lang-en">Friday</span><span class="lang-ko">금요일</span></div>
       <div class="day-school"><span class="lang-en">Jeonju Natl. Univ. of Ed.</span><span class="lang-ko">전주교육대학교</span></div>
       <div class="day-school-kr">전주교육대 (JNUE)</div>
@@ -138,21 +138,67 @@ permalink: /office-hours/
         </div>
       </div>
     </div>
-    <div style="padding:28px 24px;font-size:.88rem;color:var(--sub);line-height:1.75;">
-      <span class="lang-en">Book a time slot via <strong style="color:var(--accent2)">Cal.com</strong> — free, open-source scheduling that embeds anywhere. Pick a 30-minute check-in or 1-hour deep-dive slot.</span>
-      <span class="lang-ko"><strong style="color:var(--accent2)">Cal.com</strong>을 통해 시간을 예약하세요 — 어디서나 임베드 가능한 무료 오픈소스 스케줄링 도구입니다. 30분 간단 상담 또는 1시간 심화 상담 중 선택하세요.</span>
-    </div>
+    <div id="cal-booking" style="width:100%;min-height:630px;overflow:auto;border-bottom:1px solid var(--border);"></div>
     <div class="booking-footer">
       <span class="booking-note">
-        <span class="lang-en">ⓘ Set up your own at cal.com — free, open-source, embeddable anywhere</span>
-        <span class="lang-ko">ⓘ cal.com에서 직접 만들어 보세요 — 무료, 오픈소스, 어디서나 임베드 가능</span>
+        <span class="lang-en">ⓘ Powered by Cal.com — open-source scheduling</span>
+        <span class="lang-ko">ⓘ Cal.com 제공 — 오픈소스 일정 예약</span>
       </span>
-      <a href="https://cal.com/aaronkr" target="_blank" class="booking-link">
-        <span class="lang-en">Book at cal.com/aaronkr →</span>
-        <span class="lang-ko">cal.com/aaronkr에서 예약 →</span>
+      <a href="https://calendly.com/aaronkr-trainer" target="_blank" class="booking-link">
+        <span class="lang-en">Open in Cal.com →</span>
+        <span class="lang-ko">Cal.com에서 열기 →</span>
       </a>
     </div>
   </div>
+
+<script type="text/javascript">
+(function (C, A, L) {
+  let p = function (a, ar) { a.q.push(ar); };
+  let d = C.document;
+  C.Cal = C.Cal || function () {
+    let cal = C.Cal; let ar = arguments;
+    if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+    if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; }
+    p(cal, ar);
+  };
+})(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init", { origin: "https://cal.com" });
+Cal("inline", {
+  elementOrSelector: "#cal-booking",
+  calLink: "aaronkr",
+  layout: "month_view"
+});
+Cal("ui", { hideEventTypeDetails: false, layout: "month_view", theme: document.documentElement.getAttribute('data-theme') || 'dark' });
+</script>
+
+  <!-- ── Calendly comparison embed ─────────────────────────────────────── -->
+  <div class="oh-heading" style="margin-top:52px">
+    <span class="oh-label"><span class="lang-en">Book via Calendly</span><span class="lang-ko">Calendly로 예약</span></span>
+    <span class="oh-line"></span>
+  </div>
+  <div class="booking-box">
+    <div class="booking-header">
+      <div>
+        <div class="booking-title">Aaron Snowberger <span>calendly.com/aaronkr-trainer</span></div>
+        <div class="booking-meta">
+          <span class="lang-en">Select a meeting type &middot; Video call or on-campus &middot; Asia/Seoul</span>
+          <span class="lang-ko">미팅 유형 선택 &middot; 화상통화 또는 캠퍼스 &middot; 아시아/서울</span>
+        </div>
+      </div>
+    </div>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/aaronkr-trainer" style="width:100%;min-height:700px;"></div>
+    <div class="booking-footer">
+      <span class="booking-note">
+        <span class="lang-en">ⓘ Powered by Calendly — polished scheduling UI</span>
+        <span class="lang-ko">ⓘ Calendly 제공 — 세련된 일정 예약 UI</span>
+      </span>
+      <a href="https://calendly.com/aaronkr-trainer" target="_blank" class="booking-link">
+        <span class="lang-en">Open in Calendly →</span>
+        <span class="lang-ko">Calendly에서 열기 →</span>
+      </a>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <!-- Booking recommendation box (restored) -->
   <div class="oh-heading" style="margin-top:28px"><span class="oh-label">Tools &amp; Recommendations</span><span class="oh-line"></span></div>
@@ -181,8 +227,8 @@ permalink: /office-hours/
   const campuses = {
     1: { en: 'Korea Transportation University', ko: '한국교통대학교 (월요일)' },
     2: { en: 'Wonkwang University',             ko: '원광대학교 (화요일)' },
-    3: { en: 'Jeonbuk National University',     ko: '전북대학교 (수요일)' },
-    4: { en: 'Hanbat University',               ko: '한밭대학교 (목요일)' },
+    3: { en: 'Hanbat University',               ko: '한밭대학교 (수요일)' },
+    4: { en: 'Jeonbuk National University',     ko: '전북대학교 (수요일 · 목요일)' },
     5: { en: 'Jeonju Natl. Univ. of Ed.',       ko: '전주교육대학교 (금요일)' }
   };
   const pill = document.getElementById('today-pill');

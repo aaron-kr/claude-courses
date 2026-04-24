@@ -55,8 +55,6 @@
         <span class="holiday-note">🔴 <span class="lang-en">No Class</span><span class="lang-ko">휴강</span></span>
         {%- elsif row_type == 'test' -%}
         <span class="test-note">📝 <span class="lang-en">Exam</span><span class="lang-ko">시험</span></span>
-        {%- else -%}
-        <span style="color:var(--muted);font-size:.58rem;"><span class="lang-en">Wk</span><span class="lang-ko">주</span> {{ display_week }}</span>
         {%- endif -%}
       </div>
 
@@ -82,7 +80,10 @@
         {%- if row_type == 'normal' -%}
         <span class="sched-week"><span class="lang-en">Week</span><span class="lang-ko">주차</span> {{ display_week }}</span>
         {%- endif -%}
-        <div class="sched-title">{{ item.title }}</div>
+        <div class="sched-title">
+          <span class="lang-en">{{ item.title }}</span>
+          <span class="lang-ko">{{ item.title_ko | default: item.title }}</span>
+        </div>
         {%- if item.readings -%}
         <div class="sched-readings">📖 {{ item.readings }}</div>
         {%- endif -%}

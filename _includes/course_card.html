@@ -7,7 +7,7 @@
 {%- assign c = include.course | default: course -%}
 {%- assign uni_parts = c.description | split: ' • ' -%}
 {%- assign uni_name = uni_parts | last -%}
-{%- assign uni_init = c.logo | remove: '-logo.png' | remove: '-logo-2.png' | upcase -%}
+{%- assign uni_init = c.init | upcase -%}
 
 {%- comment -%} Infer subject tag from title/description {%- endcomment -%}
 {%- assign _tl = c.title | downcase -%}
@@ -56,7 +56,7 @@
   </div><!-- .card-inner -->
   {%- if c.logo -%}
   <div class="uni-badge">
-    <span class="ub-abbr">{{ uni_init }}</span>
+    <img src="{{ c.logo | relative_url }}" class="ub-abbr" />
   </div>
   {%- endif -%}
 </a>

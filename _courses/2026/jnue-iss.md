@@ -1,9 +1,10 @@
 ---
 layout: course
+init: JNUE
 title: Information Society and Software
 subtitle: 정보사회와 소프트웨어
 description: 060487 • 2026년 1학기 • 전주교육대학교
-logo: jnue-logo.png
+logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/jnue-logo_jmyh9e.png
 img: assets/img/books/excel.jpg
 importance: 8
 category: 2026-1

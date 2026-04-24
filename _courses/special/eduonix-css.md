@@ -1,9 +1,10 @@
 ---
 layout: course
+init: Eduonix
 title: A Beginner's Guide to CSS
 subtitle: CSS 기초 과정
 description: Eduonix • Online Course
-logo: ut-logo.png
+logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038667/eduonix-logo_s1jewl.png
 img: assets/img/books/html-css.jpg
 importance: 1
 category: Online

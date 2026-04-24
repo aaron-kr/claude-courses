@@ -1,9 +1,10 @@
 ---
 layout: course
+init: UT
 title: Medical Image Processing
 subtitle: 의료영상처리
 description: AI0043(1) • 2025년 2학기 • 교통대학교
-logo: ut-logo.png
+logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/ut-logo_beiynv.png
 img: assets/img/books/medical-dl-old.jpg
 importance: 7
 category: 2025-2

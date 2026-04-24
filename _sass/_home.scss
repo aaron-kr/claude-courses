@@ -53,9 +53,13 @@ header.home-hero {
   border: 1px solid var(--border);
   color: var(--muted);
   text-decoration: none;
-  background: var(--surface);
-  transition: color .2s, border-color .2s;
-  &:hover { color: var(--accent3); border-color: rgba(109,204,221,.35); }
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(to right, var(--accent3) 50%, var(--surface) 50%);
+  background-size: 205% 100%;
+  background-position: 100%;
+  transition: background-position .32s ease, color .2s, border-color .2s;
+  &:hover { background-position: 0; color: var(--bg); border-color: var(--accent3); }
   .pl-icon { font-size: .72rem; }
 }
 

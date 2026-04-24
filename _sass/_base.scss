@@ -98,6 +98,23 @@ body::before {
   75%       { transform: translateY(-20px) skewY(.08deg) skewX(.08deg); }
 }
 
+// ── Cascading waves (hero backgrounds) ───────────────────────────────────────
+.home-hero, .page-header, .course-hero {
+  position: relative;
+  isolation: isolate;
+}
+canvas.hero-waves {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  pointer-events: none;
+  z-index: -1;
+  display: block;
+}
+@media (prefers-reduced-motion: reduce) { canvas.hero-waves { display: none; } }
+
 // ── Page wrapper ─────────────────────────────────────────────────────────────
 .wrap {
   position: relative;
@@ -179,7 +196,7 @@ footer {
   margin-bottom: 28px;
 }
 .f-brand  { font-family: 'IBM Plex Mono', monospace; font-size: .88rem; color: var(--accent3); letter-spacing: .04em; display: block; margin-bottom: 10px; }
-.f-col p, .f-col a, .f-col span { display: block; font-size: .8rem; color: var(--muted); margin-bottom: 5px; text-decoration: none; transition: color .2s; line-height: 1.5; }
+.f-col p, .f-col a, .f-col span:not(.lang-en):not(.lang-ko) { display: block; font-size: .8rem; color: var(--muted); margin-bottom: 5px; text-decoration: none; transition: color .2s; line-height: 1.5; }
 .f-col a:hover { color: var(--sub); }
 .f-heading { font-family: 'IBM Plex Mono', monospace; font-size: .65rem; color: var(--accent2); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 12px; display: block; }
 .footer-bottom { max-width: $max-width; margin: 0 auto; padding: 16px 28px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }

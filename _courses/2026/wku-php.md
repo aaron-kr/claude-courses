@@ -1,9 +1,10 @@
 ---
 layout: course
+init: WKU
 title: Internet Content Management (PHP)
 subtitle: 인터넷콘텐츠관리
 description: 374095 • 2026년 1학기 • 원광대학교
-logo: wku-logo.png
+logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/wku-logo_cu76kg.png
 img: assets/img/books/php-text.jpg
 importance: 3
 category: 2026-1

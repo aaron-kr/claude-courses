@@ -79,19 +79,16 @@ claude-courses/
 │   └── 2023/
 │
 └── _data/
+    ├── nav.yml              # Navigation items (simple links + dropdowns) — edit to change nav
+    ├── footer.yml           # Footer column data (Teaching links + Connect heading)
     ├── staff.yml            # Instructor info
-    ├── 2026_hb_cpp_lectures.yml
-    ├── 2026_jbnu_dc_lectures.yml
-    ├── 2026_jbnu_devs_lectures.yml
-    ├── 2026_jbnu_pe_lectures.yml
-    ├── 2026_jnue_iss_lectures.yml
-    ├── 2026_ut_db_lectures.yml
-    ├── 2026_ut_iot_lectures.yml
-    └── 2026_wku_php_lectures.yml
-    (+ 2025, 2024, 2023 data files to be added)
+    ├── announcements.yml    # Homepage announcements
+    ├── YYYY/                # Lecture YAML subdirs (2021, 2023, 2024, 2025, 2026)
+    │   └── school_subject_lectures.yml
+    └── ...
 ```
 
-## Current State (as of Session 10 — April 2026)
+## Current State (as of Session 13 — April 2026)
 
 | Component | Status | Notes |
 |---|---|---|
@@ -110,7 +107,7 @@ claude-courses/
 | 2025 data files | ✅ Complete | 14 `_data/2025_*_lectures.yml` files |
 | 2024 courses | ✅ Complete | 13 courses in `_courses/2024/` (6 spring + 7 fall) |
 | 2024 data files | ✅ Complete | 13 `_data/2024_*_lectures.yml` files |
-| 2023 courses | ✅ Complete | 7 courses in `_courses/2023/` (all redirect to external sites) |
+| 2023 courses | ✅ Complete | 7 courses in `_courses/2023/` — 6 fully migrated with data files + textbooks + sections; ut-cad external_url only |
 | Special/Online courses | ✅ Complete | 5 courses in `_courses/special/` (iksan 2021, hs-python/web 2023, eduonix) |
 | Special data files | ✅ Complete | `_data/2021/iksan_gg_lectures.yml` (nested year subdirectory) |
 | AI Policy page | ✅ Complete | `_pages/policy-ai.md` at `/policies/ai/`; featured card on policies page |
@@ -140,6 +137,17 @@ claude-courses/
 | Instructor bio | ✅ Fixed | Bio paragraph now inside `.instructor-box` in `about_aaron.html` |
 | pol-rule-list borders | ✅ Fixed | No top/bottom outer borders; only dividers between items |
 | Related policy cards | ✅ Fixed | `min-height: 110px; padding: 18px 18px 22px` in `_pages.scss` |
+| Thumbnail localStorage | ✅ Complete | `localStorage.getItem/setItem('thumbs','1'/'0')` in both `index.md` and `archive.md` |
+| JBNU/HB display order | ✅ Fixed | JBNU (Wed+Thu) shows under Thursday; HB (Wed only) shows under Wednesday on index + office-hours |
+| Canvas waves (full-width) | ✅ Fixed | Replaced SVG wave approach with canvas + `requestAnimationFrame`; `width:100vw; left:50%; transform:translateX(-50%)` escapes `.wrap` max-width |
+| Profile-link hover | ✅ Fixed | `.profile-link` now uses same slide-in gradient as `.back-btn` |
+| Footer one-language fix | ✅ Fixed | `.f-col span:not(.lang-en):not(.lang-ko)` prevents `display:block` override on lang spans; early `<head>` script applies `html.ko` before first paint |
+| Nav YAML | ✅ Complete | `_data/nav.yml` + rewritten `nav.html`; mobile sub-menus use `data-sub` attr (no hardcoded IDs) |
+| Footer YAML | ✅ Complete | `_data/footer.yml` for Teaching column links; Connect column stays in `footer.html` |
+| Office hours uni logos | ✅ Fixed | All 5 day-cards now use `<div class="uni-badge"><img src="{{ site.universities[N].logo }}" /></div>` |
+| Office hours day order | ✅ Fixed | Week-grid: day 3 = HB (Wed), day 4 = JBNU (Thu); today-pill updated to match |
+| Cal.com theme | ✅ Fixed | `Cal("ui", { ..., theme: document.documentElement.getAttribute('data-theme') || 'dark' })` |
+| Calendly comparison embed | ✅ Added | Second booking widget at `https://calendly.com/aaronkr-trainer` below Cal.com in office-hours.md |
 
 ## Active TODOs / Next Steps
 
@@ -147,14 +155,17 @@ claude-courses/
 - [ ] **Copy assets** from `../aaronkr-courses.github.io/assets/img/` to `./assets/img/`
 - [ ] **Test Jekyll build** locally: `bundle install && bundle exec jekyll serve`
 - [ ] **Set GitHub Pages source** to root `/` (not `/docs`)
+- [ ] **Delete `2023-course-sites/`** folder after confirming build (see `2023-migration-notes.md`)
 
 ### Next sessions
 - [ ] Add a 404.html page
 - [ ] Add `favicon` from Cloudinary
-- [ ] Wire up cal.com booking (user needs to create cal.com/aaronkr account)
-- [ ] Add `tags:` front matter to course files for richer filtering
+- [ ] Configure Cal.com account (`cal.com/aaronkr`) — currently no account; Calendly comparison embed is live at `/office-hours/`
+- [ ] Cal.com calendar-first flow: create "variable duration" event type in Cal.com account, then update `calLink: "aaronkr/SLUG"` in office-hours.md
+- [ ] Add `tags:` front matter to course files for richer archive filtering
 - [ ] Apply `lang-en`/`lang-ko` spans to course body content (Markdown files in `_courses/`)
-- [ ] Create `_data/nav.yml` + rewrite `nav.html` to render from YAML (nav items editable without touching HTML)
+- [ ] Add `title_ko`/`subtitle_ko` front matter to individual course `.md` files
+- [ ] Add `title_ko` to lecture data YAML files for schedule bilingual titles
 
 ### Later / Nice to have
 - [ ] Add `sitemap.xml` (auto via jekyll-sitemap plugin)
@@ -179,6 +190,85 @@ claude-courses/
 12. **Archive rows** — `.archive-item` link rows inside `.semester-group` divs. `.semester-group.is-current` uses `::before`/`::after` pseudo-elements for gradient borders. Filter JS sets `.arch-hidden` on `<li>` elements. Legacy `.arch-row` kept for compat.
 13. **Policy pages** — Each policy is its own page in `_pages/policy-*.md`. The main `/policies/` page shows a featured card (AI) + list rows. No anchor-only links.
 14. **Email obfuscation** — Always render email as `{{ email | replace: '@', ' &#064; ' }}` in HTML. The `mailto:` href still uses the raw address.
+15. **Nav/footer from YAML** — `_data/nav.yml` drives both desktop and mobile nav via `nav.html`. `_data/footer.yml` drives the Teaching column in `footer.html`. Social links stay hardcoded in `footer.html` because they need `site.*` config conditionals. Edit YAML files to add/remove nav or footer links without touching HTML.
+16. **Mobile sub-menus** — Use `data-sub="m-ID-sub"` attribute on `.m-toggle` buttons; JS in `default.html` selects all `.m-toggle[data-sub]` and attaches click handlers. Do NOT hardcode IDs in the JS.
+17. **Canvas waves (full-width)** — Hero containers have `isolation: isolate` but NO `overflow: hidden`. Canvas `.hero-waves` uses `position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100vw` to break out of `.wrap` max-width. Body `overflow-x: hidden` prevents horizontal scroll. Canvas is sized to hero's `offsetHeight` via JS `resize()`. `requestAnimationFrame` animates multi-sine curves.
+18. **`site.universities` array** — Defined in `_config.yml` under `universities:`. Indices 0=UT, 1=WKU, 2=JBNU, 3=HB, 4=JNUE, 5=DJU, 6=JJ. Use `site.universities[N].logo` for logos in office-hours day-cards.
+19. **University display order** — Index page shows universities in weekday order: UT(Mon), WKU(Tue), HB(Wed), JBNU(Thu), JNUE(Fri). JBNU teaches Wed+Thu but is shown under Thursday (its second/later day). HB teaches Wed only and is shown under Wednesday.
+20. **Thumbnail toggle localStorage** — Key `'thumbs'` in localStorage; value `'1'` (active) or `'0'` (inactive). Both `index.md` and `archive.md` restore state on load. Shared key means both pages stay in sync.
+21. **Early theme/lang init** — Inline `<script>` in `<head>` (before first paint) reads `localStorage` and applies `data-theme` + `html.ko` class immediately. Prevents flash of wrong theme or both languages rendering simultaneously.
+22. **`.f-col span` / `.lang-*` conflict** — `_base.scss` `.f-col p, .f-col a, .f-col span` rule uses `:not(.lang-en):not(.lang-ko)` to exclude lang-toggle spans from getting `display: block`. Without this, `.lang-ko { display: none }` was overridden and both languages showed in the footer.
+
+## Known Bugs & Fixes (historical record)
+
+These are non-obvious issues that have been encountered and fixed. If you encounter similar symptoms again, check here first.
+
+### 1. `now: Yes` in course front matter is YAML boolean `true`
+**Symptom:** Courses don't appear on the homepage or aren't marked "current" in the archive.  
+**Root cause:** `now: Yes` in YAML is parsed as boolean `true`, not the string `"Yes"`. `where: "now", "Yes"` matches nothing.  
+**Fix:** Always use `where_exp: "c", "c.now"` — this checks truthiness, not string equality.  
+**Files:** `index.md`, `archive.md`
+
+### 2. `.f-col span` overrides `.lang-ko { display: none }`
+**Symptom:** Both English and Korean text show simultaneously in the footer.  
+**Root cause:** `_base.scss` has `.f-col p, .f-col a, .f-col span { display: block }` which has higher specificity (0,1,1) than `.lang-ko { display: none }` (0,1,0) and overrides it.  
+**Fix:** Changed `.f-col span` to `.f-col span:not(.lang-en):not(.lang-ko)` in `_base.scss`.  
+**File:** `_sass/_base.scss`
+
+### 3. Both theme/language flash on page load
+**Symptom:** Page briefly shows wrong theme (light vs dark) or both languages before JS corrects it.  
+**Root cause:** Theme/lang JS was at the bottom of `<body>`; styles applied after first paint.  
+**Fix:** Added inline `<script>` in `<head>` (before any content renders) that immediately applies `data-theme` and `html.ko` from `localStorage`.  
+**File:** `_layouts/default.html`
+
+### 4. SVG wave animation constrained to `.wrap` max-width
+**Symptom:** Hero waves stop at the page max-width boundary instead of going edge-to-edge.  
+**Root cause:** Wave `<div>` was inside `.wrap` (max-width constrained) and hero had `overflow: hidden` clipping 100vw attempts.  
+**Fix:** Removed `overflow: hidden` from `.home-hero, .page-header, .course-hero`; replaced SVG divs with a `<canvas>` element styled `position: absolute; left: 50%; transform: translateX(-50%); width: 100vw`. Body's `overflow-x: hidden` prevents horizontal scrollbar.  
+**Files:** `_sass/_base.scss`, `_layouts/default.html`
+
+### 5. SVG waves not animating
+**Symptom:** Waves appear at bottom of hero but don't move.  
+**Root cause:** The CSS `animation:` on `.wl-*` classes was correct but the SVGs had `width: 200%; translateX` animation that was being clipped by `overflow: hidden`, making movement invisible.  
+**Fix:** Replaced SVG approach entirely with `<canvas>` + `requestAnimationFrame` + multi-sine curves. Canvas animation is unconditionally animated (unless `prefers-reduced-motion`).  
+**Files:** `_sass/_base.scss`, `_layouts/default.html`
+
+### 6. Mobile sub-menu JS hardcoded to `['courses', 'policies']`
+**Symptom:** Adding a new dropdown to nav.yml wouldn't get a working mobile sub-menu toggle.  
+**Root cause:** `default.html` had `['courses', 'policies'].forEach(id => ...)` hardcoded.  
+**Fix:** Changed to `document.querySelectorAll('.m-toggle[data-sub]')` — finds all mobile toggles by `data-sub` attribute. Nav items in `nav.html` now set `data-sub="m-ID-sub"` on each `.m-toggle` button.  
+**File:** `_layouts/default.html`
+
+### 7. `office-hours.md` broken university logo access
+**Symptom:** `{{ u.logo }}` rendered nothing; debug `{{ u }}` printed the entire array.  
+**Root cause:** `{%- assign u = site.universities -%}` assigned the whole array. `.logo` on an array is undefined.  
+**Fix:** Use `site.universities[N].logo` directly in each day-card — index 0=UT, 1=WKU, 2=JBNU, 3=HB, 4=JNUE.  
+**File:** `_pages/office-hours.md`
+
+### 8. Cal.com embed uses OS color scheme instead of site theme
+**Symptom:** Cal.com calendar shows dark when site is in light mode (OS is dark).  
+**Root cause:** `Cal("ui", ...)` with no `theme` parameter defaults to OS `prefers-color-scheme`.  
+**Fix:** Pass `theme: document.documentElement.getAttribute('data-theme') || 'dark'` to `Cal("ui", ...)`.  
+**File:** `_pages/office-hours.md`
+
+### 9. YAML front matter: unquoted `title:` with `: ` inside breaks the build
+**Symptom:** `YAML Exception: mapping values are not allowed in this context at line N column M` during `jekyll build`.  
+**Root cause:** YAML treats any unquoted `: ` (colon-space) as a key-value separator. A `title:` value like `<strong>실용 SQL: PostgreSQL로...</strong>` causes YAML to try to parse `PostgreSQL로...` as a new key.  
+**Fix:** Wrap any `title:` value (or any YAML value) that contains `: ` in double quotes: `title: "<strong>실용 SQL: PostgreSQL로...</strong>"`. Double quotes are safe as long as the value doesn't itself contain double quotes.  
+**Affected files (fixed):** `_courses/2023/dju-sec.md`, `_courses/2023/dju-sql.md` (×2), `_courses/2023/hb-c.md`  
+**Prevention:** Always quote YAML values that contain colons. This applies to `title:`, `publisher:`, `description:`, and any other string field.
+
+### 10. Liquid tags in Markdown files processed before Markdown rendering
+**Symptom:** `Liquid syntax error: 'if' tag was never closed` or `Tag was not properly terminated` in a `.md` file.  
+**Root cause:** Jekyll processes Liquid BEFORE Markdown — even inside backtick code spans or fenced code blocks. Any bare `{%` or `{{` in a file is parsed as Liquid.  
+**Fix (developer docs):** Add the file to `exclude:` in `_config.yml`. Current exclusions: `2023-migration-notes.md`, `CLAUDE.md`. Any future developer-only Markdown file that references Liquid syntax must also be excluded.  
+**Fix (website pages that need to show Liquid as code):** Wrap the block in raw/endraw tags or add `render_with_liquid: false` to front matter.  
+**Applies to:** Jekyll 3.10 with `github-pages` gem processes ALL `.md` files through Liquid, including those without front matter.
+
+### 11. Write tool "File has not been read yet" error
+**Symptom:** Attempting to Write multiple files in one batch; some writes rejected.  
+**Root cause:** The Write tool requires the file to have been Read in the current session before it can be overwritten.  
+**Prevention:** Always Read a file before Writing it. For batch rewrites, Read all target files first, then Write.
 
 ## Design System
 
@@ -301,4 +391,8 @@ The original prototype HTML files (`index.html`, `course.html`, `archive.html`, 
 2. Session 2: Multi-page static site with nav, dropdowns, policies, archive
 3. Session 3: Complete redesign — new color palette, animated mesh bg, all 6 pages
 4. Session 4: Bug fixes — course layout, colors, box shadows, hamburger overlay, announcements, README
-5. Session 5 (current): **Complete Jekyll conversion** — new architecture, all 2026 courses migrated, shared policies, SCSS system
+5. Session 5: **Complete Jekyll conversion** — new architecture, all 2026 courses migrated, shared policies, SCSS system
+6. Sessions 6-10: 2024/2025 migrations, homepage redesign, archive redesign, policy pages, office hours, i18n system
+7. Session 11: Cascading wave hero animation, archive Topic/Sort filters, course `title_ko`/`subtitle_ko`, footer i18n, cal.com embed
+8. Session 12: **2023 migration** — 6 data files + 6 course files fully populated from `2023-course-sites/` (see `2023-migration-notes.md`)
+9. Session 13: **UX improvements** — Canvas waves (full-width, animated), thumbnail localStorage, JBNU/HB display order swap, profile-link slide-in hover, footer one-language fix, nav/footer YAML data files, office-hours uni logos from `site.universities`, Cal.com theme fix, Calendly comparison embed

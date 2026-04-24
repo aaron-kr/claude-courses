@@ -1,9 +1,10 @@
 ---
 layout: course
+init: JBNU
 title: Device Analysis
 subtitle: 기기분석의 이해
 description: 0000131119 • 2026년 1학기 • 전북대학교
-logo: jbnu-logo-2.png
+logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/jbnu-logo-2_khm1ys.png
 img: assets/img/books/inst-analysis-morris.jpg
 importance: 7
 category: 2026-1

@@ -1,9 +1,10 @@
 ---
 layout: course
+init: HB
 title: Advanced C Programming
 subtitle: 고급 C 프로그래밍
 description: INFO2104 • 2025년 2학기 • 한밭대학교
-logo: hanbat-logo.png
+logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/hanbat-logo_mvle6l.png
 img: assets/img/books/do-it-c.jpg
 importance: 4
 category: 2025-2

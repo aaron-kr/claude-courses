@@ -1,9 +1,10 @@
 ---
 layout: course
+init: HB
 title: C++ Programming
 subtitle: C++ 프로그래밍
 description: INFO2118 • 2025년 1학기 • 한밭대학교
-logo: hanbat-logo.png
+logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/hanbat-logo_mvle6l.png
 img: assets/img/books/cpp-fast.jpg
 importance: 8
 category: 2025-1

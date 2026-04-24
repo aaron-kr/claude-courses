@@ -1,9 +1,10 @@
 ---
 layout: course
+init: DJU
 title: Java Programming and Practice
 subtitle: 자바프로그래밍 및 실습
 description: 009001 • 2024년 1학기 • 대전대학교
-logo: dju-logo-2.png
+logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038667/dju-logo-2_jxm7py.png
 img: assets/img/books/java-master.jpg
 importance: 3
 category: 2024-1

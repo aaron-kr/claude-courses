@@ -228,11 +228,12 @@ a.card {
 .card-inner { display: flex; flex: 1; }
 .card-thumb {
   display: none;
-  width: 82px;
+  width: 112px;
   min-height: 112px;
   flex-shrink: 0;
   background-size: cover;
-  background-position: center top;
+  background-position: left top;
+  box-shadow: inset -2px 0 6px 1px var(--border);
 }
 .thumbs-active .card-thumb { display: block; }
 
@@ -283,7 +284,6 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
   letter-spacing: .06em;
   text-transform: uppercase;
   color: var(--text);
-  border: 1.5px solid var(--text);
   opacity: .12;
   pointer-events: none;
   user-select: none;
@@ -291,6 +291,9 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
   text-align: center;
   z-index: 2;
   .ub-abbr { font-size: .72rem; font-weight: 500; }
+}
+.uni-badge img {
+  max-width: 50px;
 }
 
 // ── Archive list rows ─────────────────────────────────────────────────────────
@@ -331,8 +334,8 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
   &::before {
     content: '';
     position: absolute;
-    top: 0; left: -4px; right: -4px;
-    height: 2px;
+    top: 28px; left: -4px; right: -4px;
+    height: 3px;
     background: linear-gradient(90deg, var(--accent3), var(--accent), var(--accent2));
   }
   &::after {
@@ -340,7 +343,7 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 2px;
-    background: linear-gradient(90deg, rgba(155,101,255,.2), transparent);
+    background: linear-gradient(90deg, var(--accent3), var(--accent), var(--accent2));
   }
 }
 
@@ -354,12 +357,12 @@ a.archive-item {
   text-decoration: none;
   color: inherit;
   transition: background .15s;
-  &:last-child { border-bottom: none; }
+  // &:last-child { border-bottom: none; }
   &:hover { background: rgba(155,101,255,.04); }
 }
 
 .item-thumb {
-  width: 52px;
+  width: 66px;
   min-height: 52px;
   align-self: stretch;
   flex-shrink: 0;
@@ -370,7 +373,7 @@ a.archive-item {
   display: none;
   background-color: var(--surface);
 }
-.thumbs-active .item-thumb { display: block; }
+.thumbs-active .item-thumb { display: block; margin: -16px 0 -12px; }
 
 .item-content { flex: 1; min-width: 0; display: flex; gap: 12px; align-items: flex-start; }
 .item-code {

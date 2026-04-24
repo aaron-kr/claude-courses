@@ -1,9 +1,10 @@
 ---
 layout: course
+init: Maester HS
 title: Python Basic Course for Robotics Training
 subtitle: 파이썬기초과정 로봇특화교육
 description: 2021년 방학 • 국립전북기계공업고등학교
-logo: iksan-gg-logo.png
+logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038667/iksan-gg-logo_zgu6py.png
 img: assets/img/books/python-byte.png
 importance: 3
 category: Special

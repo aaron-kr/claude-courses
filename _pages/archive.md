@@ -63,6 +63,33 @@ eyebrow: Teaching History
         <button class="pill" data-filter="uni" data-value="DJU"><span class="lang-en">DJU</span><span class="lang-ko">대전대</span></button>
         <button class="pill" data-filter="uni" data-value="IKSAN"><span class="lang-en">Iksan HS</span><span class="lang-ko">익산 고교</span></button>
       </div>
+      <div class="ctrl-row">
+        <span class="ctrl-row-label"><span class="lang-en">Topic</span><span class="lang-ko">주제</span></span>
+        <button class="pill active" data-filter="topic" data-value="all">
+          <span class="lang-en">All</span><span class="lang-ko">전체</span>
+        </button>
+        <button class="pill" data-filter="topic" data-value="ai-tag"><span class="lang-en">AI/ML</span><span class="lang-ko">AI/머신러닝</span></button>
+        <button class="pill" data-filter="topic" data-value="theory"><span class="lang-en">Programming</span><span class="lang-ko">프로그래밍</span></button>
+        <button class="pill" data-filter="topic" data-value="web"><span class="lang-en">Web</span><span class="lang-ko">웹</span></button>
+        <button class="pill" data-filter="topic" data-value="data"><span class="lang-en">Data</span><span class="lang-ko">데이터</span></button>
+        <button class="pill" data-filter="topic" data-value="systems"><span class="lang-en">Systems</span><span class="lang-ko">시스템</span></button>
+        <button class="pill" data-filter="topic" data-value="ee"><span class="lang-en">EE</span><span class="lang-ko">전기전자</span></button>
+      </div>
+      <div class="ctrl-row">
+        <span class="ctrl-row-label"><span class="lang-en">Sort</span><span class="lang-ko">정렬</span></span>
+        <button class="pill active" data-sort="newest">
+          <span class="lang-en">Newest</span><span class="lang-ko">최신순</span>
+        </button>
+        <button class="pill" data-sort="oldest">
+          <span class="lang-en">Oldest</span><span class="lang-ko">오래된순</span>
+        </button>
+        <button class="pill" data-sort="az">
+          <span class="lang-en">A–Z</span><span class="lang-ko">가나다순</span>
+        </button>
+        <button class="pill" data-sort="byuni">
+          <span class="lang-en">By University</span><span class="lang-ko">대학교별</span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -79,7 +106,7 @@ eyebrow: Teaching History
         </div>
         <ul class="archive-list">
           {%- for course in cat_courses -%}
-            {%- assign _uni = course.logo | remove: '-logo.png' | remove: '-logo-2.png' | upcase -%}
+            {%- assign _uni = course.init | upcase -%}
             {%- assign _info = course.information | first -%}
             {%- assign _tl = course.title | downcase -%}
             {%- if _tl contains 'machine learning' or _tl contains 'deep learning' or _tl contains 'ai ' -%}
@@ -101,7 +128,9 @@ eyebrow: Teaching History
               <a class="archive-item"
                  href="{{ course.url | relative_url }}"
                  data-uni="{{ _uni }}"
-                 data-sem="{{ course.category }}">
+                 data-sem="{{ course.category }}"
+                 data-topic="{{ _tc }}"
+                 data-title="{{ course.title | downcase }}">
                 {%- if course.img -%}
                 <div class="item-thumb" style="background-image:url('{{ course.img | relative_url }}')"></div>
                 {%- else -%}
@@ -109,8 +138,8 @@ eyebrow: Teaching History
                 {%- endif -%}
                 <div class="item-content">
                   <div class="item-code">
-                    <span class="uni-init-tag">{{ _uni }}</span>
                     {{ course.description | split: ' • ' | first }}
+                    <span class="uni-init-tag">{{ _uni }}</span>
                     {%- unless course.now %}<span class="archived-badge">Archived</span>{%- endunless -%}
                   </div>
                   <div class="item-main">
@@ -123,7 +152,11 @@ eyebrow: Teaching History
                     </div>
                   </div>
                 </div>
-                <div class="uni-badge"><span class="ub-abbr">{{ _uni }}</span></div>
+                {%- if course.logo -%}
+                <div class="uni-badge">
+                  <img src="{{ course.logo | relative_url }}" class="ub-abbr" />
+                </div>
+                {%- endif -%}
                 <span class="item-arrow">→</span>
               </a>
             </li>
@@ -136,12 +169,18 @@ eyebrow: Teaching History
 </div>
 
 <script>
-// ── Archive filter + thumbnail logic ─────────────────────────────────────────
+// ── Archive filter + sort + thumbnail logic ───────────────────────────────────
 (function() {
-  let activeSem = 'all';
-  let activeUni = 'all';
+  let activeSem   = 'all';
+  let activeUni   = 'all';
+  let activeTopic = 'all';
+  let activeSort  = 'newest';
 
+  const main = document.getElementById('archive-main');
   const allRows = document.querySelectorAll('.archive-item');
+
+  // Store original group order for sort reset
+  const origGroupOrder = [...document.querySelectorAll('.semester-group')];
 
   function countVisible() {
     let n = 0;
@@ -152,19 +191,48 @@ eyebrow: Teaching History
 
   function applyFilters() {
     allRows.forEach(row => {
-      const li = row.closest('li');
-      const sem = row.dataset.sem;
-      const uni = row.dataset.uni;
-      const semOk = activeSem === 'all' || sem === activeSem;
-      const uniOk = activeUni === 'all' || uni === activeUni;
-      li.classList.toggle('arch-hidden', !(semOk && uniOk));
+      const li    = row.closest('li');
+      const semOk   = activeSem   === 'all' || row.dataset.sem   === activeSem;
+      const uniOk   = activeUni   === 'all' || row.dataset.uni   === activeUni;
+      const topicOk = activeTopic === 'all' || row.dataset.topic === activeTopic;
+      li.classList.toggle('arch-hidden', !(semOk && uniOk && topicOk));
     });
-    // Hide semester group headings with no visible rows
     document.querySelectorAll('.semester-group').forEach(sec => {
       const anyVis = [...sec.querySelectorAll('li')].some(li => !li.classList.contains('arch-hidden'));
       sec.style.display = anyVis ? '' : 'none';
     });
     countVisible();
+  }
+
+  function applySort() {
+    if (activeSort === 'newest') {
+      origGroupOrder.forEach(g => main.appendChild(g));
+    } else if (activeSort === 'oldest') {
+      [...origGroupOrder].reverse().forEach(g => main.appendChild(g));
+    } else if (activeSort === 'az' || activeSort === 'byuni') {
+      // Restore original group order first, then sort items within each group
+      origGroupOrder.forEach(g => main.appendChild(g));
+      document.querySelectorAll('.semester-group').forEach(group => {
+        const ul = group.querySelector('.archive-list');
+        if (!ul) return;
+        const items = [...ul.querySelectorAll('li')];
+        if (activeSort === 'az') {
+          items.sort((a, b) => {
+            const ta = (a.querySelector('.archive-item')?.dataset.title || '');
+            const tb = (b.querySelector('.archive-item')?.dataset.title || '');
+            return ta.localeCompare(tb);
+          });
+        } else {
+          items.sort((a, b) => {
+            const ua = (a.querySelector('.archive-item')?.dataset.uni || '');
+            const ub = (b.querySelector('.archive-item')?.dataset.uni || '');
+            return ua.localeCompare(ub);
+          });
+        }
+        items.forEach(li => ul.appendChild(li));
+      });
+    }
+    applyFilters();
   }
 
   // Filter buttons
@@ -174,9 +242,20 @@ eyebrow: Teaching History
       const val   = btn.dataset.value;
       document.querySelectorAll(`[data-filter="${group}"]`).forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      if (group === 'sem') activeSem = val;
-      if (group === 'uni') activeUni = val;
+      if (group === 'sem')   activeSem   = val;
+      if (group === 'uni')   activeUni   = val;
+      if (group === 'topic') activeTopic = val;
       applyFilters();
+    });
+  });
+
+  // Sort buttons
+  document.querySelectorAll('[data-sort]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-sort]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeSort = btn.dataset.sort;
+      applySort();
     });
   });
 
@@ -190,15 +269,21 @@ eyebrow: Teaching History
     });
   }
 
-  // Thumbnail toggle
+  // Thumbnail toggle (persisted in localStorage)
   const archThumbToggle = document.getElementById('arch-thumb-toggle');
   if (archThumbToggle) {
-    const main = document.getElementById('archive-main');
+    if (localStorage.getItem('thumbs') === '1') {
+      main.classList.add('thumbs-active');
+      archThumbToggle.classList.add('active');
+      const _ic0 = archThumbToggle.querySelector('.t-icon');
+      if (_ic0) _ic0.textContent = '⊟';
+    }
     archThumbToggle.addEventListener('click', () => {
       const a = main.classList.toggle('thumbs-active');
       archThumbToggle.classList.toggle('active', a);
       const ic = archThumbToggle.querySelector('.t-icon');
       if (ic) ic.textContent = a ? '⊟' : '⊞';
+      localStorage.setItem('thumbs', a ? '1' : '0');
     });
   }
 

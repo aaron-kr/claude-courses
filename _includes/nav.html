@@ -2,40 +2,53 @@
   <div class="nav-inner">
     <a class="nav-brand" href="{{ '/' | relative_url }}">courses.aaron.kr</a>
     <ul class="nav-links">
-      <li><a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active-page"{% endif %}><span class="lang-en">Courses</span><span class="lang-ko">강좌</span></a></li>
-      <li class="has-dropdown" id="dd-courses">
-        <button>2026 &#x25BE;</button>
-        <ul class="nav-dropdown">
-          <li><span class="dd-semester"><span class="lang-en">Spring 2026</span><span class="lang-ko">2026년 1학기</span></span></li>
-          {%- assign courses_2026 = site.courses | where: "category", "2026-1" | sort: "importance" -%}
-          {%- for course in courses_2026 -%}
-          <li>
-            <a href="{{ course.url | relative_url }}">
-              <span class="dd-code">{{ course.description | split: ' • ' | first }}</span>
-              {{ course.title }}
-            </a>
+      {%- for item in site.data.nav -%}
+        {%- if item.category -%}
+          {%- comment -%}Dynamic course dropdown — pulls from site.courses collection{%- endcomment -%}
+          <li class="has-dropdown" id="{{ item.dropdown_id }}">
+            <button>{{ item.title_en }} &#x25BE;</button>
+            <ul class="nav-dropdown">
+              <li><span class="dd-semester"><span class="lang-en">{{ item.semester_en }}</span><span class="lang-ko">{{ item.semester_ko }}</span></span></li>
+              {%- assign _dd_courses = site.courses | where: "category", item.category | sort: "importance" -%}
+              {%- for course in _dd_courses -%}
+              <li>
+                <a href="{{ course.url | relative_url }}">
+                  <span class="dd-code">{{ course.description | split: ' • ' | first }}</span>
+                  {{ course.title }}
+                </a>
+              </li>
+              {%- endfor -%}
+              <li class="dd-divider"></li>
+              <li class="dd-all"><a href="{{ item.footer_url | relative_url }}"><span class="lang-en">{{ item.footer_en }}</span><span class="lang-ko">{{ item.footer_ko }}</span> &#x2192;</a></li>
+            </ul>
           </li>
-          {%- endfor -%}
-          <li class="dd-divider"></li>
-          <li class="dd-all"><a href="{{ '/archive' | relative_url }}"><span class="lang-en">All Courses</span><span class="lang-ko">전체 강좌</span> &#x2192;</a></li>
-        </ul>
-      </li>
-      <li class="has-dropdown" id="dd-policies">
-        <button><span class="lang-en">Policies</span><span class="lang-ko">정책</span> &#x25BE;</button>
-        <ul class="nav-dropdown">
-          <li><a href="{{ '/policies/attendance' | relative_url }}"><span class="lang-en">Attendance</span><span class="lang-ko">출석 정책</span></a></li>
-          <li><a href="{{ '/policies/assignments' | relative_url }}"><span class="lang-en">Assignments</span><span class="lang-ko">과제 정책</span></a></li>
-          <li><a href="{{ '/policies/tests' | relative_url }}"><span class="lang-en">Tests &amp; Exams</span><span class="lang-ko">시험 정책</span></a></li>
-          <li><a href="{{ '/policies/collaboration' | relative_url }}"><span class="lang-en">Collaboration</span><span class="lang-ko">협업 정책</span></a></li>
-          <li><a href="{{ '/policies/late' | relative_url }}"><span class="lang-en">Late Policy</span><span class="lang-ko">지각 제출 정책</span></a></li>
-          <li class="dd-divider"></li>
-          <li><a href="{{ '/policies/ai' | relative_url }}">★ <span class="lang-en">AI Tools Policy</span><span class="lang-ko">AI 사용 정책</span></a></li>
-          <li class="dd-divider"></li>
-          <li class="dd-all"><a href="{{ '/policies' | relative_url }}"><span class="lang-en">All Policies</span><span class="lang-ko">전체 정책</span> &#x2192;</a></li>
-        </ul>
-      </li>
-      <li><a href="{{ '/archive' | relative_url }}"{% if page.url contains '/archive' %} class="active-page"{% endif %}><span class="lang-en">Archive</span><span class="lang-ko">강의 이력</span></a></li>
-      <li><a href="{{ '/office-hours' | relative_url }}"{% if page.url contains '/office-hours' %} class="active-page"{% endif %}><span class="lang-en">Office Hours</span><span class="lang-ko">상담 시간</span></a></li>
+        {%- elsif item.items -%}
+          {%- comment -%}Static dropdown — items listed in nav.yml{%- endcomment -%}
+          <li class="has-dropdown" id="{{ item.dropdown_id }}">
+            <button><span class="lang-en">{{ item.title_en }}</span><span class="lang-ko">{{ item.title_ko }}</span> &#x25BE;</button>
+            <ul class="nav-dropdown">
+              {%- for sub in item.items -%}
+                {%- if sub.divider -%}
+                <li class="dd-divider"></li>
+                {%- else -%}
+                <li><a href="{{ sub.url | relative_url }}"><span class="lang-en">{{ sub.title_en }}</span><span class="lang-ko">{{ sub.title_ko }}</span></a></li>
+                {%- endif -%}
+              {%- endfor -%}
+              {%- if item.footer_url -%}
+              <li class="dd-divider"></li>
+              <li class="dd-all"><a href="{{ item.footer_url | relative_url }}"><span class="lang-en">{{ item.footer_en }}</span><span class="lang-ko">{{ item.footer_ko }}</span> &#x2192;</a></li>
+              {%- endif -%}
+            </ul>
+          </li>
+        {%- else -%}
+          {%- comment -%}Simple link — url_prefix: true uses contains match for active state{%- endcomment -%}
+          {%- if item.url_prefix -%}
+          <li><a href="{{ item.url | relative_url }}"{% if page.url contains item.url %} class="active-page"{% endif %}><span class="lang-en">{{ item.title_en }}</span><span class="lang-ko">{{ item.title_ko }}</span></a></li>
+          {%- else -%}
+          <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} class="active-page"{% endif %}><span class="lang-en">{{ item.title_en }}</span><span class="lang-ko">{{ item.title_ko }}</span></a></li>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
     </ul>
     <div class="nav-controls">
       <button class="ctrl-btn theme-btn" aria-label="Toggle theme">🌙</button>
@@ -46,26 +59,46 @@
     </div>
   </div>
 
-  <!-- Mobile nav -->
+  <!-- Mobile nav (mirrors desktop structure from nav.yml) -->
   <div class="mobile-nav" id="mobile-nav">
-    <a href="{{ '/' | relative_url }}"><span class="lang-en">Courses</span><span class="lang-ko">강좌</span></a>
-    <button class="m-toggle" id="m-courses"><span><span class="lang-en">2026 Courses</span><span class="lang-ko">2026년 강좌</span></span><span class="m-chevron">&#x25BE;</span></button>
-    <div class="mobile-sub" id="m-courses-sub">
-      {%- assign courses_2026 = site.courses | where: "category", "2026-1" | sort: "importance" -%}
-      {%- for course in courses_2026 -%}
-      <a href="{{ course.url | relative_url }}">{{ course.title }}</a>
-      {%- endfor -%}
-      <div class="dd-divider"></div>
-      <a href="{{ '/archive' | relative_url }}"><span class="lang-en">All Courses</span><span class="lang-ko">전체 강좌</span> &#x2192;</a>
-    </div>
-    <button class="m-toggle" id="m-policies"><span><span class="lang-en">Policies</span><span class="lang-ko">정책</span></span><span class="m-chevron">&#x25BE;</span></button>
-    <div class="mobile-sub" id="m-policies-sub">
-      <a href="{{ '/policies/ai' | relative_url }}">★ <span class="lang-en">AI Tools Policy</span><span class="lang-ko">AI 사용 정책</span></a>
-      <div class="dd-divider"></div>
-      <a href="{{ '/policies' | relative_url }}"><span class="lang-en">All Policies</span><span class="lang-ko">전체 정책</span> &#x2192;</a>
-    </div>
-    <a href="{{ '/archive' | relative_url }}"><span class="lang-en">Archive</span><span class="lang-ko">강의 이력</span></a>
-    <a href="{{ '/office-hours' | relative_url }}"><span class="lang-en">Office Hours</span><span class="lang-ko">상담 시간</span></a>
+    {%- for item in site.data.nav -%}
+      {%- if item.category -%}
+        {%- assign _mob_id = item.dropdown_id | remove: "dd-" -%}
+        <button class="m-toggle" data-sub="m-{{ _mob_id }}-sub">
+          <span><span class="lang-en">{{ item.title_en }}</span><span class="lang-ko">{{ item.title_ko }}</span></span>
+          <span class="m-chevron">&#x25BE;</span>
+        </button>
+        <div class="mobile-sub" id="m-{{ _mob_id }}-sub">
+          {%- assign _m_courses = site.courses | where: "category", item.category | sort: "importance" -%}
+          {%- for course in _m_courses -%}
+          <a href="{{ course.url | relative_url }}">{{ course.title }}</a>
+          {%- endfor -%}
+          <div class="dd-divider"></div>
+          <a href="{{ item.footer_url | relative_url }}"><span class="lang-en">{{ item.footer_en }}</span><span class="lang-ko">{{ item.footer_ko }}</span> &#x2192;</a>
+        </div>
+      {%- elsif item.items -%}
+        {%- assign _mob_id = item.dropdown_id | remove: "dd-" -%}
+        <button class="m-toggle" data-sub="m-{{ _mob_id }}-sub">
+          <span><span class="lang-en">{{ item.title_en }}</span><span class="lang-ko">{{ item.title_ko }}</span></span>
+          <span class="m-chevron">&#x25BE;</span>
+        </button>
+        <div class="mobile-sub" id="m-{{ _mob_id }}-sub">
+          {%- for sub in item.items -%}
+            {%- if sub.divider -%}
+            <div class="dd-divider"></div>
+            {%- else -%}
+            <a href="{{ sub.url | relative_url }}"><span class="lang-en">{{ sub.title_en }}</span><span class="lang-ko">{{ sub.title_ko }}</span></a>
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if item.footer_url -%}
+          <div class="dd-divider"></div>
+          <a href="{{ item.footer_url | relative_url }}"><span class="lang-en">{{ item.footer_en }}</span><span class="lang-ko">{{ item.footer_ko }}</span> &#x2192;</a>
+          {%- endif -%}
+        </div>
+      {%- else -%}
+        <a href="{{ item.url | relative_url }}"><span class="lang-en">{{ item.title_en }}</span><span class="lang-ko">{{ item.title_ko }}</span></a>
+      {%- endif -%}
+    {%- endfor -%}
     <div class="mobile-controls">
       <button class="ctrl-btn theme-btn" aria-label="Toggle theme">🌙</button>
       <button class="ctrl-btn lang-btn">한국어</button>
