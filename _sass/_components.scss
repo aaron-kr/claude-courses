@@ -334,14 +334,14 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
   &::before {
     content: '';
     position: absolute;
-    top: 28px; left: -4px; right: -4px;
+    top: 27px; left: -4px; right: -4px;
     height: 3px;
     background: linear-gradient(90deg, var(--accent3), var(--accent), var(--accent2));
   }
   &::after {
     content: '';
     position: absolute;
-    bottom: 0; left: 0; right: 0;
+    bottom: -3px; left: 0; right: 0;
     height: 2px;
     background: linear-gradient(90deg, var(--accent3), var(--accent), var(--accent2));
   }

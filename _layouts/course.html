@@ -6,6 +6,11 @@ layout: default
   {%- assign info = page.information | first -%}
 
   <div class="course-hero">
+    {%- if page.logo -%}
+    <div class="course-uni-logo">
+      <img src="{{ page.logo }}" alt="{{ page.description | split: ' • ' | last }}" />
+    </div>
+    {%- endif -%}
     <div class="course-badges animate d1">
       <span class="c-badge code">{{ info.section | default: page.section }}</span>
       <span class="c-badge sem">{{ page.category | replace: '-', ' ' }}</span>

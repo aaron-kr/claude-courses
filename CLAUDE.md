@@ -115,7 +115,7 @@ claude-courses/
 | Homepage redesign | ✅ Complete | University groups, Research CTA, Lab Notes, profile links, only current courses |
 | Archive redesign | ✅ Complete | List-row layout, filter by semester + university, Show Thumbnails toggle |
 | Course layout | ✅ Complete | Removed policies section; added prereqs, dropcap, grading-type (상대평가) |
-| Schedule include | ✅ Complete | TEST rows centered like NO CLASS; no thumbnail for no-img rows; HW 20% width |
+| Schedule include | ✅ Complete | Table-based layout (4 `<td>` columns); test/no-class use `colspan=3`; `slides2`/`slides2_title` supported; `logistics` + HW links in col 4 |
 | i18n toggle | ✅ Complete | `html.ko` class; `lang-en`/`lang-ko` CSS; persists in localStorage |
 | Email obfuscation | ✅ Complete | `@` → `&#064;` in about_aaron, footer |
 | Card thumbnails | ✅ Complete | 82px wide thumb inside `.card-inner`; `background-position:center top`; shown via `.thumbs-active` |
@@ -145,6 +145,8 @@ claude-courses/
 | Nav YAML | ✅ Complete | `_data/nav.yml` + rewritten `nav.html`; mobile sub-menus use `data-sub` attr (no hardcoded IDs) |
 | Footer YAML | ✅ Complete | `_data/footer.yml` for Teaching column links; Connect column stays in `footer.html` |
 | Office hours uni logos | ✅ Fixed | All 5 day-cards now use `<div class="uni-badge"><img src="{{ site.universities[N].logo }}" /></div>` |
+| Uni logos — index + course pages | ✅ Added | Index uni-group headers use `uni_courses[0].logo` as `<img class="uni-group-logo">`; course pages show `page.logo` as 120px faded watermark in upper-right of `.course-hero`; course page favicon = `page.logo` |
+| Remote instructor bio | ✅ Added | `about_aaron.html` fetches `https://aaronsnowberger.com/bio.json` at runtime and replaces `#bio-en`/`#bio-ko`/`#instructor-role`; static text is the fallback |
 | Office hours day order | ✅ Fixed | Week-grid: day 3 = HB (Wed), day 4 = JBNU (Thu); today-pill updated to match |
 | Cal.com theme | ✅ Fixed | `Cal("ui", { ..., theme: document.documentElement.getAttribute('data-theme') || 'dark' })` |
 | Calendly comparison embed | ✅ Added | Second booking widget at `https://calendly.com/aaronkr-trainer` below Cal.com in office-hours.md |
@@ -197,6 +199,9 @@ claude-courses/
 19. **University display order** — Index page shows universities in weekday order: UT(Mon), WKU(Tue), HB(Wed), JBNU(Thu), JNUE(Fri). JBNU teaches Wed+Thu but is shown under Thursday (its second/later day). HB teaches Wed only and is shown under Wednesday.
 20. **Thumbnail toggle localStorage** — Key `'thumbs'` in localStorage; value `'1'` (active) or `'0'` (inactive). Both `index.md` and `archive.md` restore state on load. Shared key means both pages stay in sync.
 21. **Early theme/lang init** — Inline `<script>` in `<head>` (before first paint) reads `localStorage` and applies `data-theme` + `html.ko` class immediately. Prevents flash of wrong theme or both languages rendering simultaneously.
+23. **Dynamic favicon** — `head.html` sets `<link rel="icon" href="{{ page.logo }}">` when `page.logo` is set (course pages). All other pages fall back to `site.icon`. This lets each course page show its university logo as the browser tab icon.
+24. **Schedule table layout** — `schedule.html` renders a `<table class="sched-table">` with 4 `<td>` columns: date, thumbnail + slides2, info (week/title/readings), logistics + HW links. Test/no-class rows use `<td colspan="3">` for columns 2–4. Links in `logistics:` YAML no longer break layout since they live in their own `<td>`. The `<a class="sched-thumb">` pattern makes the thumbnail itself a link (slides), and `slides2`/`slides2_title` render a second link below.
+25. **Remote instructor bio** — `about_aaron.html` renders static bio from `_data/staff.yml` by default, then a small `<script>` fetches `https://aaronsnowberger.com/bio.json` and swaps `#bio-en`, `#bio-ko`, `#instructor-role` on success. aaronsnowberger.com must expose a `bio.json` page (see comment in `about_aaron.html` for the expected JSON format). GitHub Pages sets `Access-Control-Allow-Origin: *` so no CORS issues.
 22. **`.f-col span` / `.lang-*` conflict** — `_base.scss` `.f-col p, .f-col a, .f-col span` rule uses `:not(.lang-en):not(.lang-ko)` to exclude lang-toggle spans from getting `display: block`. Without this, `.lang-ko { display: none }` was overridden and both languages showed in the footer.
 
 ## Known Bugs & Fixes (historical record)
@@ -300,9 +305,13 @@ These are non-obvious issues that have been encountered and fixed. If you encoun
     <strong>수업 소개</strong>
   readings: "Book, Chapter 1"  # String (not array)
   hw: "https://classroom.github.com/..."
+  hw2: "https://classroom.github.com/..."  # Optional second HW link
   slides: "https://docs.google.com/..."
+  slides2: "https://..."                   # Optional second slides link (shows below thumbnail)
+  slides2_title: "Part 2 Slides"           # Optional label for slides2 link (default: "Slides 2")
   img: 2024/hb-cpp/1-cpp-intro.jpg   # Relative to /assets/img/
-  logistics: >        # Optional logistics HTML
+  img2: 2024/hb-cpp/1-alt.jpg        # Optional second image (fallback if img not set)
+  logistics: >        # Optional logistics HTML — goes in column 4; can contain <a> links
     <a href="...">Link</a>
 
 # No-class row (holiday/test):
@@ -396,3 +405,4 @@ The original prototype HTML files (`index.html`, `course.html`, `archive.html`, 
 7. Session 11: Cascading wave hero animation, archive Topic/Sort filters, course `title_ko`/`subtitle_ko`, footer i18n, cal.com embed
 8. Session 12: **2023 migration** — 6 data files + 6 course files fully populated from `2023-course-sites/` (see `2023-migration-notes.md`)
 9. Session 13: **UX improvements** — Canvas waves (full-width, animated), thumbnail localStorage, JBNU/HB display order swap, profile-link slide-in hover, footer one-language fix, nav/footer YAML data files, office-hours uni logos from `site.universities`, Cal.com theme fix, Calendly comparison embed
+10. Session 14: **Logo propagation + schedule fix + remote bio** — Uni logos in index uni-group headers; faded 120px watermark logo in course-hero upper-right; course-page favicon = `page.logo`; schedule converted from flex rows to `<table>` (4 `<td>` cols, `colspan=3` for test/no-class); `slides2`/`slides2_title` support; `logistics` HTML links no longer break layout; `about_aaron.html` JS fetch from `aaronsnowberger.com/bio.json` with static fallback

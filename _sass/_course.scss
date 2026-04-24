@@ -1,7 +1,21 @@
 // ── Course hero ──────────────────────────────────────────────────────────────
 .course-hero {
+  position: relative;
   padding: 80px 0 36px;
   border-bottom: 1px solid var(--border);
+}
+
+// Faded university watermark logo — upper-right of course hero
+.course-uni-logo {
+  position: absolute;
+  top: 80px; right: 0;
+  width: 120px; height: 120px;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0.08;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  img { max-width: 120px; max-height: 120px; object-fit: contain; }
 }
 .c-badge {
   font-family: 'IBM Plex Mono', monospace;

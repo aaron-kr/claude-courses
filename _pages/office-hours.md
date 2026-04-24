@@ -171,35 +171,6 @@ Cal("inline", {
 Cal("ui", { hideEventTypeDetails: false, layout: "month_view", theme: document.documentElement.getAttribute('data-theme') || 'dark' });
 </script>
 
-  <!-- ── Calendly comparison embed ─────────────────────────────────────── -->
-  <div class="oh-heading" style="margin-top:52px">
-    <span class="oh-label"><span class="lang-en">Book via Calendly</span><span class="lang-ko">Calendly로 예약</span></span>
-    <span class="oh-line"></span>
-  </div>
-  <div class="booking-box">
-    <div class="booking-header">
-      <div>
-        <div class="booking-title">Aaron Snowberger <span>calendly.com/aaronkr-trainer</span></div>
-        <div class="booking-meta">
-          <span class="lang-en">Select a meeting type &middot; Video call or on-campus &middot; Asia/Seoul</span>
-          <span class="lang-ko">미팅 유형 선택 &middot; 화상통화 또는 캠퍼스 &middot; 아시아/서울</span>
-        </div>
-      </div>
-    </div>
-    <div class="calendly-inline-widget" data-url="https://calendly.com/aaronkr-trainer" style="width:100%;min-height:700px;"></div>
-    <div class="booking-footer">
-      <span class="booking-note">
-        <span class="lang-en">ⓘ Powered by Calendly — polished scheduling UI</span>
-        <span class="lang-ko">ⓘ Calendly 제공 — 세련된 일정 예약 UI</span>
-      </span>
-      <a href="https://calendly.com/aaronkr-trainer" target="_blank" class="booking-link">
-        <span class="lang-en">Open in Calendly →</span>
-        <span class="lang-ko">Calendly에서 열기 →</span>
-      </a>
-    </div>
-  </div>
-  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
   <!-- Booking recommendation box (restored) -->
   <div class="oh-heading" style="margin-top:28px"><span class="oh-label">Tools &amp; Recommendations</span><span class="oh-line"></span></div>
   <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;gap:24px;align-items:flex-start;position:relative;overflow:hidden;margin-bottom:52px">

@@ -115,7 +115,12 @@ permalink: /
         {%- if uni_courses.size > 0 -%}
         <div class="uni-group">
           <div class="uni-group-header">
+            {%- assign _g_logo = uni_courses[0].logo -%}
+            {%- if _g_logo -%}
+            <img src="{{ _g_logo }}" class="uni-group-logo" alt="{{ uni_abbrs[i] }}" />
+            {%- else -%}
             <span class="uni-abbr">{{ uni_abbrs[i] }}</span>
+            {%- endif -%}
             <span class="uni-group-name">
               <span class="lang-en">{{ uni_full_en[i] }}</span>
               <span class="lang-ko">{{ uni }}</span>

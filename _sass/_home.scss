@@ -124,6 +124,15 @@ a.announce-item:hover .ann-arrow { opacity: 1; transform: translateX(3px); }
   letter-spacing: .08em;
   min-width: 42px;
 }
+// University logo in group headers (replaces text abbr when logo is available)
+.uni-group-logo {
+  height: 38px;
+  width: auto;
+  max-width: 90px;
+  object-fit: contain;
+  opacity: 0.75;
+  flex-shrink: 0;
+}
 .uni-group-name { font-family: 'IBM Plex Mono', monospace; font-size: .72rem; color: var(--sub); letter-spacing: .04em; flex: 1; }
 .uni-group-day  { font-family: 'IBM Plex Mono', monospace; font-size: .63rem; color: var(--accent2); padding: 2px 9px; border: 1px solid rgba(126,184,247,.25); border-radius: 3px; }
 
@@ -165,7 +174,7 @@ a.announce-item:hover .ann-arrow { opacity: 1; transform: translateX(3px); }
     padding: 28px;
 }
 .cta-image {
-    width: 148px;
+    width: 228px;
     flex-shrink: 0;
     background: linear-gradient(170deg, #1e0a3c, #3d28a0 50%, #0c6478);
     display: flex;

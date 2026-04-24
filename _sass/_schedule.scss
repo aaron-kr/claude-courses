@@ -1,52 +1,51 @@
-// ── Schedule list ────────────────────────────────────────────────────────────
-.sched-list { list-style: none; }
-
-a.sched-row {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-  border-bottom: 1px solid var(--border);
-  transition: background .15s;
-  padding: 10px 0;
-  gap: 12px;
-  &:first-child { border-top: 1px solid var(--border); }
-  &:hover { background: var(--surface); }
-  &.past   { opacity: .65; }
-  &.current { border-left: 2px solid var(--accent3); padding-left: 10px; }
-  // NO CLASS and TEST rows: centered layout, suppress thumbnail
-  &.no-class,
-  &.test-row {
-    justify-content: flex-start;
-    .sched-info {
-      text-align: center;
-      flex: 1;
-    }
-    .sched-week { display: none; }
-  }
+// ── Schedule table ────────────────────────────────────────────────────────────
+.sched-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.sched-date {
+tr.sched-row {
+  border-bottom: 1px solid var(--border);
+  transition: background .15s;
+  > td {
+    padding: 10px 0;
+    vertical-align: middle;
+  }
+  > td + td { padding-left: 12px; }
+  &:first-child > td { border-top: 1px solid var(--border); }
+  &:hover { background: var(--surface); }
+  &.past { opacity: .65; }
+
+  // No-class + test rows: center the span cell
+  &.no-class td.sched-span,
+  &.test-row  td.sched-span { text-align: center; }
+}
+
+// ── Column 1: Date ────────────────────────────────────────────────────────────
+td.sched-date {
   width: 60px;
-  flex-shrink: 0;
   font-family: 'IBM Plex Mono', monospace;
   font-size: .66rem;
   color: var(--muted);
   line-height: 1.45;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  align-self: center;
-  &.holiday .date-day { color: var(--error); font-weight: 500; }
-  &.test-date .date-day { color: var(--warn); font-weight: 500; }
+  white-space: nowrap;
+  &.holiday .date-day   { color: var(--error); font-weight: 500; }
+  &.test-date .date-day { color: var(--warn);  font-weight: 500; }
 }
-.holiday-note { font-size: .54rem; color: var(--error); letter-spacing: .06em; text-transform: uppercase; }
-.test-note    { font-size: .54rem; color: var(--warn);  letter-spacing: .06em; text-transform: uppercase; }
+.holiday-note { font-size: .54rem; color: var(--error); letter-spacing: .06em; text-transform: uppercase; display: block; }
+.test-note    { font-size: .54rem; color: var(--warn);  letter-spacing: .06em; text-transform: uppercase; display: block; }
+
+// ── Column 2: Slide thumbnail + slides2 link ──────────────────────────────────
+td.sched-thumb-cell {
+  width: 127px;
+  vertical-align: top;
+  padding-top: 12px !important;
+  padding-bottom: 8px !important;
+}
 
 .sched-thumb {
   width: 115px;
   height: 65px;
-  flex-shrink: 0;
   border-radius: 3px;
   overflow: hidden;
   background-size: cover;
@@ -54,37 +53,66 @@ a.sched-row {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-self: center;
+  text-decoration: none;
   img { width: 100%; height: 100%; object-fit: cover; }
 }
-.sched-extra { font-family: 'IBM Plex Mono', monospace; font-size: .5rem; color: rgba(255,255,255,.45); background: rgba(0,0,0,.45); padding: 2px 5px; letter-spacing: .04em; line-height: 1.4; }
+.sched-extra {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .5rem;
+  color: rgba(255,255,255,.45);
+  background: rgba(0,0,0,.45);
+  padding: 2px 5px;
+  letter-spacing: .04em;
+  line-height: 1.4;
+}
 
-// Spacer: same dimensions as thumb but invisible — keeps layout aligned for no-class/test rows
-.sched-spacer { width: 115px; height: 65px; flex-shrink: 0; }
+.sched-spacer {
+  width: 115px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slides-link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .6rem;
+  color: var(--accent2);
+  text-decoration: none;
+  letter-spacing: .03em;
+  &:hover { color: var(--accent); }
+}
+.slides2-link {
+  display: block;
+  width: 115px;
+  margin-top: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .56rem;
+  color: var(--accent2);
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: .03em;
+  line-height: 1.4;
+  &:hover { color: var(--accent); }
+}
 
-.sched-info { flex: 1; min-width: 0; align-self: center; }
+// ── Column 3: Info (week + title + readings) ──────────────────────────────────
+.sched-info { }
 .sched-week { font-family: 'IBM Plex Mono', monospace; font-size: .6rem; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; display: block; }
 .sched-title { font-size: .88rem; font-weight: 500; color: var(--text); line-height: 1.35; margin-top: 2px; }
-.sched-title br + * { margin-top: 0; }
-// Inside test/no-class rows: strip <br> visual border lines
-.no-class .sched-title br,
-.test-row  .sched-title br { display: inline; }
-.sched-subtitle { font-size: .73rem; color: var(--muted); margin-top: 2px; }
 .sched-readings { font-size: .78rem; color: var(--sub); margin-top: 4px; line-height: 1.5; }
 
-.sched-hw {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  align-items: flex-end;
-  align-self: center;
-  flex-shrink: 0;
-  width: 20%;        // ~20% of row width for notes/resources space
+// ── Column 4: Logistics (links, HW, notes) ───────────────────────────────────
+td.sched-logistics {
+  width: 22%;
   min-width: 80px;
   max-width: 160px;
-  min-height: 1px;
+  vertical-align: top;
+  padding-top: 12px !important;
 }
+.sched-subtitle { font-size: .73rem; color: var(--muted); line-height: 1.6; }
 .hw-link {
+  display: inline-block;
+  float: right;
   font-family: 'IBM Plex Mono', monospace;
   font-size: .6rem;
   color: var(--accent);
@@ -94,12 +122,27 @@ a.sched-row {
   border-radius: 3px;
   padding: 3px 7px;
   white-space: nowrap;
+  margin-top: 4px;
+  margin-right: 4px;
   transition: background .15s;
   &:hover { background: rgba(155,101,255,.1); }
   &.due { color: var(--warn); border-color: rgba(251,191,36,.28); &:hover { background: rgba(251,191,36,.08); } }
 }
 
-@media (max-width: 560px) {
+// ── Span cell (test / no-class rows: colspan 3) ───────────────────────────────
+td.sched-span {
+  padding: 14px 12px;
+  .sched-week { display: none; }
+  .sched-subtitle { margin-top: 6px; }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (max-width: 640px) {
+  td.sched-thumb-cell { width: 84px; }
   .sched-thumb, .sched-spacer { width: 72px; height: 40.5px; }
-  .sched-hw { display: none; }
+  .slides2-link { width: 72px; }
+}
+@media (max-width: 480px) {
+  td.sched-thumb-cell { display: none; }
+  td.sched-logistics  { display: none; }
 }

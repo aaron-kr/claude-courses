@@ -3,6 +3,10 @@
   Supports:
     - Subdirectory path: "2026/hb_cpp_lectures" → site.data["2026"]["hb_cpp_lectures"]
     - Legacy flat key:   "2026_hb_cpp_lectures" → site.data["2026_hb_cpp_lectures"]
+  Columns: date | slide thumb + slides2 link | week + title + readings | logistics + hw
+  Test / no-class rows: colspan="3" across the last three columns.
+  YAML fields: date, title, title_ko, week, img, img2, slides, slides2, slides2_title,
+               readings, logistics, hw, hw2, skip
 {% endcomment %}
 
 {%- if include.data_file contains "/" -%}
@@ -13,20 +17,19 @@
 {%- else -%}
   {%- assign lecture_data = site.data[include.data_file] -%}
 {%- endif -%}
-{%- assign today_ts = 'now' | date: '%s' | plus: 0 -%}
-{%- assign week_num = 0 -%}
+{%- assign today_ts   = 'now' | date: '%s' | plus: 0 -%}
 {%- assign skip_count = 0 -%}
 
-<ul class="sched-list">
+<table class="sched-table">
 {%- for item in lecture_data -%}
   {%- if item.date -%}
-    {%- assign item_ts = item.date | date: '%s' | plus: 0 -%}
+    {%- assign item_ts    = item.date | date: '%s' | plus: 0 -%}
     {%- assign title_lower = item.title | downcase -%}
 
-    {%- comment -%} Determine row class {%- endcomment -%}
+    {%- comment -%} Determine row type and CSS class {%- endcomment -%}
     {%- if title_lower contains 'no class' or title_lower contains '휴강' or item.skip -%}
       {%- assign row_class = 'no-class' -%}
-      {%- assign row_type = 'noclass' -%}
+      {%- assign row_type  = 'noclass'  -%}
       {%- assign skip_count = skip_count | plus: 1 -%}
     {%- elsif title_lower contains 'test' or title_lower contains 'exam' or title_lower contains 'midterm' or title_lower contains 'final' or title_lower contains '시험' -%}
       {%- assign row_type = 'test' -%}
@@ -38,71 +41,93 @@
       {%- assign skip_count = skip_count | plus: 1 -%}
     {%- elsif item_ts < today_ts -%}
       {%- assign row_class = 'past' -%}
-      {%- assign row_type = 'normal' -%}
+      {%- assign row_type  = 'normal' -%}
     {%- else -%}
       {%- assign row_class = '' -%}
-      {%- assign row_type = 'normal' -%}
+      {%- assign row_type  = 'normal' -%}
     {%- endif -%}
 
     {%- assign display_week = forloop.index | minus: skip_count -%}
 
-    <a class="sched-row {{ row_class }}" href="{{ item.slides | default: '#' }}"{% if item.slides %} target="_blank"{% endif %}>
+  <tr class="sched-row {{ row_class }}">
 
-      {%- comment -%} Date column {%- endcomment -%}
-      <div class="sched-date{%- if row_type == 'noclass' %} holiday{%- elsif row_type == 'test' %} test-date{%- endif -%}">
-        <span class="date-day">{{ item.date }}</span>
-        {%- if row_type == 'noclass' -%}
-        <span class="holiday-note">🔴 <span class="lang-en">No Class</span><span class="lang-ko">휴강</span></span>
-        {%- elsif row_type == 'test' -%}
-        <span class="test-note">📝 <span class="lang-en">Exam</span><span class="lang-ko">시험</span></span>
-        {%- endif -%}
-      </div>
-
-      {%- comment -%} Thumbnail / spacer column {%- endcomment -%}
-      {%- if row_type == 'noclass' or row_type == 'test' -%}
-        {%- comment -%} No-class and test rows: spacer only, no image {%- endcomment -%}
-        <div class="sched-spacer"></div>
-      {%- elsif item.img -%}
-        <div class="sched-thumb" style="background-image:url('/assets/img/{{ item.img }}')">
-          {%- if item.slides -%}<div class="sched-extra">▶ Slides</div>{%- endif -%}
-        </div>
-      {%- elsif item.img2 -%}
-        <div class="sched-thumb" style="background-image:url('/assets/img/{{ item.img2 }}')">
-          {%- if item.slides -%}<div class="sched-extra">▶ Slides</div>{%- endif -%}
-        </div>
-      {%- else -%}
-        {%- comment -%} Regular row with no image: spacer (no placeholder gradient) {%- endcomment -%}
-        <div class="sched-spacer"></div>
+    {%- comment -%} ── Column 1: Date ────────────────────────────────── {%- endcomment -%}
+    <td class="sched-date{%- if row_type == 'noclass' %} holiday{%- elsif row_type == 'test' %} test-date{%- endif -%}">
+      <span class="date-day">{{ item.date }}</span>
+      {%- if row_type == 'noclass' -%}
+      <span class="holiday-note">🔴 <span class="lang-en">No Class</span><span class="lang-ko">휴강</span></span>
+      {%- elsif row_type == 'test' -%}
+      <span class="test-note">📝 <span class="lang-en">Exam</span><span class="lang-ko">시험</span></span>
       {%- endif -%}
+    </td>
 
-      {%- comment -%} Info column {%- endcomment -%}
-      <div class="sched-info">
-        {%- if row_type == 'normal' -%}
-        <span class="sched-week"><span class="lang-en">Week</span><span class="lang-ko">주차</span> {{ display_week }}</span>
+    {%- if row_type == 'noclass' or row_type == 'test' -%}
+    {%- comment -%} No-class / test: one wide cell spanning columns 2–4 {%- endcomment -%}
+    <td class="sched-info sched-span" colspan="3">
+      <div class="sched-title">
+        <span class="lang-en">{{ item.title }}</span>
+        <span class="lang-ko">{{ item.title_ko | default: item.title }}</span>
+      </div>
+      {%- if item.logistics -%}
+      <div class="sched-subtitle">{{ item.logistics }}</div>
+      {%- endif -%}
+    </td>
+
+    {%- else -%}
+
+    {%- comment -%} ── Column 2: Slide thumbnail + optional slides2 ───── {%- endcomment -%}
+    <td class="sched-thumb-cell">
+      {%- assign _thumb_src = item.img | default: item.img2 -%}
+      {%- if _thumb_src -%}
+        {%- if item.slides -%}
+        <a class="sched-thumb" href="{{ item.slides }}" target="_blank"
+           style="background-image:url('/assets/img/{{ _thumb_src }}')">
+          <div class="sched-extra">▶ Slides</div>
+        </a>
+        {%- else -%}
+        <div class="sched-thumb" style="background-image:url('/assets/img/{{ _thumb_src }}')"></div>
         {%- endif -%}
-        <div class="sched-title">
-          <span class="lang-en">{{ item.title }}</span>
-          <span class="lang-ko">{{ item.title_ko | default: item.title }}</span>
+      {%- else -%}
+        <div class="sched-spacer">
+          {%- if item.slides -%}
+          <a href="{{ item.slides }}" class="slides-link" target="_blank">▶ <span class="lang-en">Slides</span><span class="lang-ko">슬라이드</span></a>
+          {%- endif -%}
         </div>
-        {%- if item.readings -%}
-        <div class="sched-readings">📖 {{ item.readings }}</div>
-        {%- endif -%}
-        {%- if item.logistics -%}
-        <div class="sched-subtitle">{{ item.logistics }}</div>
-        {%- endif -%}
-      </div>
+      {%- endif -%}
+      {%- if item.slides2 -%}
+      <a href="{{ item.slides2 }}" class="slides2-link" target="_blank">
+        {{ item.slides2_title | default: 'Slides 2' }}
+      </a>
+      {%- endif -%}
+    </td>
 
-      {%- comment -%} HW column (~20% width) {%- endcomment -%}
-      <div class="sched-hw">
-        {%- if item.hw -%}
-        <a href="{{ item.hw }}" class="hw-link" target="_blank" onclick="event.stopPropagation()">HW →</a>
-        {%- endif -%}
-        {%- if item.hw2 -%}
-        <a href="{{ item.hw2 }}" class="hw-link" target="_blank" onclick="event.stopPropagation()">HW 2 →</a>
-        {%- endif -%}
+    {%- comment -%} ── Column 3: Week + title + readings ─────────────── {%- endcomment -%}
+    <td class="sched-info">
+      <span class="sched-week"><span class="lang-en">Week</span><span class="lang-ko">주차</span> {{ display_week }}</span>
+      <div class="sched-title">
+        <span class="lang-en">{{ item.title }}</span>
+        <span class="lang-ko">{{ item.title_ko | default: item.title }}</span>
       </div>
+      {%- if item.readings -%}
+      <div class="sched-readings">📖 {{ item.readings }}</div>
+      {%- endif -%}
+    </td>
 
-    </a>
+    {%- comment -%} ── Column 4: Logistics + HW links ────────────────── {%- endcomment -%}
+    <td class="sched-logistics">
+      {%- if item.logistics -%}
+      <div class="sched-subtitle">{{ item.logistics }}</div>
+      {%- endif -%}
+      {%- if item.hw -%}
+      <a href="{{ item.hw }}" class="hw-link" target="_blank">과제 →</a>
+      {%- endif -%}
+      {%- if item.hw2 -%}
+      <a href="{{ item.hw2 }}" class="hw-link" target="_blank">과제 2 →</a>
+      {%- endif -%}
+    </td>
+
+    {%- endif -%}
+  </tr>
   {%- endif -%}
 {%- endfor -%}
-</ul>
+</table>
