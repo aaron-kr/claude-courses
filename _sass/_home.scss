@@ -123,6 +123,51 @@ header.home-hero {
 }
 
 // ── Research CTA ─────────────────────────────────────────────────────────────
+.cta-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+.cta-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+}
+.cta-content {
+    flex: 1;
+    padding: 28px;
+}
+.cta-image {
+    width: 148px;
+    flex-shrink: 0;
+    background: linear-gradient(170deg, #1e0a3c, #3d28a0 50%, #0c6478);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .6rem;
+    color: rgba(255, 255, 255, .25);
+    text-align: center;
+    padding: 14px;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+.cta-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(109, 204, 221, .06) 8px, rgba(109, 204, 221, .06) 9px);
+}
+
 .research-cta {
   position: relative;
   overflow: hidden;
@@ -130,6 +175,7 @@ header.home-hero {
   border-radius: var(--radius);
   padding: 36px 40px;
   background: linear-gradient(135deg, rgba(155,101,255,.1) 0%, rgba(109,204,221,.06) 100%);
+  background: var(--surface);
   margin: 52px 0;
   &::before {
     content: '';

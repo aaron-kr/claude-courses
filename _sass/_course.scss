@@ -17,6 +17,14 @@
 .course-hero h1 { font-size: clamp(1.9rem, 5vw, 3rem); }
 .course-subtitle { font-size: 1.1rem; color: var(--muted); margin-top: 4px; font-style: italic; }
 .course-dept { font-size: .8rem; color: var(--muted); margin-top: 6px; font-family: 'IBM Plex Mono', monospace; letter-spacing: .04em; }
+.course-subitlte,
+.course-dept {
+    font-size: .8rem;
+    color: var(--muted);
+    margin-top: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: .04em;
+}
 
 // ── Stats strip ──────────────────────────────────────────────────────────────
 .stats-strip {
