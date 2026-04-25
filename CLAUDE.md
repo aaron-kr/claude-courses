@@ -101,7 +101,7 @@ claude-courses/
 | Archive page | ✅ Complete | All semesters, auto-built from collections |
 | Policies page | ✅ Complete | Uses shared `_includes/policies.md` |
 | Office Hours page | ✅ Complete | Campus schedule + contact |
-| Announcements | ✅ Complete | `_data/announcements.yml` → homepage conditional section |
+| Announcements | ✅ Complete | `_data/announcements.yml` → homepage; hidden if empty; bilingual; fields: `date`, `type`, `title`/`title_ko`, `body`/`body_ko`, `url`, `badge`, `badge_type` |
 | 2026 courses | ✅ Complete | All 8 courses in `_courses/2026/` |
 | 2026 data files | ✅ Complete | All 8 `_data/2026_*_lectures.yml` files |
 | 2025 courses | ✅ Complete | 14 courses in `_courses/2025/` (7 spring + 7 fall) |
@@ -159,10 +159,10 @@ claude-courses/
 - [ ] **Copy assets** from `../aaronkr-courses.github.io/assets/img/` to `./assets/img/`
 - [ ] **Test Jekyll build** locally: `bundle install && bundle exec jekyll serve`
 - [ ] **Set GitHub Pages source** to root `/` (not `/docs`)
+- [ ] **Set custom domain** to `courses.aaron.kr` in GitHub Pages settings (adds CNAME file)
 - [ ] **Delete `2023-course-sites/`** folder after confirming build (see `2023-migration-notes.md`)
 
 ### Next sessions
-- [ ] Add a 404.html page
 - [ ] Add `favicon` from Cloudinary
 - [ ] Configure Cal.com account (`cal.com/aaronkr`) — currently no account; Calendly comparison embed is live at `/office-hours/`
 - [ ] Cal.com calendar-first flow: create "variable duration" event type in Cal.com account, then update `calLink: "aaronkr/SLUG"` in office-hours.md
@@ -277,7 +277,12 @@ These are non-obvious issues that have been encountered and fixed. If you encoun
 **Symptom:** `Liquid syntax error: 'if' tag was never closed` or `Tag was not properly terminated` in a `.md` file.  
 **Root cause:** Jekyll processes Liquid BEFORE Markdown — even inside backtick code spans or fenced code blocks. Any bare `{%` or `{{` in a file is parsed as Liquid.  
 **Fix (developer docs):** Add the file to `exclude:` in `_config.yml`. Current exclusions: `2023-migration-notes.md`, `CLAUDE.md`. Any future developer-only Markdown file that references Liquid syntax must also be excluded.  
-**Fix (website pages that need to show Liquid as code):** Wrap the block in raw/endraw tags or add `render_with_liquid: false` to front matter.  
+**Fix (website pages that need to show Liquid as code):** Wrap the block in raw/endraw tags or add `render_with_liquid: false` to front matter.
+
+### 11b. WEBrick `ERROR '/.well-known/appspecific/com.chrome.devtools.json' not found`
+**Symptom:** This error appears in the `jekyll serve` terminal output on every page load.  
+**Root cause:** Chrome DevTools automatically probes this path to discover debug endpoints. It is a browser-initiated request, not a site error.  
+**Fix:** None needed. Ignore it. It does not affect the build or the deployed site.  
 **Applies to:** Jekyll 3.10 with `github-pages` gem processes ALL `.md` files through Liquid, including those without front matter.
 
 ### 11. Write tool "File has not been read yet" error
@@ -302,6 +307,40 @@ These are non-obvious issues that have been encountered and fixed. If you encoun
 **Root cause:** `_base.scss` had `.course-hero > *:not(canvas) { position: relative; z-index: 1; }` which overrode `.course-uni-logo { position: absolute; top: 80px; right: 0; }` — setting `position: relative` on an element with `position: absolute` moves it back into the document flow.  
 **Fix:** Removed `.course-hero` from both the `position: relative` rule and the `> *:not(canvas)` rule in `_base.scss`. Course hero already has `position: relative` in `_course.scss`. Waves are also no longer applied to course pages (`waves.js` selector changed to `.home-hero, .page-header` only).  
 **Files:** `_sass/_base.scss`, `assets/js/waves.js`
+
+### 19. Claude used ” instead of " in the <div id="announce-outer">
+**Symptom:** After writing the Announcements section to accept the `announcements.yml` file instead of being hard-coded, everything in this block was printed as escaped HTML rather than HTML tags, such as:
+```html
+&lt;div id=”announce-outer”&gt;...
+```
+**Root Cause:**  Claude had written the code as:
+```html
+<div id=”announce-outer”>
+<div class=”announce-section” style=”padding:52px 0 0”>
+```
+**Fix:** Don't use ”, rather use " in HTML elements.
+
+### 17. Liquid `{%- -%}` whitespace-stripping breaks Kramdown HTML block detection
+**Symptom:** HTML after a Liquid control tag renders as escaped text (`&lt;div...`) instead of actual HTML elements. The section appears as a code block or escaped inline content in the page.  
+**Root cause:** Kramdown only treats a `<div>` as a raw HTML block if it starts on its own line at column 0 with nothing before it (not even whitespace). After `{% if %}` / `{%- if -%}`, Kramdown may re-enter Markdown mode and treat the next `<div>` as inline content, escaping it. Even without stripping, if a blank line follows a `</div>`, Kramdown exits HTML-block mode; the next `<div>` preceded only by a Liquid tag line is not seen as block-level.  
+**Fix:** Wrap the entire conditional section in a persistent outer `<div>` that starts at column 0 with NO preceding blank line. Kramdown enters HTML-block mode on that element and stays in it — `{%- -%}` stripping is then safe for all inner tags. Pattern used in `index.md`:
+```html
+<div id="announce-outer">
+{%- if site.data.announcements.size > 0 -%}
+<div class="announce-section" ...>
+  ...inner HTML with {%- -%} stripping...
+</div>
+{%- endif -%}
+</div>
+```
+This is the same reason `<div id="thumb-section">` works — the outer div keeps Kramdown in HTML-block mode regardless of the Liquid control flow inside.  
+**File:** `index.md` (announcements section, thumb-section)
+
+### 18. Liquid `date` filter rejects double-quoted format strings in some Jekyll versions
+**Symptom:** `Liquid Warning: Liquid syntax error (line N): Unexpected character " in "{{ var | date: "%b %-d" }}"`. Build completes but date renders incorrectly or literally.  
+**Root cause:** Jekyll's bundled Liquid version (via `github-pages` gem) does not consistently accept double-quoted strings as filter arguments in output tags inside `.md` files. Single-quoted strings work universally.  
+**Fix:** Use single quotes: `{{ ann.date | date: '%-d %b' }}`. Note: `%-d` (no leading zero) is a GNU/Linux strftime extension — works on GitHub Pages (Linux), may show literally on Windows locally. Acceptable tradeoff.  
+**File:** `index.md` (announcements date display)
 
 ### 16. University logos not rendering — `where`/`where_exp` can't see `assign` variables
 **Symptom:** University logo badges completely absent from rendered HTML. `{%- if _c_logo -%}` block never outputs. "uni-badge" doesn't appear anywhere in page source.  

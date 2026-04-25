@@ -15,6 +15,18 @@ bundle exec jekyll serve --livereload
 cp -r ../aaronkr-courses.github.io/assets/img/ ./assets/img/
 ```
 
+## Deploy to GitHub Pages
+
+1. Push to the `main` branch of `aaronkr-courses/aaronkr-courses.github.io`
+2. In repo Settings → Pages → Source: **Deploy from branch**, branch `main`, folder `/`
+3. Set custom domain: `courses.aaron.kr` (GitHub adds a `CNAME` file automatically)
+4. DNS: add a `CNAME` record pointing `courses` → `aaronkr-courses.github.io`
+
+**Auto-generated on every build** (no action needed):
+- `sitemap.xml` — via `jekyll-sitemap` plugin
+- `robots.txt` — from `robots.txt` source file (Liquid template, uses `site.url`)
+- `feed.xml` — via `jekyll-feed` plugin
+
 ---
 
 ## New Semester Checklist
@@ -50,7 +62,21 @@ Everything to update when a new semester starts (e.g. 2027-1):
 
 ### 4 · Announcements — `_data/announcements.yml`
 - [ ] Add a "New semester begins" announcement
-- [ ] Remove or archive outdated announcements from last semester
+- [ ] Remove or comment out outdated announcements from last semester
+
+Each entry supports these fields:
+```yaml
+- date: 2027-03-03        # YYYY-MM-DD (displayed as "Mar 3")
+  type: new               # dot color: new | teal | info | warn | error
+  title: "English title"
+  title_ko: "한국어 제목"  # optional
+  body: "English body"    # optional
+  body_ko: "한국어 본문"   # optional
+  url: "/archive/"        # optional link, defaults to #
+  badge: "Spring 2027"    # optional badge label
+  badge_type: admin       # optional: course | lab | admin (default: admin)
+```
+The section is hidden automatically when the file is empty.
 
 ### 5 · Office Hours — `_pages/office-hours.md`
 - [ ] Update day/time grid if schedule changed

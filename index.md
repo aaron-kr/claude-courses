@@ -139,55 +139,36 @@ permalink: /
     </div>
   </div>
 
-  <div class="announce-section" style="padding:52px 0 0">
+<div id="announce-outer">
+{%- if site.data.announcements.size > 0 -%}
+<div class="announce-section" style="padding:52px 0 0">
   <div class="section-top">
     <div class="section-heading-row">
-      <span class="section-label">Announcements</span>
+      <span class="section-label">
+        <span class="lang-en">Announcements</span>
+        <span class="lang-ko">공지사항</span>
+      </span>
       <span class="section-line"></span>
     </div>
   </div>
   <ul class="announce-list">
-    <a class="announce-item" href="#">
-      <span class="ann-dot new"></span>
+    {%- for ann in site.data.announcements -%}
+    <a class="announce-item" href="{{ ann.url | default: '#' }}">
+      <span class="ann-dot {{ ann.type | default: 'info' }}"></span>
       <div class="ann-body">
-        <div class="ann-title">CS 4820 Syllabus Updated — Midterm date moved</div>
-        <div class="ann-desc">The midterm exam has been rescheduled to April 10 (Thursday). Please check Google Classroom for the updated syllabus PDF.</div>
+        <div class="ann-title">{%- if ann.title_ko -%}<span class="lang-en">{{ ann.title }}</span><span class="lang-ko">{{ ann.title_ko }}</span>{%- else -%}{{ ann.title }}{%- endif -%}</div>
+        {%- if ann.body or ann.body_ko -%}<div class="ann-desc">{%- if ann.body_ko -%}<span class="lang-en">{{ ann.body }}</span><span class="lang-ko">{{ ann.body_ko }}</span>{%- else -%}{{ ann.body }}{%- endif -%}</div>{%- endif -%}
       </div>
-      <div class="ann-meta"><span class="ann-date">Apr 21</span><span class="ann-badge course">CS 4820</span><span class="ann-arrow">→</span></div>
-    </a>
-    <a class="announce-item" href="#">
-      <span class="ann-dot teal"></span>
-      <div class="ann-body">
-        <div class="ann-title">PAI Lab — Spring 2025 researcher applications open</div>
-        <div class="ann-desc">We have 2 graduate and 1 undergraduate research positions available. Apply via the PAI Lab site by May 1.</div>
+      <div class="ann-meta">
+        <span class="ann-date">{{ ann.date | date: '%-d %b' }}</span>
+        {%- if ann.badge -%}<span class="ann-badge {{ ann.badge_type | default: 'admin' }}">{{ ann.badge }}</span>{%- endif -%}
+        <span class="ann-arrow">→</span>
       </div>
-      <div class="ann-meta"><span class="ann-date">Apr 18</span><span class="ann-badge lab">PAI Lab</span><span class="ann-arrow">→</span></div>
     </a>
-    <a class="announce-item" href="office-hours.html">
-      <span class="ann-dot info"></span>
-      <div class="ann-body">
-        <div class="ann-title">Office hours — no OH at Hanyang this week (Apr 24)</div>
-        <div class="ann-desc">I will be at a conference Thursday. KakaoTalk and email remain open.</div>
-      </div>
-      <div class="ann-meta"><span class="ann-date">Apr 17</span><span class="ann-badge admin">Schedule</span><span class="ann-arrow">→</span></div>
-    </a>
-    <a class="announce-item" href="#">
-      <span class="ann-dot warn"></span>
-      <div class="ann-body">
-        <div class="ann-title">CS 3310 HW 3 deadline extended to Friday</div>
-        <div class="ann-desc">Due to the holiday, the deadline for Problem Set 3 has been extended to Friday, April 25 at 11:59 PM.</div>
-      </div>
-      <div class="ann-meta"><span class="ann-date">Apr 15</span><span class="ann-badge course">CS 3310</span><span class="ann-arrow">→</span></div>
-    </a>
-    <a class="announce-item" href="#">
-      <span class="ann-dot teal"></span>
-      <div class="ann-body">
-        <div class="ann-title">New lab notes posted: “Embodied RLHF — Spring 2025 update”</div>
-        <div class="ann-desc">Updated reading list and preliminary experiment results now on GitHub.</div>
-      </div>
-      <div class="ann-meta"><span class="ann-date">Apr 12</span><span class="ann-badge lab">PAI Lab</span><span class="ann-arrow">→</span></div>
-    </a>
+    {%- endfor -%}
   </ul>
+</div>
+{%- endif -%}
 </div>
 
   <!-- ── Research CTA ────────────────────────────────────────────────────── -->
