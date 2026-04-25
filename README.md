@@ -1,5 +1,7 @@
 # Aaron Snowberger — Courses Site
 
+### Now lives at: [`aaronkr-courses.github.io`](https://github.com/aaronkr-courses/aaronkr-courses.github.io)
+
 A **Jekyll site** for Prof. Aaron Snowberger's teaching portfolio across five Korean universities. Hosted on GitHub Pages at [courses.aaron.kr](https://courses.aaron.kr).
 
 ## Quick Start
