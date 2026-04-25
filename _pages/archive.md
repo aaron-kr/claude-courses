@@ -152,8 +152,10 @@ eyebrow: Teaching History
                     </div>
                   </div>
                 </div>
-                {%- assign _c_uni = site.universities | where: "abbr", course.uni | first -%}
-                {%- assign _c_logo = _c_uni.logo | default: course.logo -%}
+                {%- assign _c_logo = course.logo -%}
+                {%- for _u in site.data.universities -%}
+                  {%- if _u.abbr == course.uni -%}{%- assign _c_logo = _u.logo -%}{%- endif -%}
+                {%- endfor -%}
                 {%- if _c_logo -%}
                 <div class="uni-badge">
                   <img src="{{ _c_logo }}" class="ub-abbr" />

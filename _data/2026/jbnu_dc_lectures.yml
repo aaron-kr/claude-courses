@@ -105,6 +105,7 @@
 
 - date: 4/30
   week: 9
+  hidden: true
   title: >
     <strong>4. Circuit Theorems</strong>
   supp:
@@ -116,6 +117,7 @@
 
 - date: 5/7
   week: 10
+  hidden: true
   title: >
     <strong>5. Operational Amplifiers</strong>
   supp:
@@ -127,6 +129,7 @@
 
 - date: 5/14
   week: 11
+  hidden: true
   title: >
     <strong>6. Capacitors & Inductors</strong>
   supp:
@@ -138,6 +141,7 @@
 
 - date: 5/21
   week: 12
+  hidden: true
   title: >
     <strong>7. First-Order Circuits</strong>
   supp:
@@ -149,6 +153,7 @@
 
 - date: 5/28
   week: 13
+  hidden: true
   title: >
     <strong>8. Second-Order Circuits</strong>
   supp:
@@ -160,6 +165,7 @@
 
 - date: 6/4
   week: 14
+  hidden: true
   title: >
     <strong>8. Second-Order Circuits</strong>
   supp:

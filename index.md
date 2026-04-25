@@ -55,20 +55,20 @@ permalink: /
 
     <!-- Profile links -->
     <div class="profile-links animate d4">
-      {%- if site.orcid_id -%}
-      <a href="https://orcid.org/{{ site.orcid_id }}" class="profile-link" target="_blank"><span class="pl-icon">🆔</span> ORCID</a>
-      {%- endif -%}
+      <a href="https://aaron.kr" class="profile-link" target="_blank"><span class="pl-icon">🌐</span> aaron.kr</a>
+      <a href="https://pailab.io" class="profile-link" target="_blank"><span class="pl-icon">🔬</span> PAI Lab</a>
       {%- if site.github_username -%}
       <a href="https://github.com/{{ site.github_username }}" class="profile-link" target="_blank"><span class="pl-icon">⌨</span> GitHub</a>
       {%- endif -%}
-      {%- if site.scholar_userid -%}
-      <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" class="profile-link" target="_blank"><span class="pl-icon">🎓</span> Google Scholar</a>
-      {%- endif -%}
       {%- if site.linkedin_username -%}
       <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="profile-link" target="_blank"><span class="pl-icon">💼</span> LinkedIn</a>
+      {%- endif -%} 
+      {%- if site.orcid_id -%}
+      <a href="https://orcid.org/{{ site.orcid_id }}" class="profile-link" target="_blank"><span class="pl-icon">🆔</span> ORCID</a>
       {%- endif -%}
-      <a href="https://pailab.io" class="profile-link" target="_blank"><span class="pl-icon">🔬</span> PAI Lab</a>
-      <a href="https://aaron.kr" class="profile-link" target="_blank"><span class="pl-icon">🌐</span> aaron.kr</a>
+      {%- if site.scholar_userid -%}
+      <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" class="profile-link" target="_blank"><span class="pl-icon">🎓</span> Google Scholar</a>
+      {%- endif -%}     
     </div>
   <div class="hero-wave-ctrl">
     <button class="wave-btn ctrl-btn" aria-label="Toggle wave animation">🌊</button>
@@ -109,8 +109,11 @@ permalink: /
         {%- if uni_courses.size > 0 -%}
         <div class="uni-group">
           <div class="uni-group-header">
-            {%- assign _g_udata = site.universities | where: "abbr", uni_courses[0].uni | first -%}
-            {%- assign _g_logo = _g_udata.logo | default: uni_courses[0].logo -%}
+            {%- assign _g_uni_abbr = uni_courses[0].uni -%}
+            {%- assign _g_logo = uni_courses[0].logo -%}
+            {%- for _u in site.data.universities -%}
+              {%- if _u.abbr == _g_uni_abbr -%}{%- assign _g_logo = _u.logo -%}{%- endif -%}
+            {%- endfor -%}
             {%- if _g_logo -%}
             <img src="{{ _g_logo }}" class="uni-group-logo" alt="{{ uni_abbrs[i] }}" />
             {%- else -%}
@@ -195,14 +198,14 @@ permalink: /
         <span class="lang-ko">연구 / PAI 연구소</span>
       </div>
       <h3 class="rc-title">
-        <span class="lang-en">Looking for <em>Research Assistants</em></span>
+        <span class="lang-en">Looking for <em>Research?</em></span>
         <span class="lang-ko"><em>연구 보조원</em>을 찾습니다</span>
       </h3>
       <p class="rc-desc">
         <span class="lang-en">Interested in computer vision, NLP, or applied machine learning?
-        The PAI Lab at Hanbat National University is accepting undergraduate and graduate research assistants for 2026.</span>
+        The PAI Lab is accepting undergraduate and graduate research assistants for 2026.</span>
         <span class="lang-ko">컴퓨터 비전, 자연어 처리 또는 응용 머신러닝에 관심 있으신가요?
-        한밭대학교 PAI 연구소에서 2026년도 학부 및 대학원 연구 보조원을 모집합니다.</span>
+        PAI 연구소에서 2026년도 학부 및 대학원 연구 보조원을 모집합니다.</span>
       </p>
       <div class="rc-tags">
         <span class="rc-tag">Computer Vision</span>

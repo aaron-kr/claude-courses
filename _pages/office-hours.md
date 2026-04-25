@@ -32,7 +32,7 @@ permalink: /office-hours/
   <div class="week-grid animate d4" id="week-grid">
 
     <div class="day-card" data-day="1">
-      <div class="uni-badge"><img src="{{ site.universities[0].logo }}" class="ub-abbr" /></div>
+      <div class="uni-badge"><img src="{{ site.data.universities[0].logo }}" class="ub-abbr" /></div>
       <div class="day-name"><span class="lang-en">Monday</span><span class="lang-ko">월요일</span></div>
       <div class="day-school"><span class="lang-en">Korea Transportation Univ.</span><span class="lang-ko">한국교통대학교</span></div>
       <div class="day-school-kr">교통대 (UT)</div>
@@ -44,7 +44,7 @@ permalink: /office-hours/
     </div>
 
     <div class="day-card" data-day="2">
-      <div class="uni-badge"><img src="{{ site.universities[1].logo }}" class="ub-abbr" /></div>
+      <div class="uni-badge"><img src="{{ site.data.universities[1].logo }}" class="ub-abbr" /></div>
       <div class="day-name"><span class="lang-en">Tuesday</span><span class="lang-ko">화요일</span></div>
       <div class="day-school"><span class="lang-en">Wonkwang University</span><span class="lang-ko">원광대학교</span></div>
       <div class="day-school-kr">원광대 (WKU)</div>
@@ -56,7 +56,7 @@ permalink: /office-hours/
     </div>
 
     <div class="day-card" data-day="3">
-      <div class="uni-badge"><img src="{{ site.universities[3].logo }}" class="ub-abbr" /></div>
+      <div class="uni-badge"><img src="{{ site.data.universities[3].logo }}" class="ub-abbr" /></div>
       <div class="day-name"><span class="lang-en">Wednesday</span><span class="lang-ko">수요일</span></div>
       <div class="day-school"><span class="lang-en">Hanbat University</span><span class="lang-ko">한밭대학교</span></div>
       <div class="day-school-kr">한밭대 (HB)</div>
@@ -68,7 +68,7 @@ permalink: /office-hours/
     </div>
 
     <div class="day-card" data-day="4">
-      <div class="uni-badge"><img src="{{ site.universities[2].logo }}" class="ub-abbr" /></div>
+      <div class="uni-badge"><img src="{{ site.data.universities[2].logo }}" class="ub-abbr" /></div>
       <div class="day-name"><span class="lang-en">Thursday</span><span class="lang-ko">목요일</span></div>
       <div class="day-school"><span class="lang-en">Jeonbuk National Univ.</span><span class="lang-ko">전북대학교</span></div>
       <div class="day-school-kr">전북대 (JBNU)</div>
@@ -80,7 +80,7 @@ permalink: /office-hours/
     </div>
 
     <div class="day-card" data-day="5">
-      <div class="uni-badge"><img src="{{ site.universities[4].logo }}" class="ub-abbr" /></div>
+      <div class="uni-badge"><img src="{{ site.data.universities[4].logo }}" class="ub-abbr" /></div>
       <div class="day-name"><span class="lang-en">Friday</span><span class="lang-ko">금요일</span></div>
       <div class="day-school"><span class="lang-en">Jeonju Natl. Univ. of Ed.</span><span class="lang-ko">전주교육대학교</span></div>
       <div class="day-school-kr">전주교육대 (JNUE)</div>
@@ -173,25 +173,6 @@ Cal("inline", {
 });
 Cal("ui", { hideEventTypeDetails: false, layout: "month_view", theme: document.documentElement.getAttribute('data-theme') || 'dark' });
 </script>
-
-  <!-- Booking recommendation box (restored) -->
-  <div class="oh-heading" style="margin-top:28px"><span class="oh-label">Tools &amp; Recommendations</span><span class="oh-line"></span></div>
-  <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;gap:24px;align-items:flex-start;position:relative;overflow:hidden;margin-bottom:52px">
-    <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent2),var(--accent3),var(--accent))"></div>
-    <div style="flex:1">
-      <div style="font-family:'Playfair Display','DM Serif Display',serif;font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:8px">My recommended setup for booking</div>
-      <p style="font-size:.85rem;color:var(--sub);line-height:1.75;margin-bottom:14px">Because I teach at five campuses and student needs vary by course, I recommend <strong style="color:var(--accent2)">Cal.com</strong> for booking outside regular OH. It’s free, open-source, embeds on any webpage, and supports multiple event types (30 min check-in, 1-hr deep dive, etc.).</p>
-      <div style="background:rgba(126,184,247,.06);border:1px solid rgba(126,184,247,.18);border-radius:var(--radius);padding:12px 16px;font-size:.82rem;color:var(--sub);line-height:1.7">
-        <strong style="color:var(--accent2)">Cal.com</strong> — free, open-source, embeddable &nbsp;·&nbsp;
-        <strong style="color:var(--accent3)">Calendly</strong> — also good, more polished UI &nbsp;·&nbsp;
-        <strong style="color:var(--accent)">Notion Scheduling</strong> — if you already use Notion for your courses
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0;min-width:145px">
-      <a href="https://cal.com" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:.69rem;letter-spacing:.04em;text-decoration:none;padding:8px 16px;border-radius:var(--radius);border:1px solid var(--border);color:var(--sub);background-image:linear-gradient(to right,var(--accent2) 50%,var(--surface) 50%);background-size:205% 100%;background-position:100%;transition:background-position .32s ease,color .2s,border-color .2s" onmouseover="this.style.backgroundPosition='0';this.style.color='var(--bg)'" onmouseout="this.style.backgroundPosition='100%';this.style.color='var(--sub)'">📅 Cal.com →</a>
-      <a href="https://calendly.com" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:.69rem;letter-spacing:.04em;text-decoration:none;padding:8px 16px;border-radius:var(--radius);border:1px solid var(--border);color:var(--sub);background-image:linear-gradient(to right,var(--accent3) 50%,var(--surface) 50%);background-size:205% 100%;background-position:100%;transition:background-position .32s ease,color .2s,border-color .2s" onmouseover="this.style.backgroundPosition='0';this.style.color='var(--bg)'" onmouseout="this.style.backgroundPosition='100%';this.style.color='var(--sub)'">📅 Calendly →</a>
-    </div>
-  </div>
 
 </div><!-- .oh-page -->
 </div><!-- .wrap -->

@@ -92,6 +92,7 @@
 
 - date: 4/27
   week: 9
+  hidden: true
   title: >
     <strong>Chapter 06 개념적 설계 심화</strong>
   slides: "https://docs.google.com/presentation/d/1ZT7gzKgpnOg9NOB8nBfN8vOl4ZSD4226Uhyp2UiRykk/edit?usp=sharing"
@@ -102,6 +103,7 @@
 
 - date: 5/4
   week: 10
+  hidden: true
   title: >
     <strong>Chapter 07 관계 데이터 모델</strong>
   slides: "https://docs.google.com/presentation/d/1G32UC2FlIIYgRjv1vHH4b6-zQJt2dd_GdGDvXgcGRSk/edit?usp=sharing"
@@ -112,6 +114,7 @@
 
 - date: 5/11
   week: 11
+  hidden: true
   title: >
     <strong>Chapter 08 논리적 설계 기초</strong>
   slides: "https://docs.google.com/presentation/d/1k8KfwA0I79s0eYkXFSJfk9KGde5dNeQ3AWz1uXimtnY/edit?usp=sharing"
@@ -122,6 +125,7 @@
 
 - date: 5/18
   week: 12
+  hidden: true
   title: >
     <strong>Chapter 09 논리적 설계 심화</strong>
   slides: "https://docs.google.com/presentation/d/1A2eXNrQC1XRuudJBLLCU-fZBR9aDWtI3cmX4hMssz9w/edit?usp=sharing"
@@ -138,6 +142,7 @@
 
 - date: 6/1
   week: 14
+  hidden: true
   title: <strong>Chapter 10 정규화</strong>
   slides: "https://docs.google.com/presentation/d/1ZMJ3aWTOr0LJwX4Jb034kVMb3zRZRwcOgGmWQ4v2mg0/edit?usp=sharing"
   img2: 2026/ut-db/12-norm.jpg 
@@ -147,6 +152,7 @@
 
 - date: 6/8
   week: 14
+  hidden: true
   title: <strong>Chapter 11 물리적 설계</strong>
   slides: "https://docs.google.com/presentation/d/1su7MjOSDcNcLdT4JgkZ7HtDIRaoKhMMC1cAH7v_MUXU/edit?usp=sharing"
   img2: 2026/ut-db/13-physical.jpg
@@ -157,6 +163,7 @@
 - date: >
     <span style="color: red">6/11 (LMS 보강)</span>
   week: 15
+  hidden: true
   title: >
     <strong>Chapter 12 데이터베이스 구현</strong>
   slides: "https://docs.google.com/presentation/d/1mBG7ZH6S2a_u5GO-kJLQxg0vha-pMR-dTvfZCeMs9NQ/edit?usp=sharing"
@@ -167,6 +174,7 @@
 
 - date: 6/15
   week: 16
+  hidden: true
   title: >
     <strong>Final Test</strong><br>
     <div style="display: none;">

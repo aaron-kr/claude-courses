@@ -6,8 +6,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}"/>
-{%- assign _page_uni = site.universities | where: "abbr", page.uni | first -%}
-{%- assign _page_logo = _page_uni.logo | default: page.logo -%}
+{%- assign _page_logo = page.logo -%}
+{%- for _u in site.data.universities -%}
+  {%- if _u.abbr == page.uni -%}{%- assign _page_logo = _u.logo -%}{%- endif -%}
+{%- endfor -%}
 {%- if _page_logo -%}
 <link rel="icon" type="image/png" href="{{ _page_logo }}" />
 {%- elsif site.icon -%}

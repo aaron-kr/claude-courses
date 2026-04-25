@@ -23,18 +23,20 @@ Everything to update when a new semester starts (e.g. 2027-1):
 
 ### 1 · `_config.yml`
 - [ ] Add the new semester to `course_categories` (e.g. `2027-1`)
-- [ ] Verify `site.universities` logos are still valid Cloudinary URLs
+
+### 1b · `_data/universities.yml` (only if a logo URL changed)
+- [ ] Update the `logo:` URL for any university that changed its branding
 
 ### 2 · Course files — `_courses/YYYY/`
 - [ ] Create `_courses/2027/` directory
 - [ ] Create one `.md` per course (copy from previous semester, update front matter)
 - [ ] Set `now: Yes` on every **active** course; remove/omit from completed ones
 - [ ] Set correct `category: 2027-1`
-- [ ] Update `data_file:` to match the new data file name
+- [ ] Set `uni: <abbr>` (e.g. `uni: ut`) — drives the logo, favicon, and watermark automatically via `_data/universities.yml`
+- [ ] Update `data_file:` to match the new data file name (e.g. `2027/ut_iot_lectures`)
 - [ ] Update `information:` (section codes, times, locations, KakaoTalk links)
 - [ ] Update `grading:` if percentages change
 - [ ] Update textbooks (`Main-Text:` / `Supplementary:`)
-- [ ] Add `logo:` pointing to the university Cloudinary logo (drives favicon + watermark)
 
 ### 3 · Lecture data files — `_data/YYYY/`
 - [ ] Create `_data/2027/` directory
@@ -108,7 +110,8 @@ layout: course
 title: Course Title
 subtitle: 한국어 부제목
 description: SECTION_CODE • YYYY년 N학기 • 대학교이름
-logo: https://res.cloudinary.com/.../school-logo.png   # drives favicon + hero watermark
+uni: ut                         # abbr from _data/universities.yml → drives favicon + watermark
+img: assets/img/books/book.jpg  # card thumbnail
 importance: 1
 category: 2026-1
 now: Yes
@@ -138,7 +141,9 @@ Main-Text:
 [Overview markdown here]
 ```
 
-> **Note:** `now: Yes` in YAML is a boolean `true`. The site uses `where_exp: "c", "c.now"` — never `where: "now", "Yes"` (which matches nothing).
+> **Notes:**
+> - `now: Yes` in YAML is a boolean `true`. The site uses `where_exp: "c", "c.now"` — never `where: "now", "Yes"` (which matches nothing).
+> - `uni:` must match an `abbr:` in `_data/universities.yml`. For non-university courses (online, high school), use `logo: https://...` directly instead.
 
 ---
 
@@ -204,7 +209,8 @@ The static fallback text in `_includes/about_aaron.html` is shown briefly before
 | `_includes/about_aaron.html` | Instructor bio box — fetches from aaronsnowberger.com/bio.json |
 | `_includes/course_card.html` | Card component used on home/archive pages |
 | `_sass/_variables.scss` | All color & layout variables |
-| `_config.yml` | Site settings, course categories, `site.universities` logos |
+| `_data/universities.yml` | **Single source of truth** for university logos, names, abbrs, and URLs |
+| `_config.yml` | Site settings, course categories, GitHub/social handles |
 | `_data/nav.yml` | Nav links — edit here to add/remove nav items |
 | `_data/announcements.yml` | Homepage announcements strip |
 

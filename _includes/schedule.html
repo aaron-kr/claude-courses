@@ -6,7 +6,7 @@
   Columns: date | slide thumb + slides2 link | week + title + readings | logistics + hw
   Test / no-class rows: colspan="3" across the last three columns.
   YAML fields: date, title, title_ko, week, img, img2, slides, slides2, slides2_title,
-               readings, logistics, hw, hw2, skip
+               readings, logistics, hw, hw2, skip, hidden
 {% endcomment %}
 
 {%- if include.data_file contains "/" -%}
@@ -79,12 +79,12 @@
     <td class="sched-thumb-cell">
       {%- assign _thumb_src = item.img | default: item.img2 -%}
       {%- if _thumb_src -%}
-        {%- if item.slides -%}
+        {%- if item.slides and item.hidden != true -%}
         <a class="sched-thumb" href="{{ item.slides }}" target="_blank"
            style="background-image:url('/assets/img/{{ _thumb_src }}')">
           <div class="sched-extra">▶ Slides</div>
         </a>
-        {%- else -%}
+        {%- elsif item.hidden != true -%}
         <div class="sched-thumb" style="background-image:url('/assets/img/{{ _thumb_src }}')"></div>
         {%- endif -%}
       {%- else -%}

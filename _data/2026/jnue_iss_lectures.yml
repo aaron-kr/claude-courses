@@ -126,6 +126,7 @@
 
 - date: 5/8
   week: 10
+  hidden: true
   title: >
     <strong>WEEK 05 야구 연습 기계 만들기<br>
     WEEK 06 친구들에게 줄 빵을 만들어요</strong>
@@ -136,6 +137,7 @@
 
 - date: 5/15
   week: 11
+  hidden: true
   title: >
     <strong>WEEK 07 로켓을 타고 우주여행을 떠나자!<br>
     WEEK 08 어떤 계산이든 빠르게 척척!</strong>
@@ -149,6 +151,7 @@
 - date: >
     <span style="color: red;">5/22</span>
   week: 12
+  hidden: true
   title: >
     <strong>WEEK 09 장바구니에 물건을 넣고 빼기<br>
     WEEK 10 누가누가 가장 크게 부나?</strong>
@@ -161,6 +164,7 @@
 
 - date: 5/29
   week: 13
+  hidden: true
   title: >
     <strong>WEEK 11 명령어 어벤져스 모여라!<br>
     WEEK 12 이번 달엔 어떤 노래가 인기 있을까?</strong>
@@ -173,6 +177,7 @@
 
 - date: 6/5
   week: 14
+  hidden: true
   title: >
     <strong>WEEK 13 외계인으로부터 지구를 지켜라!<br>
     WEEK 14 나에게 어울리는 옷을 골라줘!</strong>
@@ -185,6 +190,7 @@
 
 - date: 6/12
   week: 15
+  hidden: true
   title: >
     <strong>Final Test</strong><br>
     <div style="display:none;">

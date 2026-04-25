@@ -79,6 +79,7 @@ claude-courses/
 │   └── 2023/
 │
 └── _data/
+    ├── universities.yml     # *** University logo/abbr/URL data (single source of truth) ***
     ├── nav.yml              # Navigation items (simple links + dropdowns) — edit to change nav
     ├── footer.yml           # Footer column data (Teaching links + Connect heading)
     ├── staff.yml            # Instructor info
@@ -88,7 +89,7 @@ claude-courses/
     └── ...
 ```
 
-## Current State (as of Session 13 — April 2026)
+## Current State (as of Session 15 — April 2026)
 
 | Component | Status | Notes |
 |---|---|---|
@@ -144,8 +145,9 @@ claude-courses/
 | Footer one-language fix | ✅ Fixed | `.f-col span:not(.lang-en):not(.lang-ko)` prevents `display:block` override on lang spans; early `<head>` script applies `html.ko` before first paint |
 | Nav YAML | ✅ Complete | `_data/nav.yml` + rewritten `nav.html`; mobile sub-menus use `data-sub` attr (no hardcoded IDs) |
 | Footer YAML | ✅ Complete | `_data/footer.yml` for Teaching column links; Connect column stays in `footer.html` |
-| Office hours uni logos | ✅ Fixed | All 5 day-cards now use `<div class="uni-badge"><img src="{{ site.universities[N].logo }}" /></div>` |
-| Uni logos — single source of truth | ✅ Refactored | Course files use `uni: <abbr>` (e.g., `uni: ut`). Templates resolve logo via `site.universities \| where: "abbr", c.uni \| first`. Fallback to `c.logo` for non-university courses (eduonix, iksan-hs). |
+| Office hours uni logos | ✅ Fixed | All 5 day-cards use `site.data.universities[N].logo` (index access; 0=UT, 1=WKU, 2=JBNU, 3=HB, 4=JNUE) |
+| Uni logos — single source of truth | ✅ Fixed | `_data/universities.yml` is the canonical source. Course files use `uni: <abbr>` (e.g. `uni: ut`). Templates loop `site.data.universities` with a `for` loop to find the matching logo. Fallback to `c.logo` for non-university courses (eduonix, iksan-hs). |
+| Canvas waves (opt-in, default OFF) | ✅ Complete | `data-waves` attribute opt-in; `waves.js` targets `[data-waves]`; toggle button (🌊/〰) on index + office-hours only; default OFF (localStorage key `waves`, value `'on'` to enable) |
 | Remote instructor bio | ✅ Added | `about_aaron.html` fetches `https://aaronsnowberger.com/bio.json` at runtime and replaces `#bio-en`/`#bio-ko`/`#instructor-role`; static text is the fallback |
 | Office hours day order | ✅ Fixed | Week-grid: day 3 = HB (Wed), day 4 = JBNU (Thu); today-pill updated to match |
 | Cal.com theme | ✅ Fixed | `Cal("ui", { ..., theme: document.documentElement.getAttribute('data-theme') || 'dark' })` |
@@ -195,7 +197,14 @@ claude-courses/
 15. **Nav/footer from YAML** — `_data/nav.yml` drives both desktop and mobile nav via `nav.html`. `_data/footer.yml` drives the Teaching column in `footer.html`. Social links stay hardcoded in `footer.html` because they need `site.*` config conditionals. Edit YAML files to add/remove nav or footer links without touching HTML.
 16. **Mobile sub-menus** — Use `data-sub="m-ID-sub"` attribute on `.m-toggle` buttons; JS in `default.html` selects all `.m-toggle[data-sub]` and attaches click handlers. Do NOT hardcode IDs in the JS.
 17. **Canvas waves (index + office-hours only, opt-in via `data-waves`)** — Only elements with `data-waves` attribute get a canvas injected. Currently: `<header class="home-hero" data-waves>` in `index.md` and `<header class="page-header" data-waves>` in `office-hours.md`. All other `.page-header` instances (archive, policies, etc.) are unaffected. `waves.js` queries `[data-waves]`. `_base.scss` rules also scoped to `[data-waves]`. **Default is OFF** — waves are hidden unless user has explicitly turned them on (`localStorage.getItem('waves') === 'on'`). Early `<head>` script adds `html.waves-off` when key is not `'on'`. `.wave-btn` button toggles `applyWaves()`; emoji: `🌊` (on) / `〰` (off). **Critical: `ctx.translate(wH, hH)` required** — without it lines only draw on left half of canvas.
-18. **`site.universities` array** — Defined in `_config.yml` under `universities:`. Each entry has `abbr:` (ut, wku, jbnu, hb, jnue, dju, jj), `name:`, `name_ko:`, `url:`, `logo:`. **Do not use index access** (`site.universities[N]`) — use `site.universities | where: "abbr", "ut" | first` for reliable lookup. Office-hours day-cards still use index access (positions are stable: 0=UT, 1=WKU, 2=JBNU, 3=HB, 4=JNUE). Course files use `uni: <abbr>` front matter instead of `logo: <url>`. Special/non-university courses (eduonix, iksan-hs) still use `logo: <url>` directly.
+18. **University data — `_data/universities.yml`** — The canonical source for all university logos, names, and URLs. Entries have `abbr:` (ut, wku, jbnu, hb, jnue, dju, jj), `name:`, `name_ko:`, `url:`, `logo:`. Accessed as `site.data.universities`. To look up a logo by abbr, use a `for` loop — `where`/`where_exp` filters do **not** see locally-assigned Liquid variables (see Bug #16):
+    ```liquid
+    {%- assign _c_logo = c.logo -%}
+    {%- for _u in site.data.universities -%}
+      {%- if _u.abbr == c.uni -%}{%- assign _c_logo = _u.logo -%}{%- endif -%}
+    {%- endfor -%}
+    ```
+    Office-hours day-cards use index access (`site.data.universities[N].logo`; positions stable: 0=UT, 1=WKU, 2=JBNU, 3=HB, 4=JNUE). Course files store `uni: <abbr>` (not `logo:`). Special/non-university courses (eduonix, iksan-hs) keep `logo: <url>` directly. Note: `_config.yml` still has a `universities:` block — it's unused by templates but harmless.
 19. **University display order** — Index page shows universities in weekday order: UT(Mon), WKU(Tue), HB(Wed), JBNU(Thu), JNUE(Fri). JBNU teaches Wed+Thu but is shown under Thursday (its second/later day). HB teaches Wed only and is shown under Wednesday.
 20. **Thumbnail toggle localStorage** — Key `'thumbs'` in localStorage; value `'1'` (active) or `'0'` (inactive). Both `index.md` and `archive.md` restore state on load. Shared key means both pages stay in sync.
 20b. **Waves toggle localStorage** — Key `'waves'`; value `'on'` or `'off'` (default is OFF — waves show only when value is explicitly `'on'`). Early `<head>` script adds `html.waves-off` when value is not `'on'`. `applyWaves(bool)` in `default.html` toggles class + updates `.wave-btn` emoji + writes localStorage. Button present on `index.md` and `office-hours.md` only.
@@ -248,7 +257,7 @@ These are non-obvious issues that have been encountered and fixed. If you encoun
 ### 7. `office-hours.md` broken university logo access
 **Symptom:** `{{ u.logo }}` rendered nothing; debug `{{ u }}` printed the entire array.  
 **Root cause:** `{%- assign u = site.universities -%}` assigned the whole array. `.logo` on an array is undefined.  
-**Fix:** Use `site.universities[N].logo` directly in each day-card — index 0=UT, 1=WKU, 2=JBNU, 3=HB, 4=JNUE.  
+**Fix:** Use `site.data.universities[N].logo` directly in each day-card — index 0=UT, 1=WKU, 2=JBNU, 3=HB, 4=JNUE.  
 **File:** `_pages/office-hours.md`
 
 ### 8. Cal.com embed uses OS color scheme instead of site theme
@@ -293,6 +302,14 @@ These are non-obvious issues that have been encountered and fixed. If you encoun
 **Root cause:** `_base.scss` had `.course-hero > *:not(canvas) { position: relative; z-index: 1; }` which overrode `.course-uni-logo { position: absolute; top: 80px; right: 0; }` — setting `position: relative` on an element with `position: absolute` moves it back into the document flow.  
 **Fix:** Removed `.course-hero` from both the `position: relative` rule and the `> *:not(canvas)` rule in `_base.scss`. Course hero already has `position: relative` in `_course.scss`. Waves are also no longer applied to course pages (`waves.js` selector changed to `.home-hero, .page-header` only).  
 **Files:** `_sass/_base.scss`, `assets/js/waves.js`
+
+### 16. University logos not rendering — `where`/`where_exp` can't see `assign` variables
+**Symptom:** University logo badges completely absent from rendered HTML. `{%- if _c_logo -%}` block never outputs. "uni-badge" doesn't appear anywhere in page source.  
+**Root cause (layer 1):** `where: "abbr", c.uni` treats `c.uni` as a literal string `"c.uni"`, not the value of the variable. Returns empty.  
+**Root cause (layer 2):** `where_exp: "u", "u.abbr == c.uni"` also fails — Jekyll's `where`/`where_exp` filters only see `site.*` and `page.*` drops in the expression; they cannot access locally-`assign`ed variables like `c`, `course`, or `uni_courses[0]`. Returns empty array regardless of correct syntax.  
+**Root cause (layer 3):** Even a `for` loop over `site.universities` (from `_config.yml`) may not iterate correctly in all template contexts. Custom arrays in `_config.yml` are site metadata, not the same as `_data/` files.  
+**Fix:** Move university data to `_data/universities.yml`. Access via `site.data.universities`. Use a `for` loop (not `where`/`where_exp`) to find the matching entry.  
+**Files:** `_data/universities.yml` (new), all templates changed from `site.universities` → `site.data.universities`.
 
 ### 14. Canvas waves lines only span left half of hero
 **Symptom:** Wave lines draw from the left edge to the horizontal center only — the right half of the hero shows no lines.  
@@ -354,12 +371,12 @@ layout: course
 title: Course Title
 subtitle: 한국어 부제목        # optional
 description: SECTION_CODE • YYYY년 N학기 • 대학교이름
-logo: school-logo.png         # filename in /assets/img/
+uni: ut                       # abbr from _data/universities.yml (drives logo + favicon)
 img: assets/img/books/book.jpg
 importance: 1                 # sort order (lower = higher priority)
 category: 2026-1              # YYYY-N (semester key)
 now: Yes                      # omit or "No" for past courses
-data_file: 2026_ut_iot_lectures  # key into site.data
+data_file: 2026/ut_iot_lectures  # path inside _data/ (no .yml); split on / in schedule.html
 
 grading:
   attendance: 10
@@ -431,3 +448,4 @@ The original prototype HTML files (`index.html`, `course.html`, `archive.html`, 
 8. Session 12: **2023 migration** — 6 data files + 6 course files fully populated from `2023-course-sites/` (see `2023-migration-notes.md`)
 9. Session 13: **UX improvements** — Canvas waves (full-width, animated), thumbnail localStorage, JBNU/HB display order swap, profile-link slide-in hover, footer one-language fix, nav/footer YAML data files, office-hours uni logos from `site.universities`, Cal.com theme fix, Calendly comparison embed
 10. Session 14: **Logo propagation + schedule fix + remote bio + SimplexNoise waves** — Uni logos in index uni-group headers; faded 120px watermark logo in course-hero upper-right; course-page favicon = `page.logo`; schedule converted from flex rows to `<table>` (4 `<td>` cols, `colspan=3` for test/no-class); `slides2`/`slides2_title` support; `logistics` HTML links no longer break layout; `about_aaron.html` JS fetch from `aaronsnowberger.com/bio.json` with static fallback; canvas waves replaced with SimplexNoise cascading lines (purple ↔ teal, lighter/slower, glow + blur + lighter blend mode)
+11. Session 15: **Waves debugging + single-source-of-truth logos** — Diagnosed `prefers-reduced-motion` killing canvas; fixed full-width lines via `ctx.translate(wH,hH)`; `data-waves` opt-in attribute (index + office-hours only); waves default OFF with localStorage toggle; 44 course files migrated from `logo: <url>` to `uni: <abbr>`; `_data/universities.yml` created as canonical logo source; all templates updated to `site.data.universities` + for-loop lookup; stats bar university count deduplicated to exclude non-universities

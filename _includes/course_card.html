@@ -54,8 +54,10 @@
       </div>
     </div>
   </div><!-- .card-inner -->
-  {%- assign _c_uni = site.universities | where: "abbr", c.uni | first -%}
-  {%- assign _c_logo = _c_uni.logo | default: c.logo -%}
+  {%- assign _c_logo = c.logo -%}
+  {%- for _u in site.data.universities -%}
+    {%- if _u.abbr == c.uni -%}{%- assign _c_logo = _u.logo -%}{%- endif -%}
+  {%- endfor -%}
   {%- if _c_logo -%}
   <div class="uni-badge">
     <img src="{{ _c_logo }}" class="ub-abbr" />
