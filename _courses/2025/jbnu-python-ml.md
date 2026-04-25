@@ -4,7 +4,7 @@ init: JBNU
 title: Python Machine Learning
 subtitle: 파이썬기반 기계학습
 description: 0000127050 • 2025년 2학기 • 전북대학교
-logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/jbnu-logo-2_khm1ys.png
+uni: jbnu
 img: assets/img/books/practical-dl.jpg
 importance: 2
 category: 2025-2

@@ -5,7 +5,7 @@ permalink: /office-hours/
 ---
 
 <div class="wrap">
-<header class="page-header">
+<header class="page-header" data-waves>
   <div class="today-pill animate d1" id="today-pill">
     <span class="today-dot"></span>
     <span id="today-text">Loading&hellip;</span>
@@ -19,6 +19,9 @@ permalink: /office-hours/
     <span class="lang-en">I teach at a different campus each weekday. Office hours are held after class at that day&rsquo;s campus. For quick questions, <strong style="color:var(--text)">KakaoTalk is always the fastest route</strong>.</span>
     <span class="lang-ko">매일 다른 캠퍼스에서 강의합니다. 상담 시간은 그 날 강의 후 해당 캠퍼스에서 진행됩니다. 빠른 질문은 <strong style="color:var(--text)">카카오톡이 가장 빠릅니다</strong>.</span>
   </p>
+  <div class="hero-wave-ctrl">
+    <button class="wave-btn ctrl-btn" aria-label="Toggle wave animation">🌊</button>
+  </div>
 </header>
 <div class="oh-page">
 

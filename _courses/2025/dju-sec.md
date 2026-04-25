@@ -4,7 +4,7 @@ init: DJU
 title: Secure (Web) Coding
 subtitle: 시큐어코딩
 description: 012744 • 2025년 1학기 • 대전대학교
-logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038667/dju-logo-2_jxm7py.png
+uni: dju
 img: assets/img/books/secure-web.jpg
 importance: 4
 category: 2025-1

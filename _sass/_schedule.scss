@@ -137,12 +137,15 @@ td.sched-span {
 }
 
 // ── Responsive ────────────────────────────────────────────────────────────────
+// Thumbnail is NEVER hidden — it is the primary link to slides.
 @media (max-width: 640px) {
   td.sched-thumb-cell { width: 84px; }
   .sched-thumb, .sched-spacer { width: 72px; height: 40.5px; }
   .slides2-link { width: 72px; }
+  td.sched-logistics { display: none; }
 }
-@media (max-width: 480px) {
-  td.sched-thumb-cell { display: none; }
-  td.sched-logistics  { display: none; }
+@media (max-width: 380px) {
+  td.sched-thumb-cell { width: 62px; }
+  .sched-thumb, .sched-spacer { width: 54px; height: 30px; }
+  .slides2-link { width: 54px; }
 }

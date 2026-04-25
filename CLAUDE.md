@@ -145,7 +145,7 @@ claude-courses/
 | Nav YAML | ✅ Complete | `_data/nav.yml` + rewritten `nav.html`; mobile sub-menus use `data-sub` attr (no hardcoded IDs) |
 | Footer YAML | ✅ Complete | `_data/footer.yml` for Teaching column links; Connect column stays in `footer.html` |
 | Office hours uni logos | ✅ Fixed | All 5 day-cards now use `<div class="uni-badge"><img src="{{ site.universities[N].logo }}" /></div>` |
-| Uni logos — index + course pages | ✅ Added | Index uni-group headers use `uni_courses[0].logo` as `<img class="uni-group-logo">`; course pages show `page.logo` as 120px faded watermark in upper-right of `.course-hero`; course page favicon = `page.logo` |
+| Uni logos — single source of truth | ✅ Refactored | Course files use `uni: <abbr>` (e.g., `uni: ut`). Templates resolve logo via `site.universities \| where: "abbr", c.uni \| first`. Fallback to `c.logo` for non-university courses (eduonix, iksan-hs). |
 | Remote instructor bio | ✅ Added | `about_aaron.html` fetches `https://aaronsnowberger.com/bio.json` at runtime and replaces `#bio-en`/`#bio-ko`/`#instructor-role`; static text is the fallback |
 | Office hours day order | ✅ Fixed | Week-grid: day 3 = HB (Wed), day 4 = JBNU (Thu); today-pill updated to match |
 | Cal.com theme | ✅ Fixed | `Cal("ui", { ..., theme: document.documentElement.getAttribute('data-theme') || 'dark' })` |
@@ -194,10 +194,11 @@ claude-courses/
 14. **Email obfuscation** — Always render email as `{{ email | replace: '@', ' &#064; ' }}` in HTML. The `mailto:` href still uses the raw address.
 15. **Nav/footer from YAML** — `_data/nav.yml` drives both desktop and mobile nav via `nav.html`. `_data/footer.yml` drives the Teaching column in `footer.html`. Social links stay hardcoded in `footer.html` because they need `site.*` config conditionals. Edit YAML files to add/remove nav or footer links without touching HTML.
 16. **Mobile sub-menus** — Use `data-sub="m-ID-sub"` attribute on `.m-toggle` buttons; JS in `default.html` selects all `.m-toggle[data-sub]` and attaches click handlers. Do NOT hardcode IDs in the JS.
-17. **Canvas waves (full-width)** — Hero containers have `isolation: isolate` but NO `overflow: hidden`. Canvas `.hero-waves` uses `position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100vw` to break out of `.wrap` max-width. Body `overflow-x: hidden` prevents horizontal scroll. Canvas is sized to hero's `offsetHeight` via JS `resize()`. `requestAnimationFrame` animates multi-sine curves.
-18. **`site.universities` array** — Defined in `_config.yml` under `universities:`. Indices 0=UT, 1=WKU, 2=JBNU, 3=HB, 4=JNUE, 5=DJU, 6=JJ. Use `site.universities[N].logo` for logos in office-hours day-cards.
+17. **Canvas waves (index + office-hours only, opt-in via `data-waves`)** — Only elements with `data-waves` attribute get a canvas injected. Currently: `<header class="home-hero" data-waves>` in `index.md` and `<header class="page-header" data-waves>` in `office-hours.md`. All other `.page-header` instances (archive, policies, etc.) are unaffected. `waves.js` queries `[data-waves]`. `_base.scss` rules also scoped to `[data-waves]`. **Default is OFF** — waves are hidden unless user has explicitly turned them on (`localStorage.getItem('waves') === 'on'`). Early `<head>` script adds `html.waves-off` when key is not `'on'`. `.wave-btn` button toggles `applyWaves()`; emoji: `🌊` (on) / `〰` (off). **Critical: `ctx.translate(wH, hH)` required** — without it lines only draw on left half of canvas.
+18. **`site.universities` array** — Defined in `_config.yml` under `universities:`. Each entry has `abbr:` (ut, wku, jbnu, hb, jnue, dju, jj), `name:`, `name_ko:`, `url:`, `logo:`. **Do not use index access** (`site.universities[N]`) — use `site.universities | where: "abbr", "ut" | first` for reliable lookup. Office-hours day-cards still use index access (positions are stable: 0=UT, 1=WKU, 2=JBNU, 3=HB, 4=JNUE). Course files use `uni: <abbr>` front matter instead of `logo: <url>`. Special/non-university courses (eduonix, iksan-hs) still use `logo: <url>` directly.
 19. **University display order** — Index page shows universities in weekday order: UT(Mon), WKU(Tue), HB(Wed), JBNU(Thu), JNUE(Fri). JBNU teaches Wed+Thu but is shown under Thursday (its second/later day). HB teaches Wed only and is shown under Wednesday.
 20. **Thumbnail toggle localStorage** — Key `'thumbs'` in localStorage; value `'1'` (active) or `'0'` (inactive). Both `index.md` and `archive.md` restore state on load. Shared key means both pages stay in sync.
+20b. **Waves toggle localStorage** — Key `'waves'`; value `'on'` or `'off'` (default is OFF — waves show only when value is explicitly `'on'`). Early `<head>` script adds `html.waves-off` when value is not `'on'`. `applyWaves(bool)` in `default.html` toggles class + updates `.wave-btn` emoji + writes localStorage. Button present on `index.md` and `office-hours.md` only.
 21. **Early theme/lang init** — Inline `<script>` in `<head>` (before first paint) reads `localStorage` and applies `data-theme` + `html.ko` class immediately. Prevents flash of wrong theme or both languages rendering simultaneously.
 23. **Dynamic favicon** — `head.html` sets `<link rel="icon" href="{{ page.logo }}">` when `page.logo` is set (course pages). All other pages fall back to `site.icon`. This lets each course page show its university logo as the browser tab icon.
 24. **Schedule table layout** — `schedule.html` renders a `<table class="sched-table">` with 4 `<td>` columns: date, thumbnail + slides2, info (week/title/readings), logistics + HW links. Test/no-class rows use `<td colspan="3">` for columns 2–4. Links in `logistics:` YAML no longer break layout since they live in their own `<td>`. The `<a class="sched-thumb">` pattern makes the thumbnail itself a link (slides), and `slides2`/`slides2_title` render a second link below.
@@ -274,6 +275,30 @@ These are non-obvious issues that have been encountered and fixed. If you encoun
 **Symptom:** Attempting to Write multiple files in one batch; some writes rejected.  
 **Root cause:** The Write tool requires the file to have been Read in the current session before it can be overwritten.  
 **Prevention:** Always Read a file before Writing it. For batch rewrites, Read all target files first, then Write.
+
+### 12. Canvas waves invisible — `isolation: isolate` hides `z-index: -1` canvas
+**Symptom:** Canvas `.hero-waves` element is created and draws, but nothing appears in the hero background.  
+**Root cause:** `isolation: isolate` on the hero container creates a new compositing stacking context. Within it, `z-index: -1` paints the canvas BELOW the element's own compositing layer — which acts like painting behind an opaque surface even when the element has no `background`. The canvas rendering is composited away before the hero itself is painted.  
+**Fix:** Remove `isolation: isolate` from `.home-hero, .page-header, .course-hero`. Change canvas `z-index` from `-1` to `0`. In JS, set `position: relative; z-index: 1` on all non-absolute hero children (and `z-index: 2` on absolute ones) before appending the canvas as the last child.  
+**Files:** `_sass/_base.scss`, `_layouts/default.html`
+
+### 13. Canvas waves blocked by `prefers-reduced-motion`
+**Symptom:** Canvas element is NOT injected into the DOM at all — `initWaves()` returns immediately.  
+**Root cause:** `waves.js` had an early `return` if `window.matchMedia('(prefers-reduced-motion: reduce)').matches`. Many developer machines (especially macOS) have this OS-level accessibility preference enabled, causing the entire script to bail out silently. The CSS also had `@media (prefers-reduced-motion: reduce) { canvas.hero-waves { display: none; } }` as a second block.  
+**Fix:** Removed the JS early-return entirely. Replaced the CSS rule with a comment explaining the intentional omission. Waves are a core design element and are not suppressed for reduced-motion users on this site.  
+**Files:** `assets/js/waves.js`, `_sass/_base.scss`
+
+### 15. Course hero layout broken — `.course-uni-logo` displaced from upper-right
+**Symptom:** University watermark logo no longer appears in upper-right of course hero; hero content shifted down.  
+**Root cause:** `_base.scss` had `.course-hero > *:not(canvas) { position: relative; z-index: 1; }` which overrode `.course-uni-logo { position: absolute; top: 80px; right: 0; }` — setting `position: relative` on an element with `position: absolute` moves it back into the document flow.  
+**Fix:** Removed `.course-hero` from both the `position: relative` rule and the `> *:not(canvas)` rule in `_base.scss`. Course hero already has `position: relative` in `_course.scss`. Waves are also no longer applied to course pages (`waves.js` selector changed to `.home-hero, .page-header` only).  
+**Files:** `_sass/_base.scss`, `assets/js/waves.js`
+
+### 14. Canvas waves lines only span left half of hero
+**Symptom:** Wave lines draw from the left edge to the horizontal center only — the right half of the hero shows no lines.  
+**Root cause:** The original Alca CodePen framework auto-applied `ctx.translate(width/2, height/2)` to center the canvas coordinate system. Our standalone port did NOT do this. The x calculation `ti * (w+20) - wH - 10` produces values from `−wH−10` to `+wH+10` — correct in centered coords, but in absolute canvas coords (0,0 = top-left) those values only reach from ~0 to ~wH (left to center).  
+**Fix:** Added `ctx.save(); ctx.translate(wH, hH);` before drawing and `ctx.restore()` after. Fill rect changed to `fillRect(-wH, -hH, w, h)` to cover the full canvas in centered coords. Y coordinate changed from `hH + n*hH` (which added a double-hH shift) to `n * hH` (clean centered value).  
+**Files:** `assets/js/waves.js`
 
 ## Design System
 
@@ -405,4 +430,4 @@ The original prototype HTML files (`index.html`, `course.html`, `archive.html`, 
 7. Session 11: Cascading wave hero animation, archive Topic/Sort filters, course `title_ko`/`subtitle_ko`, footer i18n, cal.com embed
 8. Session 12: **2023 migration** — 6 data files + 6 course files fully populated from `2023-course-sites/` (see `2023-migration-notes.md`)
 9. Session 13: **UX improvements** — Canvas waves (full-width, animated), thumbnail localStorage, JBNU/HB display order swap, profile-link slide-in hover, footer one-language fix, nav/footer YAML data files, office-hours uni logos from `site.universities`, Cal.com theme fix, Calendly comparison embed
-10. Session 14: **Logo propagation + schedule fix + remote bio** — Uni logos in index uni-group headers; faded 120px watermark logo in course-hero upper-right; course-page favicon = `page.logo`; schedule converted from flex rows to `<table>` (4 `<td>` cols, `colspan=3` for test/no-class); `slides2`/`slides2_title` support; `logistics` HTML links no longer break layout; `about_aaron.html` JS fetch from `aaronsnowberger.com/bio.json` with static fallback
+10. Session 14: **Logo propagation + schedule fix + remote bio + SimplexNoise waves** — Uni logos in index uni-group headers; faded 120px watermark logo in course-hero upper-right; course-page favicon = `page.logo`; schedule converted from flex rows to `<table>` (4 `<td>` cols, `colspan=3` for test/no-class); `slides2`/`slides2_title` support; `logistics` HTML links no longer break layout; `about_aaron.html` JS fetch from `aaronsnowberger.com/bio.json` with static fallback; canvas waves replaced with SimplexNoise cascading lines (purple ↔ teal, lighter/slower, glow + blur + lighter blend mode)

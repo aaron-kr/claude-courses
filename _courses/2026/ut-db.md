@@ -4,7 +4,7 @@ init: UT
 title: Database Design
 subtitle: 데이터베이스 설계
 description: 442173 • 2026년 1학기 • 한국교통대학교
-logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/ut-logo_beiynv.png
+uni: ut
 img: assets/img/books/db-projects.jpg
 importance: 2
 category: 2026-1

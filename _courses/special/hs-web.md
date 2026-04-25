@@ -4,7 +4,7 @@ init: UT → HS
 title: Web Programming with a Native Speaker
 subtitle: 영어 원어민과 함께하는 웹프로그래밍
 description: 2023년 방학 • 충북에 있는 고등학교
-logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/ut-logo_beiynv.png
+uni: ut
 img: assets/img/books/html-css.jpg
 importance: 2
 category: Special

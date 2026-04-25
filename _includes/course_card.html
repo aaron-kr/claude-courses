@@ -54,9 +54,11 @@
       </div>
     </div>
   </div><!-- .card-inner -->
-  {%- if c.logo -%}
+  {%- assign _c_uni = site.universities | where: "abbr", c.uni | first -%}
+  {%- assign _c_logo = _c_uni.logo | default: c.logo -%}
+  {%- if _c_logo -%}
   <div class="uni-badge">
-    <img src="{{ c.logo | relative_url }}" class="ub-abbr" />
+    <img src="{{ _c_logo }}" class="ub-abbr" />
   </div>
   {%- endif -%}
 </a>

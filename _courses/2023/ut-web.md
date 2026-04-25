@@ -4,7 +4,7 @@ init: UT
 title: Web Programming Foundations
 subtitle: 웹프로그래밍기초
 description: 259111 • 2023년 2학기 • 교통대학교
-logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/ut-logo_beiynv.png
+uni: ut
 img: assets/img/books/html-css.jpg
 importance: 7
 category: 2023

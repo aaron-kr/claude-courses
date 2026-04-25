@@ -152,9 +152,11 @@ eyebrow: Teaching History
                     </div>
                   </div>
                 </div>
-                {%- if course.logo -%}
+                {%- assign _c_uni = site.universities | where: "abbr", course.uni | first -%}
+                {%- assign _c_logo = _c_uni.logo | default: course.logo -%}
+                {%- if _c_logo -%}
                 <div class="uni-badge">
-                  <img src="{{ course.logo | relative_url }}" class="ub-abbr" />
+                  <img src="{{ _c_logo }}" class="ub-abbr" />
                 </div>
                 {%- endif -%}
                 <span class="item-arrow">→</span>

@@ -4,7 +4,7 @@ init: UT
 title: Computer-Aided Diagnosis
 subtitle: 의료영상진단
 description: BIO030 • 2023년 2학기 • 교통대학교
-logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/ut-logo_beiynv.png
+uni: ut
 img: assets/img/books/ai-for-healthcare.jpg
 importance: 6
 category: 2023

@@ -4,7 +4,7 @@ init: JBNU
 title: Semiconductor Science
 subtitle: 반도체공학
 description: 0000102163 • 2025년 1학기 • 전북대학교
-logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/jbnu-logo-2_khm1ys.png
+uni: jbnu
 img: assets/img/books/semiconductor-devices.jpg
 importance: 1
 category: 2025-1

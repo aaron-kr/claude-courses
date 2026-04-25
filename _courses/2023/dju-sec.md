@@ -4,7 +4,7 @@ init: DJU
 title: Web Hacking Security and Practice
 subtitle: 자바웹해킹보안 및 실습
 description: 009832 • 2023년 2학기 • 대전대학교
-logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038667/dju-logo-2_jxm7py.png
+uni: dju
 img: assets/img/books/sec-text.jpg
 importance: 2
 category: 2023

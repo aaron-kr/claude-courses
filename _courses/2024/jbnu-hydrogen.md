@@ -4,7 +4,7 @@ init: JBNU
 title: Hydrogen Fuel Cells
 subtitle: 수소 연료전지
 description: 0000128148 • 2024년 2학기 • 전북대학교
-logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/jbnu-logo-2_khm1ys.png
+uni: jbnu
 img: assets/img/books/hydrogen-fuel.jpg
 importance: 1
 category: 2024-2

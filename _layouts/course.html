@@ -5,10 +5,12 @@ layout: default
 
   {%- assign info = page.information | first -%}
 
+  {%- assign _page_uni = site.universities | where: "abbr", page.uni | first -%}
+  {%- assign _page_logo = _page_uni.logo | default: page.logo -%}
   <div class="course-hero">
-    {%- if page.logo -%}
+    {%- if _page_logo -%}
     <div class="course-uni-logo">
-      <img src="{{ page.logo }}" alt="{{ page.description | split: ' • ' | last }}" />
+      <img src="{{ _page_logo }}" alt="{{ page.description | split: ' • ' | last }}" />
     </div>
     {%- endif -%}
     <div class="course-badges animate d1">

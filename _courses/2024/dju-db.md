@@ -4,7 +4,7 @@ init: DJU
 title: Database Security
 subtitle: 데이터베이스 보안
 description: 011780 • 2024년 2학기 • 대전대학교
-logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038667/dju-logo-2_jxm7py.png
+uni: dju
 img: assets/img/books/sql-nosql.jpg
 importance: 4
 category: 2024-2

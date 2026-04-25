@@ -4,7 +4,7 @@ init: JBNU
 title: Semiconductor Processing
 subtitle: 반도체공정
 description: 0000125132 • 2024년 2학기 • 전북대학교
-logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/jbnu-logo-2_khm1ys.png
+uni: jbnu
 img: assets/img/books/semiconductor-fabrication.jpg
 importance: 3
 category: 2024-2

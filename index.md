@@ -6,7 +6,7 @@ permalink: /
 
 <div class="wrap">
 
-  <header class="home-hero">
+  <header class="home-hero" data-waves>
     <div class="today-pill animate d1" id="today-pill">
       <span class="today-dot"></span>
       <span id="today-text">Loading...</span>
@@ -24,25 +24,16 @@ permalink: /
     <div class="stats-bar animate d4">
       {%- assign active_courses = site.courses | where_exp: "c", "c.now" -%}
       {%- assign total_courses  = site.courses | size -%}
-      {%- comment -%} Count unique universities from active courses via logo abbr {%- endcomment -%}
+      {%- comment -%} Count unique universities (by uni abbr — excludes high school / online) {%- endcomment -%}
       {%- assign _seen_unis = "" -%}
-      {%- assign _uni_count = 0 -%}
-      {%- for c in active_courses -%}
-        {%- assign _ua = c.logo | remove: '-logo.png' | remove: '-logo-2.png' | upcase -%}
-        {%- unless _seen_unis contains _ua -%}
-          {%- assign _uni_count = _uni_count | plus: 1 -%}
-          {%- assign _seen_unis = _seen_unis | append: _ua | append: "," -%}
-        {%- endunless -%}
-      {%- endfor -%}
-      {%- comment -%} Total unique universities ever {%- endcomment -%}
-      {%- assign _all_seen = "" -%}
       {%- assign _all_uni_count = 0 -%}
       {%- for c in site.courses -%}
-        {%- assign _ua2 = c.logo | remove: '-logo.png' | remove: '-logo-2.png' | upcase -%}
-        {%- unless _all_seen contains _ua2 -%}
-          {%- assign _all_uni_count = _all_uni_count | plus: 1 -%}
-          {%- assign _all_seen = _all_seen | append: _ua2 | append: "," -%}
-        {%- endunless -%}
+        {%- if c.uni -%}
+          {%- unless _seen_unis contains c.uni -%}
+            {%- assign _all_uni_count = _all_uni_count | plus: 1 -%}
+            {%- assign _seen_unis = _seen_unis | append: "," | append: c.uni -%}
+          {%- endunless -%}
+        {%- endif -%}
       {%- endfor -%}
       <div class="stat">
         <div class="stat-num">{{ active_courses.size }}</div>
@@ -79,6 +70,9 @@ permalink: /
       <a href="https://pailab.io" class="profile-link" target="_blank"><span class="pl-icon">🔬</span> PAI Lab</a>
       <a href="https://aaron.kr" class="profile-link" target="_blank"><span class="pl-icon">🌐</span> aaron.kr</a>
     </div>
+  <div class="hero-wave-ctrl">
+    <button class="wave-btn ctrl-btn" aria-label="Toggle wave animation">🌊</button>
+  </div>
   </header>
 
   <!-- ── Spring 2026 — Current Courses by University ───────────────────── -->
@@ -115,7 +109,8 @@ permalink: /
         {%- if uni_courses.size > 0 -%}
         <div class="uni-group">
           <div class="uni-group-header">
-            {%- assign _g_logo = uni_courses[0].logo -%}
+            {%- assign _g_udata = site.universities | where: "abbr", uni_courses[0].uni | first -%}
+            {%- assign _g_logo = _g_udata.logo | default: uni_courses[0].logo -%}
             {%- if _g_logo -%}
             <img src="{{ _g_logo }}" class="uni-group-logo" alt="{{ uni_abbrs[i] }}" />
             {%- else -%}
@@ -221,9 +216,8 @@ permalink: /
         <span class="lang-ko">PAI 연구소 →</span>
       </a>
     </div>
-    <div class="cta-image">
-      <span style="font-size:2rem;opacity:.35;margin-bottom:4px;">🔬</span>
-      PAI LAB<br>pailab.io
+    <div class="cta-image" style="background: url('https://media.easy-peasy.ai/b7440f19-21c7-4f2e-9eed-2289644e4210/6e6e1942-ecfa-4fe4-b884-bb4555579ea8_medium.webp') center / cover no-repeat;">
+      <div class="sched-extra">Img: <a href="https://easy-peasy.ai/ai-image-generator/images/arduino-electronic-monitoring-system-blueprint">Easy-Peasy.ai</a></div>
     </div>
   </div>
 
@@ -244,33 +238,58 @@ permalink: /
         </a>
       </div>
     </div>
-    <div class="lab-note-list">
-      <a class="lab-note-row" href="https://pailab.io" target="_blank">
-        <span class="lnr-date">Apr 2026</span>
-        <span class="lnr-tag">Vision</span>
-        <span class="lnr-title">Exploring YOLO v11 for Real-Time Object Detection on Edge Devices</span>
+    <div class="lab-note-list" id="lab-note-list">
+      <a class="lab-note-row" href="https://pailab.io/notes/what-is-physical-ai/" target="_blank">
+        <span class="lnr-date">Mar 2025</span>
+        <span class="lnr-tag">Physical AI</span>
+        <span class="lnr-title">What is Physical AI? A working definition for educators</span>
         <span class="lnr-arrow">→</span>
       </a>
-      <a class="lab-note-row" href="https://pailab.io" target="_blank">
-        <span class="lnr-date">Mar 2026</span>
-        <span class="lnr-tag">NLP</span>
-        <span class="lnr-title">Fine-Tuning LLMs for Korean Technical Documentation</span>
+      <a class="lab-note-row" href="https://pailab.io/notes/arduino-to-ros2/" target="_blank">
+        <span class="lnr-date">2025</span>
+        <span class="lnr-tag">Robotics</span>
+        <span class="lnr-title">From Arduino to ROS2: a practical path for undergraduates</span>
         <span class="lnr-arrow">→</span>
       </a>
-      <a class="lab-note-row" href="https://pailab.io" target="_blank">
-        <span class="lnr-date">Feb 2026</span>
-        <span class="lnr-tag">Signal</span>
-        <span class="lnr-title">Sensor Fusion Approaches for Wearable Health Monitoring</span>
+      <a class="lab-note-row" href="https://pailab.io/notes/tinyml-apple-silicon/" target="_blank">
+        <span class="lnr-date">2025</span>
+        <span class="lnr-tag">TinyML</span>
+        <span class="lnr-title">TinyML on Apple Silicon: edge model deployment for research</span>
         <span class="lnr-arrow">→</span>
       </a>
-      <a class="lab-note-row" href="https://pailab.io" target="_blank">
-        <span class="lnr-date">Jan 2026</span>
-        <span class="lnr-tag">Review</span>
-        <span class="lnr-title">2025 in Review: Publications, Talks, and Teaching</span>
-        <span class="lnr-arrow">→</span>
+      <a class="lab-note-row" href="https://pailab.io/notes/" target="_blank">
+        <span class="lnr-date"></span>
+        <span class="lnr-tag">All</span>
+        <span class="lnr-title">View all lab notes on pailab.io →</span>
+        <span class="lnr-arrow"></span>
       </a>
     </div>
   </div>
+  <script>
+  (function() {
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    function fmtDate(iso) {
+      var p = iso.split('-');
+      return months[parseInt(p[1], 10) - 1] + ' ' + p[0];
+    }
+    fetch('https://pailab.io/notes.json')
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function(d) {
+        if (!d.notes || !d.notes.length) return;
+        var list = document.getElementById('lab-note-list');
+        if (!list) return;
+        list.innerHTML = d.notes.slice(0, 4).map(function(n) {
+          return '<a class="lab-note-row" href="https://pailab.io' + n.url + '" target="_blank">' +
+            '<span class="lnr-date">' + fmtDate(n.date) + '</span>' +
+            '<span class="lnr-tag">' + (n.tag || '') + '</span>' +
+            '<span class="lnr-title">' + n.title + '</span>' +
+            '<span class="lnr-arrow">→</span>' +
+          '</a>';
+        }).join('');
+      })
+      .catch(function() {});
+  })();
+  </script>
 
   <!-- ── Archive link ──────────────────────────────────────────────────── -->
   <div style="padding-bottom:80px;text-align:center;">

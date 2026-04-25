@@ -4,7 +4,7 @@ init: UT
 title: Web Programming Application
 subtitle: 웹프로그래밍응용
 description: 259122 • 2024년 1학기 • 교통대학교
-logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/ut-logo_beiynv.png
+uni: ut
 img: assets/img/books/node-get-programming.jpg
 importance: 4
 category: 2024-1

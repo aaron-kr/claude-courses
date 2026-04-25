@@ -4,7 +4,7 @@ init: UT
 title: Autonomous Driving and Machine Learning
 subtitle: 자율주행과 기계학습
 description: U30001 • 2025년 1학기 • 교통대학교
-logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/ut-logo_beiynv.png
+uni: ut
 img: assets/img/books/driving.jpg
 importance: 7
 category: 2025-1

@@ -4,7 +4,7 @@ init: UT
 title: Deep Learning Applications
 subtitle: 딥러닝응용
 description: BIO029(1) • 2025년 2학기 • 교통대학교
-logo: https://res.cloudinary.com/dobann7wi/image/upload/q_auto/f_auto/v1777038668/ut-logo_beiynv.png
+uni: ut
 img: assets/img/books/dl.jpg
 importance: 6
 category: 2025-2
